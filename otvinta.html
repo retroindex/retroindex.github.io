@@ -1,0 +1,162 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=640px">
+<title>От винта! Бортовой журнал</title>
+  
+<style>
+BODY {background-color: #f5f5ff; margin: 0;}
+.tAll {margin: 5px auto; width: 90%; border-collapse: collapse;}  
+.tAll TR:nth-child(2n) {background-color: #ffdada;}
+.tAll TD {padding: 1px; border: none; font: 8pt Arial;}
+
+.tDet {margin: 5px auto; width: 50%; min-width: 775px;}  
+.tDet TD {text-align: center; font: 12pt Arial; border: #ccc 1px dotted; padding: 0px 10px;}
+.tDet .cover {padding: 0px;}
+.cover img {width: 80px;}
+
+.tV {width: 100%; min-width: 650px; border-collapse: collapse;} 
+.tV TD {font: 11pt Arial; padding: 2px 1px; height: 24px;}
+.tV TR:nth-child(2n) {background-color: #f5f5ff;}
+.tV TR:nth-child(2n+1) {background-color: #e1e4f2;}
+.vg {border-radius: 4px; font-size: 9pt; padding: 1px 3px; margin: 1px 2px; background-color: #345fb9; color: #fff;}
+.vgs {border-radius: 4px; font-size: 9pt; padding: 1px 3px; margin: 1px 2px; background-color: #ff0000; color: #fff;}
+.m_num {color: #f50600; font: bold 9px Verdana;}	
+.VHS {font: bold 10px Tahoma; border: #000 2px solid; padding: 0 1px;}
+#vNum {margin: 10px;}
+
+#sInp {background-color: #4e9ff9; font-size: 16px; width: 250px; height: 35px; border-radius: 15px; outline: none; padding: 0px 8px;}
+#sBut {background-color: #4e9ff9; height: 30px; border-radius: 15px; padding: 0px 8px;}
+#prnt {border: #bbb 1px dotted;}
+
+  
+</style>
+</head>
+<script src="tv.js"></script>
+<script src="data.js"></script>
+<body> 
+
+<div style="text-align: center; position: sticky;  top: 0; background-color: #f5f5ff;">
+<span style="float: left"><input type="checkbox" id="vNum" onchange="showTV()">Сквозная нумерация</span>
+<input type="text" id="sInp" autocomplete="off" onkeyup="showTV(sInp.value)">
+<!--<input type="button" value="Search" onclick="showTV()"> -->
+</div>
+
+<div id="prnt"></div>
+
+<script type="text/javascript">
+
+
+function searchGame(sReg) {
+    const start = new Date().getTime();
+//let re = new RegExp(sReg,"i");
+let result = [];
+let docPrnt = "<table class='tDet'><tr><th width='80'>Книга</th><th width='250'>Игра</th><th>Полное наименование книги</th><th>Стр.</th></tr>";
+
+	for (let i=0; i<books.length; i++) {
+	result = books[i].split('|');
+		if (result[0].toLowerCase().indexOf(sReg.toLowerCase()) >= 0) {
+//		if (re.test(result[0])) {
+		result.push.apply(result,book_details[result[2]].split('|'));
+//		docPrnt += "<tr><td>"+result[0]+"</td><td>"+result[3]+"</td><td>"+result[1]+"</td></tr>";
+		
+docPrnt += "<tr><td class='cover'><img src='cvs/b_"+result[2]+".jpg'></td><td>"+result[0]+"</td><td>"+result[3]+"<br>["+result[5]+"], "+result[6]+" год</td><td>"+result[1]+"</td></tr>";		
+		}
+// игра, стр, код, полн.назв, исбн, изд, год, тираж
+// 0     1    2    3          4     5    6    7
+	}
+
+docPrnt += "</table>";
+prnt.innerHTML = docPrnt;
+	const end = new Date().getTime();
+    console.log(end - start, "ms");
+}
+///////////////////////////////////////////////////////////
+function filterGame(sReg) {
+    const start = new Date().getTime();
+//let re = new RegExp(sReg,"i");
+let result = [];
+let docPrnt = "<table class='tAll'>";
+
+	for (let i=0; i<books.length; i++) {
+	result = books[i].split('|');
+		if (result[0].toLowerCase().indexOf(sReg.toLowerCase()) >= 0) {
+//		if (re.test(result[0])) {
+		result.push.apply(result,book_details[result[2]].split('|'));
+		docPrnt += "<tr><td>"+result[0]+"</td><td>"+result[3]+"</td><td>"+result[1]+"</td></tr>";
+		}
+// игра, стр, код, полн.назв, исбн, изд, год, тираж
+// 0     1    2    3          4     5    6    7
+		
+	}
+
+docPrnt += "</table>";
+prnt.innerHTML = docPrnt;
+	const end = new Date().getTime();
+    console.log(end - start, "ms");
+}
+/////////////////////////////////////////////////////////
+function showGames() {
+    const start = new Date().getTime();
+let docPrnt = "";
+let result = [];
+
+docPrnt += "<table class='tAll'>";
+for (let i=0; i<books.length; i++) {
+  result = books[i].split('|');
+  docPrnt += "<tr><td>"+result[0]+"</td><td>"+result[2]+"</td><td>"+result[1]+"</td></tr>";
+  }
+docPrnt += "</table>";
+prnt.innerHTML = docPrnt;
+	const end = new Date().getTime();
+    console.log(end - start, "ms");
+}
+/////////////////////////////////////////////////////////
+
+function showTV(vReg) {
+    const start = new Date().getTime();
+let re = new RegExp("(^|\\+|\\s+)"+vReg,"i");
+
+let docPrnt = "";
+let result = [];
+let games = [];
+
+docPrnt += "<table class='tV'><tr><th width='30'>№</th><th width='35'>Ис</th><th>Список игр в выпуске</th><th width='75'>Год</th></tr>";
+for (let i=0; i<otvinta.length; i++) {
+	result = otvinta[i].split('|');
+	if ((vReg) && !(re.test(result[1]))) continue;	/////////////// 
+		if(vNum.checked) docPrnt += "<tr><td align='center'>"+(i+1)+"</td><td>";
+		else docPrnt += "<tr><td align='center'><span>"+(result[0])+"</span></td><td>";
+			switch(result[3]) {
+			case "N": docPrnt += "<img src='lg_n.png'></td><td>"; break;
+			case "M": docPrnt += "<img src='lg_m.png' title='Выпуск "+result[0]+"'>"
+				if ((result[0] > 59) && (vNum.checked)) docPrnt += "<span class='m_num'>"+result[0]+"</span></td><td>"
+				else docPrnt += "</td><td>"; break;
+			case "NM": docPrnt += "<nobr><img src='lg_m.png' title='Выпуск "+result[0]+"'> <img src='lg_n.png'></nobr></td><td>"; break;
+			case "V": docPrnt += "<span class='VHS'>VHS</span></td><td>"; break;
+			case "X": docPrnt += "<b>-</b></td><td>"; break;
+			}
+		
+	games = result[1].split('+');  
+		for (let j=0; j<games.length; j++) {
+		if ((vReg) && (re.test(games[j]))) {docPrnt += "<span class='vgs'>"+games[j]+"</span>"}	///////////////////
+		else {docPrnt += "<span class='vg'>"+games[j]+"</span>"};
+		}
+		
+	docPrnt += "</td><td>"+result[2]+"</td></tr>";
+	}
+docPrnt += "</table>";
+prnt.innerHTML = docPrnt;
+	const end = new Date().getTime();
+    console.log(end - start, "ms");
+}
+
+showTV();
+//showGames();
+
+</script>
+
+
+
+</body>
+</html>
