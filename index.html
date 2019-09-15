@@ -4,9 +4,10 @@
 <meta name="viewport" content="width=480">
 <title>Retroindex</title>
 <style>
-BODY {background-color: #bdcae7;}
+BODY {background-color: #bdcae7;  margin: 0;}
 #sInp {background-color: #4e9ff9; width: 250px; height: 32px; border-radius: 15px; padding: 0px 8px; font-size:16px; outline: none;}
 #prnt {display: flex; flex-wrap: wrap; align-content: stretch; justify-content: space-evenly;}
+.topBar {text-align: center; position: sticky; top: 0; background-color: #bdcae7; padding: 5px;}
 .dtab {flex: 1 1 0; min-width: 360px; max-width: 720px; margin: 12px;}
 .tRes {background-color: #b3c0dd; width: 100%; font: 14px Arial; border-collapse: collapse; text-align: center;}
 .tRes TH {font-weight: normal; margin: 0; color: #fff;}
@@ -30,7 +31,7 @@ BODY {background-color: #bdcae7;}
 </head>
 <body> 
 
-<div style="text-align: center; position: sticky;  top: 0; background-color: #bdcae7;">
+<div class="topBar">
 <input type="text" id="sInp" autocomplete="off"> 
 <input type="button" id="sBut" value="Search" onclick="wrapper(sInp.value.trim())">
 </div>
