@@ -17,8 +17,12 @@ BODY {background-color: #bdcae7;}
 .tRes TH:nth-child(1) {padding: 0; width: 64px;}
 .tRes TH:nth-child(2) {height: 25px; border-right: 1px solid #b3c0dd;}
 .tRes TH:nth-child(3) {border-top-right-radius: 4px; width: 36px;}
-
 .errMsg {background-color: #f883a2; max-width: 600px; padding:15px; margin-top: 30px; border-radius: 15px; font: 15px Arial;}
+@media (max-width: 600px) { 
+.dtab {margin: 0;}
+.tRes TH:nth-child(3) {border-top-right-radius: 0;} 
+.topBar {margin-bottom: 12px;}
+}
 </style>
 <script src="tv.js"></script>
 <script src="books.js"></script>
