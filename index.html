@@ -5,26 +5,32 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <title>Retroindex</title>
 <style>
-BODY {background-color: #bdcae7;  margin: 0;}
-#sInp {background-color: #4e9ff9; width: 250px; height: 32px; border-radius: 15px; padding: 0px 8px; font-size:16px; outline: none;}
+BODY {background-color: #e9e3cc; background: url(paper.jpg); margin: 0;}
+#sInp {padding: 0 10px; width: 250px; height: 32px; border-radius: 15px; font-size:15px; outline: none; border: 0; background: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3);}
 #prnt {display: flex; flex-wrap: wrap; align-content: stretch; justify-content: space-evenly;}
-.topBar {text-align: center; position: sticky; top: 0; background-color: #bdcae7; padding: 5px;}
+.topBar {text-align: center; position: sticky; top: 0; background-color: #e9e3cc; padding: 5px; display: flex; margin: 0;}
+.topCenter {flex: 1 0 0; white-space: nowrap;}
 .dtab {flex: 1 1 0; min-width: 400px; max-width: 600px; margin: 12px;}
-.tRes {background-color: #b3c0dd; width: 100%; font: 14px Arial; border-collapse: collapse; text-align: center;}
+.tRes {background-color: rgba(99,99,99,0.1); width: 100%; font: 14px Arial; border-collapse: collapse; text-align: center;}
 .tRes TH {font-weight: normal; margin: 0; color: #fff;}
-.colB TH {background-color: #349eb9;}
+.colB TH {background-color: #5d9d52;}
 .colM TH {background-color: #345fb9;}
-.colV TH {background-color: #9234b9;}
+.colD TH {background-color: #00aaaa;}
+.colV TH {background-color: #fd8405;}
 .tRes img {width: 64px;}
 .tRes TH:nth-child(1) {padding: 0; width: 64px;}
-.tRes TH:nth-child(2) {height: 25px; border-right: 1px solid #b3c0dd;}
+.tRes TH:nth-child(2) {height: 25px; white-space: nowrap; border-right: 1px solid #d2cdbc;}
 .tRes TH:nth-child(3) {border-top-right-radius: 4px; width: 36px;}
+.flexFix {height: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;}
 .errMsg {background-color: #f883a2; max-width: 600px; padding:15px; margin-top: 30px; border-radius: 15px; font: 15px Arial;}
+.infMsg {background-color: #b4d055; max-width: 600px; padding:15px; margin-top: 30px; border-radius: 15px; font: 15px Arial;}
+
 @media (max-width: 600px) { 
 .dtab {margin: 0;}
-.tRes TH:nth-child(3) {border-top-right-radius: 0;} 
 .topBar {margin-bottom: 12px;}
 .tRes img {width: 80px;}
+.tRes {background-color: rgba(150,150,150,0.1);}
+.tRes TH:nth-child(3) {border-top-right-radius: 0;} 
 }
 </style>
 <script src="tv.js"></script>
@@ -34,8 +40,8 @@ BODY {background-color: #bdcae7;  margin: 0;}
 <body> 
 
 <div class="topBar">
-<input type="text" id="sInp" autocomplete="off"> 
-<input type="button" id="sBut" value="Search" onclick="wrapper(sInp.value.trim())">
+<div class="topCenter"><input type="search" id="sInp" autocomplete="off"> 
+<input type="button" id="sBut" class="mBut" value="Search" onclick="wrapper(sInp.value.trim())"></div>
 </div>
 
 <div id="prnt"></div>
@@ -109,7 +115,7 @@ for (let g=0; g<mags.length; g++) {
 			if (magArray[0].slice(2) != i) magName += " ("+i+")";
 			magName += "’"+magArray[0].slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
-				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img src='cvs/"+magPref+magArray[0]+".webp'></th><th>"+magArray[j].replace(",","</th><th>")+"</th></tr><tr><td>"+magName+"</td><td>*</td></tr></table></div>";
+				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img src='cvs/"+magPref+magArray[0]+".webp' id='cov'></th><th>"+magArray[j].replace(",","</th><th>")+"</th></tr><tr><td>"+magName+"</td><td>*</td></tr></table></div>";
 			}
 		}
 	}
@@ -127,7 +133,7 @@ vidArray = otvinta[i].split('|');
 vidGames = vidArray[1].split('+');  
 	for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
 	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img src='cvs/tv_v.png'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>От винта! Выпуск "+(i+1);
-	if (i > 48) {vidRes += " ("+vidArray[0]+" в нумерации Игромании)"}
+	if (i > 48) {vidRes += " ("+vidArray[0]+" по Игромании)"}
 let restGames = vidGames;
 restGames.splice(j, 1);
 	vidRes += "<br>Прочие материалы выпуска:<br>"+restGames.join(", ")+"</td><td>*</td></tr></table></div>";
@@ -135,11 +141,14 @@ restGames.splice(j, 1);
 }
 
 if (bookRes+magRes+vidRes=="") return false;
-prnt.innerHTML = magRes+bookRes+vidRes;
+let gridFix = "<div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div>";
+prnt.innerHTML = magRes+bookRes+vidRes+gridFix;
 	const end = new Date().getTime();
     console.log(end - start, "ms");
 return true;
 }
+
+//globalSearch("doom");
 
 </script>
 </body>
