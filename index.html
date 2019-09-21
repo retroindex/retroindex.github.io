@@ -53,14 +53,6 @@ A {text-decoration-style: dotted;}
 
 <script type="text/javascript">
 
-if (window.location.hash) {
-let sHash = window.location.hash.substring(1);
-sHash = sHash.replace(/%20|_/g, ' ');
-sInp.value = sHash;	
-wrapper(sHash);
-history.pushState(null, null, ' ');
-}
-
 let imgExt = ".webp"; 
 async function supportsWebp() {
 if (!self.createImageBitmap) return false;
@@ -69,6 +61,14 @@ const blob = await fetch(webpData).then(r => r.blob());
 return createImageBitmap(blob).then(() => true, () => false);}
 (async () => {if(await !supportsWebp()) {imgExt = ".jpg"; }})();
 
+if (window.location.hash) {
+let sHash = window.location.hash.substring(1);
+sHash = sHash.replace(/%20|_/g, ' ');
+sInp.value = sHash;	
+wrapper(sHash);
+history.pushState(null, null, ' ');
+}
+	
 let timeout = null;	// debounce
 sInp.onkeyup = function (e) {if (chAuto.checked) {clearTimeout(timeout); timeout = setTimeout(function () {wrapper(sInp.value.trim())}, 500)}};
 
