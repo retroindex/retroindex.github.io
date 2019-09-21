@@ -6,7 +6,9 @@
 <title>Retroindex</title>
 <style>
 BODY {background-color: #e9e3cc; background: url(paper.jpg); margin: 0;}
-#sInp {padding: 0 10px; width: 250px; height: 32px; border-radius: 15px; font-size:16px; outline: none; border: 0; background: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3);}
+A {text-decoration-style: dotted;}
+#sInp {padding: 0 10px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3);}
+#sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background: #f4efda;}
 #prnt {display: flex; flex-wrap: wrap; align-content: stretch; justify-content: space-evenly;}
 .topBar {text-align: center; position: sticky; top: 0; background-color: #e9e3cc; padding: 5px; display: flex; margin: 0;}
 .topCenter {flex: 1 0 0; white-space: nowrap;}
@@ -15,9 +17,9 @@ BODY {background-color: #e9e3cc; background: url(paper.jpg); margin: 0;}
 .tRes TH {font-weight: normal; margin: 0; color: #fff;}
 .colB TH {background-color: #5d9d52;}
 .colM TH {background-color: #345fb9;}
-.colD TH {background-color: #00aaaa;}
+.colD TH {background-color: #8e3ca2;}
 .colV TH {background-color: #fd8405;}
-.tRes img {width: 64px;}
+.cov {width: 64px;}
 .tRes TH:nth-child(1) {padding: 0; width: 64px;}
 .tRes TH:nth-child(2) {height: 25px; white-space: nowrap; border-right: 1px solid #d2cdbc;}
 .tRes TH:nth-child(3) {border-top-right-radius: 4px; width: 36px;}
@@ -28,19 +30,22 @@ BODY {background-color: #e9e3cc; background: url(paper.jpg); margin: 0;}
 @media (max-width: 600px) { 
 .dtab {margin: 0;}
 .topBar {margin-bottom: 12px;}
-.tRes img {width: 80px;}
+.cov {width: 80px;}
 .tRes {background-color: rgba(150,150,150,0.1);}
 .tRes TH:nth-child(3) {border-top-right-radius: 0;} 
 }
+
 </style>
 <script src="tv.js"></script>
 <script src="books.js"></script>
 <script src="mags.js"></script>
+<script src="discs.js"></script>
 </head>
 <body> 
 
 <div class="topBar">
-<div class="topCenter"><input type="text" id="sInp" autocomplete="off"> 
+<div></div>
+<div class="topCenter"><label for="chAuto"><input type="checkbox" id="chAuto" checked>Автопоиск&nbsp;&nbsp;&nbsp;</label><input type="search" id="sInp" autocomplete="off"> 
 <input type="button" id="sBut" class="mBut" value="Search" onclick="wrapper(sInp.value.trim())"></div>
 </div>
 
@@ -49,12 +54,26 @@ BODY {background-color: #e9e3cc; background: url(paper.jpg); margin: 0;}
 <script type="text/javascript">
 
 if (window.location.hash) {
-wrapper(window.location.hash.substring(1));
+let sHash = window.location.hash.substring(1);
+sHash = sHash.replace(/%20|_/g, ' ');
+sInp.value = sHash;	
+wrapper(sHash);
 history.pushState(null, null, ' ');
 }
 
-document.addEventListener('keyup', function(event) {if (event.code == 'Enter') wrapper(sInp.value.trim())});
-document.addEventListener('keydown', function(event) {if (event.code == 'Escape') sInp.value="";});
+let imgExt = ".webp"; 
+async function supportsWebp() {
+if (!self.createImageBitmap) return false;
+const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
+const blob = await fetch(webpData).then(r => r.blob());
+return createImageBitmap(blob).then(() => true, () => false);}
+(async () => {if(await !supportsWebp()) {imgExt = ".jpg"; }})();
+
+let timeout = null;	// debounce
+sInp.onkeyup = function (e) {if (chAuto.checked) {clearTimeout(timeout); timeout = setTimeout(function () {wrapper(sInp.value.trim())}, 500)}};
+
+document.addEventListener('keyup', function(event) {if (event.key == 'Enter') wrapper(sInp.value.trim())});
+document.addEventListener('keydown', function(event) {if (event.key == 'Escape') sInp.value="";});
 
 function wrapper(wReg) {
 let triedAbbr = false;
@@ -63,7 +82,7 @@ wReg = wReg.replace(/[*+,|?{}\[\]\\]/g, '');
 if (!globalSearch(wReg)) {
 	if (!triedAbbr) {
 		triedAbbr = true;
-		if (wReg.length < 2) {prnt.innerHTML = '<div class="errMsg">Нет</div>'; return;}
+		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
 		console.log ("Аббревиатура: ",wReg);
 		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">По указанным подстрокам и аббревиатуре "<b>'+wReg+'</b>" ничего не найдено.<br>Возможно, искомая игра не выходила на PC, или вышла позже 1998 года.</div>';
@@ -96,14 +115,13 @@ for (let i=0; i<books.length; i++) {
 bookArray = books[i].split('|');
 if (re.test(bookArray[0])) {
 	bookArray.push.apply(bookArray,book_details[bookArray[2]].split('|'));
-	bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img src='cvs/b_"+bookArray[2]+".webp'></th><th>"+bookArray[0]+"</th><th>"+bookArray[1]+"</th></tr><tr><td>"+bookArray[3]+"<br>Издательство "+bookArray[5]+", "+bookArray[6]+"<br>ISBN: "+bookArray[4]+"</td><td>*</td></tr></table></div>"
+	bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' src='cvs/b_"+bookArray[2]+imgExt+"'></th><th>"+bookArray[0]+"</th><th>"+bookArray[1]+"</th></tr><tr><td>"+bookArray[3]+"<br>Издательство "+bookArray[5]+", "+bookArray[6]+"<br>ISBN: "+bookArray[4]+"</td><td>*</td></tr></table></div>"
 	}
 }
 	
 ///// Журналы
 
 let magRes = "";
-//let magName = "";
 let magArray = [];
 
 for (let g=0; g<mags.length; g++) {
@@ -115,12 +133,29 @@ for (let g=0; g<mags.length; g++) {
 			if (magArray[0].slice(2) != i) magName += " ("+i+")";
 			magName += "’"+magArray[0].slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
-				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img src='cvs/"+magPref+magArray[0]+".webp' id='cov'></th><th>"+magArray[j].replace(",","</th><th>")+"</th></tr><tr><td>"+magName+"</td><td>*</td></tr></table></div>";
+				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' src='cvs/"+magPref+magArray[0]+imgExt+"'></th><th>"+magArray[j].replace(",","</th><th>")+"</th></tr><tr><td>"+magName+"</td><td>*</td></tr></table></div>";
 			}
 		}
 	}
  }
 
+///// Дискмаги
+
+let discRes = "";
+let discArray = [];
+
+for (let g=0; g<dis.length; g++) {
+	for (let i=1; i<dis[g].length; i++) {
+		discArray = dis[g][i].split('|');
+		let [discName, discPref] = dis[g][0].split("|");
+		discName += " №"+discArray[0].slice(2);
+		if (discArray[0].slice(2) != i) discName += " ("+i+")";
+		discName += "’"+discArray[0].slice(0,2);
+		for (let j=1; j<discArray.length; j++) {
+			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' src='cvs/d_"+discPref+discArray[0]+imgExt+"'></th><th>"+discArray[j]+"</th><th><img src='fd.png'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
+		}
+	}
+ }
 	
 ///// ТВ
 	
@@ -132,7 +167,7 @@ for (let i=0; i<otvinta.length; i++) {
 vidArray = otvinta[i].split('|');
 vidGames = vidArray[1].split('+');  
 	for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
-	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img src='cvs/tv_v.png'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>От винта! Выпуск "+(i+1);
+	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_v.png'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>От винта! Выпуск "+(i+1);
 	if (i > 48) {vidRes += " ("+vidArray[0]+" по Игромании)"}
 let restGames = vidGames;
 restGames.splice(j, 1);
@@ -140,15 +175,15 @@ restGames.splice(j, 1);
 	}
 }
 
-if (bookRes+magRes+vidRes=="") return false;
+if (bookRes+magRes+vidRes+discRes=="") return false;
 let gridFix = "<div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div>";
-prnt.innerHTML = magRes+bookRes+vidRes+gridFix;
+prnt.innerHTML = magRes+bookRes+vidRes+discRes+gridFix;
 	const end = new Date().getTime();
     console.log(end - start, "ms");
 return true;
 }
 
-//globalSearch("doom");
+//wrapper("doom");
 
 </script>
 </body>
