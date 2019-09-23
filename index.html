@@ -54,12 +54,7 @@ TD A {display: block; width: 100%; padding: 15px 0; text-align: right;}
 
 <script type="text/javascript">
 
-function testWebP(callback) {
-let webP = new Image(); 
-webP.onload = webP.onerror = function () {callback(webP.height == 2);};
-webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';};
-if (localStorage.getItem('lsExt') === null) {testWebP(function(support) {if(support) localStorage.setItem('lsExt', '.webp'); else localStorage.setItem('lsExt', '.jpg')});}
-let imgExt = localStorage.getItem('lsExt');
+let imgExt = '.webp';
 
 if (window.location.hash) {
 let sHash = window.location.hash.substring(1);
