@@ -6,7 +6,7 @@
 <title>Retroindex</title>
 <style>
 BODY {background-color: #e9e3cc; background: url(paper.jpg); margin: 0;}
-A {text-decoration-style: dotted;}
+TD A {display: block; width: 100%; padding: 15px 0; text-align: right;}
 #sInp {padding: 0 10px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3);}
 #sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background: #f4efda; outline: none;}
 #prnt {display: flex; flex-wrap: wrap; align-content: stretch; justify-content: space-evenly;}
@@ -24,8 +24,8 @@ A {text-decoration-style: dotted;}
 .tRes TH:nth-child(2) {height: 25px; white-space: nowrap; border-right: 1px solid #d2cdbc;}
 .tRes TH:nth-child(3) {border-top-right-radius: 4px; width: 36px;}
 .flexFix {height: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;}
-.errMsg {background-color: #f883a2; max-width: 600px; padding:15px; margin-top: 30px; border-radius: 15px; font: 15px Arial;}
-.infMsg {background-color: #b4d055; max-width: 600px; padding:15px; margin-top: 30px; border-radius: 15px; font: 15px Arial;}
+.errMsg {background-color: #f883a2; max-width: 600px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
+.infMsg {background-color: #b4d055; max-width: 600px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
 
 @media (max-width: 600px) { 
 .dtab {margin: 0;}
@@ -40,13 +40,14 @@ A {text-decoration-style: dotted;}
 <script src="books.js"></script>
 <script src="mags.js"></script>
 <script src="discs.js"></script>
+<script src="links.js"></script>
 </head>
 <body> 
 
 <div class="topBar">
 <div></div>
-<div class="topCenter"><label for="chAuto"><input type="checkbox" id="chAuto" checked>Автопоиск&nbsp;&nbsp;&nbsp;</label><input type="search" id="sInp" autocomplete="off"> 
-<input type="button" id="sBut" class="mBut" value="Search" onclick="wrapper(sInp.value.trim())"></div>
+<div class="topCenter"><label for="chAuto"><input type="checkbox" id="chAuto" checked>Автопоиск&nbsp;&nbsp;&nbsp;</label>
+<input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" class="mBut" value="Search" onclick="wrapper(sInp.value.trim())"></div>
 </div>
 
 <div id="prnt"></div>
@@ -68,7 +69,7 @@ sInp.value = sHash;
 wrapper(sHash);
 history.pushState(null, null, ' ');
 }
-	
+
 let timeout = null;	// debounce
 sInp.onkeyup = function (e) {if (chAuto.checked) {clearTimeout(timeout); timeout = setTimeout(function () {wrapper(sInp.value.trim())}, 500)}};
 
@@ -133,7 +134,8 @@ for (let g=0; g<mags.length; g++) {
 			if (magArray[0].slice(2) != i) magName += " ("+i+")";
 			magName += "’"+magArray[0].slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
-				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' src='cvs/"+magPref+magArray[0]+imgExt+"'></th><th>"+magArray[j].replace(",","</th><th>")+"</th></tr><tr><td>"+magName+"</td><td>*</td></tr></table></div>";
+				let [magGame, magPage] = magArray[j].split(",");
+				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' src='cvs/"+magPref+magArray[0]+imgExt+"'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
 			}
 		}
 	}
@@ -183,7 +185,17 @@ prnt.innerHTML = magRes+bookRes+vidRes+discRes+gridFix;
 return true;
 }
 
-//wrapper("doom");
+function getLink (mag,page) {
+if (!webLinks.hasOwnProperty(mag)) return "<img src='nolink.png'>";
+let [webName, offset] = webLinks[mag].split("|");
+let web1p = Number(page)+Number(offset)-1; 
+let web2p = (web1p%2) == 0 ? web1p-1 : web1p;
+//if (window.innerWidth < 900) 
+if (window.innerWidth < window.screen.width/2) return "<a href='https://archive.org/stream/"+webName+"#page/n"+web1p+"/mode/1up' target='_blank'><img src='linked.png'></a>";
+else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mode/2up' target='_blank'><img src='linked.png'></a>";
+}
+
+//wrapper("homm2");
 
 </script>
 </body>
