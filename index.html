@@ -6,7 +6,7 @@
 <title>Retroindex</title>
 <style>
 BODY {background-color: #e9e3cc; background: url(paper.jpg); margin: 0;}
-TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
+TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none; -webkit-tap-highlight-color: transparent;}
 #sInp {padding: 0 10px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3);}
 #sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background: #f4efda; outline: none;}
 #prnt {display: flex; flex-wrap: wrap; align-content: stretch; justify-content: space-evenly;}
@@ -51,7 +51,7 @@ TR {transition: background-color 2s 0.5s;}
 
 <div class="topBar">
 <div></div>
-<div class="topCenter"><label for="chAuto"><input type="checkbox" id="chAuto" checked>Автопоиск&nbsp;&nbsp;&nbsp;</label>
+<div class="topCenter"><label for="chAuto"><input type="checkbox" id="chAuto">Автопоиск&nbsp;&nbsp;&nbsp;</label>
 <input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" class="mBut" value="Search" onclick="wrapper(sInp.value.trim())"></div>
 </div>
 
