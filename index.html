@@ -6,7 +6,7 @@
 <title>Retroindex</title>
 <style>
 BODY {background-color: #e9e3cc; background: url(paper.jpg); margin: 0;}
-TD A {display: block; width: 100%; padding: 15px 0; text-align: right;}
+TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
 #sInp {padding: 0 10px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3);}
 #sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background: #f4efda; outline: none;}
 #prnt {display: flex; flex-wrap: wrap; align-content: stretch; justify-content: space-evenly;}
@@ -26,6 +26,11 @@ TD A {display: block; width: 100%; padding: 15px 0; text-align: right;}
 .flexFix {height: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;}
 .errMsg {background-color: #f883a2; max-width: 600px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
 .infMsg {background-color: #b4d055; max-width: 600px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
+.colB TR:hover {background-color: rgba(93,157,82,0.2);}
+.colM TR:hover {background-color: rgba(52,95,185,0.2);}
+.colD TR:hover {background-color: rgba(142,60,162,0.2);}
+.colV TR:hover {background-color: rgba(253,132,5,0.2);}
+TR {transition: background-color 2s 0.5s;}
 
 @media (max-width: 600px) { 
 .dtab {margin: 0;}
@@ -53,8 +58,6 @@ TD A {display: block; width: 100%; padding: 15px 0; text-align: right;}
 <div id="prnt"></div>
 
 <script type="text/javascript">
-
-let imgExt = '.webp';
 
 if (window.location.hash) {
 let sHash = window.location.hash.substring(1);
@@ -110,7 +113,7 @@ for (let i=0; i<books.length; i++) {
 bookArray = books[i].split('|');
 if (re.test(bookArray[0])) {
 	bookArray.push.apply(bookArray,book_details[bookArray[2]].split('|'));
-	bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' src='cvs/b_"+bookArray[2]+imgExt+"'></th><th>"+bookArray[0]+"</th><th>"+bookArray[1]+"</th></tr><tr><td>"+bookArray[3]+"<br>Издательство "+bookArray[5]+", "+bookArray[6]+"<br>ISBN: "+bookArray[4]+"</td><td>*</td></tr></table></div>"
+	bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' src='cvs/b_"+bookArray[2]+".jpg'></th><th>"+bookArray[0]+"</th><th>"+bookArray[1]+"</th></tr><tr><td>"+bookArray[3]+"<br>Издательство "+bookArray[5]+", "+bookArray[6]+"<br>ISBN: "+bookArray[4]+"</td><td>*</td></tr></table></div>"
 	}
 }
 	
@@ -129,7 +132,7 @@ for (let g=0; g<mags.length; g++) {
 			magName += "’"+magArray[0].slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
 				let [magGame, magPage] = magArray[j].split(",");
-				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' src='cvs/"+magPref+magArray[0]+imgExt+"'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
+				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' src='cvs/"+magPref+magArray[0]+".jpg'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
 			}
 		}
 	}
@@ -148,7 +151,7 @@ for (let g=0; g<dis.length; g++) {
 		if (discArray[0].slice(2) != i) discName += " ("+i+")";
 		discName += "’"+discArray[0].slice(0,2);
 		for (let j=1; j<discArray.length; j++) {
-			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' src='cvs/d_"+discPref+discArray[0]+imgExt+"'></th><th>"+discArray[j]+"</th><th><img src='fd.png'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
+			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' src='cvs/d_"+discPref+discArray[0]+".jpg'></th><th>"+discArray[j]+"</th><th><img src='fd.png'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
 		}
 	}
  }
@@ -185,11 +188,11 @@ let [webName, offset] = webLinks[mag].split("|");
 let web1p = Number(page)+Number(offset)-1; 
 let web2p = (web1p%2) == 0 ? web1p-1 : web1p;
 //if (window.innerWidth < 900) 
-if (window.innerWidth < window.screen.width/2) return "<a href='https://archive.org/stream/"+webName+"#page/n"+web1p+"/mode/1up' target='_blank'><img src='linked.png'></a>";
+if (window.innerWidth < 800 || window.innerWidth < window.screen.width/2) return "<a href='https://archive.org/stream/"+webName+"#page/n"+web1p+"/mode/1up' target='_blank'><img src='linked.png'></a>";
 else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mode/2up' target='_blank'><img src='linked.png'></a>";
 }
 
-//wrapper("homm2");
+wrapper("homm2");
 
 </script>
 </body>
