@@ -275,8 +275,8 @@ prnt.innerHTML = galRes+"</div>";
 function showModal(cov) {
 modal.style.display = "block";
 let idTab = cov.src.split("/").pop().split(".")[0];
-let modRes = "<img src='"+cov.src+"' onclick='showGal("+m1+")'>";
 let [mT,m1,m2] = cov.id.split("-");
+let modRes = "<img src='"+cov.src+"' onclick='showGal("+m1+")'>";
 let magArray = mags[m1][m2].split('|');
 magArray.shift();
 magArray.sort();
