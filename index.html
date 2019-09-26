@@ -284,7 +284,6 @@ modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'>"
 	for (let j=0; j<magArray.length; j++) {
 	let [magGame, magPage] = magArray[j].split(",");
 	magGameNoQuote = magGame.replace(/'[a-z0-9:']*\s/ig, ' ');
-	console.log(magGame);
 //	modRes+="<option value='"+magPage+"'>"+magGame+"</option>"
 	modRes+="<option value='"+magGameNoQuote+"'>"+magGame+"</option>"
 	}
