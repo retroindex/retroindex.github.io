@@ -278,16 +278,17 @@ let idTab = cov.src.split("/").pop().split(".")[0];
 let modRes = "<img src='"+cov.src+"'>";
 let [mT,m1,m2] = cov.id.split("-");
 let magArray = mags[m1][m2].split('|');
-console.log(magArray[0]);
 magArray.shift();
 magArray.sort();
 modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'>"
 	for (let j=0; j<magArray.length; j++) {
 	let [magGame, magPage] = magArray[j].split(",");
-	modRes+="<option value='"+magPage+"'>"+magGame+"</option>"
+	magGameNoQuote = magGame.replace(/'[a-z0-9:']*\s/ig, ' ');
+	console.log(magGame);
+//	modRes+="<option value='"+magPage+"'>"+magGame+"</option>"
+	modRes+="<option value='"+magGameNoQuote+"'>"+magGame+"</option>"
 	}
 modRes+="</select>"	
-
 document.getElementById('mod_content').style.height = cov.naturalHeight;
 document.getElementById('mod_content').innerHTML = modRes;
 document.getElementById('modSel').style.height = cov.naturalHeight;
@@ -300,8 +301,5 @@ selectGal();
 wrapper("homm2");
 
 </script>
-
-
-
 </body>
 </html>
