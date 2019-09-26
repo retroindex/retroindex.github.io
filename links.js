@@ -2,6 +2,18 @@ const webLinks = {
 "pro951":"PRO_Igry_1_1995|0",
 "pro952":"PRO_Igry_2_1995|0",
 "pro953":"PROIgry31995|0",
+"pro954":"PRO_Igry_4_1995|0",
+"pro955":"PRO_Igry_5_1995|0",
+"pro956":"PRO_Igry_6_1995|0",
+"pro961":"PRO_Igry_7_1996|0",
+"pro962":"PRO_Igry_2_8_1996|0",
+"pro963":"PRO_Igry_3_1996|0",
+"pro964":"PRO_Igry_4_1996|0",
+"pro965":"PRO_Igry_5_1996|0",
+"pro966":"PRO_Igry_6_1996|0",
+"pro967":"PRO_Igry_7_1996_201804|0",
+"pro968":"PRO_Igry_14_1996|0",
+"pro969-10":"PRO_Igry_15_1996|0",
 
 "gl962":"GameLand19960202|0",
 "gl963":"GameLand_1996_03_03|2",
@@ -44,5 +56,5 @@ const webLinks = {
 "nim985":"GameWorldNavigator_1998-05-013|2",
 "nim986":"GameWorldNavigator_1998-06-014|2",
 "nim987":"GameWorldNavigator_1998-07-015|2",
-"nim988":"GameWorldNavigator_1998-08-016|2"
+"nim988":"GameWorldNavigator_1998-08-016|2",
 }
