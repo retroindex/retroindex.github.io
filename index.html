@@ -281,7 +281,7 @@ let magArray = mags[m1][m2].split('|');
 console.log(magArray[0]);
 magArray.shift();
 magArray.sort();
-modRes+="<select id='modSel' size='10'>"
+modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'>"
 	for (let j=0; j<magArray.length; j++) {
 	let [magGame, magPage] = magArray[j].split(",");
 	modRes+="<option value='"+magPage+"'>"+magGame+"</option>"
