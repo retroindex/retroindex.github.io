@@ -11,9 +11,10 @@ BODY {background: #e9e3cc url(paper.jpg) scroll; margin: 0;}
 .tV {width: 100%; min-width: 550px; border-collapse: collapse;} 
 .tV TD {padding: 2px 1px; height: 24px; font: 14px Arial;  white-space: nowrap;}
 .tV TR:nth-child(2n+1) {background-color: rgba(127,127,127,0.1)} 
+.topbar {text-align: center; position: sticky;  top: 0; background: #e9e3cc url(paper.jpg) scroll; padding: 10px; border-bottom: #bbb 1px dotted;}
 .header {text-align: center;}
 .vg {border-radius: 4px; font: 12px Arial; padding: 1px 3px; margin: 1px 2px; background-color: #345fb9; color: #fff;}
-.vgs {border-radius: 4px; font: 12px Arial; padding: 1px 3px; margin: 1px 2px; background-color: #ff0000; color: #fff;}
+.vgs {border-radius: 4px; font: 12px Arial; padding: 1px 3px; margin: 1px 2px; background-color: #e00000; color: #fff;}
 .m_num {color: #f50600; font: bold 9px Verdana;}	
 .VHS {font: bold 10px Tahoma; border: #000 2px solid; padding: 0 1px;}
 #vNum {margin: 10px 0;}
@@ -29,7 +30,7 @@ label:hover {cursor: pointer;}
 <script src="tv.js"></script>
 <body> 
 
-<div style="text-align: center; position: sticky;  top: 0; background: #e9e3cc url(paper.jpg) scroll; padding: 10px;">
+<div class="topbar">
 <span style="float: left"><label><input type="checkbox" id="vNum" onchange="showTV()"> <u>СКВОЗНАЯ НУМЕРАЦИЯ</u></label></span>
 <input type="text" id="sInp" autocomplete="off" onkeyup="showTV(sInp.value)">
 <!--<input type="button" value="Search" onclick="showTV()"> -->
