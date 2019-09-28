@@ -80,7 +80,8 @@ const webLinks = {
 "exe988":"Game.EXE_08_1998|2",
 
 "im971":"Igromania_1997-09|2",
-
+"im972":"Igromania_1997-10|2",
+"im973":"Igromania_1997-11|2",
 "im981":"Igromania_1998-01|2",
 "im982":"Igromania_1998-02|2",
 "im983":"Igromania_1998-03|2",
