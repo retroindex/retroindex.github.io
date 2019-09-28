@@ -54,7 +54,7 @@ const otvinta = ["1|Wolfenstein 3D+Comanche: Maximum Overkill+Master of Orion|20
 "49<sub>6</sub>|Jagged Alliance+Harvester+MegaRace 2|05.07.1997|N",
 "49<sub>7</sub>|Obsidian+Privateer 2: The Darkening+Aliens+Afterlife|06.07.1997|N",
 "50|Terminator: SkyNET+Screamer 2+WWF in Your House+Syndicate Wars|12.07.1997|NM",
-"51|The Pandora Directive+Crusader: No Remorse+Destruction Derby 2+Silent Thunder|13.07.1997|NM",
+"51|Pandora Directive+Crusader: No Remorse+Destruction Derby 2+Silent Thunder|13.07.1997|NM",
 "52|Olympic Soccer+Australian Rugby League+XS+M.A.X.+Realms of the Haunting |19.07.1997|NM",
 "53|Tank M1 Abrams+Beavis and Butt-head+Admiral: Sea Battles|20.07.1997|NM",
 "54|Phantasmagoria+Police Quest: SWAT+Timelapse+Silent Hunter|26.07.1997|NM",
