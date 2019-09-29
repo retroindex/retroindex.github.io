@@ -1,4 +1,6 @@
 const webLinks = {
+"pcr941":"PC_Review_1-94|2",
+  
 "pro951":"PRO_Igry_1_1995|0",
 "pro952":"PRO_Igry_2_1995|0",
 "pro953":"PROIgry31995|0",
