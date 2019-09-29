@@ -37,7 +37,7 @@ P {margin-bottom: 0;}
 .tRes TH:nth-child(2) {height: 25px; white-space: nowrap; border-right: 1px solid #d2cdbc;}
 .tRes TH:nth-child(3) {border-top-right-radius: 4px; width: 36px;}
 .flexFix {height: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;}
-.errMsg {background-color: #f883a2; max-width: 430px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
+.errMsg {background-color: #f883a2; max-width: 400px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
 .infMsg {background-color: #b4d055; max-width: 800px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
 
 .cb {position: relative; left: 31px; top: 9px;}
@@ -50,7 +50,7 @@ P {margin-bottom: 0;}
 .modal .modalContent .close_modal_window {color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;}
 
 @media (max-width: 600px) { 
-.topBar {border-bottom: 0; background-image:none;}
+.topBar {border-bottom: 0;}
 #prnt {border-bottom: #bbb 1px dotted;}
 .dtab {margin: 0;}
 .topBar {margin-bottom: 12px;}
@@ -109,7 +109,7 @@ if (!globalSearch(wReg)) {
 		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
 //		console.log ("Аббревиатура: ",wReg);
-		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">По подстрокам и аббревиатуре "<b>'+wReg+'</b>" ничего не найдено.<br>Возможно, игра не выходила на PC, или вышла позже 1998 года.</div>';
+		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">По подстрокам и аббревиатуре "<b>'+wReg+'</b>" ничего не найдено.<br>Возможно, игра выходила не на PC, или позже 1998 года.</div>';
 		}
 	}
 }
