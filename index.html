@@ -1,19 +1,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=450">
 <link rel="icon" type="image/png" href="favicon.png">
+<meta name="viewport" content="width=450">
+<meta name="author" content="Morendil">
 <title>Retroindex</title>
 <style>
-BODY {background-color: #e9e3cc; background: url(paper.jpg); margin: 0;}
+BODY {background: #e9e3cc url(paper.jpg) scroll; margin: 0;}
 TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
 H2 {color: #800000;}
-#sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3);}
+P {margin-bottom: 0;}
+#sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3); transition: background-color .3s ease-out;}
+#sInp:focus {background: #fff;}
 #sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background: #f4efda; outline: none;}
+#sel {height: 25px; margin-right: 0; font-size:14px; outline: none; border: 0; background: #f4efda;}
 #prnt {display: flex; flex-wrap: wrap; align-content: stretch; justify-content: space-evenly;}
 #chAuto {border: 1px #4c270e solid; background: #f4efda; border-radius: 15px;}
-.topBar {text-align: center; position: sticky; top: 0; background-color: #e9e3cc; padding: 5px 8px; display: flex; margin: 0;}
-.topCenter {flex: 1 0 0; white-space: nowrap;}
+#modSel option:nth-child(2n) {background-color: #f0f5ff;}
+#modSel {width: 292px;}
+.topBar {height: 45px; border-bottom: #bbb 1px dotted; background-color: #e9e3cc; background: url(paper.jpg); text-align: center; position: sticky; top: 0; padding: 0 15px 0 8px; display: flex; margin: 0; align-items: center;}
+.topCenter {flex: 1 0 0; white-space: nowrap; height: 100%;}
 .dtab {flex: 1 0 0; min-width: 400px; max-width: 600px; margin: 12px;}
 .tRes {background-color: rgba(99,99,99,0.1); width: 100%; font: 14px Arial; border-collapse: collapse; text-align: center;}
 .tRes TH {font-weight: normal; margin: 0; color: #fff;}
@@ -23,64 +29,36 @@ H2 {color: #800000;}
 .colV TH {background-color: #fd8405;}
 .gal {text-align: center;}
 .gal img {padding: 0;}
-.cov {width: 64px;}
+.cov {width: 64px; cursor: pointer;}
+.np {cursor: auto;}
+.svg_archive {fill: rgba(99,99,99,0.2);}
+.cov64, .cov80, .cov128 {pointer: hand;}
 .tRes TH:nth-child(1) {padding: 0; width: 64px;}
 .tRes TH:nth-child(2) {height: 25px; white-space: nowrap; border-right: 1px solid #d2cdbc;}
 .tRes TH:nth-child(3) {border-top-right-radius: 4px; width: 36px;}
-
-#modSel option:nth-child(2n) {background-color: #f0f5ff;}
-#modSel {width: 292px;}
-
 .flexFix {height: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;}
-.errMsg {background-color: #f883a2; max-width: 500px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
-.infMsg {background-color: #b4d055; max-width: 500px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
+.errMsg {background-color: #f883a2; max-width: 430px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
+.infMsg {background-color: #b4d055; max-width: 800px; padding:15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
 
 .cb {position: relative; left: 31px; top: 9px;}
 #chAuto {display: none;}
 #chAuto + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAghJREFUeNqU1OsSqygUhNFmFFTJeIsi8r3/e54Klcx4NEmZ9RPZQndZ6uwf/69+tFHrurLzsiSj6waCWmb9wIGduOmgSb3RJ4E+YvUXMwCTPunYYHXaKQPbQqdPChg22N2jTYRypdJR3yrTzL2c/z/ITDCbkqSjG8kpa0hGHdzzOXYFUufPJdqUXgebhJdsocytqakjnKMMDHoZY7tvy+bLnaOE51JZS4VO6jdRAl4PnlZvDLsoRspGopFkzl0+E3XK3LB1/8Un1sYtzHrLFJJcH4GgJ0+2lZ8/8QCwLJR6qldgtfokAhGvel+3ba0+65nKglkVsy5y9FIgpusjWjdXpTmSal3lAQbjcnfO+36cQlj01QBrqYyXqO9Kt6vvPvbeV05X+Y3UG/3EdIntpquqHKh4RGv1VdGWymJSZidYrL5oIN5vTiWz7G0cl7Am8Pqi3XhIgU6el1Zfle24AtSqxtH72lldUTQbRr8xBP2oZtBO4Zw+MOVrj6926SZga/RGHSB6HZURtvi2aU826iCQblJLsm/+vl52Pr2tea7c6XTQkxPPbPrLwKKH8Xz+iM/Bwelpv9Vs9JKaMEmyIeRHzHpYDyMtqyRNYHPgIMnB7s4FFNozK3NVLzDoOKIZBlstjOeSH0adR4rAw2J0YPoQ5kZvRmSGSOyMPtuPXOb5M/poAQPqaQEAEhEuCu707rIAAAAASUVORK5CYII=); background-size: contain;}
 #chAuto:checked + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAi1JREFUeNqUlImyojAURG8GEpA4bEK28///OQUV3/ASfctx19t0usu6UvPH/pVfEunl57SjFU1Sv5DMOBnY5BcY0Ct3Kbil6b2xYwpo+YSagVXeMRLBm0/5HHFnlHc0MEe4nGNIuNbTSck05Dcbj3b7b6RW2FRLkpI7yeSkR8UjPE4f7YE02rpEndLTWCWsiG5ygz7d+gB1lJlZnixhuLalz8PVUVz+qu1FGqnoSVJLrBxYBnnBfInyrHIhHG9V3WVONOY3cxw/4hN6ZfayGMiXbo75KQBOMpaT2FaSTDs6gH3nY6T3gNelAskEIGClv9ath0JwNZGJtW3YpCvP/l5imEQcIf1cIj6aLm2B1EtNEeVa0KzM2Z2xdlpW5/ZaIhdm8LktnoSvJdKaS32PZbK2M+UsyGtspFwGUEYpUGMi3uvcbxTdGag5og1XTS1phpw9JDnRK+z6alNKbhAedyMtm+j7suzOJ7BXmzLKEDlIjlEsT4ZCUu7rYfEAvXTLYm1vdNHZ676aW0TJa95IROHkl5Ke+ZOrMe/+Lap9ztjukm4F4u2VpHcQrJS0AWIAKxWWk0UKHOkuMpD0i+1rRW/V1W75m0e9fSfOxBuxXIi7HCy1/4I9g4ORK3lURabD060iop07f8obwheSAX+8rKDPwMewgcuZG2jkivJsXb/DLKVENph1t7PUJecmK0njONiVFKjJue0mLySi5kAY/w1XcsTUggCDQgsYUE8LABacNVGE1b6XAAAAAElFTkSuQmCC); background-size: contain;}
 
-.modal {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 10;
-}
-.modal .modal_content {
-	background: #e9e3cc url(paper.jpg);
-	border-radius: 15px;
-    margin: 15% auto;
-    padding: 10px;
-    border: 3px solid #345fb9;
-    width: 420px;
-	height: 180px;
-	   overflow: auto;
-	z-index: 20;
-	display: flex;
-	align-items: flex-start;
-	
-}
-.modal .modal_content .close_modal_window {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
+.modal {display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100vh; overflow: auto; background-color: rgba(0,0,0,0.5); z-index: 10;}
+.modal .modalContent {background: #e9e3cc url(paper.jpg); border-radius: 15px; margin: 15% auto; padding: 10px; border: 3px solid #345fb9; width: 420px; height: 180px; overflow: auto; z-index: 20; display: flex; 	align-items: flex-start;}
+.modal .modalContent .close_modal_window {color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;}
 
 @media (max-width: 600px) { 
+.topBar {border-bottom: 0; background-image:none;}
+#prnt {border-bottom: #bbb 1px dotted;}
 .dtab {margin: 0;}
 .topBar {margin-bottom: 12px;}
 .topLeft, .topRight {display: none;}
 .cov {width: 80px;}
-.tRes {background-color: transparent;}
+.tRes {background-color: rgba(127,127,127,0.1);}
 .tRes TH:nth-child(3) {border-top-right-radius: 0;} 
-}
+.infMsg {max-width: 430px;}
 
 </style>
 <script src="tv.js"></script>
@@ -99,9 +77,11 @@ H2 {color: #800000;}
 <div class="topRight" id="topRightCnt"></div>
 </div>
 
-<div id="prnt"></div>
-<div id="my_modal" class="modal"><div class="modal_content" id="mod_content"></div></div>
-  
+<div id="prnt">
+</div>
+
+<div id="covModal" class="modal"><div class="modalContent" id="modContent"></div></div>
+
 <script type="text/javascript">
 
 if (window.location.hash) {
@@ -128,8 +108,8 @@ if (!globalSearch(wReg)) {
 		triedAbbr = true;
 		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
-		console.log ("Аббревиатура: ",wReg);
-		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">По указанным подстрокам и аббревиатуре "<b>'+wReg+'</b>" ничего не найдено.<br>Возможно, искомая игра не выходила на PC, или вышла позже 1998 года.</div>';
+//		console.log ("Аббревиатура: ",wReg);
+		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">По подстрокам и аббревиатуре "<b>'+wReg+'</b>" ничего не найдено.<br>Возможно, игра не выходила на PC, или вышла позже 1998 года.</div>';
 		}
 	}
 }
@@ -159,7 +139,7 @@ for (let i=0; i<books.length; i++) {
 bookArray = books[i].split('|');
 if (re.test(bookArray[0])) {
 	bookArray.push.apply(bookArray,book_details[bookArray[2]].split('|'));
-	bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' src='cvs/b_"+bookArray[2]+".jpg' onclick='showModalBook(this)'></th><th>"+bookArray[0]+"</th><th>"+bookArray[1]+"</th></tr><tr><td>"+bookArray[3]+"<br>Издательство "+bookArray[5]+", "+bookArray[6]+"<br>ISBN: "+bookArray[4]+"</td><td>*</td></tr></table></div>"
+	bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' src='cvs/b_"+bookArray[2]+".jpg' onclick='showModal(this,0)'></th><th>"+bookArray[0]+"</th><th>"+bookArray[1]+"</th></tr><tr><td>"+bookArray[3]+"<br>Издательство "+bookArray[5]+", "+bookArray[6]+"<br>ISBN: "+bookArray[4]+"</td><td>*</td></tr></table></div>"
 	}
 }
 	
@@ -178,7 +158,7 @@ for (let g=0; g<mags.length; g++) {
 			magName += "’"+magArray[0].slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
 				let [magGame, magPage] = magArray[j].split(",");
-				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
+				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this,1)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
 			}
 		}
 	}
@@ -197,7 +177,7 @@ for (let g=0; g<dis.length; g++) {
 		if (discArray[0].slice(2) != i) discName += " ("+i+")";
 		discName += "’"+discArray[0].slice(0,2);
 		for (let j=1; j<discArray.length; j++) {
-			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' src='cvs/d_"+discPref+discArray[0]+".jpg'></th><th>"+discArray[j]+"</th><th><img src='fd.png'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
+			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg' onclick='showModal(this,2)'></th><th>"+discArray[j]+"</th><th><img src='fd.png'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
 		}
 	}
  }
@@ -212,7 +192,7 @@ for (let i=0; i<otvinta.length; i++) {
 vidArray = otvinta[i].split('|');
 vidGames = vidArray[1].split('+');  
 	for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
-	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_v.png'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>От винта! Выпуск "+(i+1);
+	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov np' src='cvs/tv_v.png'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>От винта! Выпуск "+(i+1);
 	if (i > 48) {vidRes += " ("+vidArray[0]+" по Игромании)"}
 let restGames = vidGames;
 restGames.splice(j, 1);
@@ -248,6 +228,21 @@ for (i=0; i<mags.length; i++) {
 topRightCnt.innerHTML = sel+"</select>";
 }
 
+
+function showDiscGal(mt) {
+let galArray = [];
+let pubYear = '';
+let [magName, magPref] = dis[mt][0].split("|");
+let galRes = "<div class='gal'><h1>"+magName+"</h1>";
+for (let i=1; i<dis[mt].length; i++) {
+	galArray = dis[mt][i].split('|');
+	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += "<h2>19"+pubYear+"</h2>";}
+	galRes += "<img title='"+galArray[0]+"' id='d-"+mt+"-"+i+"' src='cvs/d_"+magPref+galArray[0]+".jpg' onclick='showModal(this,2)'>";
+	}
+prnt.innerHTML = galRes+"</div>";
+}
+
+
 function showGal(mt) {
 let galArray = [];
 let pubYear = '';
@@ -256,64 +251,55 @@ let galRes = "<div class='gal'><h1>"+magName+"</h1>";
 for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|');
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += "<h2>19"+pubYear+"</h2>";}	// Проблема y2k! 
-	galRes += "<img title='"+galArray[0]+"' id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'>";
+	galRes += "<img title='"+galArray[0]+"' id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this,1)'>";
 	}
 prnt.innerHTML = galRes+"</div>";
 }
 
-
-function showModalBook(cov) {
+function showModal(cov,mType) {
 modal.style.display = "block";
-let idTab = cov.src.split("/").pop().split(".")[0].slice(2);
-let modRes = "<img src='"+cov.src+"'>";
-let curBook = [];
-let reM = new RegExp(idTab+"$");
-
-for (let i=0; i<books.length; i++) {
-if (reM.test(books[i])) curBook.push(books[i].split("|")[0]);
+let magGame = ''; let modRes = ''; let magArray = [];
+if (mType == 0) {
+let idTab = cov.src.split("/").pop().split(".")[0];
+modRes = "<img src='"+cov.src+"'>";
+let reM = new RegExp(idTab.slice(2)+"$");
+for (let i=0; i<books.length; i++) if (reM.test(books[i])) magArray.push(books[i].split("|")[0]);
+document.getElementById('modContent').style.borderColor = "#5d9d52";
 }
-
+else if (mType == 1) {
+let [mT,m1,m2] = cov.id.split("-");
+modRes = "<img src='"+cov.src+"' onclick='showGal("+m1+")'>";
+magArray = mags[m1][m2].split('|');
+magArray.shift();
+magArray.sort();
+document.getElementById('modContent').style.borderColor = "#345fb9";
+}
+else if (mType == 2) {
+let [mT,m1,m2] = cov.id.split("-");
+modRes = "<img src='"+cov.src+"' onclick='showDiscGal("+m1+")'>";
+magArray = dis[m1][m2].split('|');
+magArray.shift();
+magArray.sort();
+document.getElementById('modContent').style.borderColor = "#8e3ca2";
+}
 modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'>"
-	for (let j=0; j<curBook.length; j++) {
-	let magGame = curBook[j];
+
+for (let j=0; j<magArray.length; j++) {
+	if ((mType == 0) || (mType == 2)) magGame = magArray[j]; else if (mType == 1) magGame = magArray[j].split(",")[0];
 	let magGameNoQuote = magGame;
-	if (magGame.indexOf("'") > -1) {magGameNoQuote = magGame.replace(/'[a-z0-9:']*($|\s)/ig, ' ');}
-	if (magGame.indexOf("(") > -1) {magGameNoQuote = magGame.replace(/ \(.*\)/ig, '');}
+	if (magGame.indexOf("'") > -1) {magGameNoQuote = magGame.replace(/'[a-z0-9:']*($|\s)/ig, ' ').trim();}
+	if (magGame.indexOf("(") > -1) {magGameNoQuote = magGame.replace(/ \(.*\)/ig, '').trim();}
 	modRes+="<option value='"+magGameNoQuote+"'>"+magGame+"</option>"
 	}
 modRes+="</select>"
-	
-document.getElementById('mod_content').style.height = cov.naturalHeight;
-document.getElementById('mod_content').innerHTML = modRes;
+document.getElementById('modContent').style.height = cov.naturalHeight;
+document.getElementById('modContent').innerHTML = modRes;
 document.getElementById('modSel').style.height = cov.naturalHeight;
+//document.body.style.overflow = "hidden";
 }
 
-function showModal(cov) {
-modal.style.display = "block";
-let idTab = cov.src.split("/").pop().split(".")[0];
-
-let [mT,m1,m2] = cov.id.split("-");
-let modRes = "<img src='"+cov.src+"' onclick='showGal("+m1+")'>";
-let magArray = mags[m1][m2].split('|');
-magArray.shift();
-magArray.sort();
-modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'>"
-	for (let j=0; j<magArray.length; j++) {
-	let [magGame, magPage] = magArray[j].split(",");
-	let magGameNoQuote = magGame;
-	if (magGame.indexOf("'") > -1) {magGameNoQuote = magGame.replace(/'[a-z0-9:']*($|\s)/ig, ' ');}
-	if (magGame.indexOf("(") > -1) {magGameNoQuote = magGame.replace(/ \(.*\)/ig, '');}
-	modRes+="<option value='"+magGameNoQuote+"'>"+magGame+"</option>"
-	}
-modRes+="</select>"	
-
-document.getElementById('mod_content').style.height = cov.naturalHeight;
-document.getElementById('mod_content').innerHTML = modRes;
-document.getElementById('modSel').style.height = cov.naturalHeight;
-}
-
- var modal = document.getElementById("my_modal");
- window.onclick = function (event) {if (event.target == modal) {modal.style.display = "none";}}
+let modal = document.getElementById("covModal");
+window.onclick = function (event) {if (event.target == modal) {modal.style.display = "none"; document.body.style.overflow = "auto";}}
 
 selectGal();
 //wrapper("homm2");
