@@ -1,6 +1,12 @@
 const webLinks = {
 "pcr941":"PC_Review_1-94|2",
-  
+
+"crn944":"Korona_Video-Ass_04|2",
+"crn958":"Korona_Video-Ass_08|2",
+
+"comp952":"KompAs21995|2",
+"comp955":"KompAs51995|2",
+	
 "pro951":"PRO_Igry_1_1995|0",
 "pro952":"PRO_Igry_2_1995|0",
 "pro953":"PROIgry31995|0",
