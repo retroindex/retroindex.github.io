@@ -280,7 +280,7 @@ magArray.shift();
 magArray.sort();
 document.getElementById('modContent').style.borderColor = "#8e3ca2";
 }
-modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'><option class='mobSelect' value='' disabled selected>Содержание номера</option>"
+modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'><option class='mobSelect' value='' disabled>Содержание номера</option>"
 
 for (let j=0; j<magArray.length; j++) {
 	if ((mType == 0) || (mType == 2)) magGame = magArray[j]; else if (mType == 1) magGame = magArray[j].split(",")[0];
