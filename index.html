@@ -33,7 +33,7 @@ P {margin-bottom: 0;}
 .cov {width: 64px; cursor: pointer;}
 .np {cursor: auto;}
 .svg_archive {fill: rgba(99,99,99,0.2);}
-
+.mobSelect {display: none;}
 .tRes TH:nth-child(1) {padding: 0; width: 64px;}
 .tRes TH:nth-child(2) {height: 25px; white-space: nowrap; border-right: 1px solid #d2cdbc;}
 .tRes TH:nth-child(3) {border-top-right-radius: 4px; width: 36px;}
@@ -52,6 +52,7 @@ P {margin-bottom: 0;}
 #covModal {align-items: flex-end; height: fill-available; height: -webkit-fill-available;}
 #modContent {border-radius: 0; border-width: 5px 0 0 0; padding:0; width: 100vw;}
 #modSel {flex-grow: 1;}
+.mobSelect {display: block;}
 .dtab {margin: 0;}
 .topBar {margin-bottom: 12px;}
 .topLeft, .topRight {display: none;}
@@ -279,7 +280,7 @@ magArray.shift();
 magArray.sort();
 document.getElementById('modContent').style.borderColor = "#8e3ca2";
 }
-modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'>"
+modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'><option class='mobSelect' value='' disabled selected>Содержание номера</option>"
 
 for (let j=0; j<magArray.length; j++) {
 	if ((mType == 0) || (mType == 2)) magGame = magArray[j]; else if (mType == 1) magGame = magArray[j].split(",")[0];
