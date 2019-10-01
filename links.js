@@ -4,7 +4,9 @@ const webLinks = {
 "crn944":"Korona_Video-Ass_04|2",
 "crn958":"Korona_Video-Ass_08|2",
 
+"comp951":"KompAs11995|2",
 "comp952":"KompAs21995|2",
+"comp953":"KompAs31995|2",
 "comp955":"KompAs51995|2",
 	
 "pro951":"PRO_Igry_1_1995|0",
