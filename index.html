@@ -18,7 +18,7 @@ P {margin-bottom: 0;}
 #prnt {display: flex; flex-wrap: wrap; align-content: stretch; justify-content: space-evenly;} 
 #chAuto {border: 1px #4c270e solid; background: #f4efda; border-radius: 15px;}
 #modSel option:nth-child(2n) {background-color: #f0f5ff;}
-#modSel {width: 292px;}
+#modSel {flex-basis: 292px;}
 .topBar {height: 45px; background-color: #e9e3cc; background: url(paper.jpg); text-align: center; position: sticky; top: 0; padding: 0 15px 0 8px; display: flex; margin: 0; align-items: center;}
 .topCenter {flex: 1 0 0; white-space: nowrap; height: 100%;}
 .dtab {flex: 1 0 0; min-width: 400px; max-width: 600px; margin: 12px;}
@@ -34,6 +34,7 @@ P {margin-bottom: 0;}
 .np {cursor: auto;}
 .svg_archive {fill: rgba(99,99,99,0.2);}
 .mobSelect {display: none;}
+
 .tRes TH:nth-child(1) {padding: 0; width: 64px;}
 .tRes TH:nth-child(2) {height: 25px; white-space: nowrap; border-right: 1px solid #d2cdbc;}
 .tRes TH:nth-child(3) {border-top-right-radius: 4px; width: 36px;}
@@ -49,7 +50,7 @@ P {margin-bottom: 0;}
 
 @media (max-width: 600px) { 
 .topBar {border-bottom: 0;}
-#covModal {align-items: flex-end; height: fill-available; height: -webkit-fill-available;}
+#covModal {align-items: flex-end; ; height: fill-available; height: -webkit-fill-available;}
 #modContent {border-radius: 0; border-width: 5px 0 0 0; padding:0; width: 100vw;}
 #modSel {flex-grow: 1;}
 .mobSelect {display: block;}
@@ -107,7 +108,7 @@ if (!globalSearch(wReg)) {
 		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
 //		console.log ("Аббревиатура: ",wReg);
-		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">По подстрокам и аббревиатуре "<b>'+wReg+'</b>" ничего не найдено.<br>Возможно, игра не выходила на PC, или вышла позже 1998 года.</div>';
+		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">По подстрокам и аббревиатуре "<b>'+wReg+'</b>" ничего не найдено.<br>Возможно, игра выходила не на PC, или позже 1998 года.</div>';
 		}
 	}
 }
@@ -130,16 +131,21 @@ if (sReg.length<3) re = new RegExp("(^|\\|)"+sReg+"($|,)","i")
 
 ///// Книги
 
-let bookArray = [];
 let bookRes = "";
+let bookArray = [];
 
-for (let i=0; i<books.length; i++) {
-bookArray = books[i].split('|');
-if (re.test(bookArray[0])) {
-	bookArray.push.apply(bookArray,book_details[bookArray[2]].split('|'));
-	bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' src='cvs/b_"+bookArray[2]+".jpg' onclick='showModal(this,0)'></th><th>"+bookArray[0]+"</th><th>"+bookArray[1]+"</th></tr><tr><td>"+bookArray[3]+"<br>Издательство "+bookArray[5]+", "+bookArray[6]+"<br>ISBN: "+bookArray[4]+"</td><td>*</td></tr></table></div>"
+for (let g=0; g<books.length; g++) {
+	for (let i=1; i<books[g].length; i++) {
+		if (re.test(books[g][i])) {
+			bookArray = books[g][i].split('|');
+			let [bName,bISBN,bPub,bYear,bQty] = book_details[bookArray[0]].split("|");
+			for (let j=1; j<bookArray.length; j++) {
+				let [bGame, bPage] = bookArray[j].split(",");
+				if (re.test(bookArray[j])) bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' id='b-"+g+"-"+i+"' src='cvs/b_"+bookArray[0]+".jpg' onclick='showModal(this,0)'></th><th>"+bGame+"</th><th>"+bPage+"</th></tr><tr><td>"+bName+"<br>Издательство "+bPub+", "+bYear+"<br>ISBN: "+bISBN+"</td><td>*</td></tr></table></div>"
+			}
+		}
 	}
-}
+ }	
 	
 ///// Журналы
 
@@ -226,19 +232,25 @@ for (i=0; i<mags.length; i++) {
 topRightCnt.innerHTML = sel+"</select>";
 }
 
-function showDiscGal(mt) {
-let galArray = [];
+
+function selectGalBooks() {
+let sel = "<select id='sel' onchange='showBookGal(this.value)'>";
+sel+="<option value='' disabled selected>Выберите книжную серию</option>";
+for (i=0; i<books.length; i++) sel+= "<option value='"+i+"'>"+books[i][0]+"</option>";
+topRightCnt.innerHTML = sel+"</select>";
+}
+
+function showBookGal(mt) {
 let pubYear = '';
-let [magName, magPref] = dis[mt][0].split("|");
-let galRes = "<div class='gal'><h1>"+magName+"</h1>";
-for (let i=1; i<dis[mt].length; i++) {
-	galArray = dis[mt][i].split('|');
-	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += "<h2>19"+pubYear+"</h2>";}
-	galRes += "<img title='"+galArray[0]+"' id='d-"+mt+"-"+i+"' src='cvs/d_"+magPref+galArray[0]+".jpg' onclick='showModal(this,2)'>";
+let galRes = "<div class='gal'><h1>"+books[mt][0]+"</h1>";
+for (let i=1; i<books[mt].length; i++) {
+	let bookID = books[mt][i].split("|")[0];
+	let curYear = book_details[bookID].split("|")[3];
+	if (curYear != pubYear) {pubYear = curYear; galRes += "<h2>"+pubYear+"</h2>";}
+	galRes += "<img title='"+bookID+"' id='b-"+mt+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this,0)'>";
 	}
 prnt.innerHTML = galRes+"</div>";
 }
-
 
 function showGal(mt) {
 let galArray = [];
@@ -253,19 +265,33 @@ for (let i=1; i<mags[mt].length; i++) {
 prnt.innerHTML = galRes+"</div>";
 }
 
+function showDiscGal(mt) {
+let galArray = [];
+let pubYear = '';
+let [magName, magPref] = dis[mt][0].split("|");
+let galRes = "<div class='gal'><h1>"+magName+"</h1>";
+for (let i=1; i<dis[mt].length; i++) {
+	galArray = dis[mt][i].split('|');
+	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += "<h2>19"+pubYear+"</h2>";}
+	galRes += "<img title='"+galArray[0]+"' id='d-"+mt+"-"+i+"' src='cvs/d_"+magPref+galArray[0]+".jpg' onclick='showModal(this,2)'>";
+	}
+prnt.innerHTML = galRes+"</div>";
+}
+
 function showModal(cov,mType) {
 modal.style.display = "flex";
-//	document.getElementById('prnt').style.opacity="0.5";
+
 let magGame = ''; let modRes = ''; let magArray = [];
+let [mT,m1,m2] = cov.id.split("-");
+
 if (mType == 0) {
-let idTab = cov.src.split("/").pop().split(".")[0];
-modRes = "<img src='"+cov.src+"'>";
-let reM = new RegExp(idTab.slice(2)+"$");
-for (let i=0; i<books.length; i++) if (reM.test(books[i])) magArray.push(books[i].split("|")[0]);
+modRes = "<img src='"+cov.src+"' onclick='showBookGal("+m1+")'>";
+magArray = books[m1][m2].split('|');
+magArray.shift();
+magArray.sort();
 document.getElementById('modContent').style.borderColor = "#5d9d52";
 }
 else if (mType == 1) {
-let [mT,m1,m2] = cov.id.split("-");
 modRes = "<img src='"+cov.src+"' onclick='showGal("+m1+")'>";
 magArray = mags[m1][m2].split('|');
 magArray.shift();
@@ -273,17 +299,16 @@ magArray.sort();
 document.getElementById('modContent').style.borderColor = "#345fb9";
 }
 else if (mType == 2) {
-let [mT,m1,m2] = cov.id.split("-");
 modRes = "<img src='"+cov.src+"' onclick='showDiscGal("+m1+")'>";
 magArray = dis[m1][m2].split('|');
 magArray.shift();
 magArray.sort();
 document.getElementById('modContent').style.borderColor = "#8e3ca2";
 }
-modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'><option class='mobSelect' value='' disabled>Содержание номера</option>"
+modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'><option class='mobSelect' value='' disabled selected>Содержание номера</option>"
 
 for (let j=0; j<magArray.length; j++) {
-	if ((mType == 0) || (mType == 2)) magGame = magArray[j]; else if (mType == 1) magGame = magArray[j].split(",")[0];
+	if (mType < 2) magGame = magArray[j].split(",")[0]; else if (mType == 2) magGame = magArray[j];
 	let magGameNoQuote = magGame;
 	if (magGame.indexOf("'") > -1) {magGameNoQuote = magGame.replace(/'[a-z0-9:']*($|\s)/ig, ' ').trim();}
 	if (magGame.indexOf("(") > -1) {magGameNoQuote = magGame.replace(/ \(.*\)/ig, '').trim();}
@@ -293,16 +318,15 @@ modRes+="</select>"
 document.getElementById('modContent').style.height = cov.naturalHeight;
 document.getElementById('modContent').innerHTML = modRes;
 document.getElementById('modSel').style.height = cov.naturalHeight;
-//document.body.style.overflow = "hidden";
 }
 
 let modal = document.getElementById("covModal");
 window.onclick = function (event) {if (event.target == modal) {
 modal.style.display = "none"; 
-//document.body.style.overflow = "auto";
 }}
 
-selectGal();
+//selectGal();
+selectGalBooks();
 wrapper("homm2");
 </script>
 </body>
