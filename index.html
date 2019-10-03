@@ -7,6 +7,7 @@
 <meta name="author" content="Morendil">
 <title>Retroindex</title>
 <style>
+HTML {overflow-y: scroll;}
 BODY {background: #e9e3cc url(paper.jpg) scroll; margin: 0;}
 TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
 H2 {color: #800000;}
@@ -32,8 +33,9 @@ P {margin-bottom: 0;}
 .gal img {padding: 0;}
 .cov {width: 64px; cursor: pointer;}
 .np {cursor: auto;}
-.svg_archive {fill: rgba(99,99,99,0.2);}
 .mobSelect {display: none;}
+
+.svg_archive {fill: rgba(99,99,99,0.2);}
 
 .tRes TH:nth-child(1) {padding: 0; width: 64px;}
 .tRes TH:nth-child(2) {height: 25px; white-space: nowrap; border-right: 1px solid #d2cdbc;}
@@ -48,6 +50,9 @@ P {margin-bottom: 0;}
 #covModal {display: none; position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 10; align-items: center; justify-content: center;}
 #modContent {background: #e9e3cc url(paper.jpg); border-radius: 15px; padding: 10px; border: 3px solid #345fb9; width: 420px; z-index: 20; display: flex; align-items: flex-start;}
 
+.svgbut {padding: 3px; width: 36px; height: 36px; background-color: #fff; border-radius: 50%;}
+
+
 @media (max-width: 600px) { 
 .topBar {border-bottom: 0;}
 #covModal {align-items: flex-end; ; height: fill-available; height: -webkit-fill-available;}
@@ -61,6 +66,20 @@ P {margin-bottom: 0;}
 .tRes {background-color: rgba(127,127,127,0.1);}
 .tRes TH:nth-child(3) {border-top-right-radius: 0;} 
 .infMsg {max-width: 430px;}
+}
+
+nav {white-space: nowrap; }
+nav ul {padding:0; margin:0; list-style: none; position: relative;}
+nav ul li {margin: 0; display:inline-block; background: #f4efda;}
+nav a {display:block; text-align: left; padding:0 5px; color:#000; font: 15px Arial; line-height: 30px; text-decoration:none; cursor: pointer; border-top: 1px #ccc dotted;}
+nav a:hover {background-color: #b20f0b; color: #fff;}
+nav ul ul {display: none; position: absolute; top: 100%; left: 0;}
+nav ul li:hover > ul {display:inherit;}
+nav ul ul li {min-width:250px; display:list-item; position: relative;}
+.ulB a {border-left: 3px #5d9d52 solid;}
+.ulM a {border-left: 3px #345fb9 solid;}
+.ulD a {border-left: 3px #8e3ca2 solid;}
+.ulV a {border-left: 3px #fd8405 solid;}
 </style>
 <script src="tv.js"></script>
 <script src="books.js"></script>
@@ -72,6 +91,7 @@ P {margin-bottom: 0;}
 
 <div class="topBar">
 <div class="topLeft"><img src="retrologo.png" alt="Retroindex"></div>
+
 <!-- <span class="header">Retroindex</span> -->
 <div class="topCenter"><span class="cb"><input type="checkbox" id="chAuto"><label for="chAuto"></label></span><input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" class="mBut" value="Поиск" onclick="wrapper(sInp.value.trim())"></div>
 <div class="topRight" id="topRightCnt"></div>
@@ -222,22 +242,17 @@ if (window.innerWidth < 800 || window.innerWidth < window.screen.width/2) return
 else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mode/2up' target='_blank'><img src='linked.png'></a>";
 }
 
-function selectGal() {
-let sel = "<select id='sel' onchange='showGal(this.value)'>";
-sel+="<option value='' disabled selected>Выберите журнал</option>";
-for (i=0; i<mags.length; i++) {
-	let [magName, magPref] = mags[i][0].split("|");
-	sel+= "<option value='"+i+"'>"+magName+"</option>";
+function showGal(mt) {
+let galArray = [];
+let pubYear = '';
+let [magName, magPref] = mags[mt][0].split("|");
+let galRes = "<div class='gal'><h1>"+magName+"</h1>";
+for (let i=1; i<mags[mt].length; i++) {
+	galArray = mags[mt][i].split('|');
+	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += "<h2>19"+pubYear+"</h2>";}	// Проблема y2k! 
+	galRes += "<img title='"+galArray[0]+"' id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this,1)'>";
 	}
-topRightCnt.innerHTML = sel+"</select>";
-}
-
-
-function selectGalBooks() {
-let sel = "<select id='sel' onchange='showBookGal(this.value)'>";
-sel+="<option value='' disabled selected>Выберите книжную серию</option>";
-for (i=0; i<books.length; i++) sel+= "<option value='"+i+"'>"+books[i][0]+"</option>";
-topRightCnt.innerHTML = sel+"</select>";
+prnt.innerHTML = galRes+"</div>";
 }
 
 function showBookGal(mt) {
@@ -248,19 +263,6 @@ for (let i=1; i<books[mt].length; i++) {
 	let curYear = book_details[bookID].split("|")[3];
 	if (curYear != pubYear) {pubYear = curYear; galRes += "<h2>"+pubYear+"</h2>";}
 	galRes += "<img title='"+bookID+"' id='b-"+mt+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this,0)'>";
-	}
-prnt.innerHTML = galRes+"</div>";
-}
-
-function showGal(mt) {
-let galArray = [];
-let pubYear = '';
-let [magName, magPref] = mags[mt][0].split("|");
-let galRes = "<div class='gal'><h1>"+magName+"</h1>";
-for (let i=1; i<mags[mt].length; i++) {
-	galArray = mags[mt][i].split('|');
-	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += "<h2>19"+pubYear+"</h2>";}	// Проблема y2k! 
-	galRes += "<img title='"+galArray[0]+"' id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this,1)'>";
 	}
 prnt.innerHTML = galRes+"</div>";
 }
@@ -325,8 +327,25 @@ window.onclick = function (event) {if (event.target == modal) {
 modal.style.display = "none"; 
 }}
 
-selectGal();
-//selectGalBooks();
+function prntHelp() {
+let inF1="Краткая справка";
+prnt.innerHTML = "<div class='infMsg'>"+inF1+"</div>";
+}
+
+function ddMenu() {
+let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>"
+for (i=0; i<mags.length; i++) sel+= "<li><a onclick='showGal("+i+")'>"+mags[i][0].split("|")[0]+"</li>";
+sel+="</ul></li><li><a>Книги</a><ul class='ulB'>"
+for (i=0; i<books.length; i++) sel+= "<li><a onclick='showBookGal("+i+")'>"+books[i][0]+"</li>";
+sel += "</ul></li><li><a onclick='showDiscGal(0)'>Дискмаги</a><ul class='ulD'>"
+for (i=0; i<dis.length; i++) sel+= "<li><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"</li>";
+sel+="</ul></li><li><a href='otvinta.html' target='ov'>ТВ</a><ul class='ulV'>";
+sel+="<li><a href='otvinta.html' target='ov'>От винта! (переход на подсайт)</li>";
+sel+="</ul></li><li><a onclick='prntHelp()'>?</a></li></ul></nav>"
+topRightCnt.innerHTML = sel;
+}
+
+ddMenu();
 wrapper("homm2");
 </script>
 </body>
