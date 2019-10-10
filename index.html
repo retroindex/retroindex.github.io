@@ -145,7 +145,7 @@ if (sReg.length<3) re = new RegExp("(^|\\|)"+sReg+"($|,)","i")
 //	let reString = "(^|[|«( ])"+sRegArray[0];
 	if (sRegArray.length>1) for (let i=1; i<sRegArray.length; i++) reString += "[^,]*(«|\\(|\\s+)"+sRegArray[i]; 
 	reString = reString.replace(/\./g, '\\.');
-	console.log("RegExp: ", reString);
+//	console.log("RegExp: ", reString);
 	re = new RegExp(reString,"i");
 	}
 
@@ -194,11 +194,13 @@ let discRes = "";
 let discArray = [];
 
 for (let g=0; g<dis.length; g++) {
+	let numfix=0;
 	for (let i=1; i<dis[g].length; i++) {
 		discArray = dis[g][i].split('|');
 		let [discName, discPref] = dis[g][0].split("|");
 		discName += " №"+discArray[0].slice(2);
-		if (discArray[0].slice(2) != i) discName += " ("+i+")";
+		if (discArray[0].slice(2).indexOf("-")>0) numfix++;
+		else if (discArray[0].slice(2) != (i+numfix)) discName += " ("+(i+numfix)+")";
 		discName += "’"+discArray[0].slice(0,2);
 		for (let j=1; j<discArray.length; j++) {
 			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg' onclick='showModal(this,2)'></th><th>"+discArray[j]+"</th><th><img src='fd.png'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
@@ -289,28 +291,22 @@ let [mT,m1,m2] = cov.id.split("-");
 if (mType == 0) {
 modRes = "<img src='"+cov.src+"' onclick='showBookGal("+m1+")'>";
 magArray = books[m1][m2].split('|');
-magArray.shift();
-magArray.sort();
 document.getElementById('modContent').style.borderColor = "#5d9d52";
 }
 else if (mType == 1) {
 modRes = "<img src='"+cov.src+"' onclick='showGal("+m1+")'>";
 magArray = mags[m1][m2].split('|');
-magArray.shift();
-magArray.sort();
 document.getElementById('modContent').style.borderColor = "#345fb9";
 }
 else if (mType == 2) {
 modRes = "<img src='"+cov.src+"' onclick='showDiscGal("+m1+")'>";
 magArray = dis[m1][m2].split('|');
-magArray.shift();
-magArray.sort();
 document.getElementById('modContent').style.borderColor = "#8e3ca2";
 }
+let gamesArray = [...new Set(magArray.slice(1,magArray.length).map(x => x.replace(/,.+$/,"")))].sort();
 modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'><option class='mobSelect' value='' disabled selected>Содержание номера</option>"
-
-for (let j=0; j<magArray.length; j++) {
-	if (mType < 2) magGame = magArray[j].split(",")[0]; else if (mType == 2) magGame = magArray[j];
+for (let j=0; j<gamesArray.length; j++) {
+	magGame = gamesArray[j];
 	let magGameNoQuote = magGame;
 	if (magGame.indexOf("'") > -1) {magGameNoQuote = magGame.replace(/'[a-z0-9:']*($|\s)/ig, ' ').trim();}
 	if (magGame.indexOf("(") > -1) {magGameNoQuote = magGame.replace(/ \(.*\)/ig, '').trim();}
