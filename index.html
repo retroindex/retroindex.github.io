@@ -16,7 +16,7 @@ P {margin-bottom: 0;}
 #sInp:focus {background: #fff;}
 #sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background: #f4efda; outline: none;}
 #sel {height: 25px; margin-right: 0; font-size:14px; outline: none; border: 0; background: #f4efda;}
-#prnt {display: flex; flex-wrap: wrap; align-content: stretch; justify-content: space-evenly;} 
+#prnt {display: flex; flex-wrap: wrap; justify-content: center;} 
 #chAuto {border: 1px #4c270e solid; background: #f4efda; border-radius: 15px;}
 #modSel option:nth-child(2n) {background-color: #f0f5ff;}
 #modSel {flex-basis: 292px;}
@@ -34,12 +34,10 @@ P {margin-bottom: 0;}
 .cov {width: 64px; cursor: pointer;}
 .np {cursor: auto;}
 .mobSelect {display: none;}
-
-.svg_archive {fill: rgba(99,99,99,0.2);}
-
-.tRes TH:nth-child(1) {padding: 0; width: 64px;}
+.tRes TH:nth-child(1) {width: 64px;}
 .tRes TH:nth-child(2) {height: 25px; white-space: nowrap; border-right: 1px solid #d2cdbc;}
 .tRes TH:nth-child(3) {border-top-right-radius: 4px; width: 36px;}
+.tRes TH, TD {padding: 0;}
 .flexFix {height: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;}
 .errMsg {background-color: #f883a2; max-width: 400px; padding: 15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
 .infMsg {background-color: #b4d055; min-width: 400px; width: 60vw; padding: 15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
@@ -49,9 +47,6 @@ P {margin-bottom: 0;}
 #chAuto:checked + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAi1JREFUeNqUlImyojAURG8GEpA4bEK28///OQUV3/ASfctx19t0usu6UvPH/pVfEunl57SjFU1Sv5DMOBnY5BcY0Ct3Kbil6b2xYwpo+YSagVXeMRLBm0/5HHFnlHc0MEe4nGNIuNbTSck05Dcbj3b7b6RW2FRLkpI7yeSkR8UjPE4f7YE02rpEndLTWCWsiG5ygz7d+gB1lJlZnixhuLalz8PVUVz+qu1FGqnoSVJLrBxYBnnBfInyrHIhHG9V3WVONOY3cxw/4hN6ZfayGMiXbo75KQBOMpaT2FaSTDs6gH3nY6T3gNelAskEIGClv9ath0JwNZGJtW3YpCvP/l5imEQcIf1cIj6aLm2B1EtNEeVa0KzM2Z2xdlpW5/ZaIhdm8LktnoSvJdKaS32PZbK2M+UsyGtspFwGUEYpUGMi3uvcbxTdGag5og1XTS1phpw9JDnRK+z6alNKbhAedyMtm+j7suzOJ7BXmzLKEDlIjlEsT4ZCUu7rYfEAvXTLYm1vdNHZ676aW0TJa95IROHkl5Ke+ZOrMe/+Lap9ztjukm4F4u2VpHcQrJS0AWIAKxWWk0UKHOkuMpD0i+1rRW/V1W75m0e9fSfOxBuxXIi7HCy1/4I9g4ORK3lURabD060iop07f8obwheSAX+8rKDPwMewgcuZG2jkivJsXb/DLKVENph1t7PUJecmK0njONiVFKjJue0mLySi5kAY/w1XcsTUggCDQgsYUE8LABacNVGE1b6XAAAAAElFTkSuQmCC); background-size: contain;}
 #covModal {display: none; position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 10; align-items: center; justify-content: center;}
 #modContent {background: #e9e3cc url(paper.jpg); border-radius: 15px; padding: 10px; border: 3px solid #345fb9; width: 420px; z-index: 20; display: flex; align-items: flex-start;}
-
-.svgbut {padding: 3px; width: 36px; height: 36px; background-color: #fff; border-radius: 50%;}
-
 
 @media (max-width: 600px) { 
 .topBar {border-bottom: 0;}
@@ -81,11 +76,11 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 .ulD a {border-left: 3px #8e3ca2 solid;}
 .ulV a {border-left: 3px #fd8405 solid;}
 </style>
-<script src="tv.js"></script>
-<script src="books.js"></script>
-<script src="mags.js"></script>
-<script src="discs.js"></script>
-<script src="links.js"></script>
+<script src="tv.js?ver=19a12"></script>
+<script src="mags.js?ver=19a12"></script>
+<script src="books.js?ver=19a12"></script>
+<script src="discs.js?ver=19a12"></script>
+<script src="links.js?ver=19a12"></script>
 </head>
 <body> 
 
@@ -119,7 +114,7 @@ document.addEventListener('keydown', function(event) {if (event.key == 'Escape')
 
 function wrapper(wReg) {
 let triedAbbr = false;
-wReg = wReg.replace(/[*+,|?{}\[\]\\]/g, '');
+wReg = wReg.replace(/[*+,|?{}\[\]\(\)\\]/g, '');
 if (document.getElementById('sel')) document.getElementById('sel').value="";
 
 if (!globalSearch(wReg)) {
@@ -192,9 +187,11 @@ for (let g=0; g<mags.length; g++) {
 
 let discRes = "";
 let discArray = [];
-
+let dType = "fd.png";
+let cds = "";
 for (let g=0; g<dis.length; g++) {
 	let numfix=0;
+	if (g>0) {dType = 'cd.png'; cds = "style='padding-top: 25px'"}
 	for (let i=1; i<dis[g].length; i++) {
 		discArray = dis[g][i].split('|');
 		let [discName, discPref] = dis[g][0].split("|");
@@ -203,7 +200,7 @@ for (let g=0; g<dis.length; g++) {
 		else if (discArray[0].slice(2) != (i+numfix)) discName += " ("+(i+numfix)+")";
 		discName += "’"+discArray[0].slice(0,2);
 		for (let j=1; j<discArray.length; j++) {
-			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg' onclick='showModal(this,2)'></th><th>"+discArray[j]+"</th><th><img src='fd.png'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
+			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg'"+cds+" onclick='showModal(this,2)'></th><th>"+discArray[j]+"</th><th><img src='"+dType+"'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
 		}
 	}
  }
@@ -235,13 +232,13 @@ return true;
 }
 
 function getLink (mag,page) {
-if (!webLinks.hasOwnProperty(mag)) return "<img src='nolink.png'>";
+if (!webLinks.hasOwnProperty(mag)) return "<img width='15' src='nolink.png'>";
 let [webName, offset] = webLinks[mag].split("|");
 let web1p = Number(page)+Number(offset)-1; 
 let web2p = (web1p%2) == 0 ? web1p-1 : web1p;
 //if (documentElement.clientWidth < 900) 
-if (window.innerWidth < 800 || window.innerWidth < window.screen.width/2) return "<a href='https://archive.org/stream/"+webName+"#page/n"+web1p+"/mode/1up' target='_blank'><img src='linked.png'></a>";
-else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mode/2up' target='_blank'><img src='linked.png'></a>";
+if (window.innerWidth < 800 || window.innerWidth < window.screen.width/2) return "<a href='https://archive.org/stream/"+webName+"#page/n"+web1p+"/mode/1up' target='_blank'><img width='26' src='linked.png'></a>";
+else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mode/2up' target='_blank'><img width='26' src='linked.png'></a>";
 }
 
 function showGal(mt) {
@@ -333,11 +330,11 @@ let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>"
 for (i=0; i<mags.length; i++) sel+= "<li><a onclick='showGal("+i+")'>"+mags[i][0].split("|")[0]+"</li>";
 sel+="</ul></li><li><a>Книги</a><ul class='ulB'>"
 for (i=0; i<books.length; i++) sel+= "<li><a onclick='showBookGal("+i+")'>"+books[i][0]+"</li>";
-sel += "</ul></li><li><a onclick='showDiscGal(0)'>Дискмаги</a><ul class='ulD'>"
+sel += "</ul></li><li><a>Дискмаги</a><ul class='ulD'>"
 for (i=0; i<dis.length; i++) sel+= "<li><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"</li>";
 sel+="</ul></li><li><a href='otvinta.html' target='ov'>ТВ</a><ul class='ulV'>";
 sel+="<li><a href='otvinta.html' target='ov'>От винта! (переход на подсайт)</li>";
-sel+="</ul></li><li><a onclick='prntHelp()'>?</a></li></ul></nav>"
+sel+="</ul></li><li><a onclick='prntHelp()'>&nbsp;?&nbsp;</a></li></ul></nav>"
 topRightCnt.innerHTML = sel;
 }
 
