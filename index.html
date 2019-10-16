@@ -10,6 +10,7 @@
 HTML {overflow-y: scroll;}
 BODY {background: #e9e3cc url(paper.jpg) scroll; margin: 0;}
 TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
+H1,H2 {font-family: Arial;}
 H2 {color: #800000;}
 P {margin-bottom: 0;}
 #sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3); transition: background-color .3s ease-out;}
@@ -42,7 +43,9 @@ P {margin-bottom: 0;}
 .flexFix {height: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;}
 .errMsg {background-color: #f883a2; max-width: 400px; padding: 15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
 .infMsg {background-color: #b4d055; min-width: 400px; width: 60vw; padding: 15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
+.u {border-bottom: 1px #fff dotted;}
 .cb {position: relative; left: 31px; top: 9px;}
+.sar {border-radius: 15px;}
 #chAuto {display: none;}
 #chAuto + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAghJREFUeNqU1OsSqygUhNFmFFTJeIsi8r3/e54Klcx4NEmZ9RPZQndZ6uwf/69+tFHrurLzsiSj6waCWmb9wIGduOmgSb3RJ4E+YvUXMwCTPunYYHXaKQPbQqdPChg22N2jTYRypdJR3yrTzL2c/z/ITDCbkqSjG8kpa0hGHdzzOXYFUufPJdqUXgebhJdsocytqakjnKMMDHoZY7tvy+bLnaOE51JZS4VO6jdRAl4PnlZvDLsoRspGopFkzl0+E3XK3LB1/8Un1sYtzHrLFJJcH4GgJ0+2lZ8/8QCwLJR6qldgtfokAhGvel+3ba0+65nKglkVsy5y9FIgpusjWjdXpTmSal3lAQbjcnfO+36cQlj01QBrqYyXqO9Kt6vvPvbeV05X+Y3UG/3EdIntpquqHKh4RGv1VdGWymJSZidYrL5oIN5vTiWz7G0cl7Am8Pqi3XhIgU6el1Zfle24AtSqxtH72lldUTQbRr8xBP2oZtBO4Zw+MOVrj6926SZga/RGHSB6HZURtvi2aU826iCQblJLsm/+vl52Pr2tea7c6XTQkxPPbPrLwKKH8Xz+iM/Bwelpv9Vs9JKaMEmyIeRHzHpYDyMtqyRNYHPgIMnB7s4FFNozK3NVLzDoOKIZBlstjOeSH0adR4rAw2J0YPoQ5kZvRmSGSOyMPtuPXOb5M/poAQPqaQEAEhEuCu707rIAAAAASUVORK5CYII=); background-size: contain;}
 #chAuto:checked + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAi1JREFUeNqUlImyojAURG8GEpA4bEK28///OQUV3/ASfctx19t0usu6UvPH/pVfEunl57SjFU1Sv5DMOBnY5BcY0Ct3Kbil6b2xYwpo+YSagVXeMRLBm0/5HHFnlHc0MEe4nGNIuNbTSck05Dcbj3b7b6RW2FRLkpI7yeSkR8UjPE4f7YE02rpEndLTWCWsiG5ygz7d+gB1lJlZnixhuLalz8PVUVz+qu1FGqnoSVJLrBxYBnnBfInyrHIhHG9V3WVONOY3cxw/4hN6ZfayGMiXbo75KQBOMpaT2FaSTDs6gH3nY6T3gNelAskEIGClv9ath0JwNZGJtW3YpCvP/l5imEQcIf1cIj6aLm2B1EtNEeVa0KzM2Z2xdlpW5/ZaIhdm8LktnoSvJdKaS32PZbK2M+UsyGtspFwGUEYpUGMi3uvcbxTdGag5og1XTS1phpw9JDnRK+z6alNKbhAedyMtm+j7suzOJ7BXmzLKEDlIjlEsT4ZCUu7rYfEAvXTLYm1vdNHZ676aW0TJa95IROHkl5Ke+ZOrMe/+Lap9ztjukm4F4u2VpHcQrJS0AWIAKxWWk0UKHOkuMpD0i+1rRW/V1W75m0e9fSfOxBuxXIi7HCy1/4I9g4ORK3lURabD060iop07f8obwheSAX+8rKDPwMewgcuZG2jkivJsXb/DLKVENph1t7PUJecmK0njONiVFKjJue0mLySi5kAY/w1XcsTUggCDQgsYUE8LABacNVGE1b6XAAAAAElFTkSuQmCC); background-size: contain;}
@@ -96,7 +99,9 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 <div class="topRight" id="topRightCnt"></div>
 </div>
 
-<div id="prnt"></div>
+<div id="prnt">
+<div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90х</h1><img class="sar" src="sarth.png"><h2>Поиск и архив обзоров игр для IBM&nbspPC&nbsp'92-98</h2></div></div>
+</div>
 
 <div id="covModal"><div id="modContent"></div></div>
 
@@ -324,8 +329,12 @@ window.onclick = function (event) {if (event.target == modal) {
 modal.style.display = "none"; 
 }}
 
-function prntHelp() {
-let inF1="Краткая справка";
+function prntHelp () {
+let inF1="Приветствую вас на страницах путеводителя по игрожуру 90х! <p>Наберите небольшую часть названия игры (<span class='u'>lem</span>, <span class='u'>re ark</span>). Для удобства пользуйтесь клавишами Enter и Escape, или вовсе включите автопоиск. Если части слов не находятся, делается предположение что набрана аббревиатура (<span class='u'>lba, mm6</span>), которая также ищется. Пробел перед номером части необязателен (<span class='u'>doom2</span>). Можно публиковать в сети ссылки на конкретные игры через хеш-символ: <a href='https://retroindex.github.io#homm2' target='_blank'>retroindex.github.io#homm2</a>";
+inF1+="<p>В выдаче формируется адаптивная сетка из 4х категорий: журналы, книги, дискмаги и телепередачи. Клик по обложке вызывает оглавление номера, из которого можно перейти как к галерее номеров данного издания, так и к новой выдаче по игре из оглавления. Таким образом можно путешествовать по базе, не прикасаясь к поиску. Альтернативный способ навигации — выбрать категорию и архив номеров игрового издания в меню справа от поиска.";
+inF1+="<p>Часть закладок в выдаче содержит ссылку на Archive.org, непосредственно на нужную страницу, или разворот хранящегося там документа. Возможные промахи сигнализируют о сбитой нумерации документа — удалены страницы с рекламой, сквозные постеры итд. На некоторых устройствах Архив будет пытаться подсунуть низкокачественные страницы, это исправляется переходом в полноэкранный режим (стрелка вниз в правом нижнем углу).";
+inF1+="<p>Впереди еще много работы по наполнению базы и улучшению приложения. При желании вы можете присоединиться к проекту, или <a href='https://www.old-games.ru/forum/threads/starye-kompjuternye-igrovye-zhurnaly.31874/' target='og'>сообщить</a> о существовании неизвестных нашему сообществу изданий. Внесите свой вклад в историю игровой журналистики!";
+inF1+="<p align='right'>Morendil</p>";
 prnt.innerHTML = "<div class='infMsg'>"+inF1+"</div>";
 }
 
