@@ -310,7 +310,7 @@ magArray = dis[m1][m2].split('|');
 document.getElementById('modContent').style.borderColor = "#8e3ca2";
 }
 let gamesArray = [...new Set(magArray.slice(1,magArray.length).map(x => x.replace(/,.+$/,"")))].sort();
-modRes+="<select id='modSel' size='10' onchange='wrapper(this.value);'><option class='mobSelect' value='' disabled selected>Содержание номера</option>"
+modRes+="<select id='modSel' size='10'><option class='mobSelect' value='' disabled selected>Содержание номера</option>"
 for (let j=0; j<gamesArray.length; j++) {
 	magGame = gamesArray[j];
 	let magGameNoQuote = magGame;
@@ -322,12 +322,16 @@ modRes+="</select>"
 document.getElementById('modContent').style.height = cov.naturalHeight;
 document.getElementById('modContent').innerHTML = modRes;
 document.getElementById('modSel').style.height = cov.naturalHeight;
+let timeout = null;
+let modalSel = document.getElementById("modSel");
+modalSel.onchange = function (e) {clearTimeout(timeout); timeout = setTimeout(function () {wrapper(modalSel.value)}, 100)};
 }
 
 let modal = document.getElementById("covModal");
 window.onclick = function (event) {if (event.target == modal) {
 modal.style.display = "none"; 
 }}
+
 
 function prntHelp () {
 let inF1="Приветствую вас на страницах путеводителя по игрожуру 90х! <p>Наберите небольшую часть названия игры (<span class='u'>lem</span>, <span class='u'>re ark</span>). Для удобства пользуйтесь клавишами Enter и Escape, или вовсе включите автопоиск. Если части слов не находятся, делается предположение что набрана аббревиатура (<span class='u'>lba, mm6</span>), которая также ищется. Пробел перед номером части необязателен (<span class='u'>doom2</span>). Можно публиковать в сети ссылки на конкретные игры через хеш-символ: <a href='https://retroindex.github.io#homm2' target='_blank'>retroindex.github.io#homm2</a>";
