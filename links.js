@@ -1,8 +1,5 @@
 const webLinks = {
 "pcr941":"PC_Review_1-94|2",
-"pcr942":"PC_Review_2-94|4",
-"pcr943":"PC_Review_3-94|2",
-"pcr944":"PC_Review_4-94|3",
 
 "crn941":"Korona_Video-Ass_01|2",
 "crn942":"Korona_Video-Ass_02|2",
@@ -76,6 +73,9 @@ const webLinks = {
 "nim986":"GameWorldNavigator_1998-06-014|2",
 "nim987":"GameWorldNavigator_1998-07-015|2",
 "nim988":"GameWorldNavigator_1998-08-016|2",
+"nim989-10":"GameWorldNavigator_1998-09-017-10-018|2",
+"nim9811":"GameWorldNavigator_1998-11-019|2",
+"nim9812":"GameWorldNavigator_1998-12-020|2",
 
 "exe971":"Game.EXE_01_1997|2",
 "exe972":"Game.EXE_02_1997|2",
@@ -109,5 +109,16 @@ const webLinks = {
 "im986":"Igromania_1998-06|2",
 "im987":"Igromania_1998-07|2",
 "im988":"Igromania_1998-08|2",
-"im989":"Igromania_1998-09|2"
+"im989":"Igromania_1998-09|2",
+
+"n_dpk992":"DPK_1999_02|2",
+"n_dpk993":"DPK_1999_03|2",
+"n_dpk994":"DPK_1999_04|2",
+"n_dpk995":"DPK_1999_05|2",
+"n_dpk996":"DPK_1999_06|2",
+"n_dpk997":"DPK_1999_07|2",
+"n_dpk998-9":"DPK_1999_08_09|2",
+"n_dpk9910":"DPK_1999_10|2",
+"n_dpk9911":"DPK_1999_11|2",
+"n_dpk9912":"DPK_1999_12|2"
 }

@@ -85,10 +85,10 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 
 </style>
 <script src="tv.js?ver=19a12"></script>
-<script src="mags.js?ver=19a12"></script>
+<script src="mags.js?ver=19a19"></script>
 <script src="books.js?ver=19a12"></script>
 <script src="discs.js?ver=19a12"></script>
-<script src="links.js?ver=19a12"></script>
+<script src="links.js?ver=19a19"></script>
 </head>
 <body> 
 
@@ -175,12 +175,14 @@ let magRes = "";
 let magArray = [];
 
 for (let g=0; g<mags.length; g++) {
+	let numfix=0;
 	for (let i=1; i<mags[g].length; i++) {
+		if (mags[g][i].slice(2,5).indexOf("-")>0) numfix++;
 		if (re.test(mags[g][i])) {
 			magArray = mags[g][i].split('|');
 			let [magName, magPref] = mags[g][0].split("|");
 			magName += " №"+magArray[0].slice(2);
-			if (magArray[0].slice(2) != i) magName += " ("+i+")";
+			if ((magArray[0].slice(2) != (i+numfix)) && (magArray[0].slice(3).indexOf("-")<0)) magName += " ("+(i+numfix)+")";				
 			magName += "’"+magArray[0].slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
 				let [magGame, magPage] = magArray[j].split(",");
