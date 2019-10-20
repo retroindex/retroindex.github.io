@@ -85,10 +85,10 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 
 </style>
 <script src="tv.js?ver=19a12"></script>
-<script src="mags.js?ver=19a19"></script>
+<script src="mags.js?ver=19a20"></script>
 <script src="books.js?ver=19a12"></script>
 <script src="discs.js?ver=19a12"></script>
-<script src="links.js?ver=19a19"></script>
+<script src="links.js?ver=19a20"></script>
 </head>
 <body> 
 
@@ -257,7 +257,7 @@ let [magName, magPref] = mags[mt][0].split("|");
 let galRes = "<div class='gal'><h1>"+magName+"</h1>";
 for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|');
-	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += "<h2>19"+pubYear+"</h2>";}	// Проблема y2k! 
+	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>";}	
 	galRes += "<img title='"+galArray[0]+"' id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this,1)'>";
 	}
 prnt.innerHTML = galRes+"</div>";
