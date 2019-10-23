@@ -32,7 +32,7 @@ P {margin-bottom: 0;}
 .colM TH {background-color: #345fb9;}
 .colD TH {background-color: #8e3ca2;}
 .colV TH {background-color: #fd8405;}
-.gal {text-align: center;}
+.gal {text-align: center; padding-bottom: 40px;}
 .gal img {padding: 0;}
 .cov {width: 64px; cursor: pointer;}
 .np {cursor: auto;}
@@ -85,10 +85,10 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 
 </style>
 <script src="tv.js?ver=19a12"></script>
-<script src="mags.js?ver=19a20"></script>
+<script src="mags.js?ver=19a23"></script>
 <script src="books.js?ver=19a12"></script>
 <script src="discs.js?ver=19a12"></script>
-<script src="links.js?ver=19a20"></script>
+<script src="links.js?ver=19a23"></script>
 </head>
 <body> 
 
@@ -176,8 +176,9 @@ let magArray = [];
 
 for (let g=0; g<mags.length; g++) {
 	let numfix=0;
+	if (g==7) numfix+=17;
 	for (let i=1; i<mags[g].length; i++) {
-		if (mags[g][i].slice(2,5).indexOf("-")>0) numfix++;
+		if (mags[g][i].slice(3,5).indexOf("-")>-1) numfix++;
 		if (re.test(mags[g][i])) {
 			magArray = mags[g][i].split('|');
 			let [magName, magPref] = mags[g][0].split("|");
