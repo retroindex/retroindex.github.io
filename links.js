@@ -1,5 +1,8 @@
 const webLinks = {
 "pcr941":"PC_Review_1-94|2",
+"pcr942":"PC_Review_2-94|4",
+"pcr943":"PC_Review_3-94|2",
+"pcr944":"PC_Review_4-94|3",
 
 "crn941":"Korona_Video-Ass_01|2",
 "crn942":"Korona_Video-Ass_02|2",
@@ -14,7 +17,22 @@ const webLinks = {
 "comp952":"KompAs21995|2",
 "comp953":"KompAs31995|2",
 "comp955":"KompAs51995|2",
-	
+
+"mi951":"GamesMagazine199501|0",
+"mi952":"GamesMagazine199502|2",
+"mi953":"GamesMagazine199503|0",
+"mi954":"GamesMagazine199504|0",
+"mi955":"GamesMagazine199505|2",
+"mi961":"GamesMagazine199601|2",
+"mi962-3":"GamesMagazine19960203|2",
+"mi964":"GamesMagazine199604|2",
+"mi965":"GamesMagazine199605|2",
+"mi966":"GamesMagazine199606|4",
+"mi967-8":"gamesmagazine19960708|2",
+"mi969":"GamesMagazine199609|2",
+"mi9610":"GamesMagazine199610|2",
+"mi9611-12":"GamesMagazine19961112|2",
+
 "pro951":"PRO_Igry_1_1995|0",
 "pro952":"PRO_Igry_2_1995|0",
 "pro953":"PROIgry31995|0",
