@@ -13,6 +13,7 @@ const webLinks = {
 "crn957":"Korona_Video-Ass_07|2",
 "crn958":"Korona_Video-Ass_08|2",
 
+"bah941":"babah1994|2",
 "comp951":"KompAs11995|2",
 "comp952":"KompAs21995|2",
 "comp953":"KompAs31995|2",
@@ -75,6 +76,13 @@ const webLinks = {
 "gl986":"GameLand19980625|0",
 "gl987":"GameLand19980726|0",
 "gl988":"GameLand19980827|0",
+"gl989":"GameLand19980928|0",
+"gl9810":"GameLand19981029|0",
+"gl9811":"GameLand19981130|0",
+"gl9812":"GameLand19981231|0",
+"gl9813":"GameLand_13_32_1998-12|0",
+"gl9814":"GameLand19981433|0",
+
 
 "nim971":"GameWorldNavigator_1997-01-001|2",
 "nim972":"GameWorldNavigator_1997-02-002|2",
@@ -199,5 +207,15 @@ const webLinks = {
 "n_dpk028-9":"DPK_2002_08_09|2",
 "n_dpk0210":"DPK_2002_10|2",
 "n_dpk0211":"DPK_2002_11|2",
-"n_dpk0212":"DPK_2002_12|2"
+"n_dpk0212":"DPK_2002_12|2",
+"n_dpk031-2":"DPK_2003_01_02|2",
+"n_dpk033":"DPK_2003_03|2",
+"n_dpk034":"DPK_2003_04|2",
+"n_dpk035":"DPK_2003_05|2",
+"n_dpk036":"DPK_2003_06|2",
+"n_dpk037":"DPK_2003_07|2",
+"n_dpk038-9":"DPK_2003_08_09|2",
+"n_dpk0310":"DPK_2003_10|2",
+"n_dpk0311":"DPK_2003_11|0",
+"n_dpk0312":"DPK_2003_12|0"
 }
