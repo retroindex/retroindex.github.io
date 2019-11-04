@@ -85,10 +85,10 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 
 </style>
 <script src="tv.js?ver=19a12"></script>
-<script src="mags.js?ver=19b02"></script>
+<script src="mags.js?ver=19b04"></script>
 <script src="books.js?ver=19a12"></script>
 <script src="discs.js?ver=19a12"></script>
-<script src="links.js?ver=19b02"></script>
+<script src="links.js?ver=19b04"></script>
 </head>
 <body> 
 
@@ -100,7 +100,7 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 </div>
 
 <div id="prnt">
-<div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90х</h1><img class="sar" src="sarth.png"><h2>Поиск и архив обзоров игр для IBM&nbspPC&nbsp'92-98</h2></div></div>
+<div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90х</h1><img class="sar" src="sarth.png"><h2>Поиск и архив обзоров игр для IBM&nbspPC&nbsp'92-99</h2></div></div>
 </div>
 
 <div id="covModal"><div id="modContent"></div></div>
@@ -131,7 +131,7 @@ if (!globalSearch(wReg)) {
 		triedAbbr = true;
 		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
-		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 1998 года, или не на PC.</div>';
+		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 1999 года, или не на PC.</div>';
 		}
 	}
 }
@@ -323,6 +323,8 @@ modRes+="</select>"
 document.getElementById('modContent').style.height = cov.naturalHeight;
 document.getElementById('modContent').innerHTML = modRes;
 document.getElementById('modSel').style.height = cov.naturalHeight;
+//document.body.style.height = "100vh";
+//document.body.style.overflowY = "hidden";
 let timeout = null;
 let modalSel = document.getElementById("modSel");
 modalSel.onchange = function (e) {clearTimeout(timeout); timeout = setTimeout(function () {wrapper(modalSel.value)}, 100)};
@@ -331,6 +333,8 @@ modalSel.onchange = function (e) {clearTimeout(timeout); timeout = setTimeout(fu
 let modal = document.getElementById("covModal");
 window.onclick = function (event) {if (event.target == modal) {
 modal.style.display = "none"; 
+//document.body.style.height = "auto";
+//document.body.style.overflowY = "auto";
 }}
 
 
