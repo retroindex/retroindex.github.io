@@ -114,6 +114,7 @@ const webLinks = {
 "nim975":"GameWorldNavigator_1997-05-005|2",
 "nim976":"GameWorldNavigator_1997-06-006|2",
 "nim977":"GameWorldNavigator_1997-07-007|2",
+"nim978":"GameWorldNavigator_1997-08-008|2",
 
 "nim982":"GameWorldNavigator_1998-02-010|2",
 "nim983":"GameWorldNavigator_1998-03-011|2",
