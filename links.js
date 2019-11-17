@@ -126,6 +126,9 @@ const webLinks = {
 "nim989-10":"GameWorldNavigator_1998-09-017-10-018|2",
 "nim9811":"GameWorldNavigator_1998-11-019|2",
 "nim9812":"GameWorldNavigator_1998-12-020|2",
+"nim991":"GameWorldNavigator_1999-01-021|2",
+"nim992":"GameWorldNavigator_1999-02-022|2",
+"nim993":"GameWorldNavigator_1999-03-023|2",
 
 "exe971":"Game.EXE_01_1997|2",
 "exe972":"Game.EXE_02_1997|2",
@@ -241,5 +244,15 @@ const webLinks = {
 "n_dpk038-9":"DPK_2003_08_09|2",
 "n_dpk0310":"DPK_2003_10|2",
 "n_dpk0311":"DPK_2003_11|0",
-"n_dpk0312":"DPK_2003_12|0"
+"n_dpk0312":"DPK_2003_12|0",
+"n_dpk041-2":"DPK_2004_01_02|0",
+"n_dpk043":"DPK_2004_03|0",
+"n_dpk044":"DPK_2004_04|0",
+"n_dpk045":"DPK_2004_05|0",
+"n_dpk046":"DPK_2004_06|0",
+"n_dpk047":"DPK_2004_07|0",
+"n_dpk048-9":"DPK_2004_08_09|0",
+"n_dpk0410":"DPK_2004_10|0",
+"n_dpk0411":"DPK_2004_11|0",
+"n_dpk0412":"DPK_2004_12|0"
 }
