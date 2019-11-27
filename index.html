@@ -141,7 +141,7 @@ function globalSearch(sReg) {
 let re = "";	
 if (/^(of?)?\s*(t|th|the)?$/i.test(sReg)) return;
 if (/(^|\s)[^0-9 .'-]{2,}\d+$/i.test(sReg)) sReg = sReg.replace(/\d+$/,' $&');
-if (sReg.length<3) re = new RegExp("(^|\\|)"+sReg+"($|,)","i")
+if (sReg.length<3 || sReg.indexOf('=')>=0) re = new RegExp("(^|\\|)"+sReg.replace('=','')+"( \\(.+\\))*($|,)","i")
 	else {
 	let sRegArray = sReg.split(/\s+/);
 	let reString = "(^|\\||«|\\(|\\s+)"+sRegArray[0];
