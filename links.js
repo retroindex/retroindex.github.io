@@ -238,6 +238,17 @@ const webLinks = {
 "im0011":"Igromania_2000-11|2",
 "im0012":"Igromania_2000-12|2",
 
+"mg992":"MegaGame19990202|2",
+"mg995":"MegaGame19990505|2",
+"mg996":"MegaGame19990606|2",
+"mg999":"MegaGame19990909|2",
+"mg9910":"MegaGame19991010|2",
+"mg9911":"MegaGame19991111|2",
+"mg9912":"MegaGame19991212|2",
+"mg001":"MegaGame20000113|2",
+"mg002":"MegaGame20000214|2",
+"mg009":"MegaGame20000920|4",
+
 "n_dpk992":"DPK_1999_02|2",
 "n_dpk993":"DPK_1999_03|2",
 "n_dpk994":"DPK_1999_04|2",
