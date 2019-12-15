@@ -1,11 +1,11 @@
-<html>
+﻿<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="icon" type="image/png" href="favicon.png">
 <meta name="theme-color" content="#e9e3cc">
 <meta name="viewport" content="width=450">
 <meta name="author" content="Morendil">
-<meta name="description"  content="Ваш путеводитель по игрожуру 90х — поиск и архив обзоров игр для IBM PC (1992-1998)">
+<meta name="description"  content="Ваш путеводитель по игрожуру 90х — поиск и каталог обзоров старых игр для IBM PC">
 <title>Retroindex</title>
 <style>
 HTML {overflow-y: scroll;}
@@ -22,7 +22,7 @@ P {margin-bottom: 0;}
 #chAuto {border: 1px #4c270e solid; background: #f4efda; border-radius: 15px;}
 #modSel option:nth-child(2n) {background-color: #f0f5ff;}
 #modSel {flex-basis: 292px;}
-.topBar {height: 45px; background-color: #e9e3cc; background: url(paper.jpg); text-align: center; position: sticky; top: 0; padding: 0 15px 0 8px; display: flex; margin: 0; align-items: center;}
+.topBar {height: 45px; background-color: #e9e3cc; background: url(paper.jpg); text-align: center; position: sticky; top: 0; padding: 0 15px 0 8px; display: flex; margin: 0; align-items: center; z-index: 100;}
 .topRex {display: none;}
 .topCenter {flex: 1 0 0; white-space: nowrap; height: 100%;}
 .dtab {flex: 1 0 0; min-width: 400px; max-width: 600px; margin: 12px;}
@@ -64,6 +64,14 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 .ulD a {border-left: 3px #8e3ca2 solid;}
 .ulV a {border-left: 3px #fd8405 solid;}
 
+.gal a {color: white; text-decoration: none; display: inline-block; width: 100%;}
+.gal span:hover div {display: block}
+.gal span {position: relative; display: inline-block; width: 128px; min-height: 120px;}
+.galHint {display: none; position: absolute; bottom: 0; left: 0; padding: 3px; min-width: 30px; background-color: rgba(0, 128, 0, 0.7); color: #fff; font: bold 16px Arial; 
+z-index: 2; border-radius: 0 5px 0 0;}
+.galDis {position: absolute; bottom: 0; right: 0; padding: 3px; min-width: 30px; background-color: rgba(255,0,0,0.5); color: #fff; font: bold 16px Arial; 
+z-index: 2; border-radius: 5px 0 0 0;}
+
 @media (max-width: 840px) { 
 .topLeft {display: none;}
 .topRex {display: block;}
@@ -85,10 +93,10 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 
 </style>
 <script src="tv.js?ver=19a12"></script>
-<script src="mags.js?ver=19c02"></script>
+<script src="mags.js?ver=19c15"></script>
 <script src="books.js?ver=19a12"></script>
 <script src="discs.js?ver=19a12"></script>
-<script src="links.js?ver=19c02"></script>
+<script src="links.js?ver=19c15"></script>
 </head>
 <body> 
 
@@ -100,7 +108,7 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 </div>
 
 <div id="prnt">
-<div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90х</h1><img class="sar" src="sarth.png"><h2>Поиск и архив обзоров игр для IBM&nbspPC&nbsp'92-99</h2></div></div>
+<div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90-х</h1><img class="sar" src="sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div>
 </div>
 
 <div id="covModal"><div id="modContent"></div></div>
@@ -131,7 +139,7 @@ if (!globalSearch(wReg)) {
 		triedAbbr = true;
 		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
-		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 1999 года, или не на PC.</div>';
+		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2000 года, или не на PC.</div>';
 		}
 	}
 }
@@ -251,16 +259,24 @@ if (window.innerWidth < 800 || window.innerWidth < window.screen.width/2) return
 else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mode/2up' target='_blank'><img width='26' src='linked.png'></a>";
 }
 
+function getGalLink (mag) {
+if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/[^0-9-]/g, '').slice(2)+"</div><div class='galDis'>X</div>";
+let [webName, offset] = webLinks[mag].split("|");
+return "<div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace('_','-').replace(/[^0-9-]/g, '').slice(2)+"</a></div>";
+}
+
 function showGal(mt) {
+let galIndex = [];
 let galArray = [];
 let pubYear = '';
 let [magName, magPref] = mags[mt][0].split("|");
 let galRes = "<div class='gal'><h1>"+magName+"</h1>";
 for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|');
+	galIndex.push(magPref+galArray[0]);
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>";}	
 		if (mt==10) {if (galArray[1]=="") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
-	galRes += "<img title='"+galArray[0].slice(2)+"' id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this,1)'>";
+	galRes += "<span class='galSpan' onmouseover='showGalHint()'>"+getGalLink (magPref+galArray[0])+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this,1)'></span>";
 	}
 prnt.innerHTML = galRes+"</div>";
 }

@@ -131,7 +131,6 @@ const webLinks = {
 "gl0023":"GameLand20002380|2",
 "gl0024":"GameLand20002481|2",
 
-
 "nim971":"GameWorldNavigator_1997-01-001|2",
 "nim972":"GameWorldNavigator_1997-02-002|2",
 "nim973":"GameWorldNavigator_1997-03-003|2",
@@ -173,6 +172,18 @@ const webLinks = {
 "nim0010":"gameworldnavigator041200010|2",
 "nim0011":"GameWorldNavigator_2000-11-042|2",
 "nim0012":"GameWorldNavigator_2000-12-043|2",
+"nim011":"GameWorldNavigator_2001-01-044|2",
+"nim012":"GameWorldNavigator_2001-02-045|2",
+"nim013":"GameWorldNavigator_2001-03-046|2",
+"nim014":"GameWorldNavigator_2001-04-047|2",
+"nim015":"GameWorldNavigator_2001-05-048|2",
+"nim016":"GameWorldNavigator_2001-06-049|2",
+"nim017":"GameWorldNavigator_2001-07-050|2",
+"nim018":"GameWorldNavigator_2001-08-051|2",
+"nim019":"GameWorldNavigator_2001-09-052|2",
+"nim0110":"GameWorldNavigator_2001-10-053|2",
+"nim0111":"GameWorldNavigator_2001-11-054|2",
+"nim0112":"GameWorldNavigator_2001-12-055|2",
 
 "exe971":"Game.EXE_01_1997|2",
 "exe972":"Game.EXE_02_1997|2",

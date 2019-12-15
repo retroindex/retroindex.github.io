@@ -146,7 +146,7 @@
 "133|Dune 2000+Carmageddon 2: Carpocalypse Now|19.09.1998|M",
 "134|Spearhead+Return Fire 2+Montezuma's Return|20.09.1998|M",
 "135|Hexplore+Powerboat Racing|26.09.1998|M",
-"136|Half-Life+Need for Speed 3+Mech Commander|27.09.1998|M"
+"136|Half-Life+Need for Speed 3+MechCommander|27.09.1998|M"
 ]
 const bid = [
 "1985|Tetris|10.08.2007",
