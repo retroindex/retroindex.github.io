@@ -50,6 +50,7 @@ const webLinks = {
 "pro968":"PRO_Igry_14_1996|0",
 "pro969-10":"PRO_Igry_15_1996|0",
 
+"gl961":"GameLand19960101FirstIssue|2",
 "gl962":"GameLand19960202|0",
 "gl963":"GameLand_1996_03_03|2",
 "gl964":"GameLand19960404|0",
