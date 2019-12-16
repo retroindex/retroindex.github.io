@@ -262,7 +262,7 @@ else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mod
 function getGalLink (mag) {
 if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/[^0-9-]/g, '').slice(2)+"</div><div class='galDis'>X</div>";
 let [webName, offset] = webLinks[mag].split("|");
-return "<div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace('_','-').replace(/[^0-9-]/g, '').slice(2)+"</a></div>";
+return "<div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace('6_7','6-7').replace(/[^0-9-]/g, '').slice(2)+"</a></div>";
 }
 
 function showGal(mt) {
