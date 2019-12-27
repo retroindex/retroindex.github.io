@@ -50,7 +50,6 @@ const webLinks = {
 "pro968":"PRO_Igry_14_1996|0",
 "pro969-10":"PRO_Igry_15_1996|0",
 
-"gl961":"GameLand19960101FirstIssue|2",
 "gl962":"GameLand19960202|0",
 "gl963":"GameLand_1996_03_03|2",
 "gl964":"GameLand19960404|0",
@@ -74,6 +73,7 @@ const webLinks = {
 "gl983":"GameLand19980322|0",
 "gl984":"GameLand19980423|0",
 
+"gl961":"GameLand19960101FirstIssue|2",
 "gl986":"GameLand19980625|0",
 "gl987":"GameLand19980726|0",
 "gl988":"GameLand19980827|0",
@@ -234,6 +234,19 @@ const webLinks = {
 "exe0010":"Game.EXE_10_2000|1",
 "exe0011":"Game.EXE_11_2000|2",
 "exe0012":"Game.EXE_12_2000|-3",
+"exe011":"Game.EXE_01_2001|-1",
+"exe012":"Game.EXE_02_2001|2",
+"exe013":"Game.EXE_03_2001|2",
+"exe014":"Game.EXE_04_2001|1",
+"exe015":"Game.EXE_05_2001|0",
+"exe016":"Game.EXE_06_2001|0",
+"exe017":"Game.EXE_07_2001|2",
+"exe018":"Game.EXE_08_2001|2",
+"exe019":"Game.EXE_09_2001|0",
+"exe0110":"Game.EXE_10_2001|0",
+"exe0111":"Game.EXE_11_2001|2",
+"exe0112":"Game.EXE_12_2001|2",
+
 
 "im971":"Igromania_1997-09|2",
 "im972":"Igromania_1997-10|2",
