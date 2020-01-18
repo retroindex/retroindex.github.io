@@ -48,7 +48,7 @@
 "47|Virtual Karts+Torin's Passage+Ecstatica|08.06.1997|NM",
 "48|Vampire Diaries+Pike: Операция «Громовержец»|14.06.1997|NM",
 "49|Abrams Battle Tank+Wolfenstein 3D+Diablo (Battle.net)+Carmageddon|15.06.1997|NM",
-"49<sub>2</sub>|Freddy Fish 2+Descent 2|21.06.1997|X",
+"49<sub>2</sub>|Freddi Fish 2+Descent 2|21.06.1997|X",
 "49<sub>3</sub>|Extreme Assault+Quarantine 2: Road Warrior|22.06.1997|X",
 "49<sub>4</sub>|Alien Earth+Broken Sword+Lost Paradise|28.06.1997|X",
 "49<sub>5</sub>|Titanic+Witchaven 2+Daytona USA|29.06.1997|X",
