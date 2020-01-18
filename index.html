@@ -276,7 +276,7 @@ for (let i=1; i<mags[mt].length; i++) {
 	galIndex.push(magPref+galArray[0]);
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>";}	
 		if (mt==10) {if (galArray[1]=="") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
-	galRes += "<span class='galSpan' onmouseover='showGalHint()'>"+getGalLink (magPref+galArray[0])+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this,1)'></span>";
+	galRes += "<span class='galSpan'>"+getGalLink (magPref+galArray[0])+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this,1)'></span>";
 	}
 prnt.innerHTML = galRes+"</div>";
 }
