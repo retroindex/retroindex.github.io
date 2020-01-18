@@ -51,6 +51,7 @@ const book_details = {
 "nim4":"Энциклопедия компьютерных игр. Выпуск 4|5-88952-018-0|Библион / НИМ|2001|5000",
 "nim5":"Энциклопедия компьютерных игр. Выпуск 5|5-94891-001-6|Навигатор Паблишинг|2002|5000",
 "nim6":"Энциклопедия компьютерных игр. Выпуск 6|5-94891-002-4|Навигатор Паблишинг|2002|5000",
+"nim8":"Энциклопедия компьютерных игр. Выпуск 8|5-94891-004-0|Навигатор Паблишинг|2003|5000",
 "im01":"Лучшие компьютерные игры. Выпуск 1|5-7594-0053-3|Астрея / Игромания|1998|10000",
 "im02":"Лучшие компьютерные игры. Выпуск 2|5-7594-0053-3|Астрея / Игромания|1998|10000",
 "im03":"Лучшие компьютерные игры. Выпуск 3|5-7594-0072-Х|Астрея / Игромания|1999|10000",
@@ -166,7 +167,8 @@ const books = [["Книги издательства «Аквариум»",
 "nim3|Атлантида 2,3|Gorky 17,11|Князь (Konung),18|Петька и Василий Иванович 2: Судный день,25|Age of Empires 2,29|Age of Wonders,76|Delta Force,105|Disciples: Sacred Lands,121|Freespace 2,151|Homeworld,163|MiG Alley,179|Revenant,187|Legacy of Kain: Soul Reaver,205|Spec Ops 2: Green Berets,216|Traitors Gate,227|Unreal,233",
 "nim4|Атлантида 3,3|Новые приключения мушкетеров,15|Aliens versus Predator 2,19|Commandos 2: Men of Courage,48|Deadly Dozen,73|Fallout Tactics,86|Magic & Mayhem 2,130|Max Payne,142|Civilization 3,170|Red Faction,187|Operation Flashpoint: Cold War Crisis,213|Sub Command,233|Tom Clancy's Ghost Recon,255|Venom,273|C&C: Red Alert 2,293",
 "nim5|Command & Conquer: Renegade,3|Демиурги,42|Disciples 2: Dark Prophecy,55|Frank Herbert's Dune,64|Medal of Honor: Allied Assault,74|Петька 3: Возвращение Аляски,105|Return to Castle Wolfenstein,121|Rock Manager,152|Shadow Force: Razor Unit,162|Legacy of Kain: Soul Reaver 2,181|Star Wars: Galactic Battlegrounds,202|Stronghold,206|Stupid Invaders,219|The Watchmaker,234|Wizardry 8,246",
-"nim6|Dungeon Siege,3|Global Operations,31|Grand Theft Auto 3,59|Джаз и Фауст,96|Legacy of Kain: Blood Omen 2,110|Might & Magic 9,148|Operation Flashpoint: Red Hammer,184|Project Earth,224|Soldier of Fortune 2,239|The Elder Scrolls 3: Morrowind,269|WarCraft 3,303"
+"nim6|Dungeon Siege,3|Global Operations,31|Grand Theft Auto 3,59|Джаз и Фауст,96|Legacy of Kain: Blood Omen 2,110|Might & Magic 9,148|Operation Flashpoint: Red Hammer,184|Project Earth,224|Soldier of Fortune 2,239|The Elder Scrolls 3: Morrowind,269|WarCraft 3,303",
+"nim8|Devastation,-|Freelancer,-|Ghost Master,-|Grom,-|Impossible Creatures,-|O.R.B.,-|Post Morten,-|Robin Hood: The Legend of Sherwood,-|Космические рейнджеры,-|Silent Hill 2,-|Tomb Raider 6,-|Rainbow Six 3: Raven Shield,-|Unreal 2: The Awakening,-"
 ],["Газета «Мой Компьютер Игровой»",
 "mik991|StarCraft,4|Commandos: Behind Enemy Lines,9|MechCommander,11|Spellcross,13|Caesar 3,16|Fallout 2,20|SiN,28|Tomb Raider 3,32|Unreal,35|Freddi Fish,37|Putt-Putt,39|Приключения Пети,41|Братья Пилоты: Дело о серийном маньяке,43|Петька и Василий Иванович спасают галактику,44|FIFA 99,49|NHL 99,50|NBA Live 99,51|Carmageddon 2: Carpocalypse Now,52|Need for Speed 3,56",
 "mik994|War Diary,6|Duke Nukem Forever,6|Vampire: The Masquerade - Redemption,7|Baldur's Gate: Tales of the Sword Coast,8|Master of Magic,11|Kingpin: Life of Crime,13|SiN: Wages of Sin,14|Scotland Yard,15|Аллоды 2: Повелитель душ,16|Commandos: Beyond the Call of Duty,17|Pajama Sam,18|Nightmare Ned,18|Rugrats Adventure Game,19|Дача кота Леопольда,19|Heroes of Might & Magic 3,26",
