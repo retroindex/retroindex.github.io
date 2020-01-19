@@ -247,7 +247,6 @@ const webLinks = {
 "exe0111":"Game.EXE_11_2001|2",
 "exe0112":"Game.EXE_12_2001|2",
 
-
 "im971":"Igromania_1997-09|2",
 "im972":"Igromania_1997-10|2",
 "im973":"Igromania_1997-11|2",
@@ -287,6 +286,17 @@ const webLinks = {
 "im0010":"Igromania_2000-10|2",
 "im0011":"Igromania_2000-11|2",
 "im0012":"Igromania_2000-12|2",
+"im011":"Igromania_2001-01|2",
+"im012-3":"Igromania_2001-02-03|2",
+"im014":"Igromania200104043|2",
+"im015":"Igromania_2001-05|2",
+"im016":"Igromania_2001-06|2",
+"im017":"Igromania_2001-07|2",
+"im018":"Igromania_2001-08|2",
+"im019":"Igromania_2001-09|2",
+"im0110":"Igromania_2001-10|2",
+"im0111":"Igromania_2001-11|2",
+"im0112":"Igromania_2001-12|2",
 
 "mg992":"MegaGame19990202|2",
 "mg995":"MegaGame19990505|2",
