@@ -69,7 +69,6 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 .gal span {position: relative; display: inline-block; width: 128px; min-height: 120px; cursor: help;}
 .galHint {display: none; position: absolute; bottom: 0; left: 0; padding: 3px; min-width: 30px; background-color: rgba(0, 128, 0, 0.7); color: #fff; font: bold 16px Arial; 
 z-index: 2; border-radius: 0 5px 0 0;}
-.galDis {position: absolute; bottom: 0; right: 0; padding: 3px; min-width: 30px; background-color: rgba(255,0,0,0.5); color: #fff; font: bold 16px Arial; 
 z-index: 2; border-radius: 5px 0 0 0;}
 
 @media (max-width: 840px) { 
@@ -93,7 +92,7 @@ z-index: 2; border-radius: 5px 0 0 0;}
 
 </style>
 <script src="tv.js?ver=19a12"></script>
-<script src="mags.js?ver=20119"></script>
+<script src="mags.js?ver=20201"></script>
 <script src="books.js?ver=20118"></script>
 <script src="discs.js?ver=19a12"></script>
 <script src="links.js?ver=20119"></script>
@@ -260,7 +259,7 @@ else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mod
 }
 
 function getGalLink (mag) {
-if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/[^0-9-]/g, '').slice(2)+"</div><div class='galDis'>X</div>";
+if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/[^0-9-]/g, '').slice(2)+"</div>";
 let [webName, offset] = webLinks[mag].split("|");
 return "<div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace('6_7','6-7').replace(/[^0-9-]/g, '').slice(2)+"</a></div>";
 }
