@@ -17,6 +17,7 @@ const webLinks = {
 "comp951":"KompAs11995|2",
 "comp952":"KompAs21995|2",
 "comp953":"KompAs31995|2",
+"comp954":"KompAs41995|2",
 "comp955":"KompAs51995|2",
 
 "mi951":"GamesMagazine199501|0",
