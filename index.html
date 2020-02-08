@@ -69,6 +69,7 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 .gal span {position: relative; display: inline-block; width: 128px; min-height: 120px; cursor: help;}
 .galHint {display: none; position: absolute; bottom: 0; left: 0; padding: 3px; min-width: 30px; background-color: rgba(0, 128, 0, 0.7); color: #fff; font: bold 16px Arial; 
 z-index: 2; border-radius: 0 5px 0 0;}
+.galDis {position: absolute; bottom: 0; right: 0; padding: 3px; min-width: 30px; background-color: rgba(255,0,0,0.5); color: #fff; font: bold 16px Arial; 
 z-index: 2; border-radius: 5px 0 0 0;}
 
 @media (max-width: 840px) { 
@@ -92,7 +93,7 @@ z-index: 2; border-radius: 5px 0 0 0;}
 
 </style>
 <script src="tv.js?ver=19a12"></script>
-<script src="mags.js?ver=20201"></script>
+<script src="mags.js?ver=20119"></script>
 <script src="books.js?ver=20118"></script>
 <script src="discs.js?ver=19a12"></script>
 <script src="links.js?ver=20119"></script>
@@ -170,7 +171,7 @@ for (let g=0; g<books.length; g++) {
 			let [bName,bISBN,bPub,bYear,bQty] = book_details[bookArray[0]].split("|");
 			for (let j=1; j<bookArray.length; j++) {
 				let [bGame, bPage] = bookArray[j].split(",");
-				if (re.test(bookArray[j])) bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' id='b-"+g+"-"+i+"' src='cvs/b_"+bookArray[0]+".jpg' onclick='showModal(this,0)'></th><th>"+bGame+"</th><th>"+bPage+"</th></tr><tr><td>"+bName+"<br>Издательство "+bPub+", "+bYear+"<br>ISBN: "+bISBN+"</td><td>*</td></tr></table></div>"
+				if (re.test(bookArray[j])) bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' id='b-"+g+"-"+i+"' src='cvs/b_"+bookArray[0]+".jpg' onclick='showModal(this)'></th><th>"+bGame+"</th><th>"+bPage+"</th></tr><tr><td>"+bName+"<br>Издательство "+bPub+", "+bYear+"<br>ISBN: "+bISBN+"</td><td>*</td></tr></table></div>"
 			}
 		}
 	}
@@ -194,7 +195,7 @@ for (let g=0; g<mags.length; g++) {
 			magName += "’"+magArray[0].slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
 				let [magGame, magPage] = magArray[j].split(",");
-				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this,1)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
+				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
 			}
 		}
 	}
@@ -217,7 +218,7 @@ for (let g=0; g<dis.length; g++) {
 		else if (discArray[0].slice(2) != (i+numfix)) discName += " ("+(i+numfix)+")";
 		discName += "’"+discArray[0].slice(0,2);
 		for (let j=1; j<discArray.length; j++) {
-			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg'"+cds+" onclick='showModal(this,2)'></th><th>"+discArray[j]+"</th><th><img src='"+dType+"'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
+			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg'"+cds+" onclick='showModal(this)'></th><th>"+discArray[j]+"</th><th><img src='"+dType+"'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
 		}
 	}
  }
@@ -259,12 +260,13 @@ else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mod
 }
 
 function getGalLink (mag) {
+//if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/[^0-9-]/g, '').slice(2)+"</div><div class='galDis'>X</div>";
 if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/[^0-9-]/g, '').slice(2)+"</div>";
 let [webName, offset] = webLinks[mag].split("|");
 return "<div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace('6_7','6-7').replace(/[^0-9-]/g, '').slice(2)+"</a></div>";
 }
 
-function showGal(mt) {
+function showGal(mt,ms) {
 let galIndex = [];
 let galArray = [];
 let pubYear = '';
@@ -275,9 +277,10 @@ for (let i=1; i<mags[mt].length; i++) {
 	galIndex.push(magPref+galArray[0]);
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>";}	
 		if (mt==10) {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
-	galRes += "<span class='galSpan'>"+getGalLink (magPref+galArray[0])+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this,1)'></span>";
+	galRes += "<span class='galSpan'>"+getGalLink (magPref+galArray[0])+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
 	}
 prnt.innerHTML = galRes+"</div>";
+if (ms !== undefined) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false);
 }
 
 function showBookGal(mt) {
@@ -287,7 +290,7 @@ for (let i=1; i<books[mt].length; i++) {
 	let bookID = books[mt][i].split("|")[0];
 	let curYear = book_details[bookID].split("|")[3];
 	if (curYear != pubYear) {pubYear = curYear; galRes += "<h2>"+pubYear+"</h2>";}
-	galRes += "<img title='"+bookID+"' id='b-"+mt+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this,0)'>";
+	galRes += "<img title='"+bookID+"' id='b-"+mt+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
 	}
 prnt.innerHTML = galRes+"</div>";
 }
@@ -300,28 +303,29 @@ let galRes = "<div class='gal'><h1>"+magName+"</h1>";
 for (let i=1; i<dis[mt].length; i++) {
 	galArray = dis[mt][i].split('|');
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += "<h2>19"+pubYear+"</h2>";}
-	galRes += "<img title='"+galArray[0]+"' id='d-"+mt+"-"+i+"' src='cvs/d_"+magPref+galArray[0]+".jpg' onclick='showModal(this,2)'>";
+	galRes += "<img title='"+galArray[0]+"' id='d-"+mt+"-"+i+"' src='cvs/d_"+magPref+galArray[0]+".jpg' onclick='showModal(this)'>";
 	}
 prnt.innerHTML = galRes+"</div>";
 }
 
-function showModal(cov,mType) {
+window.prevMod = '';
+
+function showModal(cov) {
 modal.style.display = "flex";
-
 let magGame = ''; let modRes = ''; let magArray = [];
-let [mT,m1,m2] = cov.id.split("-");
+let [mType,m1,m2] = cov.id.split("-");
 
-if (mType == 0) {
+if (mType == "b") {
 modRes = "<img src='"+cov.src+"' onclick='showBookGal("+m1+")'>";
 magArray = books[m1][m2].split('|');
 document.getElementById('modContent').style.borderColor = "#5d9d52";
 }
-else if (mType == 1) {
-modRes = "<img src='"+cov.src+"' onclick='showGal("+m1+")'>";
+else if (mType == "m") {
+modRes = "<img src='"+cov.src+"' onclick='showGal("+m1+","+m2+")'>";
 magArray = mags[m1][m2].split('|');
 document.getElementById('modContent').style.borderColor = "#345fb9";
 }
-else if (mType == 2) {
+else if (mType == "d") {
 modRes = "<img src='"+cov.src+"' onclick='showDiscGal("+m1+")'>";
 magArray = dis[m1][m2].split('|');
 document.getElementById('modContent').style.borderColor = "#8e3ca2";
@@ -339,8 +343,8 @@ modRes+="</select>"
 document.getElementById('modContent').style.height = cov.naturalHeight;
 document.getElementById('modContent').innerHTML = modRes;
 document.getElementById('modSel').style.height = cov.naturalHeight;
-//document.body.style.height = "100vh";
-//document.body.style.overflowY = "hidden";
+if (cov.id != prevMod) document.getElementById('modSel').scrollTop = 0;
+prevMod = cov.id;
 let timeout = null;
 let modalSel = document.getElementById("modSel");
 modalSel.onchange = function (e) {clearTimeout(timeout); timeout = setTimeout(function () {wrapper(modalSel.value)}, 100)};
