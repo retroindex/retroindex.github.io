@@ -217,7 +217,7 @@ const webLinks = {
 "nim027":"GameWorldNavigator_2002-07-062|2",
 "nim028":"GameWorldNavigator_2002-08-063|2",
 "nim029":"GameWorldNavigator_2002-09-064|2",
-"nim0210":"GameWorldNavigator_2002-10-065|2"
+"nim0210":"GameWorldNavigator_2002-10-065|2",
 
 "exe971":"Game.EXE_01_1997|2",
 "exe972":"Game.EXE_02_1997|2",
