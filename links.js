@@ -210,6 +210,14 @@ const webLinks = {
 "nim0110":"GameWorldNavigator_2001-10-053|2",
 "nim0111":"GameWorldNavigator_2001-11-054|2",
 "nim0112":"GameWorldNavigator_2001-12-055|2",
+"nim021":"GameWorldNavigator_2002-01-056|2",
+"nim022":"GameWorldNavigator_2002-02-057|2",
+"nim024":"GameWorldNavigator_2002-04-059|2",
+"nim026":"GameWorldNavigator_2002-06-061|2",
+"nim027":"GameWorldNavigator_2002-07-062|2",
+"nim028":"GameWorldNavigator_2002-08-063|2",
+"nim029":"GameWorldNavigator_2002-09-064|2",
+"nim0210":"GameWorldNavigator_2002-10-065|2"
 
 "exe971":"Game.EXE_01_1997|2",
 "exe972":"Game.EXE_02_1997|2",
