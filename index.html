@@ -14,12 +14,12 @@ TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: 
 H1,H2 {font-family: Arial;}
 H2 {color: #800000;}
 P {margin-bottom: 0;}
-#sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3); transition: background-color .3s ease-out;}
-#sInp:focus {background: #fff;}
-#sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background: #f4efda; outline: none;}
-#sel {height: 25px; margin-right: 0; font-size:14px; outline: none; border: 0; background: #f4efda;}
+#sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background-color: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3); transition: background-color .3s ease-out;}
+#sInp:focus {background-color: #fff;}
+#sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background-color: #f4efda; outline: none;}
+#sel {height: 25px; margin-right: 0; font-size:14px; outline: none; border: 0; background-color: #f4efda;}
 #prnt {display: flex; flex-wrap: wrap; justify-content: center;} 
-#chAuto {border: 1px #4c270e solid; background: #f4efda; border-radius: 15px;}
+#chAuto {border: 1px #4c270e solid; background-color: #f4efda; border-radius: 15px;}
 #modSel option:nth-child(2n) {background-color: #f0f5ff;}
 #modSel {flex-basis: 292px; flex-grow: 1;}
 .topBar {height: 45px; background-color: #e9e3cc; background: url(paper.jpg); text-align: center; position: sticky; top: 0; padding: 0 15px 0 8px; display: flex; margin: 0; align-items: center; z-index: 100;}
@@ -33,7 +33,13 @@ P {margin-bottom: 0;}
 .colD TH {background-color: #8e3ca2;}
 .colV TH {background-color: #fd8405;}
 .gal {text-align: center; padding-bottom: 40px; max-width: 1800px;}
-.gal img {padding: 0;}
+.gal img {padding: 0; min-height: 128px;}
+.gal a {color: white; text-decoration: none; display: inline-block; width: 100%;}
+.gal span:hover div {display: block;}
+.gal span {position: relative; display: inline-block; width: 128px; cursor: help;}
+.galHint {display: none; position: absolute; bottom: 0; left: 0; padding: 3px; min-width: 30px; background-color: rgba(0, 128, 0, 0.7); color: #fff; font: bold 16px Arial; 
+z-index: 2; border-radius: 0 5px 0 0;}
+.galDis {position: absolute; top: 0; right: 0; z-index: 2; border-right: 20px solid rgba(255,0,0,0.5); border-left: 20px solid transparent; border-bottom: 20px solid transparent;}
 .cov {width: 64px; cursor: pointer;}
 .np {cursor: auto;}
 .mobSelect {display: none;}
@@ -53,7 +59,7 @@ P {margin-bottom: 0;}
 #modContent {background: #e9e3cc url(paper.jpg); border-radius: 15px; padding: 10px; border: 3px solid #345fb9; width: 450px; z-index: 20; display: flex; align-items: flex-start;}
 nav {white-space: nowrap; }
 nav ul {padding:0; margin:0; list-style: none; position: relative;}
-nav ul li {margin: 0; display:inline-block; background: #f4efda;}
+nav ul li {margin: 0; display:inline-block; background-color: #f4efda;}
 nav a {display:block; text-align: left; padding:0 5px; color:#000; font: 15px Arial; line-height: 30px; text-decoration:none; cursor: pointer; border-top: 1px #ccc dotted;}
 nav a:hover {background-color: #b20f0b; color: #fff;}
 nav ul ul {display: none; position: absolute; top: 100%; left: 0;}
@@ -63,13 +69,6 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 .ulM a {border-left: 3px #345fb9 solid;}
 .ulD a {border-left: 3px #8e3ca2 solid;}
 .ulV a {border-left: 3px #fd8405 solid;}
-
-.gal a {color: white; text-decoration: none; display: inline-block; width: 100%;}
-.gal span:hover div {display: block;}
-.gal span {position: relative; display: inline-block; width: 128px; min-height: 120px; cursor: help;}
-.galHint {display: none; position: absolute; bottom: 0; left: 0; padding: 3px; min-width: 30px; background-color: rgba(0, 128, 0, 0.7); color: #fff; font: bold 16px Arial; 
-z-index: 2; border-radius: 0 5px 0 0;}
-.galDis {position: absolute; top: 0; right: 0; z-index: 2; border-right: 20px solid rgba(255,0,0,0.5); border-left: 20px solid transparent; border-bottom: 20px solid transparent;}
 
 @media (max-width: 840px) { 
 .topLeft {display: none;}
@@ -194,7 +193,7 @@ for (let g=0; g<mags.length; g++) {
 			magName += "’"+magArray[0].slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
 				let [magGame, magPage] = magArray[j].split(",");
-				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
+				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName.replace('_','-')+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
 			}
 		}
 	}
@@ -250,7 +249,8 @@ return true;
 
 function getLink (mag,page) {
 if (!webLinks.hasOwnProperty(mag)) return "<img width='15' src='nolink.png'>";
-let [webName, offset] = webLinks[mag].split("|");
+let [webName, offset, poster] = webLinks[mag].split("|");
+if (poster != null) if (Number(page) > Number(poster)) offset-=4;
 let web1p = Number(page)+Number(offset)-1; 
 let web2p = (web1p%2) == 0 ? web1p-1 : web1p;
 //if (documentElement.clientWidth < 900) 
@@ -259,9 +259,10 @@ else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mod
 }
 
 function getGalLink (mag) {
-if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/[^0-9-]/g, '').slice(2)+"</div><div class='galDis'></div>";
+//if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/[^0-9-]/g, '').slice(2)+"</div><div class='galDis'></div>";
+if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</div><div class='galDis'></div>";
 let [webName, offset] = webLinks[mag].split("|");
-return "<div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace('6_7','6-7').replace(/[^0-9-]/g, '').slice(2)+"</a></div>";
+return "<div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</a></div>";
 }
 
 function showGal(mt,ms) {
@@ -275,7 +276,7 @@ for (let i=1; i<mags[mt].length; i++) {
 	galIndex.push(magPref+galArray[0]);
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>";}	
 		if (mt==10) {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
-	galRes += "<span class='galSpan'>"+getGalLink (magPref+galArray[0])+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
+	galRes += "<span>"+getGalLink (magPref+galArray[0])+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
 	}
 prnt.innerHTML = galRes+"</div>";
 if (ms !== undefined) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false);
@@ -357,7 +358,7 @@ modal.style.display = "none";
 
 
 function prntHelp () {
-let inF1="Приветствую вас на страницах путеводителя по игрожуру девяностых! <p>Наберите небольшую часть названия интересующей игры (civ, re ark, слон). Для удобства пользуйтесь клавишами Enter и Escape, или вовсе включите автопоиск. Если части слов не находятся, делается предположение, что набрана аббревиатура (lba, mm6), которая также ищется. Пробел перед номером части необязателен (gob2). Символ <b>=</b> в любом месте поикового запроса позволит найти точное совпадение без лишних результатов (gothic). Можно публиковать в сети ссылки на конкретные игры через хеш-символ: <a href='https://retroindex.github.io#homm2' target='_blank'>retroindex.github.io#homm2</a> <p>В выдаче формируется адаптивная сетка из 4х категорий: журналы, книги, дискмаги и телепередачи. Клик по обложке вызывает оглавление номера, из которого можно перейти как к галерее номеров данного издания, так и к новой выдаче по игре из оглавления. Таким образом можно путешествовать по базе, не прикасаясь к поиску. Альтернативный способ навигации — выбрать категорию и архив номеров игрового издания в меню справа от поиска. <p>Часть закладок в выдаче содержит ссылку на Archive.org, непосредственно на нужную страницу, или разворот хранящегося там документа. Возможные промахи сигнализируют о сбитой нумерации документа — удалены страницы с рекламой, сквозные постеры итд. На некоторых устройствах Архив будет пытаться подсунуть низкокачественные страницы, это исправляется переходом в полноэкранный режим (стрелка вниз в правом нижнем углу). <p>Впереди еще много работы по наполнению базы и улучшению приложения. При желании вы можете присоединиться к проекту, или <a href='https://www.old-games.ru/forum/threads/starye-kompjuternye-igrovye-zhurnaly.31874/' target='og'>сообщить</a> о существовании неизвестных нашему сообществу изданий. Внесите свой вклад в историю игровой журналистики! <p align='right'>Morendil</p>";
+let inF1="Приветствую вас на страницах путеводителя по игрожуру девяностых! <p>Наберите небольшую часть названия интересующей игры (civ, re ark, слон). Для удобства пользуйтесь клавишами Enter и Escape, или вовсе включите автопоиск. Если части слов не находятся, делается предположение, что набрана аббревиатура (lba, mm6), которая также ищется. Пробел перед номером части необязателен (gob2). Символ <b>=</b> в любом месте поикового запроса позволит найти точное совпадение без лишних результатов (gothic). Можно публиковать в сети ссылки на конкретные игры через хеш-символ: <a href='https://retroindex.github.io#homm2' target='_blank'>retroindex.github.io#homm2</a> <p>В выдаче формируется адаптивная сетка из 4х категорий: журналы, книги, дискмаги и телепередачи. Клик по обложке вызывает оглавление номера, из которого можно перейти как к галерее номеров данного издания, так и к новой выдаче по игре из оглавления. Таким образом можно путешествовать по базе, не прикасаясь к поиску. Альтернативный способ навигации — выбрать категорию и архив номеров игрового издания в меню справа от поиска. <p>Часть закладок в выдаче содержит ссылку на Archive.org, непосредственно на нужную страницу, или разворот хранящегося там документа. Возможные промахи сигнализируют о сбитой нумерации документа — удалены страницы с рекламой, сквозные постеры итд. На некоторых устройствах Архив будет пытаться подсунуть низкокачественные страницы, это исправляется переходом в полноэкранный режим (стрелка вниз в правом нижнем углу). <p>Впереди еще много работы по наполнению базы и улучшению приложения. При желании вы можете <a href='https://www.old-games.ru/forum/threads/88160/' target='og'>присоединиться</a> к проекту, или <a href='https://www.old-games.ru/forum/threads/31874/' target='og'>сообщить</a> о существовании неизвестных нашему сообществу изданий. Внесите свой вклад в историю игровой журналистики! <p align='right'>Morendil</p>";
 prnt.innerHTML = "<div class='infMsg'>"+inF1+"</div>";
 }
 
