@@ -62,7 +62,7 @@ const webLinks = {
 "gl972":"GameLand19970210|0",
 "gl973":"GameLand19970311|0|73",
 "gl974":"GameLand19970412|0|73",
-"gl975":"GameLand19970513|-2|73",
+"gl975":"GameLand19970513|0|73",
 "gl976":"GameLand19970614|0|73",
 "gl977":"GameLand19970715|0|65",
 "gl978":"GameLand19970816|0",
@@ -348,7 +348,6 @@ const webLinks = {
 "im024":"Igromania_2002-04|2",
 "im029":"Igromania_2002-09|1",
 
-
 "mg992":"MegaGame19990202|2",
 "mg995":"MegaGame19990505|2",
 "mg996":"MegaGame19990606|2",
@@ -358,6 +357,10 @@ const webLinks = {
 "mg9912":"MegaGame19991212|2",
 "mg001":"MegaGame20000113|2",
 "mg002":"MegaGame20000214|2",
+"mg003":"MegaGame20000315|2",
+"mg004":"MegaGame20000416|2",
+"mg006":"MegaGame20000617|2",
+"mg007":"MegaGame20000718|2",
 "mg009":"MegaGame20000920|4",
 
 "sh011":"Shpil20010101|2|23",
