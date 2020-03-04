@@ -373,6 +373,7 @@ const webLinks = {
 "im029":"Igromania_2002-09|1",
 
 "mg992":"MegaGame19990202|2",
+"mg993":"MegaGame19990303|2",
 "mg995":"MegaGame19990505|2",
 "mg996":"MegaGame19990606|2",
 "mg999":"MegaGame19990909|2",
