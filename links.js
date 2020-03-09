@@ -472,3 +472,11 @@ const webLinks = {
 "n_dpk0411":"DPK_2004_11|0",
 "n_dpk0412":"DPK_2004_12|0"
 }
+const hashTags = {
+"gameland":6,
+"nim":7,
+"exe":8,
+"igromania":9,
+"megagame":10,
+"spiel":11
+}
