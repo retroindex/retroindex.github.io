@@ -115,17 +115,20 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 
 if (window.location.hash) {
 let sHash = window.location.hash.substring(1);
+history.pushState(null, null, ' ');
+if (hashTags.hasOwnProperty(sHash)) showGal(hashTags[sHash]);
+else {
 sHash = sHash.replace(/%20|_/g, ' ');
 sInp.value = sHash;	
 wrapper(sHash);
-history.pushState(null, null, ' ');
-}
+}}
 
 let timeout = null;	// debounce
 sInp.onkeyup = function (e) {if (chAuto.checked) {clearTimeout(timeout); timeout = setTimeout(function () {wrapper(sInp.value.trim())}, 500)}};
 
 document.addEventListener('keyup', function(event) {if (event.key == 'Enter') wrapper(sInp.value.trim())});
 document.addEventListener('keydown', function(event) {if (event.key == 'Escape') sInp.value="";});
+window.addEventListener('hashchange', function() {location.reload();}, false);
 
 function wrapper(wReg) {
 let triedAbbr = false;
