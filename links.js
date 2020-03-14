@@ -51,6 +51,7 @@ const webLinks = {
 "pro968":"PRO_Igry_14_1996|0",
 "pro969-10":"PRO_Igry_15_1996|0",
 
+"gl961":"GameLand19960101FirstIssue|2",
 "gl962":"GameLand19960202|0",
 "gl963":"GameLand_1996_03_03|2",
 "gl964":"GameLand19960404|0",
@@ -74,7 +75,6 @@ const webLinks = {
 "gl983":"GameLand19980322|0",
 "gl984":"GameLand19980423|0",
 "gl985":"GameLand19980524|-2",
-"gl961":"GameLand19960101FirstIssue|2",
 "gl986":"GameLand19980625|0",
 "gl987":"GameLand19980726|0",
 "gl988":"GameLand19980827|0",
@@ -472,11 +472,14 @@ const webLinks = {
 "n_dpk0411":"DPK_2004_11|0",
 "n_dpk0412":"DPK_2004_12|0"
 }
+
 const hashTags = {
 "gameland":6,
 "nim":7,
 "exe":8,
 "igromania":9,
 "megagame":10,
-"spiel":11
+"lki":11,
+"mik":12,
+"spiel":13
 }
