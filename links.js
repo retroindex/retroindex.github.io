@@ -396,6 +396,7 @@ const webLinks = {
 "mg002":"MegaGame20000214|2",
 "mg003":"MegaGame20000315|2",
 "mg004":"MegaGame20000416|2",
+"mg005":"MegaGame20000517|2",
 "mg006":"MegaGame20000617|2",
 "mg007":"MegaGame20000718|2",
 "mg009":"MegaGame20000920|4",
