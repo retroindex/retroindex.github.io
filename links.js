@@ -518,5 +518,6 @@ const hashTags = {
 "megagame":10,
 "lki":11,
 "mik":12,
-"spiel":13
+"spiel":13,
+"cgw":14
 }
