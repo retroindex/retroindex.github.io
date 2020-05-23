@@ -91,10 +91,10 @@ nav ul ul li {min-width:250px; display:list-item; position: relative;}
 
 </style>
 <script src="tv.js?ver=19a12"></script>
-<script src="mags.js?ver=20326"></script>
-<script src="books.js?ver=20326"></script>
+<script src="mags.js?ver=20523"></script>
+<script src="books.js?ver=20523"></script>
 <script src="discs.js?ver=19a12"></script>
-<script src="links.js?ver=20314"></script>
+<script src="links.js?ver=20523"></script>
 </head>
 <body> 
 
@@ -118,8 +118,8 @@ let sHash = window.location.hash.substring(1);
 history.pushState(null, null, ' ');
 if (hashTags.hasOwnProperty(sHash)) showGal(hashTags[sHash]);
 else {
-sHash = sHash.replace(/%20|_/g, ' ');
-sInp.value = sHash;	
+if (sHash.indexOf('%')>=0) sHash = decodeURI(sHash); sHash = sHash.replace('_',' ');
+sInp.value = sHash;
 wrapper(sHash);
 }}
 
