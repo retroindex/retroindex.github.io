@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="icon" type="image/png" href="favicon2.png">
+<title>Rex Tools - PageChecker</title>
+<style>
+BODY {background: #e9e3cc url(/paper.jpg) scroll; margin: 0; font-family: Arial;}
+TH {background-color: rgba(0,0,0,0.2);}
+.mn {background-color: #800; color: #fff;}
+.mTable TD:nth-child(2) {text-align: left;}
+.header {background-color: #e9e3cc; background: url(paper.jpg); position: sticky; top: 0};
+</style>
+<script src="/mags.js?ver=20608"></script>
+<script src="links_exe.js?ver=20629"></script>
+</head>
+<body> 
+<center><table border=1 cellspacing=0 cellpadding=5 class='header'>
+<tr><th width=30>#</th><th width=300><label><input type="checkbox" id="p2" onchange="pagecheck()"> <u>Развороты (2p)</u></label></th><th width=30><</th><th width=30>></th><th width=50>Сдвиг</th><th width=60>Правки</th></tr></table>
+<div id="prnt"></div></center>
+
+<script type="text/javascript">
+
+function pagecheck() {
+let magRes = "";
+let magArray = [];
+let pgRes = "<table class='mTable' border=1 cellspacing=0 cellpadding=5>";
+for (g=0; g<mags.length; g++) {
+	pgRes += "<tr><th colspan='6' class='mn'>"+mags[g][0].split("|")[0]+"</th></tr>";
+	let numfix=0;
+	let pubYear = '';
+	if (g==8) numfix+=17;	// EXE
+	if (g==11) numfix+=13;  // ЛКИ
+	for (let i=1; i<mags[g].length; i++) {
+		magArray = mags[g][i].split('|');
+		let [magName, magPref] = mags[g][0].split("|");
+		magName += " №"+magArray[0].slice(2);
+		magName += "’"+magArray[0].slice(0,2);
+		let mag = mags[g][0].split("|")[1]+mags[g][i].split("|")[0];
+		let edits = '';
+		if (!webLinks.hasOwnProperty(mag)) continue;
+		let [webName, offset, fixes] = webLinks[mag].split("|");
+		if(fixes) {if (fixes.indexOf('p')==0) edits = 'Постер'; else edits = fixes.split(",").length;}
+		if (magArray[0].slice(0,2) != pubYear) {pubYear = magArray[0].slice(0,2); pgRes += (pubYear > 90) ? "<tr><th colspan=6>19"+pubYear+"</th></tr>" : "<tr><th colspan=6>20"+pubYear+"</th></tr>";}	
+		if (mags[g][i].slice(3,5).indexOf("-")>-1) {pgRes += "<tr align='center'><td style='cursor: help; background-color: #ff5;' title='"+(i+numfix)+"-"+(i+numfix+1)+"'>"+(i+numfix)+"</td>"; numfix++;}
+		else pgRes += "<tr align='center'><td width='30'>"+(i+numfix)+"</td>";
+		pgRes += "<td width='300'>"+magName.replace('_','-')+"</td>";
+		let pg = mags[g][i].split('|');
+		pgRes += "<td width='30'>"+pg[1].split(',')[1]+"</td>";
+		let magPage = pg[pg.length-1].split(',')[1];
+		pgRes += "<td width='30'>"+getLink(magPref+magArray[0],magPage)+"</td>";
+		if (offset>0) offset="+"+offset;
+		pgRes += "<td width='50' style='color: #aaa;'>"+offset+"</td>";
+		if(fixes) pgRes += "<td style='cursor: help; background-color: #ff5;' title='"+fixes+"'>"+edits+"</td>";
+		else pgRes += "<td width='60'>"+edits+"</td>";
+
+		}
+	pgRes += "</tr>";
+	}
+//pgRes += "<tr><td colspan=6><textarea>Отчет</textarea></td></tr>"
+pgRes += "</table>";
+prnt.innerHTML = pgRes;
+}
+
+function getLink (mag,page) {
+let [webName, offset, fixes] = webLinks[mag].split("|");
+if (fixes) {
+	if ((fixes.indexOf('p')==0) && (Number(page) > (Number(fixes.slice(1))))) offset-=4;	
+	else {
+		let missPages = fixes.split(","); let i=0;
+		while (Number(page) > Math.abs(missPages[i])) {Number(missPages[i]) < 0 ? offset++ : offset--; i++;}
+		}
+	}
+let web1p = Number(page)+Number(offset)-1; 
+let web2p = (web1p%2) == 0 ? web1p-1 : web1p;
+if (p2.checked) return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mode/2up' target='_blank'>"+page+"</a>";
+else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web1p+"/mode/1up' target='_blank'>"+page+"</a>";
+}
+pagecheck();
+</script>
+</body>
+</html>
