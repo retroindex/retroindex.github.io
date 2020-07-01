@@ -10,9 +10,11 @@
 <style>
 HTML {overflow-y: scroll;}
 BODY {background: #e9e3cc url(paper.jpg) scroll; margin: 0;}
-TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
-H1,H2 {font-family: Arial;}
+H1,H2,H3 {font-family: Arial;}
 H2 {color: #800000;}
+H3 {color: #800000; cursor: pointer; display: inline; padding-bottom: 2px;}
+H3 A {text-decoration: none;}
+TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
 P {margin-bottom: 0;}
 #sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background-color: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3); transition: background-color .3s ease-out;}
 #sInp:focus {background-color: #fff;}
@@ -35,11 +37,10 @@ P {margin-bottom: 0;}
 .colV TH {background-color: #fd8405;}
 .gal {text-align: center; padding-bottom: 40px; max-width: 1800px;}
 .gal img {padding: 0; min-height: 128px;}
-.gal a {color: white; text-decoration: none; display: inline-block; width: 100%;}
 .gal span:hover div {display: block;}
 .gal span {position: relative; display: inline-block; width: 128px; cursor: help;}
-.galHint {display: none; position: absolute; bottom: 0; left: 0; padding: 3px; min-width: 30px; background-color: rgba(0, 128, 0, 0.7); color: #fff; font: bold 16px Arial; 
-z-index: 2; border-radius: 0 5px 0 0;}
+.galHint {display: none; position: absolute; bottom: 0; left: 0; padding: 3px; min-width: 30px; background-color: rgba(0, 128, 0, 0.7); color: #fff; font: bold 16px Arial; z-index: 2; border-radius: 0 5px 0 0;}
+.galHint a {color: white; text-decoration: none; display: inline-block; width: 100%;}
 .galDis {position: absolute; top: 0; right: 0; z-index: 2; border-right: 20px solid rgba(255,0,0,0.5); border-left: 20px solid transparent; border-bottom: 20px solid transparent;}
 .cov {width: 64px; cursor: pointer;}
 .np {cursor: auto;}
@@ -71,6 +72,8 @@ nav ul ul li {min-width:262px; display:list-item; position: relative;}
 .ulD a {border-left: 3px #8e3ca2 solid;}
 .ulP a {border-left: 3px #b20f0b solid;}
 .ulV a {border-left: 3px #fd8405 solid;}
+.linkM {border-bottom: 3px #345fb9 solid;}
+.linkB {border-bottom: 3px #5d9d52 solid;}
 
 @media (max-width: 840px) { 
 .topLeft {display: none;}
@@ -92,10 +95,10 @@ nav ul ul li {min-width:262px; display:list-item; position: relative;}
 }
 </style>
 <script src="tv.js?ver=19a12"></script>
-<script src="mags.js?ver=20608"></script>
+<script src="mags.js?ver=20701"></script>
 <script src="books.js?ver=20608"></script>
-<script src="digital.js?ver=20608"></script>
-<script src="links.js?ver=20608"></script>
+<script src="digital.js?ver=20701"></script>
+<script src="links.js?ver=20701"></script>
 </head>
 <body> 
 <div class="topBar">
@@ -224,14 +227,14 @@ for (let g=0; g<dis.length; g++) {
 
 let PDFRes = "";
 let PDFArray = [];
-
+let exNum = ['glu','ox'];
 for (let g=0; g<PDFs.length; g++) {
 	for (let i=1; i<PDFs[g].length; i++) {
 		if (re.test(PDFs[g][i])) {
 			PDFArray = PDFs[g][i].split('|');
 			let [PDFName,PDFPref] = PDFs[g][0].split("|");
 			PDFName += " №"+PDFArray[0].slice(2);
-			if ((PDFArray[0].slice(2) != i) && g!= 2) PDFName += " ("+i+")";	// НеСИ
+			if ((PDFArray[0].slice(2) != i) && exNum.indexOf(PDFPref) < 0) PDFName += " ("+i+")";
 			PDFName += "’"+PDFArray[0].slice(0,2);
 			for (let j=1; j<PDFArray.length; j++) {
 				let [PDFGame, PDFPage] = PDFArray[j].split(",");
@@ -269,8 +272,17 @@ return true;
 
 function getLink (mag,page) {
 if (!webLinks.hasOwnProperty(mag)) return "<img width='15' src='nolink.png'>";
-let [webName, offset, poster] = webLinks[mag].split("|");
-if (poster != null) if (Number(page) > Number(poster)) offset-=4;
+let [webName, offset, fixes] = webLinks[mag].split("|");
+if (fixes) {
+	if ((fixes.indexOf('p')==0) && (Number(page) > (Number(fixes.slice(1))))) offset-=4;	// Сквозной постер
+	else {
+		let missPages = fixes.split(","); let i=0;
+		while (Number(page) > Math.abs(missPages[i])) {
+			Number(missPages[i]) < 0 ? offset++ : offset--;
+			i++;
+		}
+	}
+}
 
 let web1p = Number(page)+Number(offset)-1; 
 let web2p = (web1p%2) == 0 ? web1p-1 : web1p;
@@ -290,6 +302,11 @@ let galArray = [];
 let pubYear = '';
 let [magName, magPref] = mags[mt][0].split("|");
 let galRes = "<div class='gal'><h1>"+magName+"</h1>";
+if (mt==3) galRes += "<h3 class='linkM' onClick='showGal(2)'>Сигнальный номер: Ба-Бах!</h3>";
+if (mt==7) galRes += "<h3 class='linkB' onClick='showBookGal(0)'>Ранее: альманах «Компьютерные игры»</h3>";
+if (mt==8) galRes += "<h3 class='linkM' onClick='showGal(4)'>Ранее: «Магазин Игрушек»</h3>";
+if (mt==11) galRes += "<h3 class='linkB' onClick='showBookGal(7)'>Ранее: одноименная серия книг</h3>";
+if (mt==12) galRes += "<h3 class='linkB' onClick='showBookGal(9)'>Ранее: одноименная газета</h3>";
 for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|');
 	galIndex.push(magPref+galArray[0]);
@@ -297,6 +314,10 @@ for (let i=1; i<mags[mt].length; i++) {
 		if (mt==10) {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
 	galRes += "<span>"+getGalLink (magPref+galArray[0])+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
 	}
+if (mt==0) galRes += "<br><br><br><h3 style='border-bottom: 3px #8e3ca2 solid' onClick='showDiscGal(0)'>Электронная версия журнала</h3>";
+if (mt==2) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(3)'>Позже: «КомпАс»</h3>";
+if (mt==4) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(8)'>Позже переименован в «Game.EXE»</h3>";
+if (mt==6) galRes += "<br><br><br><h3 style='border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3>";
 prnt.innerHTML = galRes+"</div>";
 if (ms !== undefined) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false);
 }
@@ -310,6 +331,9 @@ for (let i=1; i<books[mt].length; i++) {
 	if (curYear != pubYear) {pubYear = curYear; galRes += "<h2>"+pubYear+"</h2>";}
 	galRes += "<img title='"+bookID+"' id='b-"+mt+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
 	}
+if (mt==0) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Позже: журнал «Навигатор игрового мира»</h3>";
+if (mt==7) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(11)'>Позже: одноименный журнал</h3>";
+if (mt==9) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(12)'>Позже: одноименный журнал</h3>";
 prnt.innerHTML = galRes+"</div>";
 }
 
@@ -317,7 +341,7 @@ function showPDFGal(mt) {
 let galIndex = [];
 let galArray = [];
 let pubYear = '';
-let [magName, magPref] = PDFs[mt][0].split("|");
+let [magName, magPref, magURL] = PDFs[mt][0].split("|");
 let galRes = "<div class='gal'><h1>"+magName+"</h1>";
 for (let i=1; i<PDFs[mt].length; i++) {
 	galArray = PDFs[mt][i].split('|');
@@ -325,6 +349,7 @@ for (let i=1; i<PDFs[mt].length; i++) {
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>";}	
 	galRes += "<span>"+getGalLink (magPref+galArray[0])+"<img id='p-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
 	}
+if (magURL) galRes += "<br><br><br><h3 style='border-bottom: 3px #800000 solid'><a href='http://"+magURL+"' target='_blank'>Сайт: "+magURL+"</a></h3>";
 prnt.innerHTML = galRes+"</div>";
 }
 
