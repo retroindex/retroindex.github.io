@@ -60,7 +60,7 @@ const webLinks = {
 "gl967":"GameLand19960707|0",
 "gl968":"GameLand19960808|0",
 "gl971":"GameLand19970109|0",
-"gl972":"GameLand19970210|0",
+"gl972":"GameLand19970210|0|p73",
 "gl973":"GameLand19970311|0|p73",
 "gl974":"GameLand19970412|0|p73",
 "gl975":"GameLand19970513|0|p73",
