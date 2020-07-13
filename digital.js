@@ -97,7 +97,8 @@ const PDFs = [
 "0521|The Legend of Crystal Valley,2|80 Days (интервью),9|Sherlock Holmes: The Awakened (интервью),13|Mortadelo y Filemon (Кинопрерии),16|Dark Side of the Moon,20",
 "0522|NiBiRu,3|Still Life,5|NiBiRu (интервью),9|CSI: Miami,12|Crystal Key 2,14",
 "0523|Rise of the Hidden Sun,2|Star Wars: Shadows of the Empire,5|The Find (интервью),9|Five Magical Amulets,12|Two of a Kind,15|Catacombic,17",
-"0524|Ankh,2|Братья Пилоты: Дело об огородных вредителях,6|Dark Fall (интервью),13|Still Life,18|Return to Mysterious Island,22|The White Chamber,25|Shivers 2,27"
+"0524|Ankh,2|Братья Пилоты: Дело об огородных вредителях,6|Dark Fall (интервью),13|Still Life,18|Return to Mysterious Island,22|The White Chamber,25|Shivers 2,27",
+"0525|Fenimore Fillmore's Revenge,2|The 13th Doll (интервью),5|NiBiRu,9|The Journey to Wild Divine,12|Riddle of the Sphinx,16"
 ],["Охота на точки|ox|questzone.ru/hshunt/",
 "050|Как казаки Мону Лизу искали,1|The Goat in the Grey Fedora,42|Bone: Out from Boneville,47|Звездное наследие,50|Agatha Christie: And Then There Were None,53",
 "061|Keepsake,1|Ankh,4|Scratches,7|Сказки про Тошечку и Бошечку,40|Acedior,50|Вечера на хуторе близ Диканьки,53",
