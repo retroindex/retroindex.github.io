@@ -938,18 +938,7 @@
 "048-9|S.T.A.L.K.E.R.,105|Александр,112|Герои уничтоженных империй,113|DOOM 3,114|В тылу врага,116|Ground Control 2,118|The Suffering,120|Ballance,122|Sherlock Holmes: The Silver Earring,123|Вий,124|Братья Пилоты: Обратная сторона Земли,125|Civilization 3,130|Silent Hill 4: The Room,138",
 "0410|LEGO Star Wars,107|Stolen,107|El Matador,107|Sniper Elite,108|Sid Meier's Pirates!,108|Battlestations: Midway,108|The Legend of Mir 3,109|Herrcot,109|Khan: The Absolute Power,109|Свободу попугаям!,110|Простоквашино,111|Richard Burns Rally,112|The Sims 2,114|Guilty Gear XX,118|Chaos League,119|D-Day,120|18 Wheels of Steel: Pedal to the Metal,121|Conflict: Vietnam,122|Transport Giant,124|Catwoman,125|Бойцовский клуб,126|Ганджубасовые войны,127|Территория,127|Wizards World,128|TimeZero,128|Арена,128|Destiny Sphere,129|Respublika.Ru,129",
 "0411|BioShock,104|Антикиллер,106|Щелкунчик,106|The Incredibles,106|Александр,106|Ночной дозор,106|Imperial Glory,107|Warhammer 40000: Dawn of War,108|Rome: Total War,110|Full Spectrum Warrior,112|Evil Genius,114|Joint Operations: Typhoon Rising,116|Call of Duty: United Offensive,117|Star Wars: Battlefront,118|Leisure Suit Larry: Magna Cum Laude,119|Kohan 2: Kings of War,122|Codename: Panzers - Phase One,123|Myst 4: Revelation,124|Tony Hawk's Underground 2,125|Chris Sawyer's Locomotion,126|FIFA 2005,128|NHL 2005,129|Shadow Ops: Red Mercury,130|Medieval Conquest,131|Anarchy Online: Alien Invasion,132|Counter-Strike: Source,134",
-"0412|Волкодав (series),112|Half-Life 2,114|Need for Speed: Underground 2,116|Космические рейнджеры 2,118|Звездные волки,120|Александр,122|Axis & Allies,124|Перл-Харбор,126|FlatOut,128|Т-72: Балканы в огне,130|Knights of Honor,132|RollerCoaster Tycoon 3,134|Zoo Tycoon 2,135|Ford Racing 3,136|Xpand Rally,137|Medal of Honor: Pacific Assault,138|Men of Valor,139|Tribes: Vengeance,140|Port Royale 2,142|Football Manager 2005,143|Star Wars: Galaxies - An Empire Divided,146|Guild Wars,148|Gish,149",
-"051-2|*,-",
-"053|*,-",
-"054|*,-",
-"055|*,-",
-"056|*,-",
-"057|*,-",
-"058|*,-",
-"059|*,-",
-"0510|*,-",
-"0511|*,-",
-"0512|*,-"
+"0412|Волкодав (series),112|Half-Life 2,114|Need for Speed: Underground 2,116|Космические рейнджеры 2,118|Звездные волки,120|Александр,122|Axis & Allies,124|Перл-Харбор,126|FlatOut,128|Т-72: Балканы в огне,130|Knights of Honor,132|RollerCoaster Tycoon 3,134|Zoo Tycoon 2,135|Ford Racing 3,136|Xpand Rally,137|Medal of Honor: Pacific Assault,138|Men of Valor,139|Tribes: Vengeance,140|Port Royale 2,142|Football Manager 2005,143|Star Wars: Galaxies - An Empire Divided,146|Guild Wars,148|Gish,149"
 ],["Мир Фантастики|mf",
 "031|Baldur's Gate,55|Planescape: Torment,56|Icewind Dale,57",
 "032|Операция Silent Storm,58|Lionheart,59",
@@ -991,6 +980,4 @@
 "0610|Дневной дозор,82|Heroes of Might & Magic 5: Владыки Севера,82|W.E.L.L. Online,82|Не время для драконов,84|Prey,86|Pirates of the Caribbean: Legend of Jack Sparrow,87|Rise of Nations: Rise of Legends,88|Resident Evil 3,89|Glory of the Roman Empire,94|The Ship,94|Civilization 4: Warlords,94",
 "0611|Отель «У погибшего альпиниста»,80|Волшебник Изумрудного города,80|Shadowrun,80|Завтра война,82|Дневной дозор,84|Fallen Lords: Condemnation,85|Darkstar One,86|Князь,87|Bad Day LA,96|CivCity: Rome,96|CSI: 3 Dimensions of Murder,96",
 "0612|Maelstrom,88|Кодекс войны,88|Корсары: Возвращение Легенды,88|Disciples 3,90|Neverwinter Nights 2,92|Broken Sword: The Angel of Death,94|Heavy Metal: F.A.K.K. 2,95|Paraworld,98|FIFA 07,98|Company of Heroes,98"
-
-
 ]];
