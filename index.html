@@ -41,7 +41,7 @@ P {margin-bottom: 0;}
 .gal span {position: relative; display: inline-block; width: 128px; cursor: help;}
 .galHint {display: none; position: absolute; bottom: 0; left: 0; padding: 3px; min-width: 30px; background-color: rgba(0, 128, 0, 0.7); color: #fff; font: bold 16px Arial; z-index: 2; border-radius: 0 5px 0 0;}
 .galHint a {color: white; text-decoration: none; display: inline-block; width: 100%;}
-.galDis {position: absolute; top: 0; right: 0; z-index: 2; border-right: 20px solid rgba(255,0,0,0.5); border-left: 20px solid transparent; border-bottom: 20px solid transparent;}
+.galIss {display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgba(0,0,0,0.5); text-shadow: 0px 0px 10px rgba(255,255,255,0.9); pointer-events: none; font-size: 60px; font-family: Impact, sans-serif; z-index: 2;}
 .cov {width: 64px; cursor: pointer;}
 .np {cursor: auto;}
 .mobSelect {display: none;}
@@ -291,35 +291,40 @@ else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mod
 }
 
 function getGalLink (mag) {
-if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</div><div class='galDis'></div>";
+if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</div>";
 let [webName, offset] = webLinks[mag].split("|");
 return "<div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</a></div>";
 }
 
 function showGal(mt,ms) {
-let galIndex = [];
+let galIndex = []; 
 let galArray = [];
 let pubYear = '';
+let issNum = '';
+let numfix=0;
 let [magName, magPref] = mags[mt][0].split("|");
 let galRes = "<div class='gal'><h1>"+magName+"</h1>";
 if (mt==3) galRes += "<h3 class='linkM' onClick='showGal(2)'>Сигнальный номер: Ба-Бах!</h3>";
 if (mt==7) galRes += "<h3 class='linkB' onClick='showBookGal(0)'>Ранее: альманах «Компьютерные игры»</h3>";
-if (mt==8) galRes += "<h3 class='linkM' onClick='showGal(4)'>Ранее: «Магазин Игрушек»</h3>";
-if (mt==11) galRes += "<h3 class='linkB' onClick='showBookGal(7)'>Ранее: одноименная серия книг</h3>";
+if (mt==8) {galRes += "<h3 class='linkM' onClick='showGal(4)'>Ранее: «Магазин Игрушек»</h3>"; numfix+=17;}
+if (mt==11) {galRes += "<h3 class='linkB' onClick='showBookGal(7)'>Ранее: одноименная серия книг</h3>"; numfix+=13;}
 if (mt==12) galRes += "<h3 class='linkB' onClick='showBookGal(9)'>Ранее: одноименная газета</h3>";
 for (let i=1; i<mags[mt].length; i++) {
-	galArray = mags[mt][i].split('|');
-	galIndex.push(magPref+galArray[0]);
-	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>";}	
-		if (mt==10) {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
-	galRes += "<span>"+getGalLink (magPref+galArray[0])+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
+	galArray = mags[mt][i].split('|'); galIndex.push(magPref+galArray[0]);
+	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>"; 
+		if ((issNum == '')&&(galArray[0].slice(2) != (i+numfix))) issNum = 'start';}	
+	if (mt==10) {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
+	if (issNum != '') issNum = "<div class='galIss'>"+(i+numfix)+"</div>";
+	if (mags[mt][i].slice(3,5).indexOf("-")>-1) numfix++;
+	galRes += "<span>"+getGalLink (magPref+galArray[0])+issNum+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
 	}
 if (mt==0) galRes += "<br><br><br><h3 style='border-bottom: 3px #8e3ca2 solid' onClick='showDiscGal(0)'>Электронная версия журнала</h3>";
 if (mt==2) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(3)'>Позже: «КомпАс»</h3>";
 if (mt==4) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(8)'>Позже переименован в «Game.EXE»</h3>";
 if (mt==6) galRes += "<br><br><br><h3 style='border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3>";
 prnt.innerHTML = galRes+"</div>";
-if (ms !== undefined) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false);
+//if (ms !== undefined) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false);
+window.scrollTo(0,0);
 }
 
 function showBookGal(mt) {

@@ -1,4 +1,4 @@
-const dis = [["PC-Review|pcr",
+﻿const dis = [["PC-Review|pcr",
 "941|Might & Magic 3|Color Lines|Secret Weapons of the Luftwaffe|PowerMonger|Hyperspeed|Lakers vs Celtics and the NBA Playoffs|Lure of the Temptress|Supaplex",
 "942|Might & Magic 3|SimCity|Covert Action|Uncharted Waters|Wolfenstein 3D|Wing Commander|F-15 Strike Eagle 2|DOOM|Hyperspeed",
 "943|Wizardry (series)|Medieval Lords|Where in the World Is Carmen Sandiego|L' Empereur|Conquered Kingdoms|Centurion: Defender of Rome|Global Conquest",
