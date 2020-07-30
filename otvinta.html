@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="misc/favicon.png">
 <meta name="author" content="Morendil">
 <meta name="viewport" content="width=550">
 <meta name="theme-color" content="#e9e3cc">
@@ -52,11 +52,11 @@ for (let i=0; i<otvinta.length; i++) {
 		if(vNum.checked) docPrnt += "<tr><td align='center'>"+(i+1)+"</td><td>";
 		else docPrnt += "<tr><td align='center'><span>"+(result[0])+"</span></td><td>";
 			switch(result[3]) {
-			case "N": docPrnt += "<img src='lg_n.png'></td><td>"; break;
-			case "M": docPrnt += "<img src='lg_m.png' title='Выпуск "+result[0]+"'>"
+			case "N": docPrnt += "<img src='misc/lg_n.png'></td><td>"; break;
+			case "M": docPrnt += "<img src='misc/lg_m.png' title='Выпуск "+result[0]+"'>"
 				if ((result[0] > 59) && (vNum.checked)) docPrnt += "<span class='m_num'>"+result[0]+"</span></td><td>"
 				else docPrnt += "</td><td>"; break;
-			case "NM": docPrnt += "<nobr><img src='lg_m.png' title='Выпуск "+result[0]+"'> <img src='lg_n.png'></nobr></td><td>"; break;
+			case "NM": docPrnt += "<nobr><img src='misc/lg_m.png' title='Выпуск "+result[0]+"'> <img src='misc/lg_n.png'></nobr></td><td>"; break;
 			case "V": docPrnt += "<span class='VHS'>VHS</span></td><td>"; break;
 			case "X": docPrnt += "<b>-</b></td><td>"; break;
 			}
