@@ -163,7 +163,6 @@ if (sReg.length<3 || sReg.indexOf('=')>=0) re = new RegExp("(^|\\|)"+sReg.replac
 
 let bookRes = "";
 let bookArray = [];
-
 for (let g=0; g<books.length; g++) {
 	for (let i=1; i<books[g].length; i++) {
 		if (re.test(books[g][i])) {
@@ -181,7 +180,6 @@ for (let g=0; g<books.length; g++) {
 
 let magRes = "";
 let magArray = [];
-
 for (let g=0; g<mags.length; g++) {
 	let numfix=0;
 	if (g==8) numfix+=17;	// EXE
@@ -250,7 +248,6 @@ for (let g=0; g<PDFs.length; g++) {
 let vidArray = [];
 let vidGames = [];
 let vidRes = "";
-
 for (let i=0; i<otvinta.length; i++) {
 vidArray = otvinta[i].split('|');
 vidGames = vidArray[1].split('+');  
@@ -260,6 +257,15 @@ vidGames = vidArray[1].split('+');
 let restGames = vidGames;
 restGames.splice(j, 1);
 	vidRes += "<br>Прочие материалы выпуска:<br>"+restGames.join(", ")+"</td><td>*</td></tr></table></div>";
+	}
+}
+for (let i=0; i<bid.length; i++) {
+let vidPref = "https://www.youtube.com/watch?v=";
+vidArray = bid[i].split('|');
+vidGames = vidArray[1].split('+');  
+	for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
+	if (vidArray[3].indexOf('/')>-1) vidPref = '';
+	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov np' src='cvs/tv_bid.jpg'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>Былое и DOOMы<br> Выпуск "+(i+1)+" ("+vidArray[0]+") </td><td><a href='"+vidPref+vidArray[3]+"' target='_blank'><img width='26' src='misc/linked.png'></a></td></tr></table></div>";
 	}
 }
 
@@ -312,7 +318,7 @@ for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|'); galIndex.push(magPref+galArray[0]);
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>"; 
 		if ((issNum == '')&&(galArray[0].slice(2) != (i+numfix))) issNum = 'start'; 
-		if (i>42) lazyLoad = "loading='lazy'";
+				if ((i>42)&&(window.location.protocol != "file:")) lazyLoad = "loading='lazy'";
 		}
 	if (mt==10) {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
 	if (issNum != '') issNum = "<div class='galIss'>"+(i+numfix)+"</div>";
@@ -324,8 +330,7 @@ if (mt==2) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(3)'>Поз�
 if (mt==4) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(8)'>Позже переименован в «Game.EXE»</h3>";
 if (mt==6) galRes += "<br><br><br><h3 style='border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3>";
 prnt.innerHTML = galRes+"</div>";
-//if (ms !== undefined) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false);
-window.scrollTo(0,0);
+if ((window.location.protocol == "file:")&&(ms !== undefined)) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false); else window.scrollTo(0,0);
 }
 
 function showBookGal(mt) {

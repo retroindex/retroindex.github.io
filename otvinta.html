@@ -7,11 +7,11 @@
 <meta name="theme-color" content="#e9e3cc">
 <title>От винта! Бортовой журнал</title>
 <style>
-BODY {background: #e9e3cc url(paper.jpg) scroll; margin: 0;}
+BODY {background: #e9e3cc url(misc/paper.jpg) scroll; margin: 0;}
 .tV {width: 100%; min-width: 550px; border-collapse: collapse;} 
 .tV TD {padding: 2px 1px; height: 24px; font: 14px Arial;  white-space: nowrap;}
 .tV TR:nth-child(2n+1) {background-color: rgba(127,127,127,0.1)} 
-.topbar {text-align: center; position: sticky;  top: 0; background: #e9e3cc url(paper.jpg) scroll; padding: 10px; border-bottom: #bbb 1px dotted;}
+.topbar {text-align: center; position: sticky;  top: 0; background: #e9e3cc url(misc/paper.jpg) scroll; padding: 10px; border-bottom: #bbb 1px dotted;}
 .header {text-align: center;}
 .vg {border-radius: 4px; font: 12px Arial; padding: 1px 3px; margin: 1px 2px; background-color: #345fb9; color: #fff;}
 .vgs {border-radius: 4px; font: 12px Arial; padding: 1px 3px; margin: 1px 2px; background-color: #e00000; color: #fff;}
@@ -23,8 +23,7 @@ BODY {background: #e9e3cc url(paper.jpg) scroll; margin: 0;}
 label:hover {cursor: pointer;}
 #sBut {background-color: #4e9ff9; height: 30px; border-radius: 15px; padding: 0px 8px;}
 #prnt {border-bottom: #bbb 1px dotted;}
-@media (max-width: 650px) {TD:nth-child(4) {display: none;}
-}
+@media (max-width: 650px) {TD:nth-child(4),TD:nth-child(5) {display: none;}}
 </style>
 </head>
 <script src="tv.js"></script>
@@ -39,13 +38,11 @@ label:hover {cursor: pointer;}
 
 <script type="text/javascript">
 function showTV(vReg) {
-    const start = new Date().getTime();
 let re = new RegExp("(^|\\+|\\s+)"+vReg,"i");
 let docPrnt = "";
 let result = [];
 let games = [];
-
-docPrnt += "<table class='tV'><tr><td class='header' width='30'>№</td><td width='35'>Ист.</td><td>Список игр в выпуске</td><td class='header' width='75'>Дата</td></tr>";
+docPrnt += "<table class='tV'><tr><td class='header' width='30'>№</td><td width='35'>Ист.</td><td>Список игр в выпуске</td><td class='header' width='75'>Дата</td><td width='32'></td></tr>";
 for (let i=0; i<otvinta.length; i++) {
 	result = otvinta[i].split('|');
 	if ((vReg) && !(re.test(result[1]))) continue;	
@@ -66,14 +63,25 @@ for (let i=0; i<otvinta.length; i++) {
 		if ((vReg) && (re.test(games[j]))) {docPrnt += "<span class='vgs'>"+games[j]+"</span>"}	
 		else {docPrnt += "<span class='vg'>"+games[j]+"</span>"};
 		}
-	docPrnt += "</td><td>"+result[2]+"</td></tr>";
+	docPrnt += "</td><td>"+result[2]+"</td>";
+	docPrnt += (i<25) ? "<td>РТР</td></tr>" : "<td>НТВ</td></tr>"
 	}
+
+docPrnt += "<tr><td class='header' colspan='5' style='color: #800000; font: bold 16px Arial;'>Былое и DOOMы</td></tr>";
+for (let i=0; i<bid.length; i++) {
+	result = bid[i].split('|');
+	if ((vReg) && !(re.test(result[1]))) continue;	
+	docPrnt += "<tr><td align='center'>"+(i+1)+"</td><td style = 'font: bold 12px Arial;'>"+result[0]+"</td><td>";
+	games = result[1].split('+');  
+		for (let j=0; j<games.length; j++) {
+		if ((vReg) && (re.test(games[j]))) {docPrnt += "<span class='vgs'>"+games[j]+"</span>"}	
+		else {docPrnt += "<span class='vg'>"+games[j]+"</span>"};
+		}
+	docPrnt += "</td><td>"+result[2]+"</td><td>MTV</td></tr>";
+	}										   
 docPrnt += "</table>";
 prnt.innerHTML = docPrnt;
-	const end = new Date().getTime();
-    console.log(end - start, "ms");
 }
-
 showTV();
 </script>
 </body>
