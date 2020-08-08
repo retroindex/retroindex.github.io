@@ -93,7 +93,7 @@ const PDFs = [
 "0417|Law & Order: Justice is Served,2|Law & Order: Criminal Intent (интервью),10|Sherlock Holmes: The Silver Earring,20|CSI: Dark Motives,24|Apprentice 2,27|Dark Fall 2,29",
 "0418|Boyz Don't Cry (интервью),10|The Moment of Silence,14|Myst 4: Revelation,17|Legacy: Dark Shadows,21|BeTrapped!,25|Broken Sword,27",
 "0419|Keepsake,2|Quest for Glory 2 (VGA),6|Al Emmo (интервью),16|8 (интервью),22|Fenimore Fillmore: The Westerner,27|The Last Express,32",
-"0420|Звездное наследие,2|Tony Tough,11|Tony Tough 2 (интервью),13|A Vampyre Story (интервью),17|Law & Order: Justice is Served,26|The Moment of Silence,29|A Quiet Week-end in Capri,33",
+"0420|Звездное наследие,2|Tony Tough,11|Tony Tough 2 (интервью),13|A Vampyre Story (интервью),17|Law & Order: Justice is Served,26|The Moment of Silence,29|A Quiet Weekend in Capri,33",
 "0521|The Legend of Crystal Valley,2|80 Days (интервью),9|Sherlock Holmes: The Awakened (интервью),13|Mortadelo y Filemon (Кинопрерии),16|Dark Side of the Moon,20",
 "0522|NiBiRu,3|Still Life,5|NiBiRu (интервью),9|CSI: Miami,12|Crystal Key 2,14",
 "0523|Rise of the Hidden Sun,2|Star Wars: Shadows of the Empire,5|The Find (интервью),9|Five Magical Amulets,12|Two of a Kind,15|Catacombic,17",
@@ -107,7 +107,7 @@ const PDFs = [
 "074|The Legend of Crystal Valley (интервью),3|The Abbey (интервью),11|A Vampyre Story (интервью),17|A Tale of Two Kingdoms (интервью),23|Ankh (интервью),24|Penumbra: Overture (интервью),25|Secret Files 2 (интервью),27|The Ugly Prince Duckling (интервью),29|Nancy Drew (интервью),31|Al Emmo (интервью),34|Kaptain Brawe (интервью),39|Scratches (интервью),41|Runaway 2: The Dream of the Turtle (интервью),50|Simon the Sorcerer 4 (интервью),51|Яйца Фаберже. Приключение,87",
 "075|Архивы НКВД: Охота на фюрера (интервью),3|Сказки про Тошечку и Бошечку (интервью),7|Sublustrum,17|Петрович и все-все-все (интервью),18|Penumbra: Overture,21|Sherlock Holmes: The Awakened,22|Дилемма,26|Belief & Betrayal,30|Simon the Sorcerer 4,33|The Incredible Machine (series),36|Lemmings (series),39",
 "076|Дилемма 2 (интервью),3|Sinking Island,12|Ghost in the Sheet,14|Undercover: Dual Motives,16|Похождения бравого солдата Швейка,18|Global Conflicts: Palestine,23|Приключения барона Мюнхгаузена на Луне,26",
-"077|The Abbey (интервью),7|A Vampyre Story (интервью),10|The Whispered World (интервью),14|Prominence (интервью),17|Until I'm Gone (интервью),19|Penumbra. Black Plague (интервью),21|Secret Files 2 (интервью),22|Mata Hari (интервью),24|Maldoror (интервью),29|Culpa Innata (интервью),32|Scratches (интервью),35|Darkstar (интервью),41|So Blonde (интервью),47",
+"077|The Abbey (интервью),7|A Vampyre Story (интервью),10|The Whispered World (интервью),14|Prominence (интервью),17|Until I'm Gone (интервью),19|Penumbra: Black Plague (интервью),21|Secret Files 2 (интервью),22|Mata Hari (интервью),24|Maldoror (интервью),29|Culpa Innata (интервью),32|Scratches (интервью),35|Darkstar (интервью),41|So Blonde (интервью),47",
 "088|Таня Гроттер,3|Overclocked: A History of Violence,29|Reprobates,31|Отель «У погибшего альпиниста»,35|Обитаемый остров: Землянин,39|Limbo of the Lost,42",
 "089|Aosphere (интервью),3|Амулет Мира (интервью),8|Still Life 2,10|Resident Evil 3,13|Ace Ventura,18|Sanitarium,20|Perry Rhodan,22|Art of Murder: FBI Confidential,25",
 "0910|The Path,3|Gobliiins 4 (интервью),10|Даша Васильева: Дело женщины-кошки,20|Архивы НКВД: Охота на фюрера,24|Memento Mori,27"

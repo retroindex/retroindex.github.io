@@ -162,7 +162,7 @@ const bid = [
 "1995|Full Throttle|20.10.2007|A37NdOpIxSo",
 "1996|Duke Nukem+Quake|27.10.2007|zuMPZGz-JYU",
 "1997|Dungeon Keeper+Diablo|03.11.2007|KReLTGyLOqg",
-"1998|Thief|10.11.2007|QHri6B8Lk2A",
+"1998|Thief: The Dark Project|10.11.2007|QHri6B8Lk2A",
 "1999|Homeworld|Отменен|https://pastebin.com/HsTfK4yS",
 "2000|Shogun: Total War|24.11.2007|LHBX17wVLFw",
 "2001|Max Payne|01.12.2007|2Lz1b-LQgAw",
