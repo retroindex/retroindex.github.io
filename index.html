@@ -12,7 +12,9 @@ HTML {overflow-y: scroll;}
 BODY {background: #e9e3cc url(misc/paper.jpg) scroll; margin: 0;}
 H1,H2,H3 {font-family: Arial;}
 H2 {color: #800000;}
-H3 {color: #800000; cursor: pointer; display: inline; padding-bottom: 2px;}
+H2 A:hover{color: #b20f0b; cursor: pointer;}
+H3 {color: #800000; display: inline; padding-bottom: 2px;}
+H3:hover {color: #b20f0b; cursor: pointer;}
 H3 A {text-decoration: none;}
 TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
 P {margin-bottom: 0;}
@@ -55,6 +57,7 @@ P {margin-bottom: 0;}
 .infMsg {background-color: #b4d055; min-width: 400px; width: 60vw; padding: 15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
 .cb {position: relative; left: 31px; top: 9px;}
 .sar {border-radius: 15px;}
+.ns {user-select: none; cursor: pointer !important;}
 #chAuto {display: none;}
 #chAuto + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAghJREFUeNqU1OsSqygUhNFmFFTJeIsi8r3/e54Klcx4NEmZ9RPZQndZ6uwf/69+tFHrurLzsiSj6waCWmb9wIGduOmgSb3RJ4E+YvUXMwCTPunYYHXaKQPbQqdPChg22N2jTYRypdJR3yrTzL2c/z/ITDCbkqSjG8kpa0hGHdzzOXYFUufPJdqUXgebhJdsocytqakjnKMMDHoZY7tvy+bLnaOE51JZS4VO6jdRAl4PnlZvDLsoRspGopFkzl0+E3XK3LB1/8Un1sYtzHrLFJJcH4GgJ0+2lZ8/8QCwLJR6qldgtfokAhGvel+3ba0+65nKglkVsy5y9FIgpusjWjdXpTmSal3lAQbjcnfO+36cQlj01QBrqYyXqO9Kt6vvPvbeV05X+Y3UG/3EdIntpquqHKh4RGv1VdGWymJSZidYrL5oIN5vTiWz7G0cl7Am8Pqi3XhIgU6el1Zfle24AtSqxtH72lldUTQbRr8xBP2oZtBO4Zw+MOVrj6926SZga/RGHSB6HZURtvi2aU826iCQblJLsm/+vl52Pr2tea7c6XTQkxPPbPrLwKKH8Xz+iM/Bwelpv9Vs9JKaMEmyIeRHzHpYDyMtqyRNYHPgIMnB7s4FFNozK3NVLzDoOKIZBlstjOeSH0adR4rAw2J0YPoQ5kZvRmSGSOyMPtuPXOb5M/poAQPqaQEAEhEuCu707rIAAAAASUVORK5CYII=); background-size: contain;}
 #chAuto:checked + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAi1JREFUeNqUlImyojAURG8GEpA4bEK28///OQUV3/ASfctx19t0usu6UvPH/pVfEunl57SjFU1Sv5DMOBnY5BcY0Ct3Kbil6b2xYwpo+YSagVXeMRLBm0/5HHFnlHc0MEe4nGNIuNbTSck05Dcbj3b7b6RW2FRLkpI7yeSkR8UjPE4f7YE02rpEndLTWCWsiG5ygz7d+gB1lJlZnixhuLalz8PVUVz+qu1FGqnoSVJLrBxYBnnBfInyrHIhHG9V3WVONOY3cxw/4hN6ZfayGMiXbo75KQBOMpaT2FaSTDs6gH3nY6T3gNelAskEIGClv9ath0JwNZGJtW3YpCvP/l5imEQcIf1cIj6aLm2B1EtNEeVa0KzM2Z2xdlpW5/ZaIhdm8LktnoSvJdKaS32PZbK2M+UsyGtspFwGUEYpUGMi3uvcbxTdGag5og1XTS1phpw9JDnRK+z6alNKbhAedyMtm+j7suzOJ7BXmzLKEDlIjlEsT4ZCUu7rYfEAvXTLYm1vdNHZ676aW0TJa95IROHkl5Ke+ZOrMe/+Lap9ztjukm4F4u2VpHcQrJS0AWIAKxWWk0UKHOkuMpD0i+1rRW/V1W75m0e9fSfOxBuxXIi7HCy1/4I9g4ORK3lURabD060iop07f8obwheSAX+8rKDPwMewgcuZG2jkivJsXb/DLKVENph1t7PUJecmK0njONiVFKjJue0mLySi5kAY/w1XcsTUggCDQgsYUE8LABacNVGE1b6XAAAAAElFTkSuQmCC); background-size: contain;}
@@ -117,6 +120,7 @@ if (window.location.hash) {
 let sHash = window.location.hash.substring(1);
 history.pushState(null, null, ' ');
 if (hashTags.hasOwnProperty(sHash)) showGal(hashTags[sHash]);
+else if ((/^(199|200)\d$/.test(sHash))) showYear(Number(sHash));
 else {
 if (sHash.indexOf('%')>=0) sHash = decodeURI(sHash); sHash = sHash.replace('_',' ');
 sInp.value = sHash;	
@@ -147,7 +151,7 @@ if (!globalSearch(wReg)) {
 
 function globalSearch(sReg) {
 	const start = new Date().getTime();
-let re = "";	
+let re = "";
 if (/^(of?)?\s*(t|th|the)?$/i.test(sReg)) return;
 if (/(^|\s)[^0-9 .'-]{2,}\d+$/i.test(sReg)) sReg = sReg.replace(/\d+$/,' $&');
 if (sReg.length<3 || sReg.indexOf('=')>=0) re = new RegExp("(^|\\|)"+sReg.replace('=','')+"( \\(.+\\))*($|,)","i")
@@ -306,7 +310,7 @@ return "<div class='galHint'><a href='https://archive.org/stream/"+webName+"#pag
 function showGal(mt,ms) {
 let galIndex = []; 
 let galArray = [];
-let pubYear = '', issNum = '', lazyLoad = '', numfix=0;
+let pubYear = '', issNum = '', lazyLoad = '', numfix=0, fullYear;
 let [magName, magPref] = mags[mt][0].split("|");
 let galRes = "<div class='gal'><h1>"+magName+"</h1>";
 if (mt==3) galRes += "<h3 class='linkM' onClick='showGal(2)'>Сигнальный номер: Ба-Бах!</h3>";
@@ -316,7 +320,7 @@ if (mt==11) {galRes += "<h3 class='linkB' onClick='showBookGal(7)'>Ранее: �
 if (mt==12) galRes += "<h3 class='linkB' onClick='showBookGal(9)'>Ранее: одноименная газета</h3>";
 for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|'); galIndex.push(magPref+galArray[0]);
-	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>"; 
+	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); fullYear = (pubYear > 90) ? "19"+pubYear : "20"+pubYear; galRes += "<h2><a onClick=showYear("+fullYear+")>"+fullYear+"</a></h2>";
 		if ((issNum == '')&&(galArray[0].slice(2) != (i+numfix))) issNum = 'start'; 
 				if ((i>42)&&(window.location.protocol != "file:")) lazyLoad = "loading='lazy'";
 		}
@@ -340,13 +344,14 @@ let galRes = "<div class='gal'><h1>"+books[mt][0]+"</h1>";
 for (let i=1; i<books[mt].length; i++) {
 	let bookID = books[mt][i].split("|")[0];
 	let curYear = book_details[bookID].split("|")[3];
-	if (curYear != pubYear) {pubYear = curYear; galRes += "<h2>"+pubYear+"</h2>";}
+	if (curYear != pubYear) {pubYear = curYear; galRes += "<h2><a onClick=showYear("+pubYear+")>"+pubYear+"</h2>";}
 	galRes += "<img title='"+bookID+"' id='b-"+mt+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
 	}
 if (mt==0) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Позже: журнал «Навигатор игрового мира»</h3>";
 if (mt==7) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(11)'>Позже: одноименный журнал</h3>";
 if (mt==9) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(12)'>Позже: одноименный журнал</h3>";
 prnt.innerHTML = galRes+"</div>";
+window.scrollTo(0,0);
 }
 
 function showPDFGal(mt) {
@@ -446,6 +451,34 @@ sel += "</ul></li><li><a>PDF</a><ul class='ulP'>"
 for (i=0; i<PDFs.length; i++) sel+= "<li><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"</a></li>";
 sel+="</ul></li><li><a onclick='prntHelp()'>&nbsp;?&nbsp;</a></li></ul></nav>"
 topRightCnt.innerHTML = sel;
+}
+
+
+function showYear(year) {
+let galArray = []; 
+let cur = Number(year); let galRes = "<div class='gal'><h1>";
+galRes += (cur<1995) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur-1)+")'>◄</span>"; galRes += cur;
+galRes += (cur>2006) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur+1)+")'>►</span></h1>";
+
+for (let g=0; g<mags.length; g++) {
+let [magName, magPref] = mags[g][0].split("|"); let noTitle = true;
+for (let i=1; i<mags[g].length; i++) {
+if (mags[g][i].slice(0,2) == String(year).slice(2)) {
+	if (noTitle) {galRes += "<h2><a onclick='showGal("+g+")'>"+magName+"</a></h2>"; noTitle = false;}
+	galArray = mags[g][i].split('|');
+	if (g==10) {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
+	galRes += "<span>"+getGalLink (magPref+galArray[0])+"<img id='m-"+g+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
+}}}	
+for (let g=0; g<books.length; g++) {
+let noTitle = true;
+for (let i=1; i<books[g].length; i++) {
+let bookID = books[g][i].split("|")[0];
+if (book_details[bookID].split("|")[3] == year) {
+		if (noTitle) {galRes += "<h2><a onclick='showBookGal("+g+")'>"+books[g][0]+"</a></h2>"; noTitle = false;}
+		galRes += "<img title='"+bookID+"' id='b-"+g+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
+}}}
+prnt.innerHTML = galRes+"</div>";
+window.scrollTo(0,0)
 }
 
 ddMenu();
