@@ -283,7 +283,6 @@
 "gl075":"gameland200705230|2",
 "gl076":"gameland200706231|2",
 
-
 "nim971":"GameWorldNavigator_1997-01-001|2",
 "nim972":"GameWorldNavigator_1997-02-002|2",
 "nim973":"GameWorldNavigator_1997-03-003|2",
@@ -539,6 +538,7 @@
 "mg007":"MegaGame20000718|2",
 "mg008":"MegaGame20000819|4",
 "mg009":"MegaGame20000920|4|-113,-113,-113,-113",
+"mg0010":"MegaGame20001021|4|-113,-113",
 
 "sh011":"Shpil20010101|2|p23",
 "sh012":"Shpil20010202|2|p23",

@@ -344,7 +344,7 @@ let galRes = "<div class='gal'><h1>"+books[mt][0]+"</h1>";
 for (let i=1; i<books[mt].length; i++) {
 	let bookID = books[mt][i].split("|")[0];
 	let curYear = book_details[bookID].split("|")[3];
-	if (curYear != pubYear) {pubYear = curYear; galRes += "<h2><a onClick=showYear("+pubYear+")>"+pubYear+"</h2>";}
+	if (curYear != pubYear) {pubYear = curYear; galRes += "<h2><a onClick=showYear("+pubYear+")>"+pubYear+"</a></h2>";}
 	galRes += "<img title='"+bookID+"' id='b-"+mt+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
 	}
 if (mt==0) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Позже: журнал «Навигатор игрового мира»</h3>";
@@ -458,7 +458,7 @@ function showYear(year) {
 let galArray = []; 
 let cur = Number(year); let galRes = "<div class='gal'><h1>";
 galRes += (cur<1995) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur-1)+")'>◄</span>"; galRes += cur;
-galRes += (cur>2006) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur+1)+")'>►</span></h1>";
+galRes += (cur>2007) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur+1)+")'>►</span></h1>";
 
 for (let g=0; g<mags.length; g++) {
 let [magName, magPref] = mags[g][0].split("|"); let noTitle = true;
