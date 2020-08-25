@@ -294,7 +294,6 @@ if (fixes) {
 		}
 	}
 }
-
 let web1p = Number(page)+Number(offset)-1; 
 let web2p = (web1p%2) == 0 ? web1p-1 : web1p;
 if (window.innerWidth < 800 || window.innerWidth < window.screen.width/2) return "<a href='https://archive.org/stream/"+webName+"#page/n"+web1p+"/mode/1up' target='_blank'><img width='26' src='misc/linked.png'></a>";
@@ -302,9 +301,14 @@ else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mod
 }
 
 function getGalLink (mag) {
-if (!webLinks.hasOwnProperty(mag)) return "<div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</div>";
+if (!webLinks.hasOwnProperty(mag)) return "<span><div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</div>";
 let [webName, offset] = webLinks[mag].split("|");
-return "<div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</a></div>";
+return "<span><div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</a></div>";
+}
+function getSiteLink (mag,iss) {
+let gRes = "<span><div class='galHint' style='background-color: rgba(0, 116, 232, 0.7)'><a href='"; 
+if (mag=='im') gRes += "https://www.igromania.ru/magazine/"+iss+"/"; else if (mag=='mf') gRes += "https://www.mirf.ru/magazine/mir-fantastiki-"+iss+"/"; else if (mag=='lki') gRes += "http://lki.ru/archive.php?Num="+(iss+13); 
+return gRes+"' target='_blank'>";
 }
 
 function showGal(mt,ms) {
@@ -313,27 +317,30 @@ let galArray = [];
 let pubYear = '', issNum = '', lazyLoad = '', numfix=0, fullYear;
 let [magName, magPref] = mags[mt][0].split("|");
 let galRes = "<div class='gal'><h1>"+magName+"</h1>";
-if (mt==3) galRes += "<h3 class='linkM' onClick='showGal(2)'>Сигнальный номер: Ба-Бах!</h3>";
-if (mt==7) galRes += "<h3 class='linkB' onClick='showBookGal(0)'>Ранее: альманах «Компьютерные игры»</h3>";
-if (mt==8) {galRes += "<h3 class='linkM' onClick='showGal(4)'>Ранее: «Магазин Игрушек»</h3>"; numfix+=17;}
-if (mt==11) {galRes += "<h3 class='linkB' onClick='showBookGal(7)'>Ранее: одноименная серия книг</h3>"; numfix+=13;}
-if (mt==12) galRes += "<h3 class='linkB' onClick='showBookGal(9)'>Ранее: одноименная газета</h3>";
+if (magPref=='comp') galRes += "<h3 class='linkM' onClick='showGal(2)'>Сигнальный номер: Ба-Бах!</h3>";
+if (magPref=='nim') galRes += "<h3 class='linkB' onClick='showBookGal(0)'>Ранее: альманах «Компьютерные игры»</h3>";
+if (magPref=='exe') {galRes += "<h3 class='linkM' onClick='showGal(4)'>Ранее: «Магазин Игрушек»</h3>"; numfix+=17;}
+if (magPref=='lki') {galRes += "<h3 class='linkB' onClick='showBookGal(7)'>Ранее: одноименная серия книг</h3>"; numfix+=13;}
+if (magPref=='mik') galRes += "<h3 class='linkB' onClick='showBookGal(9)'>Ранее: одноименная газета</h3>";
 for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|'); galIndex.push(magPref+galArray[0]);
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); fullYear = (pubYear > 90) ? "19"+pubYear : "20"+pubYear; galRes += "<h2><a onClick=showYear("+fullYear+")>"+fullYear+"</a></h2>";
 		if ((issNum == '')&&(galArray[0].slice(2) != (i+numfix))) issNum = 'start'; 
 				if ((i>42)&&(window.location.protocol != "file:")) lazyLoad = "loading='lazy'";
 		}
-	if (mt==10) {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
+//	if (magPref=='nim' && i>147) numfix--;
+	if (magPref=='mg') {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
 	if (issNum != '') issNum = "<div class='galIss'>"+(i+numfix)+"</div>";
 	if (mags[mt][i].slice(3,5).indexOf("-")>-1) numfix++;
-	galRes += "<span>"+getGalLink (magPref+galArray[0])+issNum+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' "+lazyLoad+" onclick='showModal(this)'></span>";
+	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>";
+	else galRes += getGalLink(magPref+galArray[0]);
+	galRes += issNum+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' "+lazyLoad+" onclick='showModal(this)'></span>";
 	}
-if (mt==0) galRes += "<br><br><br><h3 style='border-bottom: 3px #8e3ca2 solid' onClick='showDiscGal(0)'>Электронная версия журнала</h3>";
-if (mt==2) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(3)'>Позже: «КомпАс»</h3>";
-if (mt==4) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(8)'>Позже переименован в «Game.EXE»</h3>";
-if (mt==6) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(20)'>Спецвыпуски</h3><h3 style='margin-left: 30px; border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3>";
-if (mt==20) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(6)'>Регулярные выпуски</h3>";
+if (magPref=='pcr') galRes += "<br><br><br><h3 style='border-bottom: 3px #8e3ca2 solid' onClick='showDiscGal(0)'>Электронная версия журнала</h3>";
+if (magPref=='bah') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(3)'>Позже: «КомпАс»</h3>";
+if (magPref=='mi') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(8)'>Позже переименован в «Game.EXE»</h3>";
+if (magPref=='gl') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(20)'>Спецвыпуски</h3><h3 style='margin-left: 30px; border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3>";
+if (magPref=='glsp') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(6)'>Регулярные выпуски</h3>";
 prnt.innerHTML = galRes+"</div>";
 if ((window.location.protocol == "file:")&&(ms !== undefined)) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false); else window.scrollTo(0,0);
 }
@@ -364,7 +371,7 @@ for (let i=1; i<PDFs[mt].length; i++) {
 	galArray = PDFs[mt][i].split('|');
 	galIndex.push(magPref+galArray[0]);
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += (pubYear > 90) ? "<h2>19"+pubYear+"</h2>" : "<h2>20"+pubYear+"</h2>";}	
-	galRes += "<span>"+getGalLink (magPref+galArray[0])+"<img id='p-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
+	galRes += getGalLink(magPref+galArray[0])+"<img id='p-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
 	}
 if (magURL) galRes += "<br><br><br><h3 style='border-bottom: 3px #800000 solid'><a href='http://"+magURL+"' target='_blank'>Сайт: "+magURL+"</a></h3>";
 if (mt==2) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(6)'>Регулярные выпуски</h3>";
@@ -453,13 +460,11 @@ sel+="</ul></li><li><a onclick='prntHelp()'>&nbsp;?&nbsp;</a></li></ul></nav>"
 topRightCnt.innerHTML = sel;
 }
 
-
 function showYear(year) {
 let galArray = []; 
 let cur = Number(year); let galRes = "<div class='gal'><h1>";
 galRes += (cur<1995) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur-1)+")'>◄</span>"; galRes += cur;
 galRes += (cur>2007) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur+1)+")'>►</span></h1>";
-
 for (let g=0; g<mags.length; g++) {
 let [magName, magPref] = mags[g][0].split("|"); let noTitle = true;
 for (let i=1; i<mags[g].length; i++) {
@@ -467,15 +472,16 @@ if (mags[g][i].slice(0,2) == String(year).slice(2)) {
 	if (noTitle) {galRes += "<h2><a onclick='showGal("+g+")'>"+magName+"</a></h2>"; noTitle = false;}
 	galArray = mags[g][i].split('|');
 	if (g==10) {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
-	galRes += "<span>"+getGalLink (magPref+galArray[0])+"<img id='m-"+g+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
+	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>"; else galRes += getGalLink(magPref+galArray[0]);
+	galRes += "<img id='m-"+g+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
 }}}	
 for (let g=0; g<books.length; g++) {
 let noTitle = true;
 for (let i=1; i<books[g].length; i++) {
 let bookID = books[g][i].split("|")[0];
 if (book_details[bookID].split("|")[3] == year) {
-		if (noTitle) {galRes += "<h2><a onclick='showBookGal("+g+")'>"+books[g][0]+"</a></h2>"; noTitle = false;}
-		galRes += "<img title='"+bookID+"' id='b-"+g+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
+	if (noTitle) {galRes += "<h2><a onclick='showBookGal("+g+")'>"+books[g][0]+"</a></h2>"; noTitle = false;}
+	galRes += "<img title='"+bookID+"' id='b-"+g+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
 }}}
 prnt.innerHTML = galRes+"</div>";
 window.scrollTo(0,0)
