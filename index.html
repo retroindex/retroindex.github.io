@@ -46,7 +46,6 @@ P {margin-bottom: 0;}
 .galHint a {color: white; text-decoration: none; display: inline-block; width: 100%;}
 .galIss {display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgba(0,0,0,0.5); text-shadow: 0px 0px 10px rgba(255,255,255,0.9); pointer-events: none; font-size: 60px; font-family: Impact, Antnum, sans-serif; z-index: 2;}
 .cov {width: 64px; cursor: pointer;}
-.np {cursor: auto;}
 .mobSelect {display: none;}
 .tRes TH:nth-child(1) {width: 64px;}
 .tRes TH:nth-child(2) {height: 25px; white-space: nowrap; border-right: 1px solid #d2cdbc;}
@@ -67,6 +66,7 @@ nav {white-space: nowrap; }
 nav ul {padding:0; margin:0; list-style: none; position: relative;}
 nav ul li {margin: 0; display:inline-block; background-color: #f4efda;}
 nav a {display:block; text-align: left; padding:0 5px; color:#000; font: 15px Arial; line-height: 30px; text-decoration:none; cursor: pointer; border-top: 1px #ccc dotted;}
+li:nth-child(19) a {border-top: 1px #345fb9 dotted;}
 nav a:hover {background-color: #b20f0b; color: #fff;}
 nav ul ul {display: none; position: absolute; top: 100%; left: 0;}
 nav ul li:hover > ul {display:inherit;}
@@ -190,15 +190,18 @@ for (let g=0; g<mags.length; g++) {
 	if (g==11) numfix+=13;  // ЛКИ
 	for (let i=1; i<mags[g].length; i++) {
 		if (mags[g][i].slice(3,5).indexOf("-")>-1) numfix++;
+		if (mags[g][i].slice(3,5).indexOf("_|")>-1) numfix--;
 		if (re.test(mags[g][i])) {
 			magArray = mags[g][i].split('|');
 			let [magName, magPref] = mags[g][0].split("|");
-			magName += " №"+magArray[0].slice(2);
-			if ((magArray[0].slice(2) != (i+numfix)) && (magArray[0].slice(3).indexOf("-")<0)) magName += " ("+(i+numfix)+")";				
-			magName += "’"+magArray[0].slice(0,2);
+			let magNum = magArray[0];
+			if (magNum.indexOf('_')>-1) {magNum = (magNum.slice(-1)=='_') ? magNum.replace('_','') : magNum.replace('_','-');}			
+			magName += " №"+magNum.slice(2);
+			if ((magNum.slice(2) != (i+numfix)) && (magNum.slice(3).indexOf("-")<0)) magName += " ("+(i+numfix)+")";				
+			magName += "’"+magNum.slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
 				let [magGame, magPage] = magArray[j].split(",");
-				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName.replace('_','-')+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
+				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
 			}
 		}
 	}
@@ -255,24 +258,30 @@ let vidRes = "";
 for (let i=0; i<otvinta.length; i++) {
 vidArray = otvinta[i].split('|');
 vidGames = vidArray[1].split('+');  
-	for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
-	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov np' src='cvs/tv_v.png'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>От винта! Выпуск "+(i+1);
-	if (i > 48) {vidRes += " ("+vidArray[0]+" по Игромании)"}
-let restGames = vidGames;
-restGames.splice(j, 1);
-	vidRes += "<br>Прочие материалы выпуска:<br>"+restGames.join(", ")+"</td><td>*</td></tr></table></div>";
+for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
+	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_ov.jpg' id='v-ov' onclick='showModal(this)'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>От винта! Выпуск "+(i+1);
+	if (i > 48) vidRes += " ("+vidArray[0]+" по Игромании)";
+	let restGames = vidGames.slice(0); 	restGames.splice(j, 1);
+	if (restGames.length>0) vidRes += "<br><div style='font-size: 13px; color: #777; padding: 0px 20px'>+ <nobr>"+restGames.join("</nobr>, <nobr>")+" +</nobr></div>"
+	vidRes += "</td><td>*</td></tr></table></div>";
 	}
 }
 for (let i=0; i<bid.length; i++) {
 let vidPref = "https://www.youtube.com/watch?v=";
 vidArray = bid[i].split('|');
 vidGames = vidArray[1].split('+');  
-	for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
+for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
 	if (vidArray[3].indexOf('/')>-1) vidPref = '';
-	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov np' src='cvs/tv_bid.jpg'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>Былое и DOOMы<br> Выпуск "+(i+1)+" ("+vidArray[0]+") </td><td><a href='"+vidPref+vidArray[3]+"' target='_blank'><img width='26' src='misc/linked.png'></a></td></tr></table></div>";
+	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_bid.jpg' id='v-bid' onclick='showModal(this)'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>Былое и DOOMы<br> Выпуск "+(i+1)+" ("+vidArray[0]+") </td><td><a href='"+vidPref+vidArray[3]+"' target='_blank'><img width='26' src='misc/linked.png'></a></td></tr></table></div>";
 	}
 }
-
+for (let i=0; i<bezvinta.length; i++) {
+vidArray = bezvinta[i].split('|');
+vidGames = vidArray[0].split('+');  
+for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
+	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_bv.jpg' id='v-bv' onclick='showModal(this)'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>Без винта. Выпуск "+(i+1)+"<br>Премьера на Gameland TV - "+vidArray[1]+"</td><td><a href='https://www.youtube.com/watch?v="+vidArray[2]+"' target='_blank'><img width='26' src='misc/linked.png'></a></td></tr></table></div>";
+	}
+}
 if (bookRes+magRes+vidRes+PDFRes+discRes=="") return false;
 let gridFix = "<div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div>";
 prnt.innerHTML = magRes+bookRes+discRes+PDFRes+vidRes+gridFix;
@@ -301,7 +310,7 @@ else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mod
 }
 
 function getGalLink (mag) {
-if (!webLinks.hasOwnProperty(mag)) return "<span><div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</div>";
+if (!webLinks.hasOwnProperty(mag)) return "<span><div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/(\D_)|[^0-9-_]|_$/g, '').replace('_','-').slice(2)+"</div>";
 let [webName, offset] = webLinks[mag].split("|");
 return "<span><div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</a></div>";
 }
@@ -328,8 +337,8 @@ for (let i=1; i<mags[mt].length; i++) {
 		if ((issNum == '')&&(galArray[0].slice(2) != (i+numfix))) issNum = 'start'; 
 				if ((i>42)&&(window.location.protocol != "file:")) lazyLoad = "loading='lazy'";
 		}
-//	if (magPref=='nim' && i>147) numfix--;
 	if (magPref=='mg') {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
+	if (mags[mt][i].slice(3,5).indexOf("_|")>-1) numfix--; 
 	if (issNum != '') issNum = "<div class='galIss'>"+(i+numfix)+"</div>";
 	if (mags[mt][i].slice(3,5).indexOf("-")>-1) numfix++;
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>";
@@ -418,6 +427,21 @@ modRes = "<img src='"+cov.src+"' onclick='showPDFGal("+m1+")'>";
 magArray = PDFs[m1][m2].split('|');
 document.getElementById('modContent').style.borderColor = "#b20f0b";
 }
+
+else if (mType == "v") {
+modRes = "<img src='"+cov.src+"'>";
+if (m1=='ov') {
+let vidArray = [];
+for (let i=0; i<otvinta.length; i++) {
+vidArray = otvinta[i].split('|');
+magArray.push.apply(magArray,vidArray[1].split('+'));
+}
+}
+else if (m1=='bv') for (let i=0; i<bezvinta.length; i++) magArray.push.apply(magArray, bezvinta[i].substring(0,bezvinta[i].indexOf('|')).split('+'));
+else if (m1=='bid') for (let i=0; i<bid.length; i++) magArray.push.apply(magArray, bid[i].substring(5,bid[i].indexOf('|',5)).split('+'));
+document.getElementById('modContent').style.borderColor = "fd8405";
+}
+
 let gamesArray = [...new Set(magArray.slice(1,magArray.length).map(x => x.replace(/,.+$/,"")))].sort();
 modRes+="<select id='modSel' size='10'><option class='mobSelect' value='' disabled selected>Содержание номера</option>"
 for (let j=0; j<gamesArray.length; j++) {

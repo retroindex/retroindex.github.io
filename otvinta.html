@@ -78,7 +78,23 @@ for (let i=0; i<bid.length; i++) {
 		else {docPrnt += "<span class='vg'>"+games[j]+"</span>"};
 		}
 	docPrnt += "</td><td>"+result[2]+"</td><td>MTV</td></tr>";
-	}										   
+	}	
+
+
+docPrnt += "<tr><td class='header' colspan='5' style='color: #800000; font: bold 16px Arial;'>Без винта</td></tr>";
+for (let i=0; i<bezvinta.length; i++) {
+	result = bezvinta[i].split('|');
+	if ((vReg) && !(re.test(result[0]))) continue;	
+	docPrnt += "<tr><td align='center'>"+(i+1)+"</td><td colspan=2>";
+	games = result[0].split('+');  
+		for (let j=0; j<games.length; j++) {
+		if ((vReg) && (re.test(games[j]))) {docPrnt += "<span class='vgs'>"+games[j]+"</span>"}	
+		else {docPrnt += "<span class='vg'>"+games[j]+"</span>"};
+		}
+	docPrnt += "</td><td>"+result[1]+"</td><td>GTV</td></tr>";
+	}
+
+	
 docPrnt += "</table>";
 prnt.innerHTML = docPrnt;
 }
