@@ -189,7 +189,7 @@ for (let g=0; g<mags.length; g++) {
 	if (g==8) numfix+=17;	// EXE
 	if (g==11) numfix+=13;  // ЛКИ
 	for (let i=1; i<mags[g].length; i++) {
-		if (mags[g][i].slice(3,5).indexOf("-")>-1) numfix++;
+		if (mags[g][i].slice(3,5).indexOf("-")>-1){ numfix++; if (g==12 && (i==237||i==238)) numfix++;}
 		if (mags[g][i].slice(3,6).indexOf("_|")>-1) numfix--;
 		if (re.test(mags[g][i])) {
 			magArray = mags[g][i].split('|');
@@ -340,7 +340,7 @@ for (let i=1; i<mags[mt].length; i++) {
 	if (magPref=='mg') {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
 	if (mags[mt][i].slice(3,6).indexOf("_|")>-1) numfix--; 
 	if (issNum != '') issNum = "<div class='galIss'>"+(i+numfix)+"</div>";
-	if (mags[mt][i].slice(3,5).indexOf("-")>-1) numfix++;
+	if (mags[mt][i].slice(3,5).indexOf("-")>-1) {numfix++; if (magPref=='mik' && (i==237||i==238)) numfix++;}
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>";
 	else galRes += getGalLink(magPref+galArray[0]);
 	galRes += issNum+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' "+lazyLoad+" onclick='showModal(this)'></span>";
