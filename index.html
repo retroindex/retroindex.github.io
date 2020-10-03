@@ -70,7 +70,7 @@ li:nth-child(19) a {border-top: 1px #345fb9 dotted;}
 nav a:hover {background-color: #b20f0b; color: #fff;}
 nav ul ul {display: none; position: absolute; top: 100%; left: 0;}
 nav ul li:hover > ul {display:inherit;}
-nav ul ul li {min-width:262px; display:list-item; position: relative;}
+nav ul ul li {min-width:265px; display:list-item; position: relative;}
 .ulM a {border-left: 3px #345fb9 solid;}
 .ulB a {border-left: 3px #5d9d52 solid;}
 .ulD a {border-left: 3px #8e3ca2 solid;}
@@ -266,22 +266,20 @@ for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
 	vidRes += "</td><td>*</td></tr></table></div>";
 	}
 }
-for (let i=0; i<bid.length; i++) {
-let vidPref = "https://www.youtube.com/watch?v=";
-vidArray = bid[i].split('|');
-vidGames = vidArray[1].split('+');  
-for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
-	if (vidArray[3].indexOf('/')>-1) vidPref = '';
-	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_bid.jpg' id='v-bid' onclick='showModal(this)'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>Былое и DOOMы<br> Выпуск "+(i+1)+" ("+vidArray[0]+") </td><td><a href='"+vidPref+vidArray[3]+"' target='_blank'><img width='26' src='misc/linked.png'></a></td></tr></table></div>";
+for (let g=0; g<tvs.length; g++) {
+	let [tvName, tvPref] = tvs[g][0].split("|");
+	for (let i=1; i<tvs[g].length; i++) {
+		let vidPref = "https://www.youtube.com/watch?v=";
+		vidArray = tvs[g][i].split('|'); vidGames = vidArray[0].split('+');  
+			for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
+		if (vidArray[2]) if (vidArray[2].indexOf('/')>-1) vidPref = '';
+		vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_"+tvPref+".jpg' id='v-"+g+"' onclick='showModal(this)'></th><th>"+vidGames[j]+"</th><th>"+i+"</th></tr><tr><td>";
+		vidRes += tvName + "<br> Выпуск "+i+" от "+vidArray[1]+"</td><td>";
+		vidRes += "<a href='"+vidPref+vidArray[2]+"' target='_blank'><img width='26' src='misc/linked.png'></a></td></tr></table></div>";
+		}
 	}
 }
-for (let i=0; i<bezvinta.length; i++) {
-vidArray = bezvinta[i].split('|');
-vidGames = vidArray[0].split('+');  
-for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
-	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_bv.jpg' id='v-bv' onclick='showModal(this)'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>Без винта. Выпуск "+(i+1)+"<br>Премьера на Gameland TV - "+vidArray[1]+"</td><td><a href='https://www.youtube.com/watch?v="+vidArray[2]+"' target='_blank'><img width='26' src='misc/linked.png'></a></td></tr></table></div>";
-	}
-}
+
 if (bookRes+magRes+vidRes+PDFRes+discRes=="") return false;
 let gridFix = "<div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div>";
 prnt.innerHTML = magRes+bookRes+discRes+PDFRes+vidRes+gridFix;
@@ -400,6 +398,16 @@ for (let i=1; i<dis[mt].length; i++) {
 prnt.innerHTML = galRes+"</div>";
 }
 
+function showTVGal() {
+let galRes = "<div class='gal'><h1>Телепередачи</h1><h2>С Бонусом и Гамовером (1995-2010)</h2>";
+galRes += "<img title='От винта!' id='v-ov' src='cvs/tv_ov.jpg' style='cursor: pointer;' onclick='showModal(this)'>";
+for (let i=0; i<tvs.length; i++) {
+	let [tvName, tvPref] = tvs[i][0].split("|");
+	galRes += "<img title='"+tvName+"' id='v-"+i+"' src='cvs/tv_"+tvPref+".jpg' style='cursor: pointer;' onclick='showModal(this)'>";
+	}
+prnt.innerHTML = galRes+"</div>";
+}
+
 window.prevMod = '';
 
 function showModal(cov) {
@@ -429,16 +437,9 @@ document.getElementById('modContent').style.borderColor = "#b20f0b";
 }
 
 else if (mType == "v") {
-modRes = "<img src='"+cov.src+"'>";
-if (m1=='ov') {
-let vidArray = [];
-for (let i=0; i<otvinta.length; i++) {
-vidArray = otvinta[i].split('|');
-magArray.push.apply(magArray,vidArray[1].split('+'));
-}
-}
-else if (m1=='bv') for (let i=0; i<bezvinta.length; i++) magArray.push.apply(magArray, bezvinta[i].substring(0,bezvinta[i].indexOf('|')).split('+'));
-else if (m1=='bid') for (let i=0; i<bid.length; i++) magArray.push.apply(magArray, bid[i].substring(5,bid[i].indexOf('|',5)).split('+'));
+modRes = "<img src='"+cov.src+"' onclick='showTVGal()'>";
+if (m1=='ov') {	let vidArray = []; for (let i=0; i<otvinta.length; i++) { vidArray = otvinta[i].split('|'); magArray.push.apply(magArray,vidArray[1].split('+')); }}
+else for (let i=0; i<tvs[m1].length; i++) magArray.push.apply(magArray, tvs[m1][i].substring(0,tvs[m1][i].indexOf('|')).split('+'));
 document.getElementById('modContent').style.borderColor = "fd8405";
 }
 
@@ -472,15 +473,15 @@ prnt.innerHTML = "<div class='infMsg'>"+inF1+"</div>";
 }
 
 function ddMenu() {
-let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>"
-for (i=0; i<mags.length-1; i++) sel+= "<li><a onclick='showGal("+i+")'>"+mags[i][0].split("|")[0]+"</a></li>";
-sel+="</ul></li><li><a>Книги</a><ul class='ulB'>"
-for (i=0; i<books.length; i++) sel+= "<li><a onclick='showBookGal("+i+")'>"+books[i][0]+"</a></li>";
-sel += "</ul></li><li><a>Дискмаги</a><ul class='ulD'>"
-for (i=0; i<dis.length; i++) sel+= "<li><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"</a></li>";
-sel += "</ul></li><li><a>PDF</a><ul class='ulP'>"
-for (i=0; i<PDFs.length; i++) sel+= "<li><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"</a></li>";
-sel+="</ul></li><li><a onclick='prntHelp()'>&nbsp;?&nbsp;</a></li></ul></nav>"
+let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>";
+for (i=0; i<mags.length-1; i++) sel+= "<li><a onclick='showGal("+i+")'>"+mags[i][0].split("|")[0]+"</a></li>"; sel+="</ul></li><li><a>Книги</a><ul class='ulB'>"
+for (i=0; i<books.length; i++) sel+= "<li><a onclick='showBookGal("+i+")'>"+books[i][0]+"</a></li>"; sel += "</ul></li><li><a>Дискмаги</a><ul class='ulD'>"
+for (i=0; i<dis.length; i++) sel+= "<li><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"</a></li>"; sel += "</ul></li><li><a>PDF</a><ul class='ulP'>"
+for (i=0; i<PDFs.length; i++) sel+= "<li><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"</a></li>"; 
+
+sel+="</ul></li><li><a onclick='showTVGal()'>ТВ</a></li></ul></nav>";
+//sel+="</ul></li><li><a onclick='prntHelp()'>&nbsp;?&nbsp;</a></li></ul></nav>"
+
 topRightCnt.innerHTML = sel;
 }
 
