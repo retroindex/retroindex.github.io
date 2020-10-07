@@ -1,7 +1,9 @@
 ﻿<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="icon" type="image/png" href="misc/favicon.png">
+<link type="image/png" sizes="16x16" rel="icon" href="misc/favicon.png">
+<link type="image/png" sizes="192x192" rel="icon" href="misc/favicon-192x192.png">
+<link rel="manifest" href="misc/manifest.json">
 <meta name="theme-color" content="#e9e3cc">
 <meta name="viewport" content="width=450">
 <meta name="author" content="Morendil">
@@ -78,6 +80,7 @@ nav ul ul li {min-width:265px; display:list-item; position: relative;}
 .ulV a {border-left: 3px #fd8405 solid;}
 .linkM {border-bottom: 3px #345fb9 solid;}
 .linkB {border-bottom: 3px #5d9d52 solid;}
+IMG[id^="b-"] {cursor: help;}
 
 @media (max-width: 840px) { 
 .topLeft {display: none;}
@@ -114,7 +117,6 @@ nav ul ul li {min-width:265px; display:list-item; position: relative;}
 <div id="prnt"><div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90-х</h1><img class="sar" src="misc/sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div></div>
 <div id="covModal"><div id="modContent"></div></div>
 <div style="opacity: 0; font-size: 1px; font-family: Impact, Antnum;">2019</div>
-
 <script type="text/javascript">
 if (window.location.hash) {
 let sHash = window.location.hash.substring(1);
@@ -130,8 +132,8 @@ wrapper(sHash);
 let timeout = null;	// debounce
 sInp.onkeyup = function (e) {if (chAuto.checked) {clearTimeout(timeout); timeout = setTimeout(function () {wrapper(sInp.value.trim())}, 500)}};
 
-document.addEventListener('keyup', function(event) {if (event.key == 'Enter') wrapper(sInp.value.trim())});
-document.addEventListener('keydown', function(event) {if (event.key == 'Escape') sInp.value="";});
+document.addEventListener('keyup', function(event) {if (event.key == 'Enter' && sInp.value != '') wrapper(sInp.value.trim())});
+document.addEventListener('keydown', function(event) {if (event.key == 'Escape') sInp.value='';});
 window.addEventListener('hashchange', function() {location.reload();}, false);
 
 function wrapper(wReg) {
