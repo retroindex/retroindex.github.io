@@ -59,16 +59,17 @@ P {margin-bottom: 0;}
 .cb {position: relative; left: 31px; top: 9px;}
 .sar {border-radius: 15px;}
 .ns {user-select: none; cursor: pointer !important;}
+.mc {font-size: 12px; opacity: 0.4; float: right;}
 #chAuto {display: none;}
 #chAuto + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAghJREFUeNqU1OsSqygUhNFmFFTJeIsi8r3/e54Klcx4NEmZ9RPZQndZ6uwf/69+tFHrurLzsiSj6waCWmb9wIGduOmgSb3RJ4E+YvUXMwCTPunYYHXaKQPbQqdPChg22N2jTYRypdJR3yrTzL2c/z/ITDCbkqSjG8kpa0hGHdzzOXYFUufPJdqUXgebhJdsocytqakjnKMMDHoZY7tvy+bLnaOE51JZS4VO6jdRAl4PnlZvDLsoRspGopFkzl0+E3XK3LB1/8Un1sYtzHrLFJJcH4GgJ0+2lZ8/8QCwLJR6qldgtfokAhGvel+3ba0+65nKglkVsy5y9FIgpusjWjdXpTmSal3lAQbjcnfO+36cQlj01QBrqYyXqO9Kt6vvPvbeV05X+Y3UG/3EdIntpquqHKh4RGv1VdGWymJSZidYrL5oIN5vTiWz7G0cl7Am8Pqi3XhIgU6el1Zfle24AtSqxtH72lldUTQbRr8xBP2oZtBO4Zw+MOVrj6926SZga/RGHSB6HZURtvi2aU826iCQblJLsm/+vl52Pr2tea7c6XTQkxPPbPrLwKKH8Xz+iM/Bwelpv9Vs9JKaMEmyIeRHzHpYDyMtqyRNYHPgIMnB7s4FFNozK3NVLzDoOKIZBlstjOeSH0adR4rAw2J0YPoQ5kZvRmSGSOyMPtuPXOb5M/poAQPqaQEAEhEuCu707rIAAAAASUVORK5CYII=); background-size: contain;}
 #chAuto:checked + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAi1JREFUeNqUlImyojAURG8GEpA4bEK28///OQUV3/ASfctx19t0usu6UvPH/pVfEunl57SjFU1Sv5DMOBnY5BcY0Ct3Kbil6b2xYwpo+YSagVXeMRLBm0/5HHFnlHc0MEe4nGNIuNbTSck05Dcbj3b7b6RW2FRLkpI7yeSkR8UjPE4f7YE02rpEndLTWCWsiG5ygz7d+gB1lJlZnixhuLalz8PVUVz+qu1FGqnoSVJLrBxYBnnBfInyrHIhHG9V3WVONOY3cxw/4hN6ZfayGMiXbo75KQBOMpaT2FaSTDs6gH3nY6T3gNelAskEIGClv9ath0JwNZGJtW3YpCvP/l5imEQcIf1cIj6aLm2B1EtNEeVa0KzM2Z2xdlpW5/ZaIhdm8LktnoSvJdKaS32PZbK2M+UsyGtspFwGUEYpUGMi3uvcbxTdGag5og1XTS1phpw9JDnRK+z6alNKbhAedyMtm+j7suzOJ7BXmzLKEDlIjlEsT4ZCUu7rYfEAvXTLYm1vdNHZ676aW0TJa95IROHkl5Ke+ZOrMe/+Lap9ztjukm4F4u2VpHcQrJS0AWIAKxWWk0UKHOkuMpD0i+1rRW/V1W75m0e9fSfOxBuxXIi7HCy1/4I9g4ORK3lURabD060iop07f8obwheSAX+8rKDPwMewgcuZG2jkivJsXb/DLKVENph1t7PUJecmK0njONiVFKjJue0mLySi5kAY/w1XcsTUggCDQgsYUE8LABacNVGE1b6XAAAAAElFTkSuQmCC); background-size: contain;}
 #covModal {display: none; position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 150; align-items: center; justify-content: center;}
 #modContent {background: #e9e3cc url(misc/paper.jpg); border-radius: 15px; padding: 10px; border: 3px solid #345fb9; width: 450px; z-index: 20; display: flex; align-items: flex-start;}
-nav {white-space: nowrap; }
+nav {white-space: nowrap;}
 nav ul {padding:0; margin:0; list-style: none; position: relative;}
 nav ul li {margin: 0; display:inline-block; background-color: #f4efda;}
 nav a {display:block; text-align: left; padding:0 5px; color:#000; font: 15px Arial; line-height: 30px; text-decoration:none; cursor: pointer; border-top: 1px #ccc dotted;}
-li:nth-child(19) a {border-top: 1px #345fb9 dotted;}
+li:nth-child(21) a {border-top: 1px #345fb9 dotted;}
 nav a:hover {background-color: #b20f0b; color: #fff;}
 nav ul ul {display: none; position: absolute; top: 100%; left: 0;}
 nav ul li:hover > ul {display:inherit;}
@@ -80,6 +81,8 @@ nav ul ul li {min-width:265px; display:list-item; position: relative;}
 .ulV a {border-left: 3px #fd8405 solid;}
 .linkM {border-bottom: 3px #345fb9 solid;}
 .linkB {border-bottom: 3px #5d9d52 solid;}
+.missing {filter: saturate(0); opacity:0.5;}
+.missing:hover {filter: saturate(1); opacity:1; cursor: default;}
 IMG[id^="b-"] {cursor: help;}
 
 @media (max-width: 840px) { 
@@ -115,7 +118,7 @@ IMG[id^="b-"] {cursor: help;}
 <div class="topRight" id="topRightCnt"></div>
 </div>
 <div id="prnt"><div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90-х</h1><img class="sar" src="misc/sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div></div>
-<div id="covModal"><div id="modContent"></div></div>
+<div id="covModal"><div id="modContent"></div></div>								
 <div style="opacity: 0; font-size: 1px; font-family: Impact, Antnum;">2019</div>
 <script type="text/javascript">
 if (window.location.hash) {
@@ -124,8 +127,8 @@ history.pushState(null, null, ' ');
 if (hashTags.hasOwnProperty(sHash)) showGal(hashTags[sHash]);
 else if ((/^(199|200)\d$/.test(sHash))) showYear(Number(sHash));
 else {
-if (sHash.indexOf('%')>=0) sHash = decodeURI(sHash); sHash = sHash.replace('_',' ');
-sInp.value = sHash;	
+if (sHash.indexOf('%')>=0) sHash = decodeURI(sHash); 
+sHash = sHash.replace('_',' '); sInp.value = sHash;
 wrapper(sHash);
 }}
 
@@ -189,9 +192,9 @@ let magArray = [];
 for (let g=0; g<mags.length; g++) {
 	let numfix=0;
 	if (g==8) numfix+=17;	// EXE
-	if (g==11) numfix+=13;  // ЛКИ
+	if (g==14) numfix+=13;  // ЛКИ
 	for (let i=1; i<mags[g].length; i++) {
-		if (mags[g][i].slice(3,5).indexOf("-")>-1){ numfix++; if (g==12 && (i==237||i==238)) numfix++;}
+		if (mags[g][i].slice(3,5).indexOf("-")>-1){ numfix++; if (g==11 && (i==237||i==238)) numfix++;}
 		if (mags[g][i].slice(3,6).indexOf("_|")>-1) numfix--;
 		if (re.test(mags[g][i])) {
 			magArray = mags[g][i].split('|');
@@ -343,12 +346,13 @@ for (let i=1; i<mags[mt].length; i++) {
 	if (mags[mt][i].slice(3,5).indexOf("-")>-1) {numfix++; if (magPref=='mik' && (i==237||i==238)) numfix++;}
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>";
 	else galRes += getGalLink(magPref+galArray[0]);
+	if (magPref=='xs') {if (galArray[1]=="*,-") {galRes += issNum+"<img id='m-"+mt+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
 	galRes += issNum+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' "+lazyLoad+" onclick='showModal(this)'></span>";
 	}
 if (magPref=='pcr') galRes += "<br><br><br><h3 style='border-bottom: 3px #8e3ca2 solid' onClick='showDiscGal(0)'>Электронная версия журнала</h3>";
 if (magPref=='bah') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(3)'>Позже: «КомпАс»</h3>";
 if (magPref=='mi') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(8)'>Позже переименован в «Game.EXE»</h3>";
-if (magPref=='gl') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(20)'>Спецвыпуски</h3><h3 style='margin-left: 30px; border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3>";
+if (magPref=='gl') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(22)'>Спецвыпуски</h3><h3 style='margin-left: 30px; border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3>";
 if (magPref=='glsp') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(6)'>Регулярные выпуски</h3>";
 prnt.innerHTML = galRes+"</div>";
 if ((window.location.protocol == "file:")&&(ms !== undefined)) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false); else window.scrollTo(0,0);
@@ -364,8 +368,8 @@ for (let i=1; i<books[mt].length; i++) {
 	galRes += "<img title='"+bookID+"' id='b-"+mt+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
 	}
 if (mt==0) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Позже: журнал «Навигатор игрового мира»</h3>";
-if (mt==7) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(11)'>Позже: одноименный журнал</h3>";
-if (mt==9) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(12)'>Позже: одноименный журнал</h3>";
+if (mt==7) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(14)'>Позже: одноименный журнал</h3>";
+if (mt==9) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(11)'>Позже: одноименный журнал</h3>";
 prnt.innerHTML = galRes+"</div>";
 window.scrollTo(0,0);
 }
@@ -476,14 +480,12 @@ prnt.innerHTML = "<div class='infMsg'>"+inF1+"</div>";
 
 function ddMenu() {
 let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>";
-for (i=0; i<mags.length-1; i++) sel+= "<li><a onclick='showGal("+i+")'>"+mags[i][0].split("|")[0]+"</a></li>"; sel+="</ul></li><li><a>Книги</a><ul class='ulB'>"
+for (i=0; i<mags.length-1; i++) sel+= "<li><a onclick='showGal("+i+")'>"+mags[i][0].split("|")[0]+"<span class='mc'> "+(mags[i].length-1)+"</span></a></li>"; sel+="</ul></li><li><a>Книги</a><ul class='ulB'>"
 for (i=0; i<books.length; i++) sel+= "<li><a onclick='showBookGal("+i+")'>"+books[i][0]+"</a></li>"; sel += "</ul></li><li><a>Дискмаги</a><ul class='ulD'>"
 for (i=0; i<dis.length; i++) sel+= "<li><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"</a></li>"; sel += "</ul></li><li><a>PDF</a><ul class='ulP'>"
 for (i=0; i<PDFs.length; i++) sel+= "<li><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"</a></li>"; 
-
 sel+="</ul></li><li><a onclick='showTVGal()'>ТВ</a></li></ul></nav>";
 //sel+="</ul></li><li><a onclick='prntHelp()'>&nbsp;?&nbsp;</a></li></ul></nav>"
-
 topRightCnt.innerHTML = sel;
 }
 

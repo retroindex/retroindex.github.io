@@ -551,6 +551,8 @@
 "mg015":"MegaGame20010529|2",
 "mg016":"MegaGame20010630|2",
 "mg017":"MegaGame20010731|2",
+"mg019":"MegaGame20010933|2",
+"mg0110":"MegaGame20011034|2",
 
 "sh011":"Shpil20010101|2|p23",
 "sh012":"Shpil20010202|2|p23",
@@ -570,6 +572,11 @@
 "cgw025":"cgw_re_005|2",
 "cgw026":"cgw_re_006|2",
 "cgw027":"cgw_re_007|2",
+
+"rp031":"replay2003_1|2",
+"rp032":"replay2003_2|2",
+"rp041_2":"replay2004_1-2|2",
+"rp043":"re-play-4-extended|0",
 
 "pc041":"PC20040101|1",
 "pc042":"PC20040202|2",
@@ -737,6 +744,8 @@
 "dpk0911":"DPK_2009_11|2",
 "dpk0912":"DPK_2009_12|2",
 
+"xs052":"XSMagazine2005-02|2",
+
 "ogm051":"oldgames_01_2005|0",
 "ogm052":"oldgames_02_2005|0",
 "ogm053":"oldgames_03_2005|0",
@@ -760,12 +769,13 @@ const hashTags = {
 "exe":8,
 "igromania":9,
 "megagame":10,
-"lki":11,
-"mik":12,
-"spiel":13,
-"cgw":14,
-"pc-games":16,
-"gameplay":17,
-"dpk":18,
-"mirf":19
+"mik":11,
+"spiel":12,
+"cgw":13,
+"lki":14,
+"pc-games":17,
+"xs":18,
+"gameplay":19,
+"dpk":20,
+"mirf":21
 }
