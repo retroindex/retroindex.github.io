@@ -149,7 +149,7 @@ if (!globalSearch(wReg)) {
 		triedAbbr = true;
 		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
-		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2007 года, или не на PC.</div>';
+		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2009 года, или не на PC.</div>';
 		}
 	}
 }
@@ -220,13 +220,13 @@ let dType = "misc/fd.png";
 let cds = "";
 for (let g=0; g<dis.length; g++) {
 	let numfix=0;
-	if (g>0) {dType = 'misc/cd.png'; cds = "style='padding-top: 25px'"}
+	if (g>1) {dType = 'misc/cd.png'; cds = "style='padding-top: 25px'"}
 	for (let i=1; i<dis[g].length; i++) {
 		discArray = dis[g][i].split('|');
 		let [discName, discPref] = dis[g][0].split("|");
 		discName += " №"+discArray[0].slice(2);
 		if (discArray[0].slice(2).indexOf("-")>0) numfix++;
-		else if (discArray[0].slice(2) != (i+numfix)) discName += " ("+(i+numfix)+")";
+		else if ((discArray[0].slice(2) != (i+numfix)) && (g!=1)) discName += " ("+(i+numfix)+")";
 		discName += "’"+discArray[0].slice(0,2);
 		for (let j=1; j<discArray.length; j++) {
 			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg'"+cds+" onclick='showModal(this)'></th><th>"+discArray[j]+"</th><th><img src='"+dType+"'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
