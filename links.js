@@ -348,6 +348,11 @@
 "nim029":"GameWorldNavigator_2002-09-064|2",
 "nim0210":"GameWorldNavigator_2002-10-065|2",
 
+"nims001_":"NAVIGuides200001|2",
+"nims002":"NAVIGuides200002|2",
+"nims003":"NAVIGuides200003|2",
+"nims004":"NAVIGuides200004|2",
+
 "exe971":"Game.EXE_01_1997|2",
 "exe972":"Game.EXE_02_1997|2",
 "exe973":"Game.EXE_03_1997|2",
@@ -529,6 +534,7 @@
 "mg994":"MegaGame19990404|2",
 "mg995":"MegaGame19990505|2",
 "mg996":"MegaGame19990606|2",
+"mg997":"MegaGame19990707|2",
 "mg999":"MegaGame19990909|2",
 "mg9910":"MegaGame19991010|2",
 "mg9911":"MegaGame19991111|2",
