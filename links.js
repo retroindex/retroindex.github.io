@@ -535,6 +535,7 @@
 "mg995":"MegaGame19990505|2",
 "mg996":"MegaGame19990606|2",
 "mg997":"MegaGame19990707|2",
+"mg998":"MegaGame19990808|2",
 "mg999":"MegaGame19990909|2",
 "mg9910":"MegaGame19991010|2",
 "mg9911":"MegaGame19991111|2",
