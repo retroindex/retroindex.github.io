@@ -149,7 +149,7 @@ if (!globalSearch(wReg)) {
 		triedAbbr = true;
 		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
-		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2009 года, или не на PC.</div>';
+		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2010 года, или не на PC.</div>';
 		}
 	}
 }
@@ -315,7 +315,7 @@ else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mod
 function getGalLink (mag) {
 if (!webLinks.hasOwnProperty(mag)) return "<span><div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/(\D_)|[^0-9-_]|_$/g, '').replace('_','-').slice(2)+"</div>";
 let [webName, offset] = webLinks[mag].split("|");
-return "<span><div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]/g, '').replace('_','-').slice(2)+"</a></div>";
+return "<span><div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]|_$/g, '').replace('_','-').slice(2)+"</a></div>";
 }
 function getSiteLink (mag,iss) {
 let gRes = "<span><div class='galHint' style='background-color: rgba(0, 116, 232, 0.7)'><a href='"; 
@@ -353,7 +353,9 @@ if (magPref=='pcr') galRes += "<br><br><br><h3 style='border-bottom: 3px #8e3ca2
 if (magPref=='bah') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(3)'>Позже: «КомпАс»</h3>";
 if (magPref=='mi') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(8)'>Позже переименован в «Game.EXE»</h3>";
 if (magPref=='gl') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(22)'>Спецвыпуски</h3><h3 style='margin-left: 30px; border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3>";
+if (magPref=='nim') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(23)'>Спецвыпуски</h3><h3  style='margin-left: 30px;' class='linkB' onClick='showBookGal(8)'>Энциклопедии</h3>";
 if (magPref=='glsp') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(6)'>Регулярные выпуски</h3>";
+if (magPref=='nims') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Регулярные выпуски</h3>";
 prnt.innerHTML = galRes+"</div>";
 if ((window.location.protocol == "file:")&&(ms !== undefined)) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false); else window.scrollTo(0,0);
 }
@@ -369,6 +371,7 @@ for (let i=1; i<books[mt].length; i++) {
 	}
 if (mt==0) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Позже: журнал «Навигатор игрового мира»</h3>";
 if (mt==7) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(14)'>Позже: одноименный журнал</h3>";
+if (mt==8) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Регулярные выпуски журнала</h3>";
 if (mt==9) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(11)'>Позже: одноименный журнал</h3>";
 prnt.innerHTML = galRes+"</div>";
 window.scrollTo(0,0);
@@ -478,22 +481,11 @@ let inF1="Приветствую вас на страницах путеводи
 prnt.innerHTML = "<div class='infMsg'>"+inF1+"</div>";
 }
 
-function ddMenu() {
-let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>";
-for (i=0; i<mags.length-1; i++) sel+= "<li><a onclick='showGal("+i+")'>"+mags[i][0].split("|")[0]+"<span class='mc'> "+(mags[i].length-1)+"</span></a></li>"; sel+="</ul></li><li><a>Книги</a><ul class='ulB'>"
-for (i=0; i<books.length; i++) sel+= "<li><a onclick='showBookGal("+i+")'>"+books[i][0]+"</a></li>"; sel += "</ul></li><li><a>Дискмаги</a><ul class='ulD'>"
-for (i=0; i<dis.length; i++) sel+= "<li><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"</a></li>"; sel += "</ul></li><li><a>PDF</a><ul class='ulP'>"
-for (i=0; i<PDFs.length; i++) sel+= "<li><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"</a></li>"; 
-sel+="</ul></li><li><a onclick='showTVGal()'>ТВ</a></li></ul></nav>";
-//sel+="</ul></li><li><a onclick='prntHelp()'>&nbsp;?&nbsp;</a></li></ul></nav>"
-topRightCnt.innerHTML = sel;
-}
-
 function showYear(year) {
 let galArray = []; 
 let cur = Number(year); let galRes = "<div class='gal'><h1>";
 galRes += (cur<1995) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur-1)+")'>◄</span>"; galRes += cur;
-galRes += (cur>2008) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur+1)+")'>►</span></h1>";
+galRes += (cur>2009) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur+1)+")'>►</span></h1>";
 for (let g=0; g<mags.length; g++) {
 let [magName, magPref] = mags[g][0].split("|"); let noTitle = true; let items = 0;
 for (let i=1; i<mags[g].length && items<12; i++) {
@@ -516,6 +508,17 @@ if (book_details[bookID].split("|")[3] == year) {
 }}}
 prnt.innerHTML = galRes+"</div>";
 window.scrollTo(0,0)
+}
+
+function ddMenu() {
+let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>";
+for (i=0; i<mags.length-2; i++) sel+= "<li><a onclick='showGal("+i+")'>"+mags[i][0].split("|")[0]+"<span class='mc'> "+(mags[i].length-1)+"</span></a></li>"; sel+="</ul></li><li><a>Книги</a><ul class='ulB'>"
+for (i=0; i<books.length; i++) sel+= "<li><a onclick='showBookGal("+i+")'>"+books[i][0]+"</a></li>"; sel += "</ul></li><li><a>Дискмаги</a><ul class='ulD'>"
+for (i=0; i<dis.length; i++) sel+= "<li><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"</a></li>"; sel += "</ul></li><li><a>PDF</a><ul class='ulP'>"
+for (i=0; i<PDFs.length; i++) sel+= "<li><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"</a></li>"; 
+sel+="</ul></li><li><a onclick='showTVGal()'>ТВ</a></li></ul></nav>";
+//sel+="</ul></li><li><a onclick='prntHelp()'>&nbsp;?&nbsp;</a></li></ul></nav>"
+topRightCnt.innerHTML = sel;
 }
 
 ddMenu();
