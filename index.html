@@ -340,7 +340,6 @@ for (let i=1; i<mags[mt].length; i++) {
 		if ((issNum == '')&&(galArray[0].slice(2) != (i+numfix))) issNum = 'start'; 
 				if ((i>42)&&(window.location.protocol != "file:")) lazyLoad = "loading='lazy'";
 		}
-	if (magPref=='mg') {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
 	if (mags[mt][i].slice(3,6).indexOf("_|")>-1) numfix--; 
 	if (issNum != '') issNum = "<div class='galIss'>"+(i+numfix)+"</div>";
 	if (mags[mt][i].slice(3,5).indexOf("-")>-1) {numfix++; if (magPref=='mik' && (i==237||i==238)) numfix++;}
@@ -492,7 +491,6 @@ for (let i=1; i<mags[g].length && items<12; i++) {
 if (mags[g][i].slice(0,2) == String(year).slice(2)) {
 	if (noTitle) {galRes += "<h2><a onclick='showGal("+g+")'>"+magName+"</a></h2>"; noTitle = false;}
 	galArray = mags[g][i].split('|'); items++;
-	if (magPref=='mg') {if (galArray[1]=="*,-") {galRes += "<img title='Нет данных' src='cvs/404.png'>"; continue;}}
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>"; else galRes += getGalLink(magPref+galArray[0]);
 	if (magPref=='xs') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+g+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
 	if ((magPref=='gl'||magPref=='mik') && items==12) galRes+='<div class="galIss" style="display: block; font-size: 100px; color: rgba(255,255,255,0.5);">+</div>';
