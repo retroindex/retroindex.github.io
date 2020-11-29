@@ -783,6 +783,7 @@
 "oga111":"og-almanac-2-02-2011|0",
 "oga151":"og-almanac-03-2015|0",
 "glu989":"GameLand19980928-extended|0",
+"mgg011":"mega-game-cd-guides|0",
 "it111":"igro-top-1-2011|2"
 }
 
