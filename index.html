@@ -352,9 +352,10 @@ if (magPref=='pcr') galRes += "<br><br><br><h3 style='border-bottom: 3px #8e3ca2
 if (magPref=='bah') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(3)'>Позже: «КомпАс»</h3>";
 if (magPref=='mi') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(8)'>Позже переименован в «Game.EXE»</h3>";
 if (magPref=='gl') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(22)'>Спецвыпуски</h3><h3 style='margin-left: 30px; border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3>";
-if (magPref=='nim') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(23)'>Спецвыпуски</h3><h3  style='margin-left: 30px;' class='linkB' onClick='showBookGal(8)'>Энциклопедии</h3>";
 if (magPref=='glsp') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(6)'>Регулярные выпуски</h3>";
+if (magPref=='nim') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(23)'>Спецвыпуски</h3><h3  style='margin-left: 30px;' class='linkB' onClick='showBookGal(8)'>Энциклопедии</h3>";
 if (magPref=='nims') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Регулярные выпуски</h3>";
+if (magPref=='mg') galRes += "<br><br><br><h3 style='border-bottom: 3px #b20f0b solid' onClick='showPDFGal(3)'>Гайды с дисковых приложений</h3>";
 prnt.innerHTML = galRes+"</div>";
 if ((window.location.protocol == "file:")&&(ms !== undefined)) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false); else window.scrollTo(0,0);
 }
