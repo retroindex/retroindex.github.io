@@ -125,7 +125,7 @@ if (window.location.hash) {
 let sHash = window.location.hash.substring(1);
 history.pushState(null, null, ' ');
 if (hashTags.hasOwnProperty(sHash)) showGal(hashTags[sHash]);
-else if ((/^(199|200)\d$/.test(sHash))) showYear(Number(sHash));
+else if (Number(sHash)>1991 && Number(sHash)<2011) showYear(Number(sHash));
 else {
 if (sHash.indexOf('%')>=0) sHash = decodeURI(sHash); 
 sHash = sHash.replace('_',' '); sInp.value = sHash;
