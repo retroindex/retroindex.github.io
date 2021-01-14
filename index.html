@@ -21,7 +21,7 @@ H3 A {text-decoration: none;}
 TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
 P {margin-bottom: 0;}
 @font-face {font-family: 'Antnum'; src: url('misc/antnum.woff2') format('woff2');}
-#sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background-color: #f4efda; box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3); transition: background-color .3s ease-out;}
+#sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background-color: #f4efda; box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2); transition: background-color .3s ease-out;}
 #sInp:focus {background-color: #fff;}
 #sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background-color: #f4efda; outline: none;}
 #sel {height: 25px; margin-right: 0; font-size:14px; outline: none; border: 0; background-color: #f4efda;}
@@ -29,9 +29,11 @@ P {margin-bottom: 0;}
 #chAuto {border: 1px #4c270e solid; background-color: #f4efda; border-radius: 15px;}
 #modSel option:nth-child(2n) {background-color: #f0f5ff;}
 #modSel {flex-basis: 292px; flex-grow: 1;}
-.topBar {height: 45px; background-color: #e9e3cc; background: url(misc/paper.jpg); text-align: center; position: sticky; top: 0; padding: 0 15px 0 8px; display: flex; margin: 0; align-items: center; z-index: 100;}
+.topSticky {position: sticky; top: 0; background-color: #e9e3cc; background: url(misc/paper.jpg); z-index: 100;}																																
+.topBar {height: 45px; background-color: #e9e3cc; background: url(misc/paper.jpg); text-align: center; padding: 0 15px 0 8px; display: flex; margin: 0; align-items: center;}
 .topRex {display: none;}
-.topCenter {flex: 1 0 0; white-space: nowrap; height: 100%;}
+.topCenter {flex: 1 0 0; white-space: nowrap; height: 100%; padding-top: 3px;}
+.topRight {padding-top: 1px;}
 .dtab {flex: 1 0 0; min-width: 400px; max-width: 600px; margin: 12px;}
 .tRes {background-color: rgba(99,99,99,0.1); width: 100%; font: 14px Arial; border-collapse: collapse; text-align: center;}
 .tRes TH {font-weight: normal; margin: 0; color: #fff;}
@@ -86,6 +88,7 @@ nav ul ul li {min-width:265px; display:list-item; position: relative;}
 IMG[id^="b-"] {cursor: help;}
 
 @media (max-width: 840px) { 
+#hintBar {display: none;}
 .topLeft {display: none;}
 .topRex {display: block;}
 }
@@ -103,6 +106,11 @@ IMG[id^="b-"] {cursor: help;}
 .tRes TH:nth-child(3) {border-top-right-radius: 0;} 
 .infMsg {max-width: 430px;}
 }
+
+#hintBar {margin-top: 5px; padding: 0 10px 5px 5px; min-height: 22px; background-color: rgba(127,127,127,0.1); border-top: #bbb 1px dotted; border-bottom: #bbb 1px dotted;}
+#hintBar span {display: inline-block; border-radius: 4px; font: 12px Arial; padding: 1px 3px; margin-left: 5px; margin-top: 5px; background-color: #f4efda; color: #000; white-space: nowrap;}
+#hintBar span:hover {background-color: gold; cursor: pointer;}
+
 </style>
 <script src="tv.js?ver=19a12"></script>
 <script src="mags.js?ver=20701"></script>
@@ -111,12 +119,10 @@ IMG[id^="b-"] {cursor: help;}
 <script src="links.js?ver=20701"></script>
 </head>
 <body> 
-<div class="topBar">
-<div class="topRex"><img src="misc/rex.png" width="65" height="30"></div>
+<div class="topSticky"><div class="topBar"><div class="topRex"><img src="misc/rex.png" width="65" height="30"></div>
 <div class="topLeft"><a href="https://retroindex.github.io"><img src="misc/retrologo.png" width="197" height="30"></a></div>
 <div class="topCenter"><span class="cb"><input type="checkbox" id="chAuto"><label for="chAuto"></label></span><input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" class="mBut" value="Поиск" onclick="wrapper(sInp.value.trim())"></div>
-<div class="topRight" id="topRightCnt"></div>
-</div>
+<div class="topRight" id="topRightCnt"></div></div><div id="hintBar"></div></div>
 <div id="prnt"><div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90-х</h1><img class="sar" src="misc/sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div></div>
 <div id="covModal"><div id="modContent"></div></div>								
 <div style="opacity: 0; font-size: 1px; font-family: Impact, Antnum;">2019</div>
@@ -134,13 +140,14 @@ wrapper(sHash);
 
 let timeout = null;	// debounce
 sInp.onkeyup = function (e) {if (chAuto.checked) {clearTimeout(timeout); timeout = setTimeout(function () {wrapper(sInp.value.trim())}, 500)}};
-
-document.addEventListener('keyup', function(event) {if (event.key == 'Enter' && sInp.value != '') wrapper(sInp.value.trim())});
-document.addEventListener('keydown', function(event) {if (event.key == 'Escape') sInp.value='';});
+document.addEventListener('keyup', function(event) {if (event.key == 'Enter' && sInp.value != '') wrapper(sInp.value.trim());});
+document.addEventListener('keydown', function(event) {if (event.key == 'Escape') {sInp.value=''; hintBar.innerHTML='';}});
 window.addEventListener('hashchange', function() {location.reload();}, false);
+window.newHints = true;
 
 function wrapper(wReg) {
 let triedAbbr = false;
+
 wReg = wReg.replace(/[*+,|?{}\[\]\(\)\\]/g, '');
 if (document.getElementById('sel')) document.getElementById('sel').value="";
 
@@ -154,9 +161,11 @@ if (!globalSearch(wReg)) {
 	}
 }
 
+
 function globalSearch(sReg) {
 	const start = new Date().getTime();
 let re = "";
+gHint = []; hinTemp = [];
 if (/^(of?)?\s*(t|th|the)?$/i.test(sReg)) return;
 if (/(^|\s)[^0-9 .'-]{2,}\d+$/i.test(sReg)) sReg = sReg.replace(/\d+$/,' $&');
 if (sReg.length<3 || sReg.indexOf('=')>=0) re = new RegExp("(^|\\|)"+sReg.replace('=','')+"( \\(.+\\))*($|,)","i")
@@ -179,7 +188,10 @@ for (let g=0; g<books.length; g++) {
 			let [bName,bISBN,bPub,bYear,bQty] = book_details[bookArray[0]].split("|");
 			for (let j=1; j<bookArray.length; j++) {
 				let [bGame, bPage] = bookArray[j].split(",");
-				if (re.test(bookArray[j])) bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' id='b-"+g+"-"+i+"' src='cvs/b_"+bookArray[0]+".jpg' onclick='showModal(this)'></th><th>"+bGame+"</th><th>"+bPage+"</th></tr><tr><td>"+bName+"<br>Издательство "+bPub+", "+bYear+"<br>ISBN: "+bISBN+"</td><td>*</td></tr></table></div>"
+				if (re.test(bookArray[j])) {
+				bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' id='b-"+g+"-"+i+"' src='cvs/b_"+bookArray[0]+".jpg' onclick='showModal(this)'></th><th>"+bGame+"</th><th>"+bPage+"</th></tr><tr><td>"+bName+"<br>Издательство "+bPub+", "+bYear+"<br>ISBN: "+bISBN+"</td><td>*</td></tr></table></div>"
+				addUnique(bGame);
+				}
 			}
 		}
 	}
@@ -206,7 +218,11 @@ for (let g=0; g<mags.length; g++) {
 			magName += "’"+magNum.slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
 				let [magGame, magPage] = magArray[j].split(",");
-				if (re.test(magArray[j])) magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
+				if (re.test(magArray[j])) 	{
+											magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
+											addUnique(magGame);
+											}
+
 			}
 		}
 	}
@@ -229,7 +245,8 @@ for (let g=0; g<dis.length; g++) {
 		else if ((discArray[0].slice(2) != (i+numfix)) && (g!=1)) discName += " ("+(i+numfix)+")";
 		discName += "’"+discArray[0].slice(0,2);
 		for (let j=1; j<discArray.length; j++) {
-			if (re.test(discArray[j])) discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg'"+cds+" onclick='showModal(this)'></th><th>"+discArray[j]+"</th><th><img src='"+dType+"'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
+			if (re.test(discArray[j])) {	discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg'"+cds+" onclick='showModal(this)'></th><th>"+discArray[j]+"</th><th><img src='"+dType+"'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
+											addUnique(discArray[j]);}
 		}
 	}
  }
@@ -249,7 +266,8 @@ for (let g=0; g<PDFs.length; g++) {
 			PDFName += "’"+PDFArray[0].slice(0,2);
 			for (let j=1; j<PDFArray.length; j++) {
 				let [PDFGame, PDFPage] = PDFArray[j].split(",");
-				if (re.test(PDFArray[j])) PDFRes += "<div class='dtab'><table class='tRes colP'><tr><th rowspan=2><img class='cov' id='p-"+g+"-"+i+"' src='cvs/"+PDFPref+PDFArray[0]+".jpg' onclick='showModal(this)'></th><th>"+PDFGame+"</th><th>"+PDFPage+"</th></tr><tr><td id='"+PDFPref+PDFArray[0]+"'>"+PDFName+"</td><td>"+getLink(PDFPref+PDFArray[0],PDFPage)+"</td></tr></table></div>";
+				if (re.test(PDFArray[j])) {PDFRes += "<div class='dtab'><table class='tRes colP'><tr><th rowspan=2><img class='cov' id='p-"+g+"-"+i+"' src='cvs/"+PDFPref+PDFArray[0]+".jpg' onclick='showModal(this)'></th><th>"+PDFGame+"</th><th>"+PDFPage+"</th></tr><tr><td id='"+PDFPref+PDFArray[0]+"'>"+PDFName+"</td><td>"+getLink(PDFPref+PDFArray[0],PDFPage)+"</td></tr></table></div>";
+				addUnique(PDFGame);}
 			}
 		}
 	}
@@ -285,13 +303,28 @@ for (let g=0; g<tvs.length; g++) {
 	}
 }
 
+function addUnique(game) {
+if (game.indexOf("(")<0) {
+	if ((gHint.indexOf(game)<0) && (hinTemp.indexOf(game)>=0)) gHint.push(game);
+	if (hinTemp.indexOf(game)<0) hinTemp.push(game);
+	}
+}
+
 if (bookRes+magRes+vidRes+PDFRes+discRes=="") return false;
 let gridFix = "<div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div>";
-prnt.innerHTML = magRes+bookRes+discRes+PDFRes+vidRes+gridFix;
+let gHintBuffer = ''; 
+gHint.sort(function(a, b) {a = a.replace(/(\D):/ig, '$1 1:'); b = b.replace(/(\D):/ig, '$1 1:'); return a.localeCompare(b);});
+for (i=0; i<gHint.length; i++) gHintBuffer += '<span title=\"'+gHint[i]+'\" onClick="window.newHints=false; wrapper(this.title+\'=\');">'+gHint[i]+'</span>'; 
+if (gHint.length == 1) gHintBuffer = '';
+if (window.newHints) hintBar.innerHTML = gHintBuffer;
+else window.newHints = true;
+if (gHint.length < 64) prnt.innerHTML = magRes+bookRes+discRes+PDFRes+vidRes+gridFix;
+else prnt.innerHTML = '<div class="errMsg">Уточните запрос, или выберите игру из списка ('+gHint.length+')</div>';
 	const end = new Date().getTime();
     console.log(end - start, "ms");
 return true;
 }
+
 
 function getLink (mag,page) {
 if (!webLinks.hasOwnProperty(mag)) return "<img width='15' src='misc/nolink.png'>";
@@ -356,6 +389,7 @@ if (magPref=='glsp') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(6
 if (magPref=='nim') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(23)'>Спецвыпуски</h3><h3  style='margin-left: 30px;' class='linkB' onClick='showBookGal(8)'>Энциклопедии</h3>";
 if (magPref=='nims') galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Регулярные выпуски</h3>";
 if (magPref=='mg') galRes += "<br><br><br><h3 style='border-bottom: 3px #b20f0b solid' onClick='showPDFGal(3)'>Гайды с дисковых приложений</h3>";
+hintBar.innerHTML = '';
 prnt.innerHTML = galRes+"</div>";
 if ((window.location.protocol == "file:")&&(ms !== undefined)) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false); else window.scrollTo(0,0);
 }
@@ -373,6 +407,7 @@ if (mt==0) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Поз�
 if (mt==7) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(14)'>Позже: одноименный журнал</h3>";
 if (mt==8) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(7)'>Регулярные выпуски журнала</h3>";
 if (mt==9) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(11)'>Позже: одноименный журнал</h3>";
+hintBar.innerHTML = '';
 prnt.innerHTML = galRes+"</div>";
 window.scrollTo(0,0);
 }
@@ -392,6 +427,7 @@ for (let i=1; i<PDFs[mt].length; i++) {
 if (magURL) galRes += "<br><br><br><h3 style='border-bottom: 3px #800000 solid'><a href='http://"+magURL+"' target='_blank'>Сайт: "+magURL+"</a></h3>";
 if (mt==2) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(6)'>Регулярные выпуски</h3>";
 if (mt==3) galRes += "<br><br><br><h3 class='linkM' onClick='showGal(10)'>Регулярные выпуски</h3>";
+hintBar.innerHTML = '';
 prnt.innerHTML = galRes+"</div>";
 }
 
@@ -405,6 +441,7 @@ for (let i=1; i<dis[mt].length; i++) {
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); galRes += "<h2>19"+pubYear+"</h2>";}
 	galRes += "<img title='"+galArray[0]+"' id='d-"+mt+"-"+i+"' src='cvs/d_"+magPref+galArray[0]+".jpg' onclick='showModal(this)'>";
 	}
+hintBar.innerHTML = '';
 prnt.innerHTML = galRes+"</div>";
 }
 
@@ -415,6 +452,7 @@ for (let i=0; i<tvs.length; i++) {
 	let [tvName, tvPref] = tvs[i][0].split("|");
 	galRes += "<img title='"+tvName+"' id='v-"+i+"' src='cvs/tv_"+tvPref+".jpg' style='cursor: pointer;' onclick='showModal(this)'>";
 	}
+hintBar.innerHTML = '';
 prnt.innerHTML = galRes+"</div>";
 }
 
@@ -480,13 +518,15 @@ modal.style.display = "none";
 function prntHelp () {
 let inF1="Приветствую вас на страницах путеводителя по игрожуру девяностых! <p>Наберите небольшую часть названия интересующей игры (civ, re ark, слон). Для удобства пользуйтесь клавишами Enter и Escape, или вовсе включите автопоиск. Если части слов не находятся, делается предположение, что набрана аббревиатура (lba, mm6), которая также ищется. Пробел перед номером части необязателен (gob2). Символ <b>=</b> в любом месте поикового запроса позволит найти точное совпадение без лишних результатов (gothic). Можно публиковать в сети ссылки на конкретные игры через хеш-символ: <a href='https://retroindex.github.io#homm2' target='_blank'>retroindex.github.io#homm2</a> <p>В выдаче формируется адаптивная сетка из 5 категорий: журналы, книги, дискмаги, сетевые журналы и телепередачи. Клик по обложке вызывает оглавление номера, из которого можно перейти как к галерее номеров данного издания, так и к новой выдаче по игре из оглавления. Таким образом можно путешествовать по базе, не прикасаясь к поиску. Альтернативный способ навигации — выбрать категорию и архив номеров игрового издания в меню справа от поиска.<p>Навигация по телепередачам (От винта!) вынесена на отдельную <a href='otvinta.html' target='_blank'>страницу</a> из-за повышенных требований к ширине вьюпорта.<p>Часть закладок в выдаче содержит ссылку на Archive.org, непосредственно на нужную страницу, или разворот хранящегося там документа. Возможные промахи сигнализируют о сбитой нумерации документа — удалены страницы с рекламой, сквозные постеры итд. На некоторых устройствах Архив будет пытаться подсунуть низкокачественные страницы, это исправляется переходом в полноэкранный режим (стрелка вниз в правом нижнем углу). <p>Впереди еще много работы по наполнению базы и улучшению приложения. При желании вы можете <a href='https://www.old-games.ru/forum/threads/88160/' target='og'>присоединиться</a> к проекту, или <a href='https://www.old-games.ru/forum/threads/31874/' target='og'>сообщить</a> о существовании неизвестных нашему сообществу изданий. Внесите свой вклад в историю игровой журналистики! <p align='right'>Morendil</p>";
 prnt.innerHTML = "<div class='infMsg'>"+inF1+"</div>";
-}
 
+}
 function showYear(year) {
 let galArray = []; 
+let rty = 2011;
+
 let cur = Number(year); let galRes = "<div class='gal'><h1>";
 galRes += (cur<1995) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur-1)+")'>◄</span>"; galRes += cur;
-galRes += (cur>2009) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur+1)+")'>►</span></h1>";
+galRes += (cur>=rty) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur+1)+")'>►</span></h1>";
 for (let g=0; g<mags.length; g++) {
 let [magName, magPref] = mags[g][0].split("|"); let noTitle = true; let items = 0;
 for (let i=1; i<mags[g].length && items<12; i++) {
@@ -507,6 +547,14 @@ if (book_details[bookID].split("|")[3] == year) {
 	galRes += "<img title='"+bookID+"' id='b-"+g+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
 }}}
 prnt.innerHTML = galRes+"</div>";
+
+let yearBuffer = ''; let cty = 1994;
+while (cty<=rty) {
+if (cty == year) yearBuffer += '<span style="background-color: orange;">'+cty+'</span>&nbsp;'; 
+else yearBuffer += '<span onClick="showYear('+cty+')">'+cty+'</span>&nbsp;'; cty++;
+}
+hintBar.innerHTML = '<center>'+yearBuffer+'</center>';
+
 window.scrollTo(0,0)
 }
 
@@ -517,8 +565,8 @@ for (i=0; i<books.length; i++) sel+= "<li><a onclick='showBookGal("+i+")'>"+book
 for (i=0; i<dis.length; i++) sel+= "<li><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"</a></li>"; sel += "</ul></li><li><a>PDF</a><ul class='ulP'>"
 for (i=0; i<PDFs.length; i++) sel+= "<li><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"</a></li>"; 
 sel+="</ul></li><li><a onclick='showTVGal()'>ТВ</a></li></ul></nav>";
-//sel+="</ul></li><li><a onclick='prntHelp()'>&nbsp;?&nbsp;</a></li></ul></nav>"
 topRightCnt.innerHTML = sel;
+
 }
 
 ddMenu();
