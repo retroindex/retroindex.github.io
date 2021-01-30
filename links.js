@@ -1,4 +1,21 @@
-﻿const webLinks = {
+﻿const hashTags = {
+"gameland":6,
+"nim":7,
+"exe":8,
+"igromania":9,
+"megagame":10,
+"mik":11,
+"spiel":12,
+"cgw":13,
+"lki":14,
+"pc-games":17,
+"xs":18,
+"gameplay":19,
+"dpk":20,
+"mirf":21
+}
+
+const webLinks = {
 "pcr941":"PC_Review_1-94|2",
 "pcr942":"PC_Review_2-94|4",
 "pcr943":"PC_Review_3-94|2",
@@ -285,6 +302,8 @@
 "gl077":"gameland200707232|2",
 "gl078":"gameland200708233|2",
 "gl079":"gameland200709234|2",
+
+"glsp018":"game-land-demiurgi|0",
 
 "nim971":"GameWorldNavigator_1997-01-001|2",
 "nim972":"GameWorldNavigator_1997-02-002|2",
@@ -634,7 +653,7 @@
 "pc077":"PCGames20070743|2",
 "pc078":"PCGames20070844|2",
 
-"dpk981":"DPK_1998_12|-36|77,78,80,82,84,86",
+"dpk981":"DPK_1998_12|-36|78,79,81,83,85",
 "dpk992":"DPK_1999_02|2",
 "dpk993":"DPK_1999_03|2",
 "dpk994":"DPK_1999_04|2",
@@ -797,21 +816,4 @@
 "glu989":"GameLand19980928-extended|0",
 "mgg011":"mega-game-cd-guides|0",
 "it111":"igro-top-1-2011|2"
-}
-
-const hashTags = {
-"gameland":6,
-"nim":7,
-"exe":8,
-"igromania":9,
-"megagame":10,
-"mik":11,
-"spiel":12,
-"cgw":13,
-"lki":14,
-"pc-games":17,
-"xs":18,
-"gameplay":19,
-"dpk":20,
-"mirf":21
 }

@@ -24,6 +24,8 @@ P {margin-bottom: 0;}
 #sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background-color: #f4efda; box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2); transition: background-color .3s ease-out;}
 #sInp:focus {background-color: #fff;}
 #sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background-color: #f4efda; outline: none;}
+.pBut {display: inline-block; height: 27px; width: 27px; background-color: rgba(127,127,127,0.1); border: #bbb 1px solid; border-radius: 50%; position: relative; top: -4px; left: 20px; user-select: none;}
+.pBut:hover{cursor: pointer; border-color: rgba(127,127,127,0.1); box-shadow: inset 1px 1px 0 rgba(0,0,0,0.2);}
 #sel {height: 25px; margin-right: 0; font-size:14px; outline: none; border: 0; background-color: #f4efda;}
 #prnt {display: flex; flex-wrap: wrap; justify-content: center;} 
 #chAuto {border: 1px #4c270e solid; background-color: #f4efda; border-radius: 15px;}
@@ -57,7 +59,7 @@ P {margin-bottom: 0;}
 .tRes TH, TD {padding: 0;}
 .flexFix {height: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;}
 .errMsg {background-color: #f883a2; max-width: 400px; padding: 15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
-.infMsg {background-color: #b4d055; min-width: 400px; width: 60vw; padding: 15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
+.infMsg {background-color: #f4efda; min-width: 640px; width: 60vw; padding: 15px; margin: 30px 0; border-radius: 15px; font: 14px Arial;}
 .cb {position: relative; left: 31px; top: 9px;}
 .sar {border-radius: 15px;}
 .ns {user-select: none; cursor: pointer !important;}
@@ -67,6 +69,9 @@ P {margin-bottom: 0;}
 #chAuto:checked + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAi1JREFUeNqUlImyojAURG8GEpA4bEK28///OQUV3/ASfctx19t0usu6UvPH/pVfEunl57SjFU1Sv5DMOBnY5BcY0Ct3Kbil6b2xYwpo+YSagVXeMRLBm0/5HHFnlHc0MEe4nGNIuNbTSck05Dcbj3b7b6RW2FRLkpI7yeSkR8UjPE4f7YE02rpEndLTWCWsiG5ygz7d+gB1lJlZnixhuLalz8PVUVz+qu1FGqnoSVJLrBxYBnnBfInyrHIhHG9V3WVONOY3cxw/4hN6ZfayGMiXbo75KQBOMpaT2FaSTDs6gH3nY6T3gNelAskEIGClv9ath0JwNZGJtW3YpCvP/l5imEQcIf1cIj6aLm2B1EtNEeVa0KzM2Z2xdlpW5/ZaIhdm8LktnoSvJdKaS32PZbK2M+UsyGtspFwGUEYpUGMi3uvcbxTdGag5og1XTS1phpw9JDnRK+z6alNKbhAedyMtm+j7suzOJ7BXmzLKEDlIjlEsT4ZCUu7rYfEAvXTLYm1vdNHZ676aW0TJa95IROHkl5Ke+ZOrMe/+Lap9ztjukm4F4u2VpHcQrJS0AWIAKxWWk0UKHOkuMpD0i+1rRW/V1W75m0e9fSfOxBuxXIi7HCy1/4I9g4ORK3lURabD060iop07f8obwheSAX+8rKDPwMewgcuZG2jkivJsXb/DLKVENph1t7PUJecmK0njONiVFKjJue0mLySi5kAY/w1XcsTUggCDQgsYUE8LABacNVGE1b6XAAAAAElFTkSuQmCC); background-size: contain;}
 #covModal {display: none; position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 150; align-items: center; justify-content: center;}
 #modContent {background: #e9e3cc url(misc/paper.jpg); border-radius: 15px; padding: 10px; border: 3px solid #345fb9; width: 450px; z-index: 20; display: flex; align-items: flex-start;}
+#hintBar {margin-top: 5px; padding: 0 10px 5px 5px; min-height: 22px; background-color: rgba(127,127,127,0.1); border-top: #bbb 1px dotted; border-bottom: #bbb 1px dotted;}
+#hintBar span {display: inline-block; border-radius: 4px; font: 12px Arial; padding: 1px 3px; margin-left: 5px; margin-top: 5px; background-color: #f4efda; color: #000; white-space: nowrap;}
+#hintBar span:hover {background-color: gold; cursor: pointer;}
 nav {white-space: nowrap;}
 nav ul {padding:0; margin:0; list-style: none; position: relative;}
 nav ul li {margin: 0; display:inline-block; background-color: #f4efda;}
@@ -106,32 +111,29 @@ IMG[id^="b-"] {cursor: help;}
 .tRes TH:nth-child(3) {border-top-right-radius: 0;} 
 .infMsg {max-width: 430px;}
 }
-
-#hintBar {margin-top: 5px; padding: 0 10px 5px 5px; min-height: 22px; background-color: rgba(127,127,127,0.1); border-top: #bbb 1px dotted; border-bottom: #bbb 1px dotted;}
-#hintBar span {display: inline-block; border-radius: 4px; font: 12px Arial; padding: 1px 3px; margin-left: 5px; margin-top: 5px; background-color: #f4efda; color: #000; white-space: nowrap;}
-#hintBar span:hover {background-color: gold; cursor: pointer;}
-
 </style>
-<script src="tv.js?ver=19a12"></script>
-<script src="mags.js?ver=20701"></script>
-<script src="books.js?ver=20608"></script>
-<script src="digital.js?ver=20701"></script>
-<script src="links.js?ver=20701"></script>
+<script src="tv.js?ver=211"></script>
+<script src="mags.js?ver=211"></script>
+<script src="books.js?ver=211"></script>
+<script src="digital.js?ver=211"></script>
+<script src="links.js?ver=211"></script>
 </head>
 <body> 
 <div class="topSticky"><div class="topBar"><div class="topRex"><img src="misc/rex.png" width="65" height="30"></div>
 <div class="topLeft"><a href="https://retroindex.github.io"><img src="misc/retrologo.png" width="197" height="30"></a></div>
-<div class="topCenter"><span class="cb"><input type="checkbox" id="chAuto"><label for="chAuto"></label></span><input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" class="mBut" value="Поиск" onclick="wrapper(sInp.value.trim())"></div>
+<div class="topCenter"><span class="topLeft"><span onClick="prntMsg()" class="pBut">&nbsp</span></span>
+<span class="cb"><input type="checkbox" id="chAuto"><label for="chAuto"></label></span><input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" value="Поиск" onclick="wrapper(sInp.value.trim())"></div>
 <div class="topRight" id="topRightCnt"></div></div><div id="hintBar"></div></div>
 <div id="prnt"><div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90-х</h1><img class="sar" src="misc/sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div></div>
 <div id="covModal"><div id="modContent"></div></div>								
 <div style="opacity: 0; font-size: 1px; font-family: Impact, Antnum;">2019</div>
 <script type="text/javascript">
+window.newHints = true;
 if (window.location.hash) {
 let sHash = window.location.hash.substring(1);
 history.pushState(null, null, ' ');
 if (hashTags.hasOwnProperty(sHash)) showGal(hashTags[sHash]);
-else if (Number(sHash)>1991 && Number(sHash)<2011) showYear(Number(sHash));
+else if (Number(sHash)>1991 && Number(sHash)<2012) showYear(Number(sHash));
 else {
 if (sHash.indexOf('%')>=0) sHash = decodeURI(sHash); 
 sHash = sHash.replace('_',' '); sInp.value = sHash;
@@ -141,9 +143,10 @@ wrapper(sHash);
 let timeout = null;	// debounce
 sInp.onkeyup = function (e) {if (chAuto.checked) {clearTimeout(timeout); timeout = setTimeout(function () {wrapper(sInp.value.trim())}, 500)}};
 document.addEventListener('keyup', function(event) {if (event.key == 'Enter' && sInp.value != '') wrapper(sInp.value.trim());});
-document.addEventListener('keydown', function(event) {if (event.key == 'Escape') {sInp.value=''; hintBar.innerHTML='';}});
+document.addEventListener('keydown', function(event) {if (event.key == 'Escape') {if (modal.style.display == 'flex') modal.style.display = 'none'; else {sInp.value=''; hintBar.innerHTML=''}}});
 window.addEventListener('hashchange', function() {location.reload();}, false);
-window.newHints = true;
+
+
 
 function wrapper(wReg) {
 let triedAbbr = false;
@@ -156,7 +159,7 @@ if (!globalSearch(wReg)) {
 		triedAbbr = true;
 		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
-		if (!globalSearch(wReg)) prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2010 года, или не на PC.</div>';
+		if (!globalSearch(wReg)) {prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2011 года, или не на PC.</div>'; hintBar.innerHTML = '';}
 		}
 	}
 }
@@ -333,7 +336,7 @@ if (fixes) {
 	if ((fixes.indexOf('p')==0) && (Number(page) > (Number(fixes.slice(1))))) offset-=4;	// Сквозной постер
 	else {
 		let missPages = fixes.split(","); let i=0;
-		while (Number(page) > Math.abs(missPages[i])) {
+		while (Number(page) >= Math.abs(missPages[i])) {
 			Number(missPages[i]) < 0 ? offset++ : offset--;
 			i++;
 		}
@@ -515,15 +518,15 @@ window.onclick = function (event) {if (event.target == modal) {
 modal.style.display = "none"; 
 }}
 
-function prntHelp () {
-let inF1="Приветствую вас на страницах путеводителя по игрожуру девяностых! <p>Наберите небольшую часть названия интересующей игры (civ, re ark, слон). Для удобства пользуйтесь клавишами Enter и Escape, или вовсе включите автопоиск. Если части слов не находятся, делается предположение, что набрана аббревиатура (lba, mm6), которая также ищется. Пробел перед номером части необязателен (gob2). Символ <b>=</b> в любом месте поикового запроса позволит найти точное совпадение без лишних результатов (gothic). Можно публиковать в сети ссылки на конкретные игры через хеш-символ: <a href='https://retroindex.github.io#homm2' target='_blank'>retroindex.github.io#homm2</a> <p>В выдаче формируется адаптивная сетка из 5 категорий: журналы, книги, дискмаги, сетевые журналы и телепередачи. Клик по обложке вызывает оглавление номера, из которого можно перейти как к галерее номеров данного издания, так и к новой выдаче по игре из оглавления. Таким образом можно путешествовать по базе, не прикасаясь к поиску. Альтернативный способ навигации — выбрать категорию и архив номеров игрового издания в меню справа от поиска.<p>Навигация по телепередачам (От винта!) вынесена на отдельную <a href='otvinta.html' target='_blank'>страницу</a> из-за повышенных требований к ширине вьюпорта.<p>Часть закладок в выдаче содержит ссылку на Archive.org, непосредственно на нужную страницу, или разворот хранящегося там документа. Возможные промахи сигнализируют о сбитой нумерации документа — удалены страницы с рекламой, сквозные постеры итд. На некоторых устройствах Архив будет пытаться подсунуть низкокачественные страницы, это исправляется переходом в полноэкранный режим (стрелка вниз в правом нижнем углу). <p>Впереди еще много работы по наполнению базы и улучшению приложения. При желании вы можете <a href='https://www.old-games.ru/forum/threads/88160/' target='og'>присоединиться</a> к проекту, или <a href='https://www.old-games.ru/forum/threads/31874/' target='og'>сообщить</a> о существовании неизвестных нашему сообществу изданий. Внесите свой вклад в историю игровой журналистики! <p align='right'>Morendil</p>";
-prnt.innerHTML = "<div class='infMsg'>"+inF1+"</div>";
-
+function prntMsg() {
+showYear();
+prnt.innerHTML = "<div class='infMsg'>Приветствую вас на страницах путеводителя по игрожуру девяностых! <h1>О проекте</h1>Как-то раз, запустив очередную старую игру, я захотел перечитать ее обзоры в бумажной прессе тех лет. Обложился книгами и журналами, потратил кучу времени на листание с перекладыванием и понял, что надо менять подход. Если нет поисковика по игровой прессе, остается только сделать его самому. Взял и сделал на чистом JavaScript. Подробности на <a href='https://dtf.ru/retro/75296' target='_blank'>DTF</a>. Приложение не требует интернета для работы, на GitHub всегда доступна <a href='https://github.com/retroindex/retroindex.github.io/archive/master.zip'>актуальная версия</a> для локального использования. <h1>Поисковые запросы</h1><p>Наберите в строке поиска небольшие части слов из названия интересующей игры (morr, ret kr, слон). Пробел перед порядковым номером игры необязателен (gob2). Для удобства пользуйтесь клавишами Enter и Escape, или вовсе включите автопоиск. Последний избавит от лишних кликов, начиная обрабатывать запрос через полсекунды после набора текста. Если части слов не находятся, делается предположение, что набрана аббревиатура (lba, mm6). Текст обрезается до 5 символов, разбивается пробелами и ищется повторно. Символ <b>=</b> в любом месте поискового запроса позволит найти строгое совпадение без лишних результатов (gothic). <h1>Результаты поиска</h1><p>В выдаче формируется адаптивная сетка из 5 категорий: журналы, книги, дискмаги, сетевые журналы и телепередачи. Внутри категорий закладки отсортированы по старшинству изданий. Клик по обложке открывает модальное окно с оглавлением, из которого можно перейти как к галерее номеров данного издания, так и к новой выдаче по игре из оглавления. Закрывается окно кликом в любом месте за его пределами, либо клавишей Escape. <h1>Панель подсказок</h1>Постоянный рост объема базы со временем привел к затруднению восприятия смешанных результатов поиска. Проблема решилась добавлением вспомогательной панели для отображения алфавитно упорядоченного списка найденных игр (имеющих не менее двух обзоров). Панель также используется для машины времени и размещения в дальнейшем пунктов меню. Клавишей Escape сбрасывается к исходному состоянию.<h1>Привязка к Archive.org</h1>Некоторые \"закладки\" в выдаче привязаны к крупнейшему интернет архиву и если дернуть за веревочку, журнал откроется на нужной странице. <p><img src='misc/h_linked.png'><p>Любительские сканы и редакционные пдфки часто вносят путаницу в нумерацию — отсутствующие страницы с рекламой, \"лишние\" страницы, перепутанные местами итд. Из-за всех этих нюансов, которые приходится учитывать, связующие записи в <a href='links.js' target='_blank'>links.js</a> выглядит примерно так: <p><b>\"exe012\":\"Game.EXE_02_2001|2|38,-80,-80,91\"</b> <p>Здесь по порядку: <br>Сопоставление идентификатора в базе и на Archive.org; <br>Cмещение нумерации (0 - нумеруется с обложки, 2 - c третьей страницы); <br>38 и 91 - отсутствующие страницы, счетчик сдвигается влево; <br>-80,-80 - две лишних страницы подряд, счетчик сдвигается вправо. <p>Нередко на центральный разворот журнала ставили постер со сквозной нумерацией, в таком случае после смещения указывается <b>p</b> + первая страница постера (например, <b>p73</b>). Для проверки целостности нумерации журналов был создан специальный инструмент - <a href='tools/pagecheck.htm' target='_blank'>PageChecker</a><p>На вопрос об отсутствии в Архиве большинства журналов 21 века, могу сказать, что в принципе ничего туда не загружаю и даже не имею аккаунта. <h1>Прямые ссылки</h1>Не уверен, делают ли так с JavaScript, или это очередной мой велосипед, но предусмотрел возможность публикации ссылок на поисковые запросы. Для этого в адресную строку дописывается <b>#</b> с последующим кратким названием игры. В названии допускается кириллица и пробелы, которые для читаемости лучше заменять нижним прочерком. Некоторые форумные движки требуют наличия слэша перед хешем: <a href='https://retroindex.github.io/#homm2' target='_blank'>retroindex.github.io/#homm2</a>. <p>Также можно ссылаться на галереи по журналам и годам, указав вместо игры зарезервированный никнейм журнала (см. <a href='links.js' target='_blank'>links.js</a>), или четырехзначный год. <h1>Галереи изданий</h1>В меню справа от поиска можно выбрать категорию и открыть галерею интересующего издания. При этом в списке журналов указывается их фактическое количество, по понятным причинам не всегда совпадающее с последним номером. В галерее клик по году отрывает галерею изданий за этот год, откуда можно аналогично перейти к существующим на тот момент изданиям. <p><img src='misc/h_num.jpg' style='float: left; padding-right: 1em;'>При наведении курсора на обложку журнала появляется угловой оверлей с текущим номером и центральный со сквозным номером (если он отличается от текущего). Сквозной номер вычисляется на основе счетчика и корректирующих символов -_ в названии файла. <p>nim982.jpg : +0<br>nim982-3.jpg : +1<br>nim982_3.jpg : +0<br>nim982_.jpg : -1 <p>При наличии привязки к Архиву, угловой оверлей имеет зеленый фон и открывает журнал по клику. Для ряда изданий, не размещенных на Archive.org, но имеющих собственные официальные архивы номеров, установлена автоматическая привязка к соответствующим сайтам.<p>Что до самих обложек, в их изготовлении используется ряд хитростей. Ширина обложки всегда равна 128px (учитывается кратность 8 для JPEG и размещение ряда из 12 обложек в разрешении 1600x1200), а высота как получится, но всегда одинаковая в рамках одного года издания. Важно получить четкую незамыленную картинку, тут HighPass макрос в помощь. Для преобразования в JPEG отлично зарекомендовал себя гугловский кодер Guetzli, обеспечивающий лучшее качество при меньшем размере, ценой длительных вычислений. К крупным изображениям он обычно неприменим, а для таких — в самый раз. <h1>Структура базы</h1>База представляет собой \"человекочитаемый\" и легко редактируемый многомерный массив, записанный в набор CSV-подобных файлов (books.js, mags.js, digital.js, tv.js). Лишней, или дублирующейся информации в ней практически нет, за исключением названий игр. Но благодаря использованию Gzip на стороне Github, объем загружаемой базы уменьшается в 4 раза (до ~270 килобайт). В скобках после названия игры может указываться разнообразная информация: <br>- альтернативное (раннее, или переводное) название игры; <br>- указание на обзор всей игровой серии (series), или мода (mod); <br>- интервью с разработчиками игры. <h1>Обратная связь</h1>Присылайте багрепорты и пожелания. Если вы располагаете отсутствующими в базе изданиями и готовы сфотографировать обложку с оглавлением, буду рад добавить их. <p><a href='https://www.old-games.ru/forum/threads/88160/' target='_blank'>Официальная тема на форуме OG</a><br><a href='https://www.old-games.ru/forum/threads/31874/' target='_blank'>Журнальная тема (сканирование)</a><br><a href='https://discord.gg/AejRAnDvUj' target='_blank'>Сервер Discord</a> <p align='right'>Morendil</p></div>";
 }
+
 function showYear(year) {
 let galArray = []; 
 let rty = 2011;
-
+if(year) {
 let cur = Number(year); let galRes = "<div class='gal'><h1>";
 galRes += (cur<1995) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur-1)+")'>◄</span>"; galRes += cur;
 galRes += (cur>=rty) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur+1)+")'>►</span></h1>";
@@ -535,7 +538,7 @@ if (mags[g][i].slice(0,2) == String(year).slice(2)) {
 	galArray = mags[g][i].split('|'); items++;
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>"; else galRes += getGalLink(magPref+galArray[0]);
 	if (magPref=='xs') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+g+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
-	if ((magPref=='gl'||magPref=='mik') && items==12) galRes+='<div class="galIss" style="display: block; font-size: 100px; color: rgba(255,255,255,0.5);">+</div>';
+	if ((magPref=='gl'||magPref=='mik') && year<2011 && items==12) galRes+='<div class="galIss" style="display: block; font-size: 100px; color: rgba(255,255,255,0.5);">+</div>';
 	galRes += "<img id='m-"+g+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
 }}}	
 for (let g=0; g<books.length; g++) {
@@ -547,15 +550,13 @@ if (book_details[bookID].split("|")[3] == year) {
 	galRes += "<img title='"+bookID+"' id='b-"+g+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
 }}}
 prnt.innerHTML = galRes+"</div>";
-
+window.scrollTo(0,0);
+}
 let yearBuffer = ''; let cty = 1994;
 while (cty<=rty) {
-if (cty == year) yearBuffer += '<span style="background-color: orange;">'+cty+'</span>&nbsp;'; 
-else yearBuffer += '<span onClick="showYear('+cty+')">'+cty+'</span>&nbsp;'; cty++;
-}
+if (cty == year) yearBuffer += '<span style="background-color: #fdbc00;">'+cty+'</span>&nbsp;'; 
+else yearBuffer += '<span onClick="showYear('+cty+')">'+cty+'</span>&nbsp;'; cty++; }
 hintBar.innerHTML = '<center>'+yearBuffer+'</center>';
-
-window.scrollTo(0,0)
 }
 
 function ddMenu() {
@@ -566,7 +567,6 @@ for (i=0; i<dis.length; i++) sel+= "<li><a onclick='showDiscGal("+i+")'>"+dis[i]
 for (i=0; i<PDFs.length; i++) sel+= "<li><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"</a></li>"; 
 sel+="</ul></li><li><a onclick='showTVGal()'>ТВ</a></li></ul></nav>";
 topRightCnt.innerHTML = sel;
-
 }
 
 ddMenu();
