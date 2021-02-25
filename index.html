@@ -133,7 +133,7 @@ if (window.location.hash) {
 let sHash = window.location.hash.substring(1);
 history.pushState(null, null, ' ');
 if (hashTags.hasOwnProperty(sHash)) showGal(hashTags[sHash]);
-else if (Number(sHash)>1991 && Number(sHash)<=2012) showYear(Number(sHash));
+else if (Number(sHash)>1991 && Number(sHash)<=2013) showYear(Number(sHash));
 else {
 if (sHash.indexOf('%')>=0) sHash = decodeURI(sHash); 
 sHash = sHash.replace('_',' '); sInp.value = sHash;
@@ -525,7 +525,7 @@ prnt.innerHTML = "<div class='infMsg'>Приветствую вас на стр�
 
 function showYear(year) {
 let galArray = []; 
-let rty = 2012;
+let rty = 2013;
 if(year) {
 let cur = Number(year); let galRes = "<div class='gal'><h1>";
 galRes += (cur<1995) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur-1)+")'>◄</span>"; galRes += cur;
