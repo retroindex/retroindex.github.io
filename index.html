@@ -133,7 +133,7 @@ if (window.location.hash) {
 let sHash = window.location.hash.substring(1);
 history.pushState(null, null, ' ');
 if (hashTags.hasOwnProperty(sHash)) showGal(hashTags[sHash]);
-else if (Number(sHash)>1991 && Number(sHash)<=2013) showYear(Number(sHash));
+else if (Number(sHash)>1991 && Number(sHash)<=2014) showYear(Number(sHash));
 else {
 if (sHash.indexOf('%')>=0) sHash = decodeURI(sHash); 
 sHash = sHash.replace('_',' '); sInp.value = sHash;
@@ -159,7 +159,7 @@ if (!globalSearch(wReg)) {
 		triedAbbr = true;
 		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
-		if (!globalSearch(wReg)) {prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2011 года, или не на PC.</div>'; hintBar.innerHTML = '';}
+		if (!globalSearch(wReg)) {prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2014 года, или не на PC.</div>'; hintBar.innerHTML = '';}
 		}
 	}
 }
@@ -525,7 +525,7 @@ prnt.innerHTML = "<div class='infMsg'>Приветствую вас на стр�
 
 function showYear(year) {
 let galArray = []; 
-let rty = 2013;
+let rty = 2014;
 if(year) {
 let cur = Number(year); let galRes = "<div class='gal'><h1>";
 galRes += (cur<1995) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur-1)+")'>◄</span>"; galRes += cur;
