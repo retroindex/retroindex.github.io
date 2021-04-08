@@ -1,18 +1,18 @@
-const hashTags = {
+﻿const hashTags = {
 "gameland":6,
 "nim":7,
 "exe":8,
 "igromania":9,
-"megagame":11,
-"mik":12,
-"spiel":13,
-"cgw":14,
-"lki":15,
-"pc-games":18,
-"xs":19,
-"gameplay":20,
-"dpk":21,
-"mirf":22
+"megagame":10,
+"mik":11,
+"spiel":12,
+"cgw":13,
+"lki":14,
+"pc-games":17,
+"xs":18,
+"gameplay":19,
+"dpk":20,
+"mirf":21
 }
 
 const webLinks = {
