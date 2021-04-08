@@ -1,18 +1,18 @@
-﻿const hashTags = {
+const hashTags = {
 "gameland":6,
 "nim":7,
 "exe":8,
 "igromania":9,
-"megagame":10,
-"mik":11,
-"spiel":12,
-"cgw":13,
-"lki":14,
-"pc-games":17,
-"xs":18,
-"gameplay":19,
-"dpk":20,
-"mirf":21
+"megagame":11,
+"mik":12,
+"spiel":13,
+"cgw":14,
+"lki":15,
+"pc-games":18,
+"xs":19,
+"gameplay":20,
+"dpk":21,
+"mirf":22
 }
 
 const webLinks = {
@@ -40,7 +40,7 @@ const webLinks = {
 "mi951":"GamesMagazine199501|0",
 "mi952":"GamesMagazine199502|2",
 "mi953":"GamesMagazine199503|0",
-"mi954":"GamesMagazine199504|0",
+"mi954":"GamesMagazine199504|2",
 "mi955":"GamesMagazine199505|2",
 "mi961":"GamesMagazine199601|2",
 "mi962-3":"GamesMagazine19960203|2|17,18,19,20,45,46,47,48,55,56,57,58,69,70,71,72,73,74,75,76",
@@ -120,9 +120,9 @@ const webLinks = {
 "gl9917":"GameLand19991750|2|p47",
 "gl9918":"GameLand19991851|2|p47",
 "gl9919":"GameLand19991952|2|p47",
-"gl9920":"GameLand19992053|2",
+"gl9920":"GameLand19992053|2|p47",
 "gl9921":"GameLand19992154|2",
-"gl9922":"GameLand19992255|2",
+"gl9922":"GameLand19992255|2|p47",
 "gl9923":"GameLand19992356|2",
 "gl9924":"GameLand19992457|2",
 "gl001":"Gameland_2000-01|2",
@@ -547,6 +547,9 @@ const webLinks = {
 "im025":"Igromania_2002-05|2",
 "im029":"Igromania_2002-09|2",
 "im0210":"Igromania_2002-10|2",
+
+"ga981":"game_attack_1|2",
+"ga985-6":"game_attack_5-6|2",
 
 "mg981":"MegaGame199801|2",
 "mg992":"MegaGame19990202|2",
