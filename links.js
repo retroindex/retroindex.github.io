@@ -125,7 +125,7 @@ const webLinks = {
 "gl9922":"GameLand19992255|2|p47",
 "gl9923":"GameLand19992356|2",
 "gl9924":"GameLand19992457|2",
-"gl001":"Gameland_2000-01|2",
+"gl001":"GameLand20000158|2",
 "gl002":"GameLand20000259|2",
 "gl003":"GameLand20000360|2",
 "gl004":"GameLand20000461|2|p47",
