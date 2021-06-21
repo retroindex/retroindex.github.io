@@ -369,7 +369,7 @@ if (magPref=='comp') galRes += "<h3 class='linkM' onClick='showGal(2)'>Сигн�
 if (magPref=='nim') galRes += "<h3 class='linkB' onClick='showBookGal(0)'>Ранее: альманах «Компьютерные игры»</h3>";
 if (magPref=='exe') {galRes += "<h3 class='linkM' onClick='showGal(4)'>Ранее: «Магазин Игрушек»</h3>"; numfix+=17;}
 if (magPref=='lki') {galRes += "<h3 class='linkB' onClick='showBookGal(7)'>Ранее: одноименная серия книг</h3>"; numfix+=13;}
-if (magPref=='mik') galRes += "<h3 class='linkB' onClick='showBookGal(9)'>Ранее: одноименная газета</h3>";
+if (magPref=='mik') galRes += "<h3 class='linkB' onClick='showBookGal(10'>Ранее: одноименная газета</h3>";
 for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|'); galIndex.push(magPref+galArray[0]);
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); fullYear = (pubYear > 90) ? "19"+pubYear : "20"+pubYear; galRes += "<h2><a onClick=showYear("+fullYear+")>"+fullYear+"</a></h2>";
