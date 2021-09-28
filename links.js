@@ -809,6 +809,7 @@ const webLinks = {
 "vsp1":"super-encyclopedia-pc-rpg-1|2",
 "vsp2":"super-encyclopedia-pc-rpg-2|2",
 "vsp3":"super-encyclopedia-pc-rpg-3|2",
+"vss1":"super-encyclopedia-pc-str-1|2",
 "v3do":"3do_superencyclopedia|2",
 "vod2":"VodoleevPart2|2",
 "fp01":"FolioEkiVol1|2|46",
