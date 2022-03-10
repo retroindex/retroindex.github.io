@@ -360,6 +360,7 @@ const webLinks = {
 "nim0112":"GameWorldNavigator_2001-12-055|2",
 "nim021":"GameWorldNavigator_2002-01-056|2",
 "nim022":"GameWorldNavigator_2002-02-057|2",
+"nim023":"GameWorldNavigator_2002-03-058|2",
 "nim024":"GameWorldNavigator_2002-04-059|2",
 "nim026":"GameWorldNavigator_2002-06-061|2",
 "nim027":"GameWorldNavigator_2002-07-062|2",
@@ -367,6 +368,7 @@ const webLinks = {
 "nim029":"GameWorldNavigator_2002-09-064|2",
 "nim0210":"GameWorldNavigator_2002-10-065|2",
 "nim0212":"GameWorldNavigator_2002-12-067|2",
+"nim041":"GameWorldNavigator_2004-01-080|2",
 
 "nims001_":"NAVIGuides200001|2",
 "nims002":"NAVIGuides200002|2",
@@ -803,7 +805,9 @@ const webLinks = {
 "dpk1111":"DPK_2011_11|2",
 "dpk1112":"DPK_2011_12|2",
 
+"xs051":"XSMagazine2005-01|2",
 "xs052":"XSMagazine2005-02|2",
+"xs057":"XSMagazine2005-07|2",
 
 "sec2":"Secrets_of_Computer_Games_Edition_2|2",
 "gold":"golden-games-for-ibm-pc-1997|2",
