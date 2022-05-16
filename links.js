@@ -374,6 +374,7 @@ const webLinks = {
 "nim051":"GameWorldNavigator_2005-01-092|2",
 "nim052":"GameWorldNavigator_2005-02-093|2",
 "nim053":"GameWorldNavigator_2005-03-094|2",
+"nim056":"GameWorldNavigator_2005-06-097|2",
 
 "nims001_":"NAVIGuides200001|2",
 "nims002":"NAVIGuides200002|2",
@@ -820,6 +821,8 @@ const webLinks = {
 "vsp2":"super-encyclopedia-pc-rpg-2|2",
 "vsp3":"super-encyclopedia-pc-rpg-3|2",
 "vss1":"super-encyclopedia-pc-str-1|2",
+"vss2":"super-encyclopedia-pc-str-2|2",
+"vss3":"super-encyclopedia-pc-str-3|2",
 "v3do":"3do_superencyclopedia|2",
 "vod2":"VodoleevPart2|2",
 "fp01":"FolioEkiVol1|2|46",
