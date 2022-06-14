@@ -1,8 +1,8 @@
 ﻿<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link type="image/png" sizes="192x192" rel="icon" href="misc/favicon-192x192.png">
 <link type="image/png" sizes="16x16" rel="icon" href="misc/favicon.png">
+<link type="image/png" sizes="192x192" rel="icon" href="misc/favicon-192x192.png">
 <link rel="manifest" href="misc/manifest.json">
 <meta name="theme-color" content="#e9e3cc">
 <meta name="viewport" content="width=450">
@@ -24,8 +24,8 @@ P {margin-bottom: 0;}
 #sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background-color: #f4efda; box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2); transition: background-color .3s ease-out;}
 #sInp:focus {background-color: #fff;}
 #sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background-color: #f4efda; outline: none;}
-.pBut {display: inline-block; height: 27px; width: 27px; background-color: rgba(127,127,127,0.1); border: #bbb 1px solid; border-radius: 50%; position: relative; left: 17px; user-select: none; font: bold 16px Arial; color: #baa; line-height: 27px;}
-.pBut:hover{cursor: pointer; border-color: rgba(127,127,127,0.1); box-shadow: inset 1px 1px 0 rgba(0,0,0,0.2); background-color: rgba(255,210,30,0.5); left: 16px;}
+.pBut {display: inline-block; height: 27px; width: 27px; background-color: rgba(127,127,127,0.1); border: #bbb 1px solid; border-radius: 50%; position: relative; left: 20px; user-select: none; font: bold 16px Arial; color: #baa; line-height: 26px;}
+.pBut:hover{cursor: pointer; border-color: rgba(127,127,127,0.1); box-shadow: inset 1px 1px 0 rgba(0,0,0,0.2); background-color: rgba(255,210,30,0.5); left: 19px;}
 #sel {height: 25px; margin-right: 0; font-size:14px; outline: none; border: 0; background-color: #f4efda;}
 #prnt {display: flex; flex-wrap: wrap; justify-content: center;} 
 #chAuto {border: 1px #4c270e solid; background-color: #f4efda; border-radius: 15px;}
@@ -92,7 +92,7 @@ nav ul ul li {min-width:265px; display:list-item; position: relative;}
 .missing {filter: saturate(0); opacity:0.5;}
 .missing:hover {filter: saturate(1); opacity:1; cursor: default;}
 
-@media (max-width: 960px) { 
+@media (max-width: 840px) { 
 #hintBar {display: none;}
 .topLeft {display: none;}
 .topRex {display: block;}
@@ -121,8 +121,8 @@ nav ul ul li {min-width:265px; display:list-item; position: relative;}
 <body> 
 <div class="topSticky"><div class="topBar"><div class="topRex"><img src="misc/rex.png" width="65" height="30"></div>
 <div class="topLeft"><a href="https://retroindex.github.io"><img src="misc/retrologo.png" width="197" height="30"></a></div>
-<div class="topCenter"><span class="pBut topLeft" onClick="prntMsg()">?</span>
-<span class="cb"><input type="checkbox" id="chAuto"><label for="chAuto"></label></span><input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" value="Поиск " onclick="wrapper(sInp.value.trim())"><span class="pBut topLeft" id="sortBtn" onClick="sortTabs()">&#8645;</span></div>
+<div class="topCenter"><span class="topLeft"><span onClick="prntMsg()" class="pBut">?</span></span>
+<span class="cb"><input type="checkbox" id="chAuto"><label for="chAuto"></label></span><input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" value="Поиск " onclick="wrapper(sInp.value.trim())"></div>
 <div class="topRight" id="topRightCnt"></div></div><div id="hintBar"></div></div>
 <div id="prnt"><div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90-х</h1><img class="sar" src="misc/sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div></div>
 <div id="covModal"><div id="modContent"></div></div>								
@@ -142,20 +142,16 @@ for (let i=0; i<PDFs.length; i++) sel+= "<li><a onclick='showPDFGal("+i+")'>"+PD
 sel+="</ul></li><li><a onclick='showTVGal()'>ТВ</a></li></ul></nav>";
 topRightCnt.innerHTML = sel;
 
-let sBtn = document.getElementById('sortBtn');
-sBtn.addEventListener('click', function() {if (sBtn.style.color) sBtn.removeAttribute("style"); else sBtn.style.color = "#d00"; sortTabs();});
-
 window.newHints = true;
 if (window.location.hash) {
 let sHash = window.location.hash.substring(1);
 history.pushState(null, null, ' ');
 if (hashTags.hasOwnProperty(sHash)) showGal(maKeys.indexOf(hashTags[sHash]));
-else if (Number(sHash)>1991 && Number(sHash)<=2017) showYear(Number(sHash));
+else if (Number(sHash)>1991 && Number(sHash)<=2016) showYear(Number(sHash));
 else {
 if (sHash.indexOf('%')>=0) sHash = decodeURI(sHash); 
 sHash = sHash.split('_').join(' '); sInp.value = sHash;
 wrapper(sHash);
-if (sHash.indexOf('+')>=0) sBtn.click();
 }}
 
 let timeout = null;	// debounce
@@ -176,7 +172,7 @@ if (!globalSearch(wReg)) {
 		triedAbbr = true;
 		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
-		if (!globalSearch(wReg)) {prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2017 года, или не на PC.</div>'; hintBar.innerHTML = '';}
+		if (!globalSearch(wReg)) {prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2016 года, или не на PC.</div>'; hintBar.innerHTML = '';}
 		}
 	}
 }
@@ -209,7 +205,7 @@ for (let g=0; g<books.length; g++) {
 			for (let j=1; j<bookArray.length; j++) {
 				let [bGame, bPage] = bookArray[j].split(",");
 				if (re.test(bookArray[j])) { 
-					bookRes += "<div class='dtab' data-pub="+bYear+"06><table class='tRes colB'><tr><th rowspan=2><img class='cov' id='b-"+g+"-"+i+"' src='cvs/b_"+bookArray[0]+".jpg' onclick='showModal(this)'></th><th>"+bGame+"</th><th>"+bPage+"</th></tr><tr><td>"+bName+"<br>Издательство "+bPub+", "+bYear+"<br>ISBN: "+bISBN+"</td><td>"+getLink(bookArray[0],bPage)+"</td></tr></table></div>"				
+					bookRes += "<div class='dtab'><table class='tRes colB'><tr><th rowspan=2><img class='cov' id='b-"+g+"-"+i+"' src='cvs/b_"+bookArray[0]+".jpg' onclick='showModal(this)'></th><th>"+bGame+"</th><th>"+bPage+"</th></tr><tr><td>"+bName+"<br>Издательство "+bPub+", "+bYear+"<br>ISBN: "+bISBN+"</td><td>"+getLink(bookArray[0],bPage)+"</td></tr></table></div>"
 					addUnique(bGame);
 				}
 			}
@@ -223,22 +219,23 @@ let magRes = "";
 let magArray = [];
 for (let g=0; g<mags.length; g++) {
 	let numfix=0;
-	if (g==maKeys.indexOf('exe')) numfix+=17; if (g==maKeys.indexOf('lki')) numfix+=13; if (g==maKeys.indexOf('dk')) numfix+=61;
+	if (g==8) numfix+=17;	// EXE
+	if (g==15) numfix+=13;  // ЛКИ
 	for (let i=1; i<mags[g].length; i++) {
-		if (mags[g][i].slice(3,5).indexOf("-")>-1){ numfix++; if (g==maKeys.indexOf('mik') && (i==237||i==238)) numfix++;}
+		if (mags[g][i].slice(3,5).indexOf("-")>-1){ numfix++; if (g==11 && (i==237||i==238)) numfix++;}
 		if (mags[g][i].slice(3,6).indexOf("_|")>-1) numfix--;
 		if (re.test(mags[g][i])) {
 			magArray = mags[g][i].split('|');
-			let [magName, magPref, magType] = mags[g][0].split("|");
+			let [magName, magPref] = mags[g][0].split("|");
 			let magNum = magArray[0];
-			if (magNum.indexOf('_')>-1) {magNum = (magNum.slice(-1)=='_') ? magNum.replace('_','') : magNum.replace('_','-');}
+			if (magNum.indexOf('_')>-1) {magNum = (magNum.slice(-1)=='_') ? magNum.replace('_','') : magNum.replace('_','-');}			
 			magName += " №"+magNum.slice(2);
-			if ((magNum.slice(2) != (i+numfix)) && (magNum.slice(3).indexOf("-")<0) && (magType != "1")) magName += " ("+(i+numfix)+")";
+			if ((magNum.slice(2) != (i+numfix)) && (magNum.slice(3).indexOf("-")<0)) magName += " ("+(i+numfix)+")";				
 			magName += "’"+magNum.slice(0,2);
 			for (let j=1; j<magArray.length; j++) {
 				let [magGame, magPage] = magArray[j].split(",");
 				if (re.test(magArray[j])) 	{
-											magRes += "<div class='dtab' data-pub="+getDate(magNum,g)+"><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
+											magRes += "<div class='dtab'><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td id='"+magPref+magArray[0]+"'>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
 											addUnique(magGame);
 											}
 			}
@@ -263,7 +260,7 @@ for (let g=0; g<dis.length; g++) {
 		else if ((discArray[0].slice(2) != (i+numfix)) && (g!=1)) discName += " ("+(i+numfix)+")";
 		discName += "’"+discArray[0].slice(0,2);
 		for (let j=1; j<discArray.length; j++) {
-			if (re.test(discArray[j])) {	discRes += "<div class='dtab' data-pub="+getDate(discArray[0])+"><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg'"+cds+" onclick='showModal(this)'></th><th>"+discArray[j]+"</th><th><img src='"+dType+"'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
+			if (re.test(discArray[j])) {	discRes += "<div class='dtab'><table class='tRes colD'><tr><th rowspan=2><img class='cov' id='d-"+g+"-"+i+"' src='cvs/d_"+discPref+discArray[0]+".jpg'"+cds+" onclick='showModal(this)'></th><th>"+discArray[j]+"</th><th><img src='"+dType+"'></th></tr><tr><td>"+discName+"</td><td>*</td></tr></table></div>";
 											addUnique(discArray[j]);}
 		}
 	}
@@ -284,7 +281,7 @@ for (let g=0; g<PDFs.length; g++) {
 			PDFName += "’"+PDFArray[0].slice(0,2);
 			for (let j=1; j<PDFArray.length; j++) {
 				let [PDFGame, PDFPage] = PDFArray[j].split(",");
-				if (re.test(PDFArray[j])) {PDFRes += "<div class='dtab' data-pub="+getDate(PDFArray[0])+"><table class='tRes colP'><tr><th rowspan=2><img class='cov' id='p-"+g+"-"+i+"' src='cvs/"+PDFPref+PDFArray[0]+".jpg' onclick='showModal(this)'></th><th>"+PDFGame+"</th><th>"+PDFPage+"</th></tr><tr><td id='"+PDFPref+PDFArray[0]+"'>"+PDFName+"</td><td>"+getLink(PDFPref+PDFArray[0],PDFPage)+"</td></tr></table></div>";
+				if (re.test(PDFArray[j])) {PDFRes += "<div class='dtab'><table class='tRes colP'><tr><th rowspan=2><img class='cov' id='p-"+g+"-"+i+"' src='cvs/"+PDFPref+PDFArray[0]+".jpg' onclick='showModal(this)'></th><th>"+PDFGame+"</th><th>"+PDFPage+"</th></tr><tr><td id='"+PDFPref+PDFArray[0]+"'>"+PDFName+"</td><td>"+getLink(PDFPref+PDFArray[0],PDFPage)+"</td></tr></table></div>";
 				addUnique(PDFGame);}
 			}
 		}
@@ -300,7 +297,7 @@ for (let i=0; i<otvinta.length; i++) {
 vidArray = otvinta[i].split('|');
 vidGames = vidArray[1].split('+');  
 for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
-	vidRes += "<div class='dtab' data-pub="+vidArray[2].slice(-4)+vidArray[2].slice(3,5)+"><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_ov.jpg' id='v-ov' onclick='showModal(this)'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>От винта! Выпуск "+(i+1);
+	vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_ov.jpg' id='v-ov' onclick='showModal(this)'></th><th>"+vidGames[j]+"</th><th>"+(i+1)+"</th></tr><tr><td>От винта! Выпуск "+(i+1);
 	if (i > 48) vidRes += " ("+vidArray[0]+" по Игромании)";
 	let restGames = vidGames.slice(0); 	restGames.splice(j, 1);
 	if (restGames.length>0) vidRes += "<br><div style='font-size: 13px; color: #777; padding: 0px 20px'>+ <nobr>"+restGames.join("</nobr>, <nobr>")+" +</nobr></div>"
@@ -313,7 +310,7 @@ for (let g=0; g<tvs.length; g++) {
 		let vidPref = "https://www.youtube.com/watch?v=";
 		vidArray = tvs[g][i].split('|'); vidGames = vidArray[0].split('+');  
 		for (let j=0; j<vidGames.length; j++) if (re.test(vidGames[j])) {
-			vidRes += "<div class='dtab' data-pub="+vidArray[1].slice(-4)+vidArray[1].slice(3,5)+"><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_"+tvPref+".jpg' id='v-"+g+"' onclick='showModal(this)'></th><th>"+vidGames[j]+"</th><th>"+i+"</th></tr><tr><td>";
+			vidRes += "<div class='dtab'><table class='tRes colV'><tr><th rowspan=2><img class='cov' src='cvs/tv_"+tvPref+".jpg' id='v-"+g+"' onclick='showModal(this)'></th><th>"+vidGames[j]+"</th><th>"+i+"</th></tr><tr><td>";
 			vidRes += tvName + "<br> Выпуск "+i+" от "+vidArray[1]+"</td><td>";
 			if (vidArray[2]) {
 				if (vidArray[2].indexOf('/')>-1) vidPref = '';
@@ -332,20 +329,20 @@ if (game.indexOf("(")<0) {
 }
 
 if (bookRes+magRes+vidRes+PDFRes+discRes=="") return false;
-let gridFix = "<div class='dtab flexFix' data-pub='999999'></div>";
+let gridFix = "<div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div><div class='dtab flexFix'></div>";
 let gHintBuffer = ''; 
 gHint.sort(function(a, b) {a = a.replace(/(\D):/ig, '$1 1:'); b = b.replace(/(\D):/ig, '$1 1:'); return a.localeCompare(b);});
 for (i=0; i<gHint.length; i++) gHintBuffer += '<span title=\"'+gHint[i]+'\" onClick="window.newHints=false; wrapper(this.title+\'=\');">'+gHint[i]+'</span>'; 
 if (gHint.length == 1) gHintBuffer = '';
 if (window.newHints) hintBar.innerHTML = gHintBuffer;
 else window.newHints = true;
-if (gHint.length < 64) prnt.innerHTML = magRes+bookRes+discRes+PDFRes+vidRes+gridFix.repeat(4);
+if (gHint.length < 64) prnt.innerHTML = magRes+bookRes+discRes+PDFRes+vidRes+gridFix;
 else prnt.innerHTML = '<div class="errMsg">Уточните запрос, или выберите игру из списка ('+gHint.length+')</div>';
-const end = new Date().getTime();
-console.log(end - start, "ms");
-if (sBtn.style.color) {sortTabs()};
+	const end = new Date().getTime();
+    console.log(end - start, "ms");
 return true;
 }
+
 
 function getLink (mag,page) {
 if (!webLinks.hasOwnProperty(mag)) return "<img width='15' src='misc/nolink.png'>";
@@ -378,22 +375,6 @@ if (mag=='im') gRes += "https://www.igromania.ru/magazine/"+iss+"/"; else if (ma
 return gRes+"' target='_blank'>";
 }
 
-function getDate (gd,magID) {
-let pubYear = gd.slice(0,2);
-let fullYear = (pubYear > 90) ? "19"+pubYear : "20"+pubYear;
-let pubMon = gd.slice(2);
-if (pubMon.indexOf('-')>-1) pubMon = pubMon.split('-')[1];
-if (magID) {
-	if (magID==maKeys.indexOf('gl') && fullYear>1998 && fullYear<2011) pubMon = Math.floor(pubMon/2).toString();
-	if (magID==maKeys.indexOf('mik')) {
-		if (fullYear>2002 && fullYear<2007) pubMon = Math.floor(pubMon/4).toString();
-		else if (fullYear>2000) pubMon = Math.floor(pubMon/2).toString();
-	}
-}
-if (pubMon.length==1) pubMon = "0"+pubMon;
-return(fullYear+pubMon);
-}
-
 function showGal(mt,ms) {
 let galArray = []; let cl = 0;
 let pubYear = '', issNum = '', lazyLoad = '', numfix=0, fullYear;
@@ -403,7 +384,6 @@ if (magPref=='comp') {cl = maKeys.indexOf('bah'); galRes += "<h3 class='linkM' o
 if (magPref=='nim') galRes += "<h3 class='linkB' onClick='showBookGal(0)'>Ранее: альманах «Компьютерные игры»</h3>";
 if (magPref=='exe') {cl = maKeys.indexOf('mi'); galRes += "<h3 class='linkM' onClick='showGal("+cl+")'>Ранее: «Магазин Игрушек»</h3>"; numfix+=17;}
 if (magPref=='lki') {galRes += "<h3 class='linkB' onClick='showBookGal(7)'>Ранее: одноименная серия книг</h3>"; numfix+=13;}
-if (magPref=='dk') {galRes += "<h3 class='linkM' onClick='showMiscGal()'>Старые номера в «прочих журналах»</h3>"; numfix+=61;}
 if (magPref=='mik') galRes += "<h3 class='linkB' onClick='showBookGal(10)'>Ранее: одноименная газета</h3>";
 for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|');
@@ -578,19 +558,11 @@ modal.style.display = "none";
 function prntMsg() {
 showYear();
 prnt.innerHTML = "<div class='infMsg'>Приветствую вас на страницах путеводителя по игрожуру девяностых! <h1>О проекте</h1>Как-то раз, запустив очередную старую игру, я захотел перечитать ее обзоры в бумажной прессе тех лет. Обложился книгами и журналами, потратил кучу времени на листание с перекладыванием и понял, что надо менять подход. Если нет поисковика по игровой прессе, остается только сделать его самому. Взял и сделал на чистом JavaScript. Подробности на <a href='https://dtf.ru/retro/75296' target='_blank'>DTF</a>. Приложение не требует интернета для работы, на GitHub всегда доступна <a href='https://github.com/retroindex/retroindex.github.io/archive/master.zip'>актуальная версия</a> для локального использования. <h1>Поисковые запросы</h1><p>Наберите в строке поиска небольшие части слов из названия интересующей игры (morr, ret kr, слон). Пробел перед порядковым номером игры необязателен (gob2). Для удобства пользуйтесь клавишами Enter и Escape, или вовсе включите автопоиск. Последний избавит от лишних кликов, начиная обрабатывать запрос через полсекунды после набора текста. Если части слов не находятся, делается предположение, что набрана аббревиатура (lba, mm6). Текст обрезается до 5 символов, разбивается пробелами и ищется повторно. Символ <b>=</b> в любом месте поискового запроса позволит найти строгое совпадение без лишних результатов (gothic). <h1>Результаты поиска</h1><p>В выдаче формируется адаптивная сетка из 5 категорий: журналы, книги, дискмаги, сетевые журналы и телепередачи. Внутри категорий закладки отсортированы по старшинству изданий. Клик по обложке открывает модальное окно с оглавлением, из которого можно перейти как к галерее номеров данного издания, так и к новой выдаче по игре из оглавления. Закрывается окно кликом в любом месте за его пределами, либо клавишей Escape. <h1>Панель подсказок</h1>Постоянный рост объема базы со временем привел к затруднению восприятия смешанных результатов поиска. Проблема решилась добавлением вспомогательной панели для отображения алфавитно упорядоченного списка найденных игр (имеющих не менее двух обзоров). Панель также используется для машины времени и размещения в дальнейшем пунктов меню. Клавишей Escape сбрасывается к исходному состоянию.<h1>Привязка к Archive.org</h1>Некоторые \"закладки\" в выдаче привязаны к крупнейшему интернет архиву и если дернуть за веревочку, журнал откроется на нужной странице. <p><img src='misc/h_linked.png'><p>Любительские сканы и редакционные пдфки часто вносят путаницу в нумерацию — отсутствующие страницы с рекламой, \"лишние\" страницы, перепутанные местами итд. Из-за всех этих нюансов, которые приходится учитывать, связующие записи в <a href='links.js' target='_blank'>links.js</a> выглядит примерно так: <p><b>\"exe012\":\"Game.EXE_02_2001|2|38,-80,-80,91\"</b> <p>Здесь по порядку: <br>Сопоставление идентификатора в базе и на Archive.org; <br>Cмещение нумерации (0 - нумеруется с обложки, 2 - c третьей страницы); <br>38 и 91 - отсутствующие страницы, счетчик сдвигается влево; <br>-80,-80 - две лишних страницы подряд, счетчик сдвигается вправо. <p>Нередко на центральный разворот журнала ставили постер со сквозной нумерацией, в таком случае после смещения указывается <b>p</b> + первая страница постера (например, <b>p73</b>). Для проверки целостности нумерации журналов был создан специальный инструмент - <a href='tools/pagecheck.htm' target='_blank'>PageChecker</a><p>На вопрос об отсутствии в Архиве большинства журналов 21 века, могу сказать, что в принципе ничего туда не загружаю и даже не имею аккаунта. <h1>Прямые ссылки</h1>Не уверен, делают ли так с JavaScript, или это очередной мой велосипед, но предусмотрел возможность публикации ссылок на поисковые запросы. Для этого в адресную строку дописывается <b>#</b> с последующим кратким названием игры. В названии допускается кириллица и пробелы, которые для читаемости лучше заменять нижним прочерком. Некоторые форумные движки требуют наличия слэша перед хешем: <a href='https://retroindex.github.io/#homm2' target='_blank'>retroindex.github.io/#homm2</a>. <p>Также можно ссылаться на галереи по журналам и годам, указав вместо игры зарезервированный никнейм журнала (см. <a href='links.js' target='_blank'>links.js</a>), или четырехзначный год. <h1>Галереи изданий</h1>В меню справа от поиска можно выбрать категорию и открыть галерею интересующего издания. При этом в списке журналов указывается их фактическое количество, по понятным причинам не всегда совпадающее с последним номером. В галерее клик по году открывает галерею изданий за этот год, откуда можно аналогично перейти к существующим на тот момент изданиям. <p><img src='misc/h_num.jpg' style='float: left; padding-right: 1em;'>При наведении курсора на обложку журнала появляется угловой оверлей с текущим номером и центральный со сквозным номером (если он отличается от текущего). Сквозной номер вычисляется на основе счетчика и корректирующих символов -_ в названии файла. <p>nim982.jpg : +0<br>nim982-3.jpg : +1<br>nim982_3.jpg : +0<br>nim982_.jpg : -1 <p>При наличии привязки к Архиву, угловой оверлей имеет зеленый фон и открывает журнал по клику. Для ряда изданий, не размещенных на Archive.org, но имеющих собственные официальные архивы номеров, установлена автоматическая привязка к соответствующим сайтам.<p>Что до самих обложек, в их изготовлении используется ряд хитростей. Ширина обложки всегда равна 128px (учитывается кратность 8 для JPEG и размещение ряда из 12 обложек в разрешении 1600x1200), а высота как получится, но всегда одинаковая в рамках одного года издания. Важно получить четкую незамыленную картинку, тут HighPass макрос в помощь. Для преобразования в JPEG отлично зарекомендовал себя гугловский кодер Guetzli, обеспечивающий лучшее качество при меньшем размере, ценой длительных вычислений. К крупным изображениям он обычно неприменим, а для таких — в самый раз. <h1>Структура базы</h1>База представляет собой \"человекочитаемый\" и легко редактируемый многомерный массив, записанный в набор CSV-подобных файлов (mags.js, books.js, digital.js, tv.js). Лишней, или дублирующейся информации в ней практически нет, за исключением названий игр. Но благодаря использованию Gzip на стороне Github, объем загружаемой базы уменьшается в 4 раза (до ~270 килобайт). В скобках после названия игры может указываться разнообразная информация: <br>- альтернативное (раннее, или переводное) название игры; <br>- указание на обзор всей игровой серии (series), или мода (mod); <br>- интервью с разработчиками игры. <h1>Обратная связь</h1>Присылайте багрепорты и пожелания. Если вы располагаете отсутствующими в базе изданиями и готовы сфотографировать обложку с оглавлением, буду рад добавить их. <p><a href='https://www.old-games.ru/forum/threads/88160/' target='_blank'>Официальная тема на форуме OG</a><br><a href='https://www.old-games.ru/forum/threads/31874/' target='_blank'>Журнальная тема (сканирование)</a><br><a href='https://discord.gg/AejRAnDvUj' target='_blank'>Сервер Discord</a> <p align='right'>Morendil</p></div>";
-window.scrollTo(0,0);
-}
-
-function sortTabs () {
-let items = document.querySelectorAll('.dtab');
-if (!sBtn.style.color) {for (var i = 0; i < items.length; i++) items[i].removeAttribute("style"); return;}
-Array.from(items).sort(function(a, b) {a = a.getAttribute('data-pub'); b = b.getAttribute('data-pub'); return a - b;}).forEach(function(n, i) {n.style.order = i})
 }
 
 function showYear(year) {
 let galArray = []; 
-let rty = 2017;
-let lazyLoad = ''; if (window.location.protocol != "file:") lazyLoad = "loading='lazy'";
+let rty = 2016;
 if(year) {
 let cur = Number(year); let galRes = "<div class='gal'><h1>";
 galRes += (cur<1995) ? "<span>&nbsp;</span>" : "<span class='ns' onclick='showYear("+(cur-1)+")'>◄</span>"; galRes += cur;
@@ -600,15 +572,13 @@ let [magName, magPref, magType] = mags[g][0].split("|"); let noTitle = true; let
 if (magType == 1) continue;
 for (let i=1; i<mags[g].length && items<12; i++) {
 if (mags[g][i].slice(0,2) == String(year).slice(2)) {
-	if (noTitle) {
-		galRes += "<h2><a onclick='showGal("+g+")'>"+magName+"</a></h2>"; noTitle = false; 
-		if (g>48) lazyLoad = "loading='lazy'";}
+	if (noTitle) {galRes += "<h2><a onclick='showGal("+g+")'>"+magName+"</a></h2>"; noTitle = false;}
 	galArray = mags[g][i].split('|'); items++;
 	if (magPref=='pcg' && (galArray[1]=="?,-")) continue;
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>"; else galRes += getGalLink(magPref+galArray[0]);
 	if (magPref=='xs'||magPref=='pcg') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+g+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
 	if ((magPref=='gl'||magPref=='mik') && year<2011 && items==12) galRes+='<div class="galIss" style="display: block; font-size: 100px; color: rgba(255,255,255,0.5);">+</div>';
-	galRes += "<img id='m-"+g+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)' "+lazyLoad+"></span>";
+	galRes += "<img id='m-"+g+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
 }}}	
 for (let g=0; g<books.length; g++) {
 let noTitle = true;
@@ -616,7 +586,7 @@ for (let i=1; i<books[g].length; i++) {
 let bookID = books[g][i].split("|")[0];
 if (book_details[bookID].split("|")[3] == year) {
 	if (noTitle) {galRes += "<h2><a onclick='showBookGal("+g+")'>"+books[g][0]+"</a></h2>"; noTitle = false;}
-	galRes += "<img title='"+bookID+"' id='b-"+g+"-"+i+"' src='cvs/b_"+bookID+".jpg' loading='lazy' onclick='showModal(this)'>";
+	galRes += "<img title='"+bookID+"' id='b-"+g+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
 }}}
 prnt.innerHTML = galRes+"</div>";
 window.scrollTo(0,0);
