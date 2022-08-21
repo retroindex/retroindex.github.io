@@ -122,7 +122,7 @@ nav ul ul li {min-width:265px; display:list-item; position: relative;}
 <div class="topSticky"><div class="topBar"><div class="topRex"><img src="misc/rex.png" width="65" height="30"></div>
 <div class="topLeft"><a href="https://retroindex.github.io"><img src="misc/retrologo.png" width="197" height="30"></a></div>
 <div class="topCenter"><span class="pBut topLeft" onClick="prntMsg()">?</span>
-<span class="cb"><input type="checkbox" id="chAuto"><label for="chAuto"></label></span><input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" value="Поиск " onclick="wrapper(sInp.value.trim())"><span class="pBut topLeft" id="sortBtn" onClick="sortTabs()">&#8645;</span></div>
+<span class="cb"><input type="checkbox" id="chAuto"><label for="chAuto"></label></span><input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" value="Поиск " onclick="wrapper(sInp.value.trim())"><span class="pBut topLeft" id="sortBtn" onClick="sortTabs()" title="Сортировка по дате">&#8645;</span></div>
 <div class="topRight" id="topRightCnt"></div></div><div id="hintBar"></div></div>
 <div id="prnt"><div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель по&nbspигрожуру&nbsp90-х</h1><img class="sar" src="misc/sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div></div>
 <div id="covModal"><div id="modContent"></div></div>								
@@ -414,7 +414,6 @@ for (let i=1; i<mags[mt].length; i++) {
 	if (mags[mt][i].slice(3,6).indexOf("_|")>-1) numfix--; 
 	if (issNum != '') issNum = "<div class='galIss'>"+(i+numfix)+"</div>";
 	if (mags[mt][i].slice(3,5).indexOf("-")>-1) {numfix++; if (magPref=='mik' && (i==237||i==238)) numfix++;}
-	if (magPref=='pcg') {if (galArray[1]=="?,-") {galRes += "<span><div class='galIss galDis'>"+(i+numfix)+"</div>" + "<img title='Нет данных' src='cvs/none.png'></span>"; continue;}}
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>";
 	else galRes += getGalLink(magPref+galArray[0]);
 	if (magPref=='xs' || magPref=='pcg') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+mt+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
@@ -604,7 +603,6 @@ if (mags[g][i].slice(0,2) == String(year).slice(2)) {
 		galRes += "<h2><a onclick='showGal("+g+")'>"+magName+"</a></h2>"; noTitle = false; 
 		if (g>48) lazyLoad = "loading='lazy'";}
 	galArray = mags[g][i].split('|'); items++;
-	if (magPref=='pcg' && (galArray[1]=="?,-")) continue;
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>"; else galRes += getGalLink(magPref+galArray[0]);
 	if (magPref=='xs'||magPref=='pcg') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+g+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
 	if ((magPref=='gl'||magPref=='mik') && year<2011 && items==12) galRes+='<div class="galIss" style="display: block; font-size: 100px; color: rgba(255,255,255,0.5);">+</div>';

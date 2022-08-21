@@ -616,6 +616,15 @@ const webLinks = {
 "mg0111":"MegaGame20011135|2",
 "mg0112":"MegaGame20011236|2",
 
+"xa991":"magazine-xakep_1999-01|-1",
+"xa992":"magazine-xakep_1999-02|2",
+"xa993":"magazine-xakep_1999-03|1",
+"xa994":"magazine-xakep_1999-04|1",
+"xa995":"magazine-xakep_1999-05|1",
+"xa996":"magazine-xakep_1999-06|-1",
+"xa997":"magazine-xakep_1999-07|1",
+"xa999":"magazine-xakep_1999-09|1",
+
 "sh011":"Shpil20010101|2|p23",
 "sh012":"Shpil20010202|2|p23",
 "sh013":"Shpil20010303|2|p23",
@@ -942,6 +951,9 @@ const webLinks = {
 "sol1004":"100-luchshikh-igr-1994-95-g-g|2",
 "vm950":"virtual-worlds-no-0-1995|2|-33,-33,-33,-33",
 "vm951":"virtual-worlds-no-1-1995|2|-33,-33,-33,-33",
+"kp95":"multimedia-dlya-vsekh|2",
+"tricks2":"tricks-pc-vypusk-2|2",
+"tricks3":"tricks-pc-vypusk-3|2",
 "starcraft":"starcraft-manual-rus|2",
 
 "ogm051":"oldgames_01_2005|0",
