@@ -238,7 +238,7 @@ for (let g=0; g<mags.length; g++) {
 			for (let j=1; j<magArray.length; j++) {
 				let [magGame, magPage] = magArray[j].split(",");
 				if (re.test(magArray[j])) 	{
-											magRes += "<div class='dtab' data-pub="+getDate(magNum,g)+"><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage)+"</td></tr></table></div>";
+											magRes += "<div class='dtab' data-pub="+getDate(magNum,g)+"><table class='tRes colM'><tr><th rowspan=2><img class='cov' id='m-"+g+"-"+i+"' src='cvs/"+magPref+magArray[0]+".jpg' onclick='showModal(this)'></th><th>"+magGame+"</th><th>"+magPage+"</th></tr><tr><td>"+magName+"</td><td>"+getLink(magPref+magArray[0],magPage,i+numfix)+"</td></tr></table></div>";
 											addUnique(magGame);
 											}
 			}
@@ -347,8 +347,10 @@ if (sBtn.style.color) {sortTabs()};
 return true;
 }
 
-function getLink (mag,page) {
-if (!webLinks.hasOwnProperty(mag)) return "<img width='15' src='misc/nolink.png'>";
+function getLink (mag,page,iss) {
+if (!webLinks.hasOwnProperty(mag)) {
+	if (mag.slice(0,2)=='vr') return "<a href='https://archive.org/stream/VirtualnieRadosti_"+String(iss).padStart(3,'0')+"#page/n"+(Number(page)-1)+"/mode/1up' target='_blank'><img width='26' src='misc/linked.png'></a>";
+	return "<img width='15' src='misc/nolink.png'>";}
 let [webName, offset, fixes] = webLinks[mag].split("|");
 if (fixes) {
 	if ((fixes.indexOf('p')==0) && (Number(page) > (Number(fixes.slice(1))))) offset-=4;	// Сквозной постер
@@ -370,6 +372,11 @@ function getGalLink (mag) {
 if (!webLinks.hasOwnProperty(mag)) return "<span><div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/(\D_)|[^0-9-_]|_$/g, '').replace('_','-').slice(2)+"</div>";
 let [webName, offset] = webLinks[mag].split("|");
 return "<span><div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0/mode/2up' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]|_$/g, '').replace('_','-').slice(2)+"</a></div>";
+}
+
+function generateLink (mag,iss) { 
+if (iss>4) iss++;
+return "<span><div class='galHint'><a href='https://archive.org/stream/VirtualnieRadosti_"+String(iss).padStart(3,'0')+"#page/n0/mode/1up' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]|_$/g, '').slice(2)+"</a></div>";
 }
 
 function getSiteLink (mag,iss) {
@@ -415,7 +422,8 @@ for (let i=1; i<mags[mt].length; i++) {
 	if (issNum != '') issNum = "<div class='galIss'>"+(i+numfix)+"</div>";
 	if (mags[mt][i].slice(3,5).indexOf("-")>-1) {numfix++; if (magPref=='mik' && (i==237||i==238)) numfix++;}
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>";
-	else galRes += getGalLink(magPref+galArray[0]);
+		else if (magPref=='vr') galRes += generateLink(galArray[0],i);
+		else galRes += getGalLink(magPref+galArray[0]);
 	if (magPref=='xs' || magPref=='pcg') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+mt+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
 	galRes += issNum+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' "+lazyLoad+" onclick='showModal(this)'></span>";
 	}
@@ -604,7 +612,9 @@ if (mags[g][i].slice(0,2) == String(year).slice(2)) {
 		galRes += "<h2><a onclick='showGal("+g+")'>"+magName+"</a></h2>"; noTitle = false; 
 		if (g>48) lazyLoad = "loading='lazy'";}
 	galArray = mags[g][i].split('|'); items++;
-	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>"; else galRes += getGalLink(magPref+galArray[0]);
+	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>"; 
+		else if (magPref=='vr') galRes += generateLink(galArray[0],i); 
+		else galRes += getGalLink(magPref+galArray[0]);
 	if (magPref=='xs'||magPref=='pcg') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+g+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
 	if ((magPref=='gl'||magPref=='mik') && year<2011 && items==12) galRes+='<div class="galIss" style="display: block; font-size: 100px; color: rgba(255,255,255,0.5);">+</div>';
 	galRes += "<img id='m-"+g+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)' "+lazyLoad+"></span>";
