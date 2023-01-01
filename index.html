@@ -369,7 +369,7 @@ else return "<a href='https://archive.org/stream/"+webName+"#page/n"+web2p+"/mod
 function getGalLink (mag) {
 if (!webLinks.hasOwnProperty(mag)) return "<span><div class='galHint' style='background-color: rgba(255,0,0,0.5)'>"+mag.replace(/(\D_)|[^0-9-_]|_$/g, '').replace('_','-').slice(2)+"</div>";
 let [webName, offset] = webLinks[mag].split("|");
-return "<span><div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]|_$/g, '').replace('_','-').slice(2)+"</a></div>";
+return "<span><div class='galHint'><a href='https://archive.org/stream/"+webName+"#page/n0/mode/2up' target='_blank'>"+mag.replace(/(\D_)|[^0-9-_]|_$/g, '').replace('_','-').slice(2)+"</a></div>";
 }
 
 function getSiteLink (mag,iss) {
