@@ -1,4 +1,4 @@
-﻿const hashTags = {
+﻿﻿const hashTags = {
 "gameland":"gl",
 "nim":"nim",
 "exe":"exe",
@@ -11,6 +11,7 @@
 "lki":"lki",
 "pc-games":"pc",
 "xs":"xs",
+"radosti":"vr",
 "gameplay":"gp",
 "dpk":"dpk",
 "mirf":"mf"

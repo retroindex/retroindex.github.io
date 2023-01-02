@@ -450,7 +450,7 @@ for (let i=1; i<books[mt].length; i++) {
 	if (mt==4) {if (i==6 || i==11 || i==16) galRes += "<br><br>";}
 	let bImg = "<img title='"+bookID+"' id='b-"+mt+"-"+i+"' src='cvs/b_"+bookID+".jpg' onclick='showModal(this)'>";
 	if(!webLinks.hasOwnProperty(bookID)) galRes += bImg;
-	else galRes += "<span><div class='galHint'><a href='https://archive.org/stream/"+webLinks[bookID].split("|")[0]+"#page/n0' target='_blank'>&#10148;</a></div>"+bImg+"</span>";
+	else galRes += "<span><div class='galHint'><a href='https://archive.org/stream/"+webLinks[bookID].split("|")[0]+"#page/n0/mode/2up' target='_blank'>&#10148;</a></div>"+bImg+"</span>";
 	}
 if (mt==0) {cl = maKeys.indexOf('nim'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Позже: журнал «Навигатор игрового мира»</h3>";}
 if (mt==7) {cl = maKeys.indexOf('lki'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Позже: одноименный журнал</h3>";}
