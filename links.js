@@ -801,13 +801,13 @@ const webLinks = {
 "gp053":"gameplay-2005-03-03|2",
 "gp054":"gameplay-2005-04-04|2",
 
-"cgw021":"cgw_re_001|2",
-"cgw022":"cgw_re_002|2",
-"cgw023":"cgw_re_003|2",
-"cgw024":"cgw_re_004|2",
-"cgw025":"cgw_re_005|2",
-"cgw026":"cgw_re_006|2",
-"cgw027":"cgw_re_007|2",
+//"cgw021":"cgw_re_001|2",
+//"cgw022":"cgw_re_002|2",
+//"cgw023":"cgw_re_003|2",
+//"cgw024":"cgw_re_004|2",
+//"cgw025":"cgw_re_005|2",
+//"cgw026":"cgw_re_006|2",
+//"cgw027":"cgw_re_007|2",
 
 "rp031":"replay2003_1|2",
 "rp032":"replay2003_2|2",
@@ -1073,6 +1073,10 @@ const webLinks = {
 "xs051":"XSMagazine2005-01|2",
 "xs052":"XSMagazine2005-02|2",
 "xs057":"XSMagazine2005-07|2",
+
+"gpl991":"strana-pc-igr-01-1999|0",
+"gpl992":"strana-pc-igr-02-1999|0",
+"gpl993":"strana-pc-igr-03-1999|0",
 
 "dkm001":"domashny-kompyuter-2000-1-43|2",
 "dkm002":"domashny-kompyuter-2000-2-44|2",

@@ -1064,6 +1064,10 @@
 "996|Might & Magic 7,54|MechWarrior 3,56|Star Wars (series),58|Descent 3,60|Total Annihilation: Kingdoms,62",
 "997|Kingpin: Life of Crime,52|Jagged Alliance 2,54|Heavy Gear 2,56|Dungeon Keeper 2,58|Outcast,60",
 "999|Warhammer (series),52|Homeworld,56|System Shock 2,58|Command & Conquer: Tiberian Sun,60|Jagged Alliance 2,72|Штырлиц,78"
+],["Страна PC Игр|gpl|2",
+"991|Dungeon Keeper 2,8|Command & Conquer: Tiberian Sun,10|Outcast,11|Jagged Alliance 2,12|Hidden & Dangerous,14|Unreal Mission Pack 1: Return to Na Pali,16|Kingpin: Life of Crime,18|Total Annihilation: Kingdoms,30",
+"992|Command & Conquer: Tiberian Sun,6|Tomb Raider 4,8|Discworld Noir,9|Князь,10|Shadow Man,11|Darkstone,12|MiG Alley,13|Hidden & Dangerous,24|Warhammer 40000: Rites of War,30",
+"993|Seven Kingdoms 2,6|WarCraft 3,8|System Shock 2,9|Prince of Persia 3D,11|Homeworld,14|Re-Volt,15|Command & Conquer: Tiberian Sun,17|Clans,23|Drakan,26|Shadowman,29"
 ],["Виртуальные радости|vr",
 "001|Gorky 17,1|Grim Fandango,1|Unreal Tournament,1|Jagged Alliance 2,4|Anachronox,6|Gabriel Knight 3,8",
 "002|StarCraft: Brood War,1|Горький-18 (интервью),2|Ancient Domains of Mystery,6|Privateer 2: The Darkening,10|Half-Life: Opposing Force,12|Discworld Noir,14|Unreal Tournament,14|Gabriel Knight 3,15|Magic: The Gathering,16",
@@ -2080,7 +2084,7 @@
 "131|XCOM: Enemy Unknown,78|Dishonored,80|Of Orcs and Men,82|Resident Evil 6,83",
 "132|Impire,77|Dead Space 3,78|Dead Space (series),80|Assassin's Creed 3,82|Halo 4 (Xbox),84|Guild Wars 2,85|Black Mesa,86|Dark Souls,86|Deponia 2,87|Edna & Harvey: Harvey's New Eyes,87",
 "133|StarCraft 2: Heart of the Swarm,85|Crysis 3,86|DmC: Devil May Cry,88|LEGO Lord of the Rings,90",
-"134|Dead Space 3,100|Crysis 3,101|Aliens: Colonial Marines,102|Impire,103|Minecraft 2,103",
+"134|Dead Space 3,100|Crysis 3,101|Aliens: Colonial Marines,102|Impire,103|Minecraft 2 (aprilfools),103",
 "135|Thief,69|Destiny,70|Remember Me,71|Tomb Raider 2013,72|Metal Gear Rising: Revengeance,74|Космические рейнджеры HD: Революция,77|StarCraft 2: Heart of the Swarm,78",
 "136|Wasteland 2,69|BioShock Infinite,70",
 "137|Watch Dogs,67|Эадор. Владыки миров,68|Mars: War Logs,69|Dishonored: Knife of Dunwall,69|Dead Island: Riptide,70|Star Trek,70|God Mode,71|Poker Night 2,71",
@@ -2191,6 +2195,7 @@
 "024|Star Trek: Bridge Commander,125|Command & Conquer: Renegade,126|Star Wars: Starfighter,126|Disciples 2,127|Frank Herbert's Dune,128",
 "0310|Republic: The Revolution,130|Операция Silent Storm,131|Завоевание Америки: В поисках Эльдорадо,132|Антанта,133",
 "041|Neighbours from Hell 2,126|XIII,127|Broken Sword 3,128|Star Wars: Knights of the Old Republic,129"
+],["Чип и файл|cif|1","025|Comanche 4,55","069|Darkstar One,57|Казаки 2: Битва за Европу,61|Warhammer 40000: Dawn of War - Dark Crusade,65","071|Волкодав: Месть Серого Пса,57|Space Empires 5,62"
 ],["Come to Game|ctg|1","061|Prey,8|Diver: Deep Water Adventures,10|Black & White 2,18|Dungeon Siege 2,21|Велиан,26|Wik and the Fable of Souls,28|Age of Empires 3,30|Fahrenheit,33|NHL 06,36|StarCraft,64|DOOM,73|NiBiRu,76"
 ],["Две Точки|tds|1","067|Герои Мальгримии,-","0612|В тылу врага 2,-","074|Medieval 2: Total War,47|Titan Quest,51"
 ]];
