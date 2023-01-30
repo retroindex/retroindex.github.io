@@ -2195,7 +2195,6 @@
 "024|Star Trek: Bridge Commander,125|Command & Conquer: Renegade,126|Star Wars: Starfighter,126|Disciples 2,127|Frank Herbert's Dune,128",
 "0310|Republic: The Revolution,130|Операция Silent Storm,131|Завоевание Америки: В поисках Эльдорадо,132|Антанта,133",
 "041|Neighbours from Hell 2,126|XIII,127|Broken Sword 3,128|Star Wars: Knights of the Old Republic,129"
-],["Чип и файл|cif|1","025|Comanche 4,55","069|Darkstar One,57|Казаки 2: Битва за Европу,61|Warhammer 40000: Dawn of War - Dark Crusade,65","071|Волкодав: Месть Серого Пса,57|Space Empires 5,62"
 ],["Come to Game|ctg|1","061|Prey,8|Diver: Deep Water Adventures,10|Black & White 2,18|Dungeon Siege 2,21|Велиан,26|Wik and the Fable of Souls,28|Age of Empires 3,30|Fahrenheit,33|NHL 06,36|StarCraft,64|DOOM,73|NiBiRu,76"
 ],["Две Точки|tds|1","067|Герои Мальгримии,-","0612|В тылу врага 2,-","074|Medieval 2: Total War,47|Titan Quest,51"
 ]];
