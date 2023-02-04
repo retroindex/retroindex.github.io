@@ -430,8 +430,9 @@ for (let i=1; i<mags[mt].length; i++) {
 if (magPref=='pcr') galRes += "<br><br><br><h3 style='border-bottom: 3px #8e3ca2 solid' onClick='showDiscGal(0)'>Электронная версия журнала</h3>";
 if (magPref=='bah') {cl = maKeys.indexOf('comp'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Позже: «КомпАс»</h3>";}
 if (magPref=='mi') {cl = maKeys.indexOf('exe'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Позже переименован в «Game.EXE»</h3>";}
-if (magPref=='gl') {cl = maKeys.indexOf('glsp'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Спецвыпуски</h3><h3 style='margin-left: 30px; border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3>";}
+if (magPref=='gl') {cl = maKeys.indexOf('glsp'); cl2 = maKeys.indexOf('gpl'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Спецвыпуски</h3><h3 style='margin-left: 30px; border-bottom: 3px #b20f0b solid' onClick='showPDFGal(2)'>Неопубликованные материалы</h3><h3 class='linkM' style='margin-left: 30px' onClick='showGal("+cl2+")'>Страна PC Игр</h3>";}
 if (magPref=='glsp') {cl = maKeys.indexOf('gl'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Регулярные выпуски</h3>";}
+if (magPref=='gpl') {cl = maKeys.indexOf('gl'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Регулярные выпуски</h3>";}
 if (magPref=='nim') {cl = maKeys.indexOf('nims'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Спецвыпуски</h3><h3  style='margin-left: 30px;' class='linkB' onClick='showBookGal(8)'>Энциклопедии</h3>";}
 if (magPref=='nims') {cl = maKeys.indexOf('nim'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Регулярные выпуски</h3>";}
 if (magPref=='mg') galRes += "<br><br><br><h3 style='border-bottom: 3px #b20f0b solid' onClick='showPDFGal(3)'>Гайды с дисковых приложений</h3>";
