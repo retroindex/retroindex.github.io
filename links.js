@@ -1074,10 +1074,11 @@ const webLinks = {
 "xs052":"XSMagazine2005-02|2",
 "xs057":"XSMagazine2005-07|2",
 
+"ft087":"fantactuka-2008-07|2",
 "gpl991":"strana-pc-igr-01-1999|0",
 "gpl992":"strana-pc-igr-02-1999|0",
 "gpl993":"strana-pc-igr-03-1999|0",
-
+"dkm966":"homepc-1996-06|2",
 "dkm001":"domashny-kompyuter-2000-1-43|2",
 "dkm002":"domashny-kompyuter-2000-2-44|2",
 "pl024":"podvodnaya-lodka-2002-4|2",
