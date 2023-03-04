@@ -19,7 +19,7 @@
 "18|Magic Carpet+Gone Fishin'+NASCAR Racing|23.09.1995|NM",
 "19|Renegade: Battle for Jacob's Star+Hi-Octane+Tube|30.09.1995|N",
 "20|The Last Dynasty+Legend of the Seven Paladins+Castles 2|22.01.1996|NM",
-"21|Day of the Tentacle+Slipstream 5000+Tube|29.01.1996|N",
+"21|Day of the Tentacle+Slipstream 5000+Monty Python's Complete Waste of Time|29.01.1996|V",
 "22|Full Throttle+Hardball 4|07.02.1996|M",
 "23|Witchaven+Werewolf vs. Comanche 2.0+Aces of the Deep|12.02.1996|M",
 "24|TFX+Hexen (Windows 95)+Primal Rage|19.02.1996|M",
