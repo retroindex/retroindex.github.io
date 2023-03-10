@@ -424,7 +424,7 @@ for (let i=1; i<mags[mt].length; i++) {
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>";
 		else if (magPref=='vr') galRes += generateLink(galArray[0],i);
 		else galRes += getGalLink(magPref+galArray[0]);
-	if (magPref=='xs' || magPref=='pcg') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+mt+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
+	if (magPref=='xs') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+mt+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
 	galRes += issNum+"<img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' "+lazyLoad+" onclick='showModal(this)'></span>";
 	}
 if (magPref=='pcr') galRes += "<br><br><br><h3 style='border-bottom: 3px #8e3ca2 solid' onClick='showDiscGal(0)'>Электронная версия журнала</h3>";
@@ -616,7 +616,7 @@ if (mags[g][i].slice(0,2) == String(year).slice(2)) {
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>"; 
 		else if (magPref=='vr') galRes += generateLink(galArray[0],i); 
 		else galRes += getGalLink(magPref+galArray[0]);
-	if (magPref=='xs'||magPref=='pcg') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+g+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
+	if (magPref=='xs') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+g+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
 	if ((magPref=='gl'||magPref=='mik') && year<2011 && items==12) galRes+='<div class="galIss" style="display: block; font-size: 100px; color: rgba(255,255,255,0.5);">+</div>';
 	galRes += "<img id='m-"+g+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)' "+lazyLoad+"></span>";
 }}}	
