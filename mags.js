@@ -2225,6 +2225,7 @@
 "004|C&C: Red Alert 2,2|Heavy Metal: F.A.K.K. 2,26|Baldur's Gate 2,38|Submarine Titans,58|The Longest Journey,84"
 ],["Домашний компьютер|dkm|1",
 "966|Перестройка,37|Вундеркинд Плюс,67|Twigger,69",
+"971|Смута,72|АйТи,74|Уголки,74|Color Lines,74|Девятка,75|Балда,75|Флип-Флоп,75",
 "976|День Рождения 2,58|Parkan: Хроника Империи,61",
 "001|Математика на планете Счетоводов,54|Gorky 17,60|Петька и Василий Иванович 2: Судный день,64|X-COM: Terror from the Deep,70",
 "002|Heavy Metal: F.A.K.K. 2,66|Star Wars: Force Commander,67|Civilization (series),68|Unreal Tournament,72|Quake 3,72",
