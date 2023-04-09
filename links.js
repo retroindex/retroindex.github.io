@@ -1098,6 +1098,7 @@ const webLinks = {
 "dkm002":"domashny-kompyuter-2000-2-44|2",
 "pl024":"podvodnaya-lodka-2002-4|2",
 "pl0310":"podvodnaya-lodka-2003-10|2",
+"kim981":"kompyuter-i-my-1998-1-9|2",
 "kim987":"kompyuter-i-my-1998-7-15|2",
 "kim9812":"kompyuter-i-my-1998-12-19|2",
 "mpk001-2":"magia-pk-2000-1-2-24|2",
