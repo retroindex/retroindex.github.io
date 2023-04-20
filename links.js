@@ -59,7 +59,7 @@ const webLinks = {
 "mi962-3":"Games_Magazine_1996_02-03|2",
 "mi964":"Games_Magazine_1996_04|2",
 "mi965":"Games_Magazine_1996_05|2",
-"mi966":"Games_Magazine_1996_06|4",
+"mi966":"Games_Magazine_1996_06|2",
 "mi967-8":"Games_Magazine_1996_07-08|2|91,95,96,97,98",
 "mi969":"Games_Magazine_1996_09|2",
 "mi9610":"Games_Magazine_1996_10|2",
