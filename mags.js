@@ -1799,7 +1799,8 @@
 "9610|Quake,269",
 "9611|Blue Ice,230|The City of Lost Children,230|Destruction Derby 2,231|Discworld 2,231|Ecstatica 2,232|Formula 1,234|Monster Trucks,234|The Fallen,235|Wipeout,235|Zombieville,236",
 "973|Dragon Lore 2,209|Eradicator,210|Duke Nukem 3D: Plutonium Pak,211|Смута,211",
-"975|Test Drive: Off-Road,198|Darklight Conflict,198|Shivers 2,199|Outlaws,200|Riven: The Sequel to Myst,200|Star Wars (series),202|Realms of the Haunting,204"
+"975|Test Drive: Off-Road,198|Darklight Conflict,198|Shivers 2,199|Outlaws,200|Riven: The Sequel to Myst,200|Star Wars (series),202|Realms of the Haunting,204",
+"976|Lands of Lore 2,203|Hexen 2,204"
 ],["Домашний ПК|dpk",
 "981|Nightlong: Union City Conspiracy,76|The Fifth Element,78|Lode Runner 2,79|Deer Hunter 2,80|Carnivores,81|Actua Tennis,82|NHL 99,83|Knights & Merchants,85|SiN,86",
 "992|Half-Life,74|Петька и Василий Иванович спасают галактику,75|The Real Neverending Story,77|Microsoft Combat Flight Simulator,79|European Air War,80|Jane's WW2 Fighters,80|Luftwaffe Commander,81|Казаки (Cossacks),82|Thief: The Dark Project,84|Sid Meier's Alpha Centauri,85|Baldur's Gate,86|The Pink Panther: Hocus-Pocus Pink,88|ГЭГ: Отвязное приключение (GAG),89",
@@ -2242,6 +2243,7 @@
 ],["Домашний компьютер|dkm|1",
 "966|Перестройка,37|Вундеркинд Плюс,67|Twigger,69",
 "971|Смута,72|АйТи,74|Уголки,74|Color Lines,74|Девятка,75|Балда,75|Флип-Флоп,75",
+"972|Аллоды: Печать тайны,16|Остров сокровищ,71|Золушка,72|Вундеркинд Плюс,74",
 "976|День Рождения 2,58|Parkan: Хроника Империи,61",
 "001|Математика на планете Счетоводов,54|Gorky 17,60|Петька и Василий Иванович 2: Судный день,64|X-COM: Terror from the Deep,70",
 "002|Heavy Metal: F.A.K.K. 2,66|Star Wars: Force Commander,67|Civilization (series),68|Unreal Tournament,72|Quake 3,72",
