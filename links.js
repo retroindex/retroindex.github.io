@@ -1170,6 +1170,7 @@ const webLinks = {
 "vss2":"super-encyclopedia-pc-str-2|2",
 "vss3":"super-encyclopedia-pc-str-3|2",
 "v3do":"3do_superencyclopedia|2",
+"vps1":"ps1_superencyclopedia|2",
 "vod2":"VodoleevPart2|2",
 "fp01":"FolioEkiVol1|2|46",
 "im01":"LKI01|1",
