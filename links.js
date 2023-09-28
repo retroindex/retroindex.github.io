@@ -1161,6 +1161,9 @@ const webLinks = {
 
 "ost1":"100-kompyuternyh-igr-vypusk-1-1993|2",
 "ost2":"100-kompyuternyh-igr-vypusk-2-1993|2",
+"aq02":"aquarium-computer-games-1-2-1994|2",
+"aq03":"aquarium-computer-games-3-1994|2",
+"aq04":"aquarium-computer-games-4-1994|2",
 "sec2":"Secrets_of_Computer_Games_Edition_2|2",
 "gold":"golden-games-for-ibm-pc-1997|2",
 "vsp1":"super-encyclopedia-pc-rpg-1|2",
@@ -1173,6 +1176,7 @@ const webLinks = {
 "vps1":"ps1_superencyclopedia|2",
 "vod2":"VodoleevPart2|2",
 "fp01":"FolioEkiVol1|2|46",
+"pit1":"luschiye-igry-dlya-ibm-pc-1995|2",
 "im01":"LKI01|1",
 "im02":"LKI02|1",
 "im03":"LKI03|0",
