@@ -1164,6 +1164,8 @@ const webLinks = {
 "aq02":"aquarium-computer-games-1-2-1994|2",
 "aq03":"aquarium-computer-games-3-1994|2",
 "aq04":"aquarium-computer-games-4-1994|2",
+"aq05":"aquarium-computer-games-5-1994|2",
+"aq06":"aquarium-computer-games-6-1995|2",
 "sec2":"Secrets_of_Computer_Games_Edition_2|2",
 "gold":"golden-games-for-ibm-pc-1997|2",
 "vsp1":"super-encyclopedia-pc-rpg-1|2",
