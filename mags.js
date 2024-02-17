@@ -22,7 +22,7 @@
 "951|X-COM: UFO Defense,4|Outpost,9|Civilization,16|BlackThorne,22|Cyberia,22|The Journeyman Project,23|Cyberwar,26|Voyeur,26|Quest for Glory 4,27|Death Gate,27|Lingua Match,28|Under a Killing Moon,32|Bloodnet,47|The Horde,47|Laura Bow: The Colonel's Bequest,48|Blown Away,54|King's Quest 7,54|Metaltech,55|Space Pirates,55|Betrayal at Krondor,56|Wing Commander 3,64",
 "952|WarCraft,4|Mad Dog McCree,12|Iron Cross,14|Dawn Patrol,22|Black Zone,28|U.S. Navy Fighters,30|Star Wars: X-Wing,32|The Legend of Kyrandia 2: Hand of Fate,34|Descent,44|Heretic,48|Crime Patrol 2: Drug Wars,49|The Lion King,50|Dragon Lore,50|Star Wars: Dark Forces,51|BioForge,51|Psychotron,59|The Fortress of Dr. Radiaki,59|Peter Pan,60",
 "953|The Settlers,4|Aladdin,20|Theme Park,26|Heretic,32|Reunion,42|Змеиные бои (Snake Battle),46|Змеелов,48|Quarantine,48|The Dark Heart of Uukrul,50|Space Hulk,56",
-"954|X-COM: Terror from the Deep,4|Star Wars: Dark Forces,10|Woodruff and the Schnibble of Azimuth,20|Color Lines,22|Star Trek: A Final Unity,29|Colonization,32|BlackThorne,42|Corel Wild Cards,61|Кот в сапогах,62",
+"954|X-COM: Terror from the Deep,4|Star Wars: Dark Forces,10|Woodruff and the Schnibble of Azimuth,20|Color Lines,22|Московский Кремль (Moscow Kremlin),26|Star Trek: A Final Unity,29|Colonization,32|BlackThorne,42|Corel Wild Cards,61|Кот в сапогах,62",
 "955|Phantasmagoria,4|The Last Dynasty,10|Ecstatica,14|The Shadow of Comet,21|Little Big Adventure,25|Lords of the Realm,46|Spear of Destiny,56|Laura Bow 2: The Dagger of Amon Ra,60|Black Zone,79"
 ],["Магазин Игрушек|mi",
 "951|DOOM (интервью),7|King's Quest 7,18|Woodruff and the Schnibble of Azimuth,19|Space Quest 6,19|Aces of the Deep,20|Under a Killing Moon,21|Star Wars: TIE Fighter,25|1942: The Pacific Air War,28|Overlord,30|Pacific Strike,31|Dark Sun: Wake of the Ravager,34|Jazz Jackrabbit,37|Myst,40|Critical Path,43|Outpost,46|Hell Cab,49|Urban Strike (Sega),55|The Jungle Book (Sega),62|Road Rash (3DO),72|Space Ace (CD-i),81|Mortal Kombat 2,89",
@@ -1772,7 +1772,7 @@
 "056|Star Wars (series),42|Ghost Recon 3,58|Stubbs the Zombie,60|Scarface,62|The Godfather,64|Myst 5: End of Ages,66|Diplomacy,68|Resident Evil 4,86|Казаки 2,94|Silent Hunter 2,98|GTR: FIA GT Racing Game,100|SWAT 4,102|God of War (PS),104|NiBiRu,106|Act of War: Direct Action,108|Stolen,109|The Sims 2: University,111|SpellForce: Shadow of the Phoenix,112|DOOM 3: Resurrection of Evil,114|Jets 'n' Guns,116|Wing Commander (series),152",
 "057|Prince of Persia: The Two Thrones,46|Hellgate: London,48|World of WarCraft,62|BlackSite: Area 51,80|Xenus,86|Stronghold 2,92|Empire Earth 2,94|Still Life,96|Jade Empire,98|Dungeon Lords,101|Койоты,102|Пограничье,104|ObsCure,107|Мор. Утопия,108|Close Combat: First to Fight,109|Championship Manager 5,111|Sudeki,112|Dead to Rights 2,113",
 "058|Age of Empires 3,26|Unreal Tournament 2007,28|Test Drive Unlimited,30|Адреналин-шоу (интервью),78|The Chronicles of Narnia,84|Juiced,92|Psychonauts,96|Imperial Glory,98|Squadra Corse Alfa Romeo (SCAR),102|TrackMania Sunrise,104|LEGO Star Wars,106|The Matrix Online,108|Серп и молот,110|Pariah,111|Singles 2: Triple Trouble,114|Supreme Ruler 2010,116|The Elder Scrolls Travels: Shadowkey (N-Gage),125|Need for Speed (series),152",
-"059|*,-",
+"059|Магия крови,30|В тылу врага 2,34|You Are Empty,38|Вторая мировая,42|Блицкриг 2,46|Ночной дозор,50|Санитары подземелий,52|Дальнобойщики 3,54|Метро-2,56|Пираты XXI века,58|Стальные монстры,60|Велиан,62|LADA Racing Club,64|Герои (Snowball Interactive),66|Battlefield 2,78|City of Heroes,82|Guild Wars,86|Final Fantasy 11,88|Rising Kingdoms,92|The Bard's Tale,98|Earth 2160,100|Первая мировая,102|MX vs. ATV Unleashed,104|Advent Rising,105|Metalheart: Replicants Rampage,108|Heroes of Might & Magic (series),116|The Elder Scrolls Travels: Stormhold (J2ME),156",
 "0510|*,-",
 "0511|*,-",
 "0512|*,-",
@@ -2308,6 +2308,9 @@
 "003|Dino Crisis,2|Messiah,8|MDK 2,16|Icewind Dale,28|Pharaoh,38",
 "004|C&C: Red Alert 2,2|Heavy Metal: F.A.K.K. 2,26|Baldur's Gate 2,38|Submarine Titans,58|The Longest Journey,84"
 ],["Домашний компьютер|dkm|1",
+"961|Napoleon Europe and the Empire,57|Atlas of Europe,60|Наш сад,62|English for Children,66|Никита - 22 in One,68|Кот в сапогах,70|DOOM,73|Command & Conquer,73|Day of the Tentacle,73|Full Throttle,74|WarCraft,74",
+"962|Московский Кремль (Moscow Kremlin),56|Автокурсы ПДД (Эльф),59|Эрмитаж,66|Road Roll,69|Gyro-Cubes,70|Geomanty,70|Splinters,70|Video-Splinters,70|Gun Shot,71|Charm Rocks,71|Backgammon,71|День Рождения,72|Gabriel Knight 2,77|Quake,78|Pike: Операция «Громовержец»,79",
+"963|История движения,54|Русские в космосе,60|Microsoft Dogs,62|Диво,65|Английский на досуге,67|Circus (Никита),70|Quake,73",
 "966|Перестройка,37|Вундеркинд Плюс,67|Twigger,69",
 "971|Смута,72|АйТи,74|Уголки,74|Color Lines,74|Девятка,75|Балда,75|Флип-Флоп,75",
 "972|Аллоды: Печать тайны,16|Остров сокровищ,71|Золушка,72|Вундеркинд Плюс,74",
