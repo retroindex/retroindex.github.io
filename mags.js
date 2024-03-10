@@ -2311,6 +2311,8 @@
 "961|Napoleon Europe and the Empire,57|Atlas of Europe,60|Наш сад,62|English for Children,66|Никита - 22 in One,68|Кот в сапогах,70|DOOM,73|Command & Conquer,73|Day of the Tentacle,73|Full Throttle,74|WarCraft,74",
 "962|Московский Кремль (Moscow Kremlin),56|Автокурсы ПДД (Эльф),59|Эрмитаж,66|Road Roll,69|Gyro-Cubes,70|Geomanty,70|Splinters,70|Video-Splinters,70|Gun Shot,71|Charm Rocks,71|Backgammon,71|День Рождения,72|Gabriel Knight 2,77|Quake,78|Pike: Операция «Громовержец»,79",
 "963|История движения,54|Русские в космосе,60|Microsoft Dogs,62|Диво,65|Английский на досуге,67|Circus (Никита),70|Quake,73",
+"964|Quake,64",
+"965|Путешествие по Европе (Trip around Europe),67",
 "966|Перестройка,37|Вундеркинд Плюс,67|Twigger,69",
 "971|Смута,72|АйТи,74|Уголки,74|Color Lines,74|Девятка,75|Балда,75|Флип-Флоп,75",
 "972|Аллоды: Печать тайны,16|Остров сокровищ,71|Золушка,72|Вундеркинд Плюс,74",

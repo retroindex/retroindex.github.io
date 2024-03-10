@@ -1173,8 +1173,10 @@ const webLinks = {
 "xs055":"XSMagazine2005-05|2",
 "xs056":"XSMagazine2005-06|2",
 "xs057":"XSMagazine2005-07|2",
+//"xs058":"XSMagazine2005-08|2",
 "xs059":"XSMagazine2005-09|2",
-"xs0510":"XSMagazine2005-09|2",
+"xs0510":"XSMagazine2005-10|2",
+"xs0511":"XSMagazine2005-11|2",
 "xs061":"XSMagazine2006-01|2",
 "xs062-3":"XSMagazine2006-02-03|2",
 
