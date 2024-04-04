@@ -418,7 +418,7 @@ for (let i=1; i<mags[mt].length; i++) {
 				if ((i>42)&&(window.location.protocol != "file:")) lazyLoad = "loading='lazy'";
 		}
 	if (mags[mt][i].slice(3,6).indexOf("_|")>-1) numfix--; 
-	if (magPref=='dk' && galArray[0]=='018') numfix+=(62-i);	// ДК - временное решение до заполнения пропусков
+	if (magPref=='dk' && galArray[0]=='018') numfix+=(61-i);	// ДК - временное решение до заполнения пропусков
 	if (issNum != '') issNum = "<div class='galIss'>"+(i+numfix)+"</div>";
 	if (mags[mt][i].slice(3,5).indexOf("-")>-1) {numfix++; if (magPref=='mik' && (i==237||i==238)) numfix++;}
 	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>";
