@@ -1910,6 +1910,18 @@
 "9910|Digger 2000,70|Darkstone,71|System Shock 2,71|Drakan,71",
 "9911|Prince of Persia 3D,72|The Sims,72|Kingpin: Life of Crime,72|Jagged Alliance 2,73|Command & Conquer: Tiberian Sun,74|Князь,80",
 "9912|Unreal,79|Gorky 17,79|Sanitarium,80|Вангеры (Vangers),81|Lost Eden,82|RollerCoaster Tycoon,86",
+"001|Математика на планете Счетоводов,54|Gorky 17,60|Петька и Василий Иванович 2: Судный день,64|X-COM: Terror from the Deep,70",
+"002|Heavy Metal: F.A.K.K. 2,66|Star Wars: Force Commander,67|Civilization (series),68|Unreal Tournament,72|Quake 3,72",
+"003|Max Payne,78|Soldier of Fortune,79|Black & White,79|Атлантида 2,80|Quake,83|Duke Nukem 3D,84|Half-Life,84|Kingpin: Life of Crime,84|Unreal,85|Aliens Versus Predator,85",
+"004|Визуальный дурак 2000,35|Catz & Dogz 4,58|Hired Team: Trial,62|Tzar (Огнем и мечом),64|Planescape: Torment,64|Rocket Racer,65|FIFA 2000,66|The Sims,69",
+"005|Ultima X: Odyssey,60|Вангеры (мир),63|Nox,68|Need for Speed 4,72",
+"006|Messiah,76",
+"007|Soldier of Fortune,52|Need for Speed: Porsche Unleashed,58|Daikatana,61",
+"008|Jagged Alliance 3 (Sir-Tech),72|UEFA Euro 2000,74|MDK 2,78|Wild Wild West,78|Рандеву с незнакомкой,79",
+"009|Diablo 2,80",
+"0010|Heavy Metal: F.A.K.K. 2,66|Кузя (series),70",
+"0011|Diplomacy (PBeM),59|Stars! (PBeM),59|Остракизм (PBeM),60|Galaxy (PBeM),61|Мафия (PBeM),62|Lord of the Rings (мир),66|LEGO Chess,72|Carmageddon 3: TDR 2000,84|Theocracy,88|Ground Control,92|Shogun: Total War,92|KISS: Psycho Circus,93",
+"0012|Creatures 3,70",
 "018|Z,-|Z2,-","019|Emperor: Battle for Dune,-|Dune (series),-","0110|Max Payne,-","0111|Operation Flashpoint,-","0112|Red Faction,-",
 "021|Aliens Versus Predator 2,52",
 "022|Serious Sam: The Second Encounter,52|Масяня,103",
@@ -2348,10 +2360,7 @@
 "002|Diablo 2,2|Thief 2: The Metal Age,22|Thief: The Dark Project (Gold),46|Starlancer,52",
 "003|Dino Crisis,2|Messiah,8|MDK 2,16|Icewind Dale,28|Pharaoh,38",
 "004|C&C: Red Alert 2,2|Heavy Metal: F.A.K.K. 2,26|Baldur's Gate 2,38|Submarine Titans,58|The Longest Journey,84"
-],["Домашний компьютер|dkm|1",
-"001|Математика на планете Счетоводов,54|Gorky 17,60|Петька и Василий Иванович 2: Судный день,64|X-COM: Terror from the Deep,70",
-"002|Heavy Metal: F.A.K.K. 2,66|Star Wars: Force Commander,67|Civilization (series),68|Unreal Tournament,72|Quake 3,72",
-"008|Jagged Alliance 3 (Sir-Tech),72|UEFA Euro 2000,74|MDK 2,78|Wild Wild West,78|Рандеву с незнакомкой,79"
+],["Press Enter|pe|1","967-9|Steel Panthers 2,2|NASCAR Racing 2,4|F-22 Lightning 2,6|Battlecruiser 3000AD,8|MechWarrior 2: Mercenaries,9|Discworld 2,10|Star Wars: Jedi Knight - Dark Forces 2,12|Galactic Civilizations 2,14|Heroes of Might & Magic 2,16|M.A.X.,18|Gene Wars,20|Shadoan,22|Tomb Raider,24|Bedlam,26|Albion,28|Diablo,30|Chessmaster 5000,31"
 ],["Магия ПК|mpk|1","971|Parkan: Хроника Империи,48","983|Seven Kingdoms,54","986|Tequila & Boom Boom,56","987|Legal Crime,51","001-2|Князь,64|Half-Life,66|Pharaoh,68|Quake,71"
 ],["Компьютер и мы|kim|1","981|Дорожные войны,12","987|Дальнобойщики,62","9812|Z.A.R.,68|Суперинтеллект,70|Невероятные приключения в Голливуде,71|Звездный судья,72"
 ],["Полный ПК|ppk|1","001|Diablo,65|Unreal Tournament,70|Quake 3,74|Septerra Core,76|Urban Chaos,79"
