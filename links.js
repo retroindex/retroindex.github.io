@@ -13,6 +13,7 @@
 "xs":"xs",
 "radosti":"vr",
 "gameplay":"gp",
+"homepc":"dk",
 "dpk":"dpk",
 "mirf":"mf"
 }
@@ -1013,7 +1014,6 @@ const webLinks = {
 "dk9910":"homepc-1999-10|2",
 "dk9911":"homepc-1999-11|2",
 "dk9912":"homepc-1999-12|2",
-
 "dk031":"homepc-2003-01|0",
 "dk032":"homepc-2003-02|1",
 "dk033":"homepc-2003-03|1",
