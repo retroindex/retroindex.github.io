@@ -1014,7 +1014,7 @@ const webLinks = {
 "dk9910":"homepc-1999-10|2",
 "dk9911":"homepc-1999-11|2",
 "dk9912":"homepc-1999-12|2",
-"dk001":"homepc-2000-01|1",
+"dk001":"homepc-2000-01|2",
 "dk002":"homepc-2000-02|2",
 "dk003":"homepc-2000-03|2",
 "dk004":"homepc-2000-04|2",
