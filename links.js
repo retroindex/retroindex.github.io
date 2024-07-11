@@ -1256,9 +1256,16 @@ const webLinks = {
 "dkm002":"domashny-kompyuter-2000-2-44|2",
 "pl024":"podvodnaya-lodka-2002-4|2",
 "pl0310":"podvodnaya-lodka-2003-10|2",
+
 "kim981":"kompyuter-i-my-1998-1-9|2",
+"kim983":"zhurnal-comp-i-my-1998/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%20%D0%B8%20%D0%9C%D1%8B%2011%20%28%D0%9C%D0%B0%D1%80%D1%82%201998%29|2|35,36,37,38",
+"kim984":"zhurnal-comp-i-my-1998/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%20%D0%B8%20%D0%9C%D1%8B%2012%20%28%D0%90%D0%BF%D1%80%D0%B5%D0%BB%D1%8C%201998%29|2",
+"kim985":"zhurnal-comp-i-my-1998/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%20%D0%B8%20%D0%9C%D1%8B%2013%20%28%D0%9C%D0%B0%D0%B9%201998%29|2",
+"kim986":"zhurnal-comp-i-my-1998/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%20%D0%B8%20%D0%9C%D1%8B%2014%20%28%D0%98%D1%8E%D0%BD%D1%8C%201998%29|2",
 "kim987":"kompyuter-i-my-1998-7-15|2",
+"kim989":"zhurnal-comp-i-my-1998/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%20%D0%B8%20%D0%9C%D1%8B%2017%20%28%D0%A1%D0%B5%D0%BD%D1%82%D1%8F%D0%B1%D1%80%D1%8C%201998%29|2",
 "kim9812":"kompyuter-i-my-1998-12-19|2",
+
 "mpk001-2":"magia-pk-2000-1-2-24|2",
 "cif025":"chipifayl20020511|6",
 "cif069":"chipifayl200663|7",
