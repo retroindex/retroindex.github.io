@@ -10,8 +10,6 @@
 "pcg":"pcg",
 "lki":"lki",
 "pc-games":"pc",
-"xs":"xs",
-"radosti":"vr",
 "gameplay":"gp",
 "homepc":"dk",
 "dpk":"dpk",
@@ -1342,6 +1340,14 @@ const webLinks = {
 "tricks2":"tricks-pc-vypusk-2|2",
 "tricks3":"tricks-pc-vypusk-3|2",
 "starcraft":"starcraft-manual-rus|2",
+
+"dm0235":"DiskMan20023542|0",
+"dm0248":"DiskMan20024855|0",
+"dm0312":"DiskMan20031267|0",
+"dm0543":"Diskman200543194|0",
+"dm0544":"Diskman200544195|0",
+"dm0547":"Diskman200547198|0",
+"dm0548":"Diskman200548199|0",
 
 "ogm051":"oldgames_01_2005|0",
 "ogm052":"oldgames_02_2005|0",
