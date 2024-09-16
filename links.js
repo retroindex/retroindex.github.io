@@ -29,10 +29,10 @@ const webLinks = {
 "mon937-8":"monitor19930708|6",
 "mon951":"monitor199501|2",
 	
-"pcr941":"PC_Review_1-94|2",
-"pcr942":"PC_Review_2-94|4",
-"pcr943":"PC_Review_3-94|2",
-"pcr944":"PC_Review_4-94|3",
+"pcr941":"PC_Review_1-94_updated|2",
+"pcr942":"PC_Review_2-94_updated|2",
+"pcr943":"PC_Review_3-94_updated|2",
+"pcr944":"PC_Review_4-94_updated|2",
 
 "crn941":"Korona_Video-Ass_01|2",
 "crn942":"Korona_Video-Ass_02|2",
