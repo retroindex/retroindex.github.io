@@ -410,8 +410,9 @@ const webLinks = {
 "gl1111":"Game_Land_2011-11-327|2",
 "gl1112":"Game_Land_2011-12-328|2",
 
-"glsp012":"Game_Land_Demiurgi|0",
 "glsp991":"Game_Land_HoMM3|0",
+"glsp993":"Game_Lang_JA2|0",
+"glsp012":"Game_Land_Demiurgi|0",
 
 "nim971":"GameWorldNavigator_1997-01-001|2",
 "nim972":"GameWorldNavigator_1997-02-002|2",

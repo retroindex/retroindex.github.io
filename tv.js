@@ -431,4 +431,6 @@ const tvs = [["Былое и DOOMы|bid",
 "Total War Saga: Thrones of Britannia|14.05.2018",
 "State of Decay 2+The Crew 2|05.06.2018",
 "Metro: Exodus+Jurassic World: Evolution|18.06.2018"
+],["Вот винтаж!|vv",
+"Корсары+The Sims+Nox+Soldier of Fortune+Thief 2: The Metal Age+Daikatana+Vampire: The Masquerade - Redemption+Europa Universalis+Shogun: Total War+C&C: Red Alert 2+Sudden Strike+Icewind Dale+Diablo 2+Deus Ex+Counter-Strike+Baldur's Gate 2+Проклятые земли+Heavy Metal: F.A.K.K. 2+No One Lives Forever+The Longest Journey+American McGee's Alice+Rune+Hitman: Codename 47|26.10.2024|lDd6juWRqqQ"
 ]]
