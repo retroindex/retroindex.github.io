@@ -1606,8 +1606,8 @@
 "0512|Комбат (интервью),30|FIFA 06,34|Pro Evolution Soccer 5,36|FIFA Manager 06,43|Football Manager 2006,44|Prey,60|Tomb Raider 7,64|Spore,66|Ex Machina,68|Diver: Deep Water Adventures,74|Quake 4,78|Age of Empires 3,82|Fahrenheit,86|The Suffering: Ties That Bind,90|Dragonshard,92|X-Men: Legends 2,94|Bet on Soldier,96|Black & White 2,98|Ragnarok Online,100|Ultimate Spider-Man,102|Метро-2,104|Warhammer 40000: Winter Assault,108|Rome: Total War - Barbarian Invasion,109|Восточный фронт,112|Brothers in Arms: Earned in Blood,113|Братки (интервью),116",
 "061|Call of Duty 2,34|Medal of Honor (series),46|Call of Duty (series),50|World of WarCraft (мир),60|Civilization 4,72|F.E.A.R.,74|Stubbs the Zombie,76|Sniper Elite,82|Serious Sam 2,84|Vietcong 2,86|The Matrix: Path of Neo,88|Neuro Hunter,90|L.A. Rush,92|Стальные монстры,94|Starship Troopers,95|UFO: Aftershock,96|Star Wars: Battlefront 2,97|Gun,99",
 "062-3|Войны древности: Спарта (интервью),30|Need for Speed: Most Wanted,38|Peter Jackson's King Kong,42|Condemned: Criminal Origins,46|The Elder Scrolls 4: Oblivion,54|Gears of War,56|Test Drive Unlimited,58|Star Wars: Empire at War,72|TOCA Race Driver 3,76|Resident Evil 5,80|Prince of Persia: The Two Thrones,90|The Movies,92|Harry Potter and the Goblet of Fire,94|Магия крови,96|The Chronicles of Narnia,98|GT Legends,100|Звездное наследие,102|Ex Machina,103|Shadowgrounds,104|Command & Conquer (series),122",
-"064-5|*,-",
-"066-7|*,-",
+"064-5|Splinter Cell: Double Agent (косплей),26|Hearts of Iron 2: Doomsday,34|Take Command: 2nd Manassas,38|Unreal Tournament 2007 (косплей),46|Ghost Recon: Advanced Warfighter,66|Tomb Raider 7 (косплей),72|Star Wars: Empire at War,80|25 to Life,82|Механоиды 2,84|Lord of the Rings: Battle for Middle-earth 2,88",
+"066-7|True Crime: New York City,32|Gothic 3,42|Neverwinter Nights 2,44|Marc Ecko's Getting Up,50|Commandos: Strike Force,58|The Elder Scrolls 4: Oblivion,64|Tomb Raider 7,72|The Godfather,74|The Elder Scrolls 3: Morrowind,92",
 "068|*,-",
 "069|*,-"
 ],["Gameplay|gp",
