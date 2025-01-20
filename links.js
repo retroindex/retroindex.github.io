@@ -1243,8 +1243,12 @@ const webLinks = {
 "xs059":"XSMagazine2005-09|2",
 "xs0510":"XSMagazine2005-10|2",
 "xs0511":"XSMagazine2005-11|2",
+"xs0512":"XSMagazine2005-12|2",
 "xs061":"XSMagazine2006-01|2",
 "xs062-3":"XSMagazine2006-02-03|2",
+"xs064-5":"XSMagazine2006-04-05|2",
+"xs066-7":"XSMagazine2006-06-07|2",
+"xs068":"XSMagazine2006-08|2",
 
 "ft087":"fantactuka-2008-07|2",
 "gpl991":"strana-pc-igr-01-1999|0",

@@ -1608,7 +1608,7 @@
 "062-3|Войны древности: Спарта (интервью),30|Need for Speed: Most Wanted,38|Peter Jackson's King Kong,42|Condemned: Criminal Origins,46|The Elder Scrolls 4: Oblivion,54|Gears of War,56|Test Drive Unlimited,58|Star Wars: Empire at War,72|TOCA Race Driver 3,76|Resident Evil 5,80|Prince of Persia: The Two Thrones,90|The Movies,92|Harry Potter and the Goblet of Fire,94|Магия крови,96|The Chronicles of Narnia,98|GT Legends,100|Звездное наследие,102|Ex Machina,103|Shadowgrounds,104|Command & Conquer (series),122",
 "064-5|Splinter Cell: Double Agent (косплей),26|Hearts of Iron 2: Doomsday,34|Take Command: 2nd Manassas,38|Unreal Tournament 2007 (косплей),46|Ghost Recon: Advanced Warfighter,66|Tomb Raider 7 (косплей),72|Star Wars: Empire at War,80|25 to Life,82|Механоиды 2,84|Lord of the Rings: Battle for Middle-earth 2,88",
 "066-7|True Crime: New York City,32|Gothic 3,42|Neverwinter Nights 2,44|Marc Ecko's Getting Up,50|Commandos: Strike Force,58|The Elder Scrolls 4: Oblivion,64|Tomb Raider 7,72|The Godfather,74|The Elder Scrolls 3: Morrowind,92",
-"068|*,-",
+"068|Dynasty Warriors (косплей),42|Crysis,48|You Are Empty,50|Hellgate: London,52|Санитары подземелий,54|SiN Episodes: Emergence,58|Dreamfall: The Longest Journey,65|Broken Sword 4,66|Paradise,68|Titan Quest,82|Heroes of Might & Magic 5,88|Rise of Nations: Rise of Legends,90|Half-Life 2: Episode One,92|Hitman: Blood Money,96",
 "069|*,-"
 ],["Gameplay|gp",
 "051|Комбат,23|The Sims 2: Nightlife,26|Hellgate: London,28|The Godfather,30|Ghost Recon 3,32|Lost Paradise,32|Enemy Territory: Quake Wars,34|Call of Cthulhu: Dark Corners of the Earth,36|Need for Speed: Most Wanted,38|Fahrenheit,40|Prey,42|Rush for Berlin,44|A Vampyre Story,46|ParaWorld,48|Rise of Nations: Rise of Legends,50|TimeShift,51|Soul of the Ultimate Nation,52|The Matrix: Path of Neo,54|Bet on Soldier,56|The 3Feel Online,57|The Witcher,58|Star Wars: Empire at War,60|Stubbs the Zombie,62|Splinter Cell 3,68|Earth 2160,72|Vivisector,74|Big Mutha Truckers 2,84",
@@ -2213,6 +2213,7 @@
 ],["Полный ПК|ppk|1","001|Diablo,65|Unreal Tournament,70|Quake 3,74|Septerra Core,76|Urban Chaos,79"
 ],["Чип и файл|cif|1","025|Comanche 4,55","069|Darkstar One,57|Казаки 2: Битва за Европу,61|Warhammer 40000: Dawn of War - Dark Crusade,65","071|Волкодав: Месть Серого Пса,57|Space Empires 5,62"
 ],["Подводная лодка|pl|1",
+"0110|Serious Sam: The First Encounter,139|Half-Life,139|Quake 3: Team Arena,140|KISS: Psycho Circus,141",
 "024|Star Trek: Bridge Commander,125|Command & Conquer: Renegade,126|Star Wars: Starfighter,126|Disciples 2,127|Frank Herbert's Dune,128",
 "0310|Republic: The Revolution,130|Операция Silent Storm,131|Завоевание Америки: В поисках Эльдорадо,132|Антанта,133",
 "041|Neighbours from Hell 2,126|XIII,127|Broken Sword 3,128|Star Wars: Knights of the Old Republic,129"
