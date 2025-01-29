@@ -26,8 +26,7 @@ let pgRes = "<table class='mTable' border=1 cellspacing=0 cellpadding=5>";
 for (g=0; g<mags.length; g++) {
 	let numfix=0;
 	let pubYear = '';
-	if (g==8) numfix+=17;	// EXE
-	if (g==11) numfix+=13;  // ЛКИ
+	if (g==9) numfix+=17;	// EXE
 	let tmpRes = "<tr><th colspan='6' class='mn'>"+mags[g][0].split("|")[0]+"</th></tr>";
 	for (let i=1; i<mags[g].length; i++) {
 		magArray = mags[g][i].split('|');
