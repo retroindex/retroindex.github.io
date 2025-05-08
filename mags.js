@@ -2210,6 +2210,7 @@
 "987|Дальнобойщики,62|Lingua Land. Обучение с приключением,69|АБВГДейка,75|Уроки азбуки,76",
 "989|Большая энциклопедия Кирилла и Мефодия,54|Космическая станция (Новый диск),56|Дача кота Леопольда,65|Восьмое путешествие Синдбада,90|Axelerator (Have a N.I.C.E. day!),92|The 3rd Millennium,94|U.F.O.s,96|SWING,97|Quake 2,98|The Pink Panther: Passport to Peril,100",
 "9812|Z.A.R.,68|Суперинтеллект,70|Невероятные приключения в Голливуде,71|Звездный судья,72"
+],["HiTECH для всех|htk|1","998|Darkstone,30|Vampire: The Masquerade - Redemption,32|SWAT 3,34","009|Return to Castle Wolfenstein,34|Hired Team: Trial,36|Midtown Madness 2,37","0010|Star Trek: Voyager - Elite Force,37|Soldier,39|Baldur's Gate 2,41"
 ],["Полный ПК|ppk|1","001|Diablo,65|Unreal Tournament,70|Quake 3,74|Septerra Core,76|Urban Chaos,79"
 ],["Чип и файл|cif|1","025|Comanche 4,55","069|Darkstar One,57|Казаки 2: Битва за Европу,61|Warhammer 40000: Dawn of War - Dark Crusade,65","071|Волкодав: Месть Серого Пса,57|Space Empires 5,62"
 ],["Подводная лодка|pl|1",
