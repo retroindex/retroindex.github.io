@@ -361,4 +361,6 @@
 "108@130|Might & Magic: Heroes VI,2|MechWarrior,4|Victoria 2,7|Commander: Conquest of the Americas,10|Mafia 2,12",
 "119@142|Star Wars: The Old Republic,4|The Elder Scrolls 5: Skyrim,6|Europa Universalis 3,9|Making History 2: The War of the World,12",
 "1111@144|Stronghold 3,4|RAGE,6|Battlefield 3,9|Football Manager 2012,12"
+],["Скобяная лавка|slp",
+"971|Tomb Raider,2|NASCAR Racing 2,5|The Elder Scrolls 2: Daggerfall,6|KKnD,8|Outlaws,12|Moto Racer,15|Carmageddon,16|The Neverhood,20|Leisure Suit Larry 7,21|Final DOOM,22|Realms of the Haunting,23|Warlords 3,27|MegaRace 2,29|Братья Пилоты: По следам полосатого слона,51|Dragon Lore 2,67|FIFA 98,69|Dreams to Reality,71|Z.A.R.,83|StarCraft,83|Jedi Knight,85"
 ]];
