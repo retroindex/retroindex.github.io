@@ -1339,6 +1339,8 @@ const webLinks = {
 "cdr4":"cd-rom-review-1996-4|2",
 "cdr5-6":"cd-rom-review-1996-5-6|2",
 "sol1004":"100-luchshikh-igr-1994-95-g-g|2",
+"sol1":"solon-only-new-games-ibm-pc-1|2",
+"sol2":"solon-only-new-games-ibm-pc-2|2",
 "vm950":"virtual-worlds-no-0-1995|2|-33,-33,-33,-33",
 "vm951":"virtual-worlds-no-1-1995|2|-33,-33,-33,-33",
 "kp95":"multimedia-dlya-vsekh|2",
