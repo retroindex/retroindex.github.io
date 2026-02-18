@@ -53,7 +53,7 @@
 "49<sub>4</sub>|Alien Earth+Broken Sword+Lost Paradise|28.06.1997|X",
 "49<sub>5</sub>|Titanic+Witchaven 2+Daytona USA|29.06.1997|X",
 "49<sub>6</sub>|Jagged Alliance: Deadly Games+Harvester+MegaRace 2|05.07.1997|N",
-"49<sub>7</sub>|Obsidian+Privateer 2: The Darkening+Aliens+Afterlife|06.07.1997|N",
+"49<sub>7</sub>|Obsidian+Privateer 2: The Darkening+Aliens: A Comic Book Adventure+Afterlife|06.07.1997|N",
 "50|Terminator: SkyNET+Screamer 2+WWF in Your House+Syndicate Wars|12.07.1997|NM",
 "51|The Pandora Directive+Crusader: No Remorse+Destruction Derby 2+Silent Thunder|13.07.1997|NM",
 "52|Olympic Soccer+Australian Rugby League+XS+M.A.X.+Realms of the Haunting|19.07.1997|NM",

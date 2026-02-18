@@ -240,7 +240,7 @@ const webLinks = {
 "gl044":"Game_Land_2004-04-157|2",
 "gl045":"Game_Land_2004-05-158|2",
 "gl046":"Game_Land_2004-06-159|2",
-"gl047":"Game_Land_2004-07-160|0",
+"gl047":"Game_Land_2004-07-160|2",
 "gl048":"Game_Land_2004-08-161|2",
 "gl049":"Game_Land_2004-09-162|2",
 "gl0410":"Game_Land_2004-10-163|2",
