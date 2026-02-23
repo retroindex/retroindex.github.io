@@ -3,13 +3,13 @@
 "942|Might & Magic 3|SimCity|Covert Action|Uncharted Waters|Wolfenstein 3D|Wing Commander|F-15 Strike Eagle 2|DOOM|Hyperspeed",
 "943|Wizardry (series)|Medieval Lords|Where in the World Is Carmen Sandiego|L' Empereur|Conquered Kingdoms|Centurion: Defender of Rome|Global Conquest",
 "944|Star Control 2|Warlords 2|Stronghold|Starblade|The Lost Admiral|Warlords 2",
-"945|Prince of Persia 2|Mortal Kombat|Ultima Underworld|Регата|Балда|Color Lines|Уголки (Corners)|Домино|Filler|Life Editor|Покер-аукцион|Змеиные бои (Snake Battle)|Змеелов|Tetriller|Ветка|Цап-царап|Catcher|Ворона|Dropper|Frantis: Mission 2|Locman|Loopy|С Рождеством!|Sky Cat|Наш Паровоз",
+"945|Prince of Persia 2|Mortal Kombat|Ultima Underworld|Регата|Балда|Color Lines|Уголки (Corners)|Домино|Filler|Life Editor|Покер-аукцион|Змеиные бои (Snake Battle)|Змеелов|Tetriller|Ветка|Цап-царап|Catcher|Ворона|Dropper|Frantis: Mission 2|Locman|Loopy|С Рождеством!|Sky Cat|Наш паровоз",
 "946|Civilization|Bloodnet|Darklands|The Legacy|F-117A Nighthawk Stealth Fighter 2.0|Fields of Glory|Formula 1 Grand Prix|Master of Orion|Task Force 1942|X-COM: UFO Defense|Railroad Tycoon|SubWar 2050|F-14 Fleet Defender",
 "947|Змеиные бои (Snake Battle)|Hexx: Heresy of the Wizard|Romance of the Three Kingdoms 2|Merchant Prince|Blake Stone|Flashback: The Quest for Identity|X-COM: UFO Defense|7 кругов|Уголки (Corners)|Block Buster|Сумасшедшие деньги|Кроссворд|Flopper|Тарелочки|C-Mark|Новая генетика|Four Gravities|IceBox|Lumath|Lunarith",
 "948|King's Quest (series)|Cannon Fodder|Dune 2|Fantasy Empires|Hannibal|Pirates! Gold|Utopia|Wizardry 7|Футбол 4x4|Drop-Drop|Flopper|Lift|Locomo|Sprut|Тип-Топ|Virt|XOR|Zig-Zag",
 "949|The 7th Guest|Dungeon Hack|Dark Sun: Shattered Lands|Kingdoms of Germany|Crisis in Kremlin|The Legend of Kyrandia 2: Hand of Fate|Master of Magic|SimCity 2000|Judgement Rites|Black Hole 2|Fire Water & Pipes|Перестройка|Qubic|SpaceBall|The Music Spider",
 "9410|Battle Isle|Wing Commander: Armada|Colonization|Dune 2|Kingmaker|Shadowcaster|Superhero League of Hoboken|Companions of Xanth",
-"951|Operation Body Count|Blake Stone|Cyclones|Star Wars: Dark Forces|Descent|The Fortress of Dr. Radiaki|Heretic|Isle of the Dead|Quarantine|Rise of the Triad: Dark War|Colonization|Outpost|Theme Park|Great Naval Battles 2|Civilization for Windows|Second Front|Lords of the Realm",
+"951|Operation Body Count|Blake Stone|CyClones|Star Wars: Dark Forces|Descent|The Fortress of Dr. Radiaki|Heretic|Isle of the Dead|Quarantine|Rise of the Triad: Dark War|Colonization|Outpost|Theme Park|Great Naval Battles 2|Civilization for Windows|Second Front|Lords of the Realm",
 "952|Colonization|The Incredible Machine|Lands of Lore|Quest for Glory|Railroad Tycoon|Aladdin|WarCraft|Panzer General|Creature Shock|Death Gate|Dragon Lore|Menzoberranzan",
 "953|The Settlers|Tanks|SimEarth|Little Big Adventure|Master of Magic|Cyberia",
 "954|Death Gate|Museum Madness|Master of Magic|Mystic Towers|One Must Fall 2097|When Two Worlds War",
@@ -124,3 +124,5 @@ const PDFs = [
 "0910|The Path,3|Gobliiins 4 (интервью),10|Даша Васильева. Дело женщины-кошки,20|Архивы НКВД: Операция «Валькирия»,24|Memento Mori,27"
 ],["Игротоп|it|igrotop.org","111|Commander Keen (1-3),4|Golden Axe,8|Stunts,12|Eye of the Beholder,16|Wizardry,20|Wing Commander,24|Loom,28|The Secret of Monkey Island,32|F-29 Retaliator,36|King's Quest 5,40"
 ]]
+
+const showcase = ["Albion","Arcanum","Civilization","Deus Ex","Diablo","DOOM","Dragon Age: Origins","Duke Nukem 3D","Duke Nukem Forever","Dungeon Keeper","Dungeon Siege","Fallout","Fallout 2","Full Throttle","Gothic","Half-Life","Heroes of Might & Magic 2","Heroes of Might & Magic 3","Jagged Alliance 2","Leisure Suit Larry 7","Little Big Adventure 2","Majesty 2","Mass Effect","Master of Magic","Max Payne","MechWarrior 2","Might & Magic 6","Myst","Neverwinter Nights","Pirates!","Prince of Persia","Ragnarok Online","Sacred","SpellForce: The Order of Dawn","Star Wars: Dark Forces","The Elder Scrolls 3: Morrowind","The Elder Scrolls 2: Daggerfall","Tomb Raider","WarCraft 2","Wizardry 8","X-COM: UFO Defense","Аллоды Онлайн","Аллоды: Печать тайны","Бригада Е5: Новый альянс","Восхождение на трон","Всеслав Чародей","ГЭГ: Отвязное приключение","Князь","Корсары","Кодекс войны","Космические рейнджеры","Магия крови","Операция Silent Storm","Проклятые земли","Санитары подземелий","Сфера"];

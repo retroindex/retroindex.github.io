@@ -10,29 +10,67 @@
 <meta name="description"  content="Ваш путеводитель по игрожуру 90х — поиск и каталог обзоров старых игр для IBM PC">
 <title>Retroindex</title>
 <style>
-HTML {overflow-y: scroll;}
-BODY {background: #e9e3cc url(misc/paper.jpg) scroll; margin: 0;}
+:root {
+  --bg: #e9e3cc;
+  --bg-img: url(misc/paper.jpg);
+  --text: #000;
+  --panel: #f4efda;
+  --border: #bbb;
+  --h2: #800000;
+  --shadow: rgba(0,0,0,0.2);
+  --error: #f883a2;
+  --srch-border: #4c270e;
+  --btn-border: #bbb;
+  --table-border: #d2cdbc;
+  --mod-zebra: #f0f5ff;
+  --mod-border: #345fb9;
+  --binv: 0;
+  --hintext: #000;
+}
+
+.dark-mode {
+  --bg: #293549;
+  --bg-img: none;
+  --text: #d4d4d4;
+  --panel: #2d4a65;
+  --border: #3d5a75;
+  --h2: #6ab4ff;
+  --shadow: rgba(0,0,0,0.6);
+  --error: #8b2e3e;
+  --srch-border: #6ab4ff;
+  --btn-border: #495359;
+  --table-border: #3d5a75;
+  --mod-zebra: #243447;
+  --mod-border: #4a90e2;
+  --binv: 1;  
+  --hintext: #fff;
+}
+HTML {overflow-y: scroll; transition: background 0.3s;}
+BODY {background: var(--bg) var(--bg-img) scroll; margin: 0; color: var(--text); transition: color 0.3s;}
 H1,H2,H3 {font-family: Arial;}
-H2 {color: #800000;}
+H2 {color: var(--h2);}
 H2 A:hover{color: #b20f0b; cursor: pointer;}
-H3 {color: #800000; display: inline; padding-bottom: 2px;}
+H3 {color: var(--h2); display: inline; padding-bottom: 2px;}
 H3:hover {color: #b20f0b; cursor: pointer;}
 H3 A {text-decoration: none;}
 TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
+.infMsg A {color: #28bf46;}
 P {margin-bottom: 0;}
 @font-face {font-family: 'Antnum'; src: url('misc/antnum.woff2') format('woff2');}
-#sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background-color: #f4efda; box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2); transition: background-color .3s ease-out;}
-#sInp:focus {background-color: #fff;}
-#sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px #4c270e solid; background-color: #f4efda; outline: none;}
-.pBut {display: inline-block; height: 27px; width: 27px; background-color: rgba(127,127,127,0.1); border: #bbb 1px solid; border-radius: 50%; position: relative; left: 17px; user-select: none; font: bold 16px Arial; color: #baa; line-height: 27px;}
-.pBut:hover{cursor: pointer; border-color: rgba(127,127,127,0.1); box-shadow: inset 1px 1px 0 rgba(0,0,0,0.2); background-color: rgba(255,210,30,0.5); left: 16px;}
-#sel {height: 25px; margin-right: 0; font-size:14px; outline: none; border: 0; background-color: #f4efda;}
+#sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background-color: var(--panel); color: var(--text); box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);}
+#sInp:focus {background-color: var(--panel);}
+#sBut {height: 32px; margin-left: 0; border-radius: 0 15px 15px 0; font-size:15px; border: 1px var(--srch-border) solid; background-color: var(--panel); color: var(--text); outline: none;}
+.pBut {display: inline-block; height: 27px; width: 27px; background-color: rgba(127,127,127,0.1); border: var(--btn-border) 1px solid; border-radius: 50%; position: relative; left: 17px; user-select: none; font: bold 16px Arial; color: #baa; line-height: 27px;}
+.tBut {user-select: none; height: 20px; width: 20px; margin-left: 3px; flex-shrink: 0; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGEAAABhAgMAAAC7aCcwAAAABlBMVEX///+AAAC098j+AAAAAXRSTlMAQObYZgAAAVlJREFUeNrklbFuxjAIhG2p7P/C+7B09wDv/yo1LjkTS0hJ194E/hDBVnxuSaQ5+5/kleTIP1fQx0H0+HI3GxFchC1AIDIB8ciWBLmLvJR+ia4aTOC5heQ3Dc2QLqKTDBAejX1t8VkoICR9gYVmVYO6r1xzavsCiAUXSiCf6Ywwd95cCOk4inA+LNHuTrxYEG+ZYiVOGgMM9PckE2mEL4NEA95EM5k5Sllvo/VELBFttAklYiMI5kmEnxOE5gSFj0h/S8iaE93bS4ReEbMRxDbpZt+ZyB/IKIneCGZzVVPjQzfSDe0+QXBuaDeOE8XN5oM0g+QR8ZBBvPAZSU6RCWsmZMd/HfLGx13AaKyZCEbA/cGGtr/ZOO+pawUguNsu3G0MB4dd8ekhk8BD7r5jzrtp7VVP/K32xNpHa++t/br2+PpdqN+S+v2p36z6navfxp9hqU/JBqOtGgCMLcwkWsV5vwAAAABJRU5ErkJggg==); background-size: contain; filter:sepia(var(--binv)) invert(var(--binv));}
+.tBut:hover {filter: invert(0.5); cursor: pointer;}
+.pBut:hover{cursor: pointer; border-color: rgba(127,127,127,0.1); box-shadow: inset 1px 1px 0 rgba(0,0,0,0.2); left: 16px;}
+#sel {height: 25px; margin-right: 0; font-size:14px; outline: none; border: 0; background-color: var(--panel);}
 #prnt {display: flex; flex-wrap: wrap; justify-content: center;} 
-#chAuto {border: 1px #4c270e solid; background-color: #f4efda; border-radius: 15px;}
+#chAuto {background-color: var(--panel); border-radius: 15px;}
 #modSel option:nth-child(2n) {background-color: #f0f5ff;}
 #modSel {flex-basis: 292px; flex-grow: 1;}
-.topSticky {position: sticky; top: 0; background-color: #e9e3cc; background: url(misc/paper.jpg); z-index: 100;}																																
-.topBar {height: 45px; background-color: #e9e3cc; background: url(misc/paper.jpg); text-align: center; padding: 0 12px 0 8px; display: flex; margin: 0; align-items: center;}
+.topSticky {position: sticky; top: 0; background-color: var(--bg); background-image: var(--bg-img); z-index: 100;}																																
+.topBar {height: 45px; background-color: var(--bg); background-image: var(--bg-img); text-align: center; padding: 0 12px 0 8px; display: flex; margin: 0; align-items: center;}
 .topRex {display: none;}
 .topCenter {flex: 1 0 0; white-space: nowrap; height: 100%; padding-top: 3px;}
 .topRight {padding-top: 1px;}
@@ -60,24 +98,24 @@ P {margin-bottom: 0;}
 .tRes TH:nth-child(3) {border-top-right-radius: 4px; width: 36px;}
 .tRes TH, TD {padding: 0;}
 .flexFix {height: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;}
-.errMsg {background-color: #f883a2; max-width: 400px; padding: 15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
-.infMsg {background-color: #f4efda; min-width: 640px; width: 60vw; padding: 15px; margin: 30px 0; border-radius: 15px; font: 14px Arial;}
+.errMsg {background-color: var(--error); max-width: 400px; padding: 15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
+.infMsg {background-color: var(--panel); color: var(--text); min-width: 640px; width: 60vw; padding: 15px; margin: 30px 0; border-radius: 15px; font: 14px Arial;}
 .cb {position: relative; left: 31px; top: 9px;}
 .sar {border-radius: 15px;}
 .ns {user-select: none; cursor: pointer !important;}
 .mc {font-size: 12px; opacity: 0.4; float: right;}
 #chAuto {display: none;}
-#chAuto + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAghJREFUeNqU1OsSqygUhNFmFFTJeIsi8r3/e54Klcx4NEmZ9RPZQndZ6uwf/69+tFHrurLzsiSj6waCWmb9wIGduOmgSb3RJ4E+YvUXMwCTPunYYHXaKQPbQqdPChg22N2jTYRypdJR3yrTzL2c/z/ITDCbkqSjG8kpa0hGHdzzOXYFUufPJdqUXgebhJdsocytqakjnKMMDHoZY7tvy+bLnaOE51JZS4VO6jdRAl4PnlZvDLsoRspGopFkzl0+E3XK3LB1/8Un1sYtzHrLFJJcH4GgJ0+2lZ8/8QCwLJR6qldgtfokAhGvel+3ba0+65nKglkVsy5y9FIgpusjWjdXpTmSal3lAQbjcnfO+36cQlj01QBrqYyXqO9Kt6vvPvbeV05X+Y3UG/3EdIntpquqHKh4RGv1VdGWymJSZidYrL5oIN5vTiWz7G0cl7Am8Pqi3XhIgU6el1Zfle24AtSqxtH72lldUTQbRr8xBP2oZtBO4Zw+MOVrj6926SZga/RGHSB6HZURtvi2aU826iCQblJLsm/+vl52Pr2tea7c6XTQkxPPbPrLwKKH8Xz+iM/Bwelpv9Vs9JKaMEmyIeRHzHpYDyMtqyRNYHPgIMnB7s4FFNozK3NVLzDoOKIZBlstjOeSH0adR4rAw2J0YPoQ5kZvRmSGSOyMPtuPXOb5M/poAQPqaQEAEhEuCu707rIAAAAASUVORK5CYII=); background-size: contain;}
-#chAuto:checked + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAVFBMVEX////49/b29PPx7uzq5uPi3Njb1M/Uy8XNw7zGurK+sai3qZ+woJWunpKpmIyij4KbhniUfW6NdWWGbFt/ZFJ3W0hwUj5pSjViQStbOSJTLxdMJw6AJr+6AAAAAXRSTlMAQObYZgAAAi1JREFUeNqUlImyojAURG8GEpA4bEK28///OQUV3/ASfctx19t0usu6UvPH/pVfEunl57SjFU1Sv5DMOBnY5BcY0Ct3Kbil6b2xYwpo+YSagVXeMRLBm0/5HHFnlHc0MEe4nGNIuNbTSck05Dcbj3b7b6RW2FRLkpI7yeSkR8UjPE4f7YE02rpEndLTWCWsiG5ygz7d+gB1lJlZnixhuLalz8PVUVz+qu1FGqnoSVJLrBxYBnnBfInyrHIhHG9V3WVONOY3cxw/4hN6ZfayGMiXbo75KQBOMpaT2FaSTDs6gH3nY6T3gNelAskEIGClv9ath0JwNZGJtW3YpCvP/l5imEQcIf1cIj6aLm2B1EtNEeVa0KzM2Z2xdlpW5/ZaIhdm8LktnoSvJdKaS32PZbK2M+UsyGtspFwGUEYpUGMi3uvcbxTdGag5og1XTS1phpw9JDnRK+z6alNKbhAedyMtm+j7suzOJ7BXmzLKEDlIjlEsT4ZCUu7rYfEAvXTLYm1vdNHZ676aW0TJa95IROHkl5Ke+ZOrMe/+Lap9ztjukm4F4u2VpHcQrJS0AWIAKxWWk0UKHOkuMpD0i+1rRW/V1W75m0e9fSfOxBuxXIi7HCy1/4I9g4ORK3lURabD060iop07f8obwheSAX+8rKDPwMewgcuZG2jkivJsXb/DLKVENph1t7PUJecmK0njONiVFKjJue0mLySi5kAY/w1XcsTUggCDQgsYUE8LABacNVGE1b6XAAAAAElFTkSuQmCC); background-size: contain;}
+#chAuto + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3ZmJlM2FiMS0yNDQ3LWIzNDktODYwMi1iOThmMGZjMmUwMTAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUVBQjExNzMwRTVEMTFGMTg5QjI4RTU4QkEwNjQyQTkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RUVBQjExNzIwRTVEMTFGMTg5QjI4RTU4QkEwNjQyQTkiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6YWMyOTcxZmQtNThmZC1iZDQwLThlMjgtNWIxNjU5ZWU0MGZmIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6Yjg0MTQ3NTgtMGU1ZC0xMWYxLTg4NjktOGEyMjM3Y2E0OTI1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+1osfqQAAAAZQTFRFTCcO////Tn3R7QAAAAJ0Uk5T/wDltzBKAAAB+ElEQVR42uyZSXLEIAxFP/e/dBadbjNoHpxKl7018AySvoSMccMDwxD0Q/AtEPRCXov3Qn5XdzHQD2E3DW2OHQJwFA1iNwlCkPc0OBBxCBwMN8RMeY8KGH7+PpgsHoJcthcwmBkRyLhmswtcrxIQSH62HKcRcg6av/JcYzUae6bYp7BSAfILJqPBAqGHiZ617VOHCKduD0YFwoerQ1eUDCD6aE7oV0gy/ZkgyfpBh6AEMr4ZgloIoYMfUWMgaW9blLMFgk056UUzDKxPAwSU+pPahSgDu+pTkCkNZvZxOecG2c4yK2CfGhdUZkwxxpxHT8Or9WxgJ3uc1F10J4tfxHrIWed1QI4zr4aMWyBUmNVDYm2P/whBOhglyJkCmvz6TkiLTVpX/9ikGzJf9qowVNmDaufdV1qXLcLsbgSiDiqrHGcSzP2kxHYQbAu5MgspKyh2YNCn2AzpqF5QG4p0uDcnrVsgTyHxtxBfXzgUMlKoQb/3+SXR1EXwU5bscTYy+YOF848Df3WG0LVy/XKQegAQO2NGijarAkI1ZgSIOrwLghAEImSEIOMOSNlOtljoMTwLGTkIzJB4nMABgS/iOVnhIYfiGbQLtHQJEOVm65B6CeLMJ3zSEiFitQ5jo0eHjOgfUyekoFp5IA+kFxK79z2QLkj8+RFgADllIVH1f4uKAAAAAElFTkSuQmCC); background-size: contain; filter: invert(var(--binv));}
+#chAuto:checked + label:before {display: inline-block; cursor: pointer; height: 28px; width: 28px; content: ""; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3ZmJlM2FiMS0yNDQ3LWIzNDktODYwMi1iOThmMGZjMmUwMTAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTYxQTAzMjAwRTVEMTFGMUI2RjJFREU2QzQyQTUxMTkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTYxQTAzMUYwRTVEMTFGMUI2RjJFREU2QzQyQTUxMTkiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6YWMyOTcxZmQtNThmZC1iZDQwLThlMjgtNWIxNjU5ZWU0MGZmIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6Yjg0MTQ3NTgtMGU1ZC0xMWYxLTg4NjktOGEyMjM3Y2E0OTI1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+1BDtdAAAAAZQTFRFTCcO////Tn3R7QAAAAJ0Uk5T/wDltzBKAAACG0lEQVR42uzZSZLDIAwF0M/9L92LTsoYTV9CuLpT8TbGz2aQBMF44AJxC84j+BQEZ5Hfh59FXk9PGTiPmB+NqA2PAJYSIfyQoIS8myFB1BEkjDRCK++7CgM/vx+oES8h19g7DGajgoyrtfmA66cNBN48u3Unicib5reUz7gPmtmnWJuYoQLqG0yDBgbRb3Nn1vKdMeL0Or8YA8Rerom4EmQAd47uBfo7spn+KGSzfogRtCDjkxHsIUoT6xYLQQExl+cZBEvk1JuQOTcU9hArVEGL/mrsAtdZVuy/J0uBTGmw1FkigS3I0pfFILLkewhkJAwHUao9sPVs4UvWddIW2OcRv8R+RNZ5KBM2In7tRkYvkniBfqR27PEfEWe9L3OygsgU0ItoV4Dwe2ILIUZhA+GXX7qkxTiNzJu9RHXi3quVPaBPOHgEYgDphEXscuVMkkVJsCerIK+dK32eNBcH3DTREaAJWZ6mhpUQSU5g6L14GGmIDmLZIFFsFRC8kUKk+1tIJf1+DlI8HmlEcufC7jkysR0lEH9lxoW2tpWM8kGuAjfOQ/1j3sw/DvbWGVHpk58NIZI/mGBadSDawYyDhLefQlBC4CKjhIwnkLYvWdbCmYE3kbGHgEbq6wQJBLkVb4UVGxERj4hd0EOXgwQ720So95BkPrGTlou41TrIg54YGdV/TJNIQ7XyRb7IWQSVLd0XeeI0NXn9CDAAatYgPZ9P1V4AAAAASUVORK5CYII=); background-size: contain; filter: invert(var(--binv));}
 #covModal {display: none; position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 150; align-items: center; justify-content: center;}
-#modContent {background: #e9e3cc url(misc/paper.jpg); border-radius: 15px; padding: 10px; border: 3px solid #345fb9; width: 450px; z-index: 20; display: flex; align-items: flex-start;}
-#hintBar {margin-top: 5px; padding: 0 10px 5px 5px; min-height: 22px; background-color: rgba(127,127,127,0.1); border-top: #bbb 1px dotted; border-bottom: #bbb 1px dotted;}
-#hintBar span {display: inline-block; border-radius: 4px; font: 12px Arial; padding: 1px 3px; margin-left: 5px; margin-top: 5px; background-color: #f4efda; color: #000; white-space: nowrap;}
-#hintBar span:hover {background-color: gold; cursor: pointer;}
+#modContent {background: var(--bg) var(--bg-img); border-radius: 15px; padding: 10px; border: 3px solid #345fb9; width: 450px; z-index: 20; display: flex; align-items: flex-start;}
+#hintBar {margin-top: 5px; padding: 0 10px 5px 5px; min-height: 22px; background-color: rgba(127,127,127,0.1); border-top: var(--btn-border) 1px dotted; border-bottom: var(--btn-border) 1px dotted;}
+#hintBar span {display: inline-block; border-radius: 4px; font: 12px Arial; padding: 1px 3px; margin-left: 5px; margin-top: 5px; background-color: var(--panel); color: var(--hintext); white-space: nowrap;}
+#hintBar span:hover {background-color: gold; color: #000; cursor: pointer;}
 nav {white-space: nowrap;}
 nav ul {padding:0; margin:0; list-style: none; position: relative;}
-nav ul li {margin: 0; display:inline-block; background-color: #f4efda;}
-nav a {display:block; text-align: left; padding:0 5px; color:#000; font: 15px Arial; line-height: 30px; text-decoration:none; cursor: pointer; border-top: 1px #ccc dotted;}
+nav ul li {margin: 0; display:inline-block; background-color: var(--panel);}
+nav a {display:block; text-align: left; padding:0 5px; color: var(--text); font: 15px Arial; line-height: 30px; text-decoration:none; cursor: pointer; border-top: 1px var(--border) dotted;}
 li:nth-child(20) a {border-top: 1px #345fb9 dotted;}
 nav a:hover {background-color: #b20f0b; color: #fff;}
 nav ul ul {display: none; position: absolute; top: 100%; left: 0;}
@@ -88,8 +126,8 @@ nav ul ul li {width:262px; display:list-item; position: relative;}
 .ulN {border-left: 3px #0d96a4 solid;}
 .ulD {border-left: 3px #8e3ca2 solid;}
 .ulP {border-left: 3px #b20f0b solid;}
-.grD {background: linear-gradient(90deg, #d4b7c8, #f4efda);}
-.grP {background: linear-gradient(90deg, #e1ad9d, #f4efda);}
+.grD {background-image: linear-gradient(90deg, rgba(142,60,162,0.3), rgba(142,60,162,0));}
+.grP {background-image: linear-gradient(90deg, rgba(178,15,11,0.3), rgba(178,15,11,0));}
 .linkM {border-bottom: 3px #345fb9 solid;}
 .linkN {border-bottom: 3px #0d96a4 solid;}
 .linkB {border-bottom: 3px #5d9d52 solid;}
@@ -113,7 +151,6 @@ nav ul ul li {width:262px; display:list-item; position: relative;}
 .cov {width: 80px;}
 .tRes {background-color: rgba(127,127,127,0.1);}
 .tRes TH:nth-child(3) {border-top-right-radius: 0;} 
-.infMsg {max-width: 430px;}
 }
 </style>
 <script src="tv.js"></script>
@@ -124,45 +161,54 @@ nav ul ul li {width:262px; display:list-item; position: relative;}
 <script src="links.js"></script>
 </head>
 <body> 
-<div class="topSticky"><div class="topBar"><div class="topRex"><img src="misc/rex.png" width="65" height="30"></div>
-<div class="topLeft"><a href="https://retroindex.github.io"><img src="misc/retrologo.png" width="197" height="30"></a></div>
+<div class="topSticky"><div class="topBar">
+<div class="topRex"><img src="misc/rex.png" width="65" height="30" style="filter:sepia(var(--binv)) invert(var(--binv))"></div>
+<div class="topLeft"><a href="https://retroindex.github.io"><img src="misc/retrologo.png" width="197" height="30" style="filter:sepia(var(--binv)) invert(var(--binv))"></a></div>
+<div class="tBut" id="tglBtn" onClick="toggleTheme()" title="Сменить тему" style="position: relative; bottom: 6px;"></div>
 <div class="topCenter"><span class="pBut topLeft" onClick="prntMsg()">?</span>
-<span class="cb"><input type="checkbox" id="chAuto"><label for="chAuto"></label></span><input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" value="Поиск " onclick="wrapper(sInp.value.trim())"><span class="pBut topLeft" id="sortBtn" onClick="sortTabs()" title="Сортировка по дате">&#8645;</span></div>
+<span class="cb"><input type="checkbox" id="chAuto" checked><label for="chAuto"></label></span><input type="search" id="sInp" autocomplete="off"><input type="button" id="sBut" value="Поиск " onclick="wrapper(sInp.value.trim())"><span class="pBut topLeft" id="sortBtn" onClick="sortTabs()" title="Сортировка по дате">&#8645;</span></div>
 <div class="topRight" id="topRightCnt"></div></div><div id="hintBar"></div></div>
-<div id="prnt"><div style="height: 90vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель <nobr>по игрожуру 90-х</nobr></h1><img class="sar" src="misc/sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div></div>
+<div id="prnt"></div>
 <div id="covModal"><div id="modContent"></div></div>								
 <div style="opacity: 0; font-size: 1px; font-family: Impact, Antnum;">2019</div>
 <script type="text/javascript">
 
 let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>"; 
 let maKeys = []; let npKeys = []; let maMisc = []; let msCount = 0;
+let stdLoad = true; let Gstat = {articles: "60.000+", games: "11.000+", mags: 0, books: 0, papers: 0, dmag: 0, dpdf: 0};
 for (let i=0; i<mags.length; i++) {
 	let [magName,magPref,magType] = mags[i][0].split("|");	maKeys.push(magPref); 
 	if (!magType) sel += "<li><a onclick='showGal("+i+")'>"+magName+"<span class='mc'>"+(mags[i].length-1)+"</span></a></li>";
-	if (magType == "1" || magType == "2") {maMisc.push(i); msCount += (mags[i].length-1)}}
+	if (magType == "1" || magType == "2") {maMisc.push(i); msCount += (mags[i].length-1)};
+	Gstat.mags += mags[i].length-1;
+	}
 sel+="<li><a onclick='showMiscGal()'>Прочие журналы <span class='mc'>"+maMisc.length+"&nbsp; / &nbsp;"+(msCount)+"</span></a></li></ul></li><li><a>Книги</a><ul class='ulB'>"
-for (let i=0; i<books.length; i++) sel+= "<li><a onclick='showBookGal("+i+")'>"+books[i][0]+"</a></li>"; sel += "</ul></li><li><a>Газеты</a><ul class='ulN'>"
+for (let i=0; i<books.length; i++) {sel+= "<li><a onclick='showBookGal("+i+")'>"+books[i][0]+"</a></li>"; Gstat.books += books[i].length-1;} sel += "</ul></li><li><a>Газеты</a><ul class='ulN'>"
 for (let i=0; i<papers.length; i++) {
 	let [papName,papPref] = papers[i][0].split("|"); npKeys.push(papPref); 
-	sel+= "<li><a onclick='showPaperGal("+i+")'>"+papName+"<span class='mc'>"+(papers[i].length-1)+"</span></a></li>";}
+	sel+= "<li><a onclick='showPaperGal("+i+")'>"+papName+"<span class='mc'>"+(papers[i].length-1)+"</span></a></li>"; Gstat.papers += papers[i].length-1;}
 sel += "</ul></li><li><a>Цифра</a><ul><li class='ulD grD'><a>Дискмаги <span class='mc'>EXE</span></a></li>"
-for (let i=0; i<dis.length; i++) sel+= "<li class='ulD'><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"<span class='mc'>"+(dis[i].length-1)+"</span></a></li>"; sel += "<li class='ulP grP'><a>Электронные журналы <span class='mc'>PDF</span></a></li>"
-for (let i=0; i<PDFs.length; i++) sel+= "<li class='ulP'><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"<span class='mc'>"+(PDFs[i].length-1)+"</span></a></li>"; 
+for (let i=0; i<dis.length; i++) {sel+= "<li class='ulD'><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"<span class='mc'>"+(dis[i].length-1)+"</span></a></li>"; Gstat.dmag += dis[i].length-1;} sel += "<li class='ulP grP'><a>Электронные журналы <span class='mc'>PDF</span></a></li>"
+for (let i=0; i<PDFs.length; i++) {sel+= "<li class='ulP'><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"<span class='mc'>"+(PDFs[i].length-1)+"</span></a></li>"; Gstat.dpdf += PDFs[i].length-1;}
 sel+="</ul></li><li><a onclick='showTVGal()'>ТВ</a></li></ul></nav>";
+
 topRightCnt.innerHTML = sel;
 
 let sBtn = document.getElementById('sortBtn');
 sBtn.addEventListener('click', function() {if (sBtn.style.color) sBtn.removeAttribute("style"); else sBtn.style.color = "#d00"; sortTabs();});
 
 window.newHints = true;
+let skipNavState = false;
 if (window.location.hash) {
+stdLoad = false;
 let sHash = window.location.hash.substring(1);
-history.pushState(null, null, ' ');
+history.replaceState(null, document.title, location.pathname);
 if (hashTags.hasOwnProperty(sHash)) showGal(maKeys.indexOf(hashTags[sHash]));
 else if (Number(sHash)>1991 && Number(sHash)<=2018) showYear(Number(sHash));
 else {
 if (sHash.indexOf('%')>=0) sHash = decodeURI(sHash); 
 sHash = sHash.split('_').join(' '); sInp.value = sHash;
+history.replaceState({action: 'search', data: {q: sHash}}, '');							   
 wrapper(sHash);
 if (sHash.indexOf('+')>=0) sBtn.click();
 }}
@@ -173,8 +219,31 @@ document.addEventListener('keyup', function(event) {if (event.key == 'Enter' && 
 document.addEventListener('keydown', function(event) {if (event.key == 'Escape') {if (modal.style.display == 'flex') modal.style.display = 'none'; else {sInp.value=''; hintBar.innerHTML=''}}});
 window.addEventListener('hashchange', function() {location.reload();}, false);
 
+function navState(action, data) {
+    if (skipNavState) return;
+    history.pushState({action, data}, '');
+}
+window.onpopstate = function(e) {
+    skipNavState = true;
+    if (!e.state) { renderHomeStats(); hintBar.innerHTML = ''; skipNavState = false; return; }
+    const {action, data} = e.state;
+    if (action === 'gal') showGal(data.idx);
+    else if (action === 'book') showBookGal(data.idx);
+    else if (action === 'paper') showPaperGal(data.idx);
+    else if (action === 'pdf') showPDFGal(data.idx);
+    else if (action === 'disc') showDiscGal(data.idx);
+    else if (action === 'tv') showTVGal();
+    else if (action === 'misc') showMiscGal();
+    else if (action === 'stats') showStats();
+    else if (action === 'yearStats') showYearStats();
+    else if (action === 'year') showYear(data.year);
+    else if (action === 'search') { sInp.value = data.q; wrapper(data.q); }
+    else { renderHomeStats(); hintBar.innerHTML = ''; }
+    setTimeout(() => skipNavState = false, 10);
+}; 
 
 function wrapper(wReg) {
+if (wReg) navState('search', {q: wReg});	  
 let triedAbbr = false;
 
 wReg = wReg.replace(/[*+,|?{}\[\]\(\)\\]/g, '');
@@ -183,7 +252,7 @@ if (document.getElementById('sel')) document.getElementById('sel').value="";
 if (!globalSearch(wReg)) {
 	if (!triedAbbr) {
 		triedAbbr = true;
-		if (wReg.length < 2) {prnt.innerHTML = ''; return;}
+		if (wReg.length < 2) return;
 		wReg = wReg.replace(/\s+/g, '').substr(0,5).split("").join(" ");
 		if (!globalSearch(wReg)) {prnt.innerHTML = '<div class="errMsg">Подстроки и аббревиатура "<b>'+wReg+'</b>" не найдены.<br>Возможно, игра вышла позже 2018 года, или не на PC.</div>'; hintBar.innerHTML = '';}
 		}
@@ -439,6 +508,7 @@ return(fullYear+pubMon);
 }
 
 function showGal(mt,ms) {
+navState('gal', {idx: mt});
 let galArray = []; let cl = 0;
 let pubYear = '', issNum = '', lazyLoad = '', numfix=0, fullYear;
 let [magName, magPref] = mags[mt][0].split("|");
@@ -477,6 +547,7 @@ if ((window.location.protocol == "file:")&&(ms !== undefined)) document.getEleme
 }
 
 function showBookGal(mt) {
+navState('book', {idx: mt});
 let pubYear = '';
 let galRes = "<div class='gal'><h1>"+books[mt][0]+"</h1>";
 for (let i=1; i<books[mt].length; i++) {
@@ -497,6 +568,7 @@ window.scrollTo(0,0);
 }
 
 function showPaperGal(mt) {
+navState('paper', {idx: mt});
 let galArray = []; let cl = 0;
 let pubYear = '', lazyLoad = '', numfix=0, fullYear;
 let [papName, papPref] = papers[mt][0].split("|");
@@ -525,6 +597,7 @@ window.scrollTo(0,0);
 }
 
 function showPDFGal(mt) {
+navState('pdf', {idx: mt});
 let galArray = [];
 let pubYear = '';
 let [magName, magPref, magURL] = PDFs[mt][0].split("|");
@@ -542,6 +615,7 @@ prnt.innerHTML = galRes+"</div>";
 }
 
 function showDiscGal(mt) {
+navState('disc', {idx: mt});
 let galArray = [];
 let pubYear = '';
 let [magName, magPref] = dis[mt][0].split("|");
@@ -557,6 +631,7 @@ prnt.innerHTML = galRes+"</div>";
 }
 
 function showTVGal() {
+navState('tv', {});
 let galRes = "<div class='gal'><h1>Телепередачи</h1><h2>С Бонусом и Гамовером</h2>";
 galRes += "<img title='От винта!' id='v-ov' src='cvs/tv_ov.jpg' style='cursor: pointer;' onclick='showModal(this)'>";
 for (let i=0; i<tvs.length; i++) {
@@ -568,6 +643,7 @@ prnt.innerHTML = galRes+"</div>";
 }
 
 function showMiscGal() {
+navState('misc', {});
 let allRes = "<div class='gal'><h1>Прочие журналы</h1>"; 
 let galArray = []; let mt = 0;
 for (let j in maMisc) {
@@ -663,7 +739,8 @@ Array.from(items).sort(function(a, b) {a = a.getAttribute('data-pub'); b = b.get
 }
 
 function showYear(year) {
-let galArray = []; 
+if (year) navState('year', {year});
+let galArray = [];
 let rty = 2018;
 let lazyLoad = ''; if (window.location.protocol != "file:") lazyLoad = "loading='lazy'";
 if(year) {
@@ -702,10 +779,35 @@ window.scrollTo(0,0);
 }
 let yearBuffer = ''; let cty = 1994;
 while (cty<=rty) {
-if (cty == year) yearBuffer += '<span style="background-color: #fdbc00;">'+cty+'</span>&nbsp;'; 
+if (cty == year) yearBuffer += '<span style="background-color: #fdbc00; color: #000;">'+cty+'</span>&nbsp;'; 
 else yearBuffer += '<span onClick="showYear('+cty+')">'+cty+'</span>&nbsp;'; cty++; }
 hintBar.innerHTML = '<center>'+yearBuffer+'</center>';
 }
+
+function toggleTheme() {const isDark = document.body.classList.toggle('dark-mode'); localStorage.setItem('theme', isDark ? 'dark' : 'light');}
+document.getElementById('chAuto').addEventListener('change', () => {localStorage.setItem("autosearch", document.getElementById('chAuto').checked.toString())})
+if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+if (localStorage.getItem('autosearch') === 'false') { document.getElementById('chAuto').checked = false; }
+
+function renderHomeStats() {
+const s = (val, txt) => `<div style="background: var(--panel); padding: 8px 4px; border-radius: 10px; border: 1px solid var(--border); flex: 1 1 21%; min-width: 90px; max-width: 24%; text-align: center; box-sizing: border-box;">
+<div style="font-size: 15px; font-weight: bold; color: var(--h2);">${val}</div><div style="font-size: 12px; text-transform: uppercase; color: var(--text); opacity: 0.6;">${txt}</div></div>`;
+let rndG = showcase[Math.floor(Math.random() * showcase.length)];
+let mIdx = Math.floor(Math.random() * mags.length); let mIss = Math.floor(Math.random() * (mags[mIdx].length - 1)) + 1; let [mName, mPref] = mags[mIdx][0].split('|'); let mFile = mags[mIdx][mIss].split('|')[0];
+document.getElementById('prnt').innerHTML = 
+	`<div style="height: 50vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель <nobr>по игрожуру 90-х</nobr></h1>
+	<img class="sar" src="misc/sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div>
+	<div style="flex-basis: 100%; height: 0;"></div><div style="display: flex; justify-content: center; flex-wrap: wrap; margin-top: 20px; font-family: Arial, sans-serif;">
+    <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; width:100%; max-width:800px;">` +
+    s(Gstat.articles, 'Обзоров') + s(Gstat.games, 'Игр') + s(Gstat.mags, 'Журналов') + s(Gstat.books, 'Книг') + s(Gstat.papers, 'Газет') + s(Gstat.dmag, 'Дискмагов') + s(Gstat.dpdf, 'PDF-журналов') + 
+	`</div><div style="flex-basis: 100%; height: 0;"></div><div style="display:flex; gap:10px; width:100%; max-width:800px; margin-top:10px; flex-wrap: wrap;">
+    <div class="infMsg ns" style="flex: 1 1 300px; margin:0; padding:10px; display:flex; align-items:center; gap:12px; min-width:150px; box-sizing: border-box; background: var(--panel); color: var(--text);" onclick="showGal(${mIdx})">
+    <img src="cvs/${mPref}${mFile}.jpg" style="width:64px; border-radius:3px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2)">
+    <div style="width: 100%; text-align: center;"><small style="color:var(--text); position: relative;  font-size:12px;">СЛУЧАЙНОЕ ИЗДАНИЕ</small><br><b style="font-size:14px">${mName}</b></div></div>
+    <div class="infMsg ns" style="flex: 1 1 300px; margin:0; padding:10px; display:flex; align-items:center; gap:12px; min-width:280px; box-sizing: border-box; background: var(--panel); color: var(--text);" onclick="wrapper('${rndG}=')">
+    <div style="width: 100%; text-align: center;"><small style="color:var(--text); font-size:12px;">СЛУЧАЙНАЯ ИГРА</small><br><b style="font-size:14px">${rndG}</b></div></div></div></div>`; }
+if (stdLoad) renderHomeStats();
+
 </script>
 </body>
 </html>
