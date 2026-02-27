@@ -54,7 +54,6 @@ H3 {color: var(--h2); display: inline; padding-bottom: 2px;}
 H3:hover {color: #b20f0b; cursor: pointer;}
 H3 A {text-decoration: none;}
 TD A {display: block; width: 100%; padding: 15px 0; text-align: right; outline: none;}
-.infMsg A {color: #28bf46;}
 P {margin-bottom: 0;}
 @font-face {font-family: 'Antnum'; src: url('misc/antnum.woff2') format('woff2');}
 #sInp {padding: 0 10px 0 36px; width: 250px; height: 32px; margin-right: 0; border-radius: 15px 0 0 15px; font-size:15px; outline: none; border: 0; background-color: var(--panel); color: var(--text); box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);}
@@ -65,7 +64,8 @@ P {margin-bottom: 0;}
 .tBut:hover {filter: invert(0.5); cursor: pointer;}
 .pBut:hover{cursor: pointer; border-color: rgba(127,127,127,0.1); box-shadow: inset 1px 1px 0 rgba(0,0,0,0.2); left: 16px;}
 #sel {height: 25px; margin-right: 0; font-size:14px; outline: none; border: 0; background-color: var(--panel);}
-#prnt {display: flex; flex-wrap: wrap; justify-content: center;} 
+#prnt {display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding: 12px;} 
+#sTab {background-color: var(--panel); min-width: 644px;  max-width: 1000px; height: 90px; width: 60vw; padding: 6px; box-sizing: border-box; border-top-right-radius: 4px; font: 14px Arial; flex: 2;}
 #chAuto {background-color: var(--panel); border-radius: 15px;}
 #modSel option:nth-child(2n) {background-color: #f0f5ff;}
 #modSel {flex-basis: 292px; flex-grow: 1;}
@@ -74,7 +74,7 @@ P {margin-bottom: 0;}
 .topRex {display: none;}
 .topCenter {flex: 1 0 0; white-space: nowrap; height: 100%; padding-top: 3px;}
 .topRight {padding-top: 1px;}
-.dtab {flex: 1 0 0; min-width: 400px; max-width: 600px; margin: 12px;}
+.dtab {flex: 1 0 0; min-width: 400px; max-width: 600px;}
 .tRes {background-color: rgba(99,99,99,0.1); width: 100%; font: 14px Arial; border-collapse: collapse; text-align: center;}
 .tRes TH {font-weight: normal; margin: 0; color: #fff;}
 .colM TH {background-color: #345fb9;}
@@ -100,6 +100,7 @@ P {margin-bottom: 0;}
 .flexFix {height: 0; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;}
 .errMsg {background-color: var(--error); max-width: 400px; padding: 15px; margin-top: 30px; border-radius: 15px; font: 14px Arial;}
 .infMsg {background-color: var(--panel); color: var(--text); min-width: 640px; width: 60vw; padding: 15px; margin: 30px 0; border-radius: 15px; font: 14px Arial;}
+.infMsg A {color: #28bf46;}
 .cb {position: relative; left: 31px; top: 9px;}
 .sar {border-radius: 15px;}
 .ns {user-select: none; cursor: pointer !important;}
@@ -133,24 +134,30 @@ nav ul ul li {width:262px; display:list-item; position: relative;}
 .linkB {border-bottom: 3px #5d9d52 solid;}
 .missing {filter: saturate(0); opacity:0.5;}
 .missing:hover {filter: saturate(1); opacity:1; cursor: default;}
-
+.homeStats {display: flex; justify-content: center; flex-wrap: wrap; margin-top: 20px; font-family: Arial, sans-serif;}
 @media (max-width: 960px) { 
 #hintBar {display: none;}
+#sTab {display: none;}
 .topLeft {display: none;}
 .topRex {display: block;}
 }
+@media (max-height: 600px) {
+.sar {display: none;}}					  
 @media (max-width: 600px) { 
 .topBar {border-bottom: 0;}
 #covModal {align-items: flex-end; height: fill-available; height: -webkit-fill-available;}
 #modContent {border-radius: 0; border-width: 5px 0 0 0; padding:0; width: 100vw;}
 #modSel {flex-grow: 1;}
+#prnt {gap: 0; padding: 0;}
+.homeStats {margin: 0 10px;}
 .mobSelect {display: block;}
-.dtab {margin: 0;}
 .topBar {margin-bottom: 12px;}
 .topRight {display: none;}
 .cov {width: 80px;}
 .tRes {background-color: rgba(127,127,127,0.1);}
 .tRes TH:nth-child(3) {border-top-right-radius: 0;} 
+#statTab, #yTab { width: 100% !important; font-size: 12px; }
+#statTab td, #yTab td { padding: 4px 2px; }										
 }
 </style>
 <script src="tv.js"></script>
@@ -159,6 +166,7 @@ nav ul ul li {width:262px; display:list-item; position: relative;}
 <script src="papers.js"></script>
 <script src="digital.js"></script>
 <script src="links.js"></script>
+<script src="tools.js"></script>
 </head>
 <body> 
 <div class="topSticky"><div class="topBar">
@@ -437,7 +445,6 @@ if (game.indexOf("(")<0) {
 	if (hinTemp.indexOf(game)<0) hinTemp.push(game);
 	}
 }
-
 if (bookRes+magRes+vidRes+PDFRes+discRes+papRes=="") return false;
 let gridFix = "<div class='dtab flexFix' data-pub='999999'></div>";
 let gHintBuffer = ''; 
@@ -446,13 +453,40 @@ for (i=0; i<gHint.length; i++) gHintBuffer += '<span title=\"'+gHint[i]+'\" onCl
 if (gHint.length == 1) gHintBuffer = '';
 if (window.newHints) hintBar.innerHTML = gHintBuffer;
 else window.newHints = true;
-if (gHint.length < 64) prnt.innerHTML = magRes+bookRes+papRes+discRes+PDFRes+vidRes+gridFix.repeat(4);
+
+
+if (gHint.length < 64) {
+	let gameHeader = '<div id="sTab"></div>';
+	prnt.innerHTML = gameHeader + magRes + bookRes + papRes + discRes + PDFRes + vidRes + gridFix.repeat(4);
+
+///// Виджет статистики по годам
+
+	function getYearBarHtml() {
+		let yearCounts = {};
+		let gCards = document.querySelectorAll('.dtab');
+		for (let y = 1994; y <= 2018; y++) yearCounts[y] = 0;
+		for (let i=0; i<gCards.length-4; i++) {
+			for (let y = 1994; y <= 2018; y++) if (gCards[i].getAttribute('data-pub').substr(0,4).toString() == y.toString()) yearCounts[y] ++; }
+		const maxCount = Math.max(...Object.values(yearCounts), 1);
+		let barsHtml = '';
+		for (let y = 1994; y <= 2018; y++) {
+			let h = yearCounts[y] > 0 ? Math.round((yearCounts[y] / maxCount) * 50) + 10 : 2;
+			let bg = yearCounts[y] > 0 ? '#345fb9' : '#ddd';
+			barsHtml += `<div style="flex:1;display:flex;flex-direction:column;align-items:center;margin:0 1px;"><div style="width:100%;background:${bg};height:${h}px;border-radius:2px 2px 0 0;cursor:pointer;"`
+				if (h>2) barsHtml += `onclick="tabsYearFilter(this, ${y.toString()})"`
+			barsHtml += `title="${y}: ${yearCounts[y]}"></div><span style="font:11px Arial;margin-top:2px;white-space:nowrap;")>${y.toString().slice(-2)}</span></div>`; }
+	return `<div style="position: relative"><div style="display:flex;height:80px;align-items:flex-end;">${barsHtml}</div><span style="position: absolute; top: 0; right: 0; font-weight: bold; cursor: pointer;" onclick="document.getElementById('sTab').style.display='none'; resetYF();">X</span></div>`; };	
+
+document.getElementById("sTab").innerHTML = getYearBarHtml();
+	
+}							
 else prnt.innerHTML = '<div class="errMsg">Уточните запрос, или выберите игру из списка ('+gHint.length+')</div>';
 const end = new Date().getTime();
 console.log(end - start, "ms");
 if (sBtn.style.color) {sortTabs()};
 return true;
 }
+
 
 function getLink (mag,page,iss) {
 if (!webLinks.hasOwnProperty(mag)) {
@@ -732,7 +766,7 @@ prnt.innerHTML = "<div class='infMsg'>Приветствую вас на стр�
 window.scrollTo(0,0);
 }
 
-function sortTabs () {
+function sortTabs() {
 let items = document.querySelectorAll('.dtab');
 if (!sBtn.style.color) {for (var i = 0; i < items.length; i++) items[i].removeAttribute("style"); return;}
 Array.from(items).sort(function(a, b) {a = a.getAttribute('data-pub'); b = b.getAttribute('data-pub'); return a - b;}).forEach(function(n, i) {n.style.order = i})
@@ -797,7 +831,7 @@ let mIdx = Math.floor(Math.random() * mags.length); let mIss = Math.floor(Math.r
 document.getElementById('prnt').innerHTML = 
 	`<div style="height: 50vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель <nobr>по игрожуру 90-х</nobr></h1>
 	<img class="sar" src="misc/sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div>
-	<div style="flex-basis: 100%; height: 0;"></div><div style="display: flex; justify-content: center; flex-wrap: wrap; margin-top: 20px; font-family: Arial, sans-serif;">
+	<div style="flex-basis: 100%; height: 0;"></div><div class="homeStats">
     <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; width:100%; max-width:800px;">` +
     s(Gstat.articles, 'Обзоров') + s(Gstat.games, 'Игр') + s(Gstat.mags, 'Журналов') + s(Gstat.books, 'Книг') + s(Gstat.papers, 'Газет') + s(Gstat.dmag, 'Дискмагов') + s(Gstat.dpdf, 'PDF-журналов') + 
 	`</div><div style="flex-basis: 100%; height: 0;"></div><div style="display:flex; gap:10px; width:100%; max-width:800px; margin-top:10px; flex-wrap: wrap;">
@@ -807,6 +841,14 @@ document.getElementById('prnt').innerHTML =
     <div class="infMsg ns" style="flex: 1 1 300px; margin:0; padding:10px; display:flex; align-items:center; gap:12px; min-width:280px; box-sizing: border-box; background: var(--panel); color: var(--text);" onclick="wrapper('${rndG}=')">
     <div style="width: 100%; text-align: center;"><small style="color:var(--text); font-size:12px;">СЛУЧАЙНАЯ ИГРА</small><br><b style="font-size:14px">${rndG}</b></div></div></div></div>`; }
 if (stdLoad) renderHomeStats();
+
+var YF = '';
+function tabsYearFilter(curBar, sYear) {
+if (sYear == YF) {resetYF(); return;}
+let items = document.querySelectorAll('.dtab'); YF = sYear;
+for (let i=0; i<items.length-4; i++) { if (items[i].getAttribute('data-pub').substr(0,4) != sYear)	items[i].style.display="none"; else items[i].style.display="block"; }}
+
+function resetYF() { let items = document.querySelectorAll('.dtab'); for (let i=0; i<items.length-4; i++) {if (items[i].style.display=="none") items[i].style.display="block"} YF = ''; }
 
 </script>
 </body>
