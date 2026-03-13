@@ -118,7 +118,7 @@
 "105|Birthright: The Gorgon's Alliance+Rally Championship+Z.A.R.|08.02.1998|M",
 "106|International Rally Championship+Close Combat 2+Realms of Arkania|14.02.1998|M",
 "107|Ultima Online+Противостояние+Virtual On: Cyber Troopers|15.02.1998|M",
-"108|G-Police+Mageslayer+Whiplash|21.02.1998|M",
+"108|G-Police+Mageslayer+Fatal Racing|21.02.1998|M",
 "109|ГЭГ: Отвязное приключение+Lords of Magic+Juggernaut for Quake 2|22.02.1998|M",
 "110|Nuclear Strike+War Wind 2+Final Liberation|28.02.1998|M",
 "111|Rebel Moon Rising+Panzer General 2+Sabre Ace|01.03.1998|M",
