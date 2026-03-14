@@ -97,7 +97,7 @@ const PDFs = [
 "0310|The Moment of Silence,2|Traitors Gate 2: Cypher,4|Gabriel Knight (интервью),9|Uru: Ages Beyond Myst,23|Tony Tough,26|In Memoriam,28",
 "0311|Shadowplay,2|Черный оазис (Midnight Nowhere),5|Leisure Suit Larry (интервью),8|Jack the Ripper (интервью),15|The Black Mirror,19|Law & Order 2: Double or Nothing,24|AGON 2,28|Leisure Suit Larry 7,29|Leisure Suit Larry 4,31",
 "0412|Fenimore Fillmore: The Westerner (интервью),2|Runaway: A Road Adventure (интервью),10|Jack the Ripper,14|Conspiracies,17|Uru: Ages Beyond Myst,20",
-"0413|Egypt 3,2|Paradise (интервью),6|Out of Order,14|The Adventures of JP and Cosmo,17|Patrimonium,19|Apprentice,21",
+"0413|The Egyptian Prophecy,2|Paradise (интервью),6|Out of Order,14|The Adventures of JP and Cosmo,17|Patrimonium,19|Apprentice,21",
 "0414|Bad Timing,2|Sealed Lips,5|King's Quest 9 (интервью),7|Cirque De Zale,21|Syberia 2,24|Sofia's Debt,29|Flight of the Amazon Queen,32|A Case of the Crabs!,35",
 "0415|The Legend of the Lost Lagoon,2|Great Journey,4|Звездное наследие (интервью),7|Martin Mystere (интервью),12|Cirque De Zale (интервью),15|The Black Mirror,22|No-Action Jackson,24|Черный оазис (Midnight Nowhere),27|Schizm 2: Chameleon,31",
 "0416|Martin Mystere,2|Sam & Max: The Case Gilbert,3|Still Life (интервью),8|No-Action Jackson (интервью),14|Dark Fall,18",
