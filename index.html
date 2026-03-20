@@ -192,8 +192,10 @@ for (let i=0; i<mags.length; i++) {
 sel+="<li><a onclick='showMiscGal()'>Прочие журналы <span class='mc'>"+maMisc.length+"&nbsp; / &nbsp;"+(msCount)+"</span></a></li></ul></li><li><a>Книги</a><ul class='ulB'>"
 for (let i=0; i<books.length; i++) {sel+= "<li><a onclick='showBookGal("+i+")'>"+books[i][0]+"</a></li>"; Gstat.books += books[i].length-1;} sel += "</ul></li><li><a>Газеты</a><ul class='ulN'>"
 for (let i=0; i<papers.length; i++) {
-	let [papName,papPref] = papers[i][0].split("|"); npKeys.push(papPref); 
-	sel+= "<li><a onclick='showPaperGal("+i+")'>"+papName+"<span class='mc'>"+(papers[i].length-1)+"</span></a></li>"; Gstat.papers += papers[i].length-1;}
+	let [papName,papPref,papPod] = papers[i][0].split("|"); npKeys.push(papPref); 
+	let papCount = papers[i].length-1; let podUniq = [];
+	if (papPod) {let papPodNums = papers[i][1].split(","); for (let t=1; t<papPodNums.length; t++) podUniq.push(papPodNums[t].split("/")[0]); papCount = new Set(podUniq).size; papName+=" (подшивка)";}
+	sel+= "<li><a onclick='showPaperGal("+i+")'>"+papName+"<span class='mc'>"+papCount+"</span></a></li>"; Gstat.papers += papCount;}
 sel += "</ul></li><li><a>Цифра</a><ul><li class='ulD grD'><a>Дискмаги <span class='mc'>EXE</span></a></li>"
 for (let i=0; i<dis.length; i++) {sel+= "<li class='ulD'><a onclick='showDiscGal("+i+")'>"+dis[i][0].split("|")[0]+"<span class='mc'>"+(dis[i].length-1)+"</span></a></li>"; Gstat.dmag += dis[i].length-1;} sel += "<li class='ulP grP'><a>Электронные журналы <span class='mc'>PDF</span></a></li>"
 for (let i=0; i<PDFs.length; i++) {sel+= "<li class='ulP'><a onclick='showPDFGal("+i+")'>"+PDFs[i][0].split("|")[0]+"<span class='mc'>"+(PDFs[i].length-1)+"</span></a></li>"; Gstat.dpdf += PDFs[i].length-1;}
@@ -342,7 +344,7 @@ for (let g=0; g<papers.length; g++) {
 		if (papers[g][i].slice(3,6).indexOf("_|")>-1) numfix--;
 		if (re.test(papers[g][i])) {
 			papArray = papers[g][i].split('|');
-			let [papName, papPref] = papers[g][0].split("|");
+			let [papName, papPref, papPod] = papers[g][0].split("|");
 			let [yearNum, hardNum] = papArray[0].split("@");
 			if (yearNum.indexOf('_')>-1) {yearNum = (yearNum.slice(-1)=='_') ? yearNum.replace('_','') : yearNum.replace('_','-');}
 			papName += " №"+yearNum.slice(2);
@@ -352,7 +354,8 @@ for (let g=0; g<papers.length; g++) {
 			for (let j=1; j<papArray.length; j++) {
 				let [papGame, papPage] = papArray[j].split(",");
 				if (re.test(papArray[j])) 	{
-											papRes += "<div class='dtab' data-pub="+getDate(yearNum,g)+"><table class='tRes colN'><tr><th rowspan=2><img class='cov' id='n-"+g+"-"+i+"' src='cvs/"+papPref+yearNum+".jpg' onclick='showModal(this)'></th><th>"+papGame+"</th><th>"+papPage+"</th></tr><tr><td>"+papName+"</td><td>"+getLink(papPref+yearNum,papPage,i+numfix)+"</td></tr></table></div>";
+											if (papPod) {papName = papName.split('№')[0]+" №"+papPage.split("/")[0]+"<br>Из подшивки за "+papPod; papPage = papPage.split("/")[1];}
+										    papRes += "<div class='dtab' data-pub="+getDate(yearNum,g)+"><table class='tRes colN'><tr><th rowspan=2><img class='cov' id='n-"+g+"-"+i+"' src='cvs/"+papPref+yearNum+".jpg' onclick='showModal(this)'></th><th>"+papGame+"</th><th>"+papPage+"</th></tr><tr><td>"+papName+"</td><td>"+getLink(papPref+yearNum,papPage,i+numfix)+"</td></tr></table></div>";
 											addUnique(papGame);
 											}
 			}
@@ -387,7 +390,7 @@ for (let g=0; g<dis.length; g++) {
 
 let PDFRes = "";
 let PDFArray = [];
-let exNum = ['glu','ox','rp'];
+let exNum = ['glu','ox'];
 for (let g=0; g<PDFs.length; g++) {
 	for (let i=1; i<PDFs[g].length; i++) {
 		if (re.test(PDFs[g][i])) {
@@ -604,12 +607,13 @@ function showPaperGal(mt) {
 navState('paper', {idx: mt});
 let galArray = []; let cl = 0;
 let pubYear = '', lazyLoad = '', numfix=0, fullYear;
-let [papName, papPref] = papers[mt][0].split("|");
+let [papName, papPref,papPod] = papers[mt][0].split("|");
 let galRes = "<div class='gal'><h1>"+papName+"</h1>";
 for (let i=1; i<papers[mt].length; i++) {
 	galArray = papers[mt][i].split('|');
 	let [yearNum, hardNum] = galArray[0].split("@");
-	if (yearNum.slice(0,2) != pubYear) {pubYear = yearNum.slice(0,2); fullYear = (pubYear > 90) ? "19"+pubYear : "20"+pubYear; galRes += "<h2><a onClick=showYear("+fullYear+")>"+fullYear+"</a></h2>";}
+	if (papPod) {galRes += "<h2>Подшивка за "+papPod+"</h2>"}
+		else if (yearNum.slice(0,2) != pubYear) {pubYear = yearNum.slice(0,2); fullYear = (pubYear > 90) ? "19"+pubYear : "20"+pubYear; galRes += "<h2><a onClick=showYear("+fullYear+")>"+fullYear+"</a></h2>";}
 	if (hardNum) {
 		if (hardNum.length>3) hardNum = hardNum.substring(0, hardNum.indexOf("-"));
 		issNum = "<div class='galIss'>"+hardNum+"</div>"; } 
@@ -620,7 +624,8 @@ for (let i=1; i<papers[mt].length; i++) {
 	if ((i>42)&&(window.location.protocol != "file:")) lazyLoad = "loading='lazy'";	
 	if (papPref=='vr') galRes += generateLink(yearNum,i);
 	else galRes += getGalLink(papPref+yearNum,1);
-	galRes += issNum+"<img id='n-"+mt+"-"+i+"' src='cvs/"+papPref+yearNum+".jpg' "+lazyLoad+" onclick='showModal(this)'></span>";
+	if (!papPod) galRes += issNum;
+	galRes += "<img id='n-"+mt+"-"+i+"' src='cvs/"+papPref+yearNum+".jpg' "+lazyLoad+" onclick='showModal(this)'></span>";
 	}
 if (papPref=='gpl') {cl = maKeys.indexOf('gl'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Регулярные выпуски журнала</h3>";}
 if (papPref=='b_mik') {cl = maKeys.indexOf('mik'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Позже: одноименный журнал</h3>";}
