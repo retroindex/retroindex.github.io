@@ -2170,6 +2170,19 @@
 "1810|We Happy Few,76|Adventure Time: Pirates of the Enchiridion,78",
 "1811|Dragon Quest 11,66|Shadow of the Tomb Raider,70|Immortal: Unchained,71",
 "1812|Assassin's Creed: Odyssey,66"
+],["Огонёк|ogo|1",
+"9530|Road Rash (3DO),83",
+"9535|DOOM,82|Master of Magic,82",
+"9536|Discworld,84|Lands of Lore,84",
+"9538|Action Soccer,83|Color Lines,83",
+"9544|Warlords 2 (Deluxe),80",
+"9545|Simon the Sorcerer 2,80",
+"9547|Full Throttle,79"
+],["Ровесник|rov|1",
+"954|Mad Dog McCree,43","955|King's Quest 7,40","956|WarCraft,43","957|Star Wars: Dark Forces,41","958|Mortal Kombat,42","959|The Daedalus Encounter,44","9510|Rise of the Triad: Dark War,42","9511|FX Fighter,44","9512|Phantasmagoria,42",
+"961|Wetlands,42","962|The 11th Hour,42","963|WarCraft 2,42","965|Duke Nukem 3D,42","966|Command & Conquer: The Covert Operations,42","967|Time Gate: Knight's Chase,42","9611|Battle Arena Toshinden,42",
+"971|Road Rash,42","973|Eradicator,42","974|Dragon Lore 2,42","975|Realms of the Haunting,70","976|Sherlock Holmes: Case of the Rose Tattoo,42","977|Die Hard Trilogy,42","978|Blood,42","979|SimCity (series),70","9710|Close Combat,72","9712|Бородино: Наука побеждать,72",
+"981|Age of Empires,72","983|Lands of Lore,59","984|The Neverhood,75","985|Lords of Magic,72","986|Аллоды: Печать тайны,58","987|Gabriel Knight 3,72|King's Quest 8,72|Half-Life,72","988|Age of Empires 2,74|Close Combat 3,75","989|World Cup 98,58","9812|Dune 2000,45"
 ],["FANтастика|ft|2",
 "071|Star Wars: Empire at War,81|Final Fantasy 7,82|Warhammer: Mark of Chaos,84",
 "072|Disciples 3,84|Heroes of Might & Magic 3,88|Heroes of Might & Magic 5,90|Волкодав: Месть Серого Пса,94",
