@@ -2307,12 +2307,4 @@
 ],["ZOOM|zoom|1","051|Александр,14|Half-Life 2,16|FlatOut,18|Juiced,20|LADA Racing Club,21|Саботаж,22|Black & White 2,22|Vampire: The Masquerade - Bloodlines,23|Уличные гонки. Ночная Москва,24|Магия войны: Знамена тьмы,24|Бригада Е5: Новый альянс,25|Чемпионат Гран-при 2,25|Ну погоди! Выпуск 4. Догонялки,25"
 ],["Come to Game|ctg|1","061|Prey,8|Diver: Deep Water Adventures,10|Black & White 2,18|Dungeon Siege 2,21|Велиан,26|Wik and the Fable of Souls,28|Age of Empires 3,30|Fahrenheit,33|NHL 06,36|StarCraft,64|DOOM,73|NiBiRu,76"
 ],["Две Точки|tds|1","067|Герои Мальгримии,-","0612|В тылу врага 2,-","074|Medieval 2: Total War,47|Titan Quest,51"
-],["Клуб С компьютером на Ты+|pcu|1",
-"097|Need for Speed: Shift,30|HAWX,32",
-"1018|Castlevania: Lords of Shadow,23|Глаз Дракона,26",
-"114|DC Universe Online,24|Prototype,28|Warhammer 40000: Dark Millenium,32",
-"125|King Arthur 2,30|Total War: Shogun 2,33",
-"126|Kingdoms of Amalur: Reckoning,30|Bulletstorm,32|Forza Motorsport 4 (Xbox 360),34",
-"127|The Witcher 2,30|Naval War: Arctic Circle,34",
-"128|Warlock: Master of the Arcane,30|Legend of Grimrock,33"
 ]];
