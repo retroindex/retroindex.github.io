@@ -363,12 +363,12 @@
 "1111@144|Stronghold 3,4|RAGE,6|Battlefield 3,9|Football Manager 2012,12"
 ],["Клуб С компьютером на Ты+|pcu",
 "097@7|Need for Speed: Shift,30|HAWX,32",
-"1018@18|Castlevania: Lords of Shadow,23|Глаз Дракона,26",
-"114@4|DC Universe Online,24|Prototype,28|Warhammer 40000: Dark Millenium,32",
-"125@5|King Arthur 2,30|Total War: Shogun 2,33",
-"126@6|Kingdoms of Amalur: Reckoning,30|Bulletstorm,32|Forza Motorsport 4 (Xbox 360),34",
-"127@7|The Witcher 2,30|Naval War: Arctic Circle,34",
-"128@8|Warlock: Master of the Arcane,30|Legend of Grimrock,33"
+"1018@36|Castlevania: Lords of Shadow,23|Глаз Дракона,26",
+"114@40|DC Universe Online,24|Prototype,28|Warhammer 40000: Dark Millenium,32",
+"125@59|King Arthur 2,30|Total War: Shogun 2,33",
+"126@60|Kingdoms of Amalur: Reckoning,30|Bulletstorm,32|Forza Motorsport 4 (Xbox 360),34",
+"127@61|The Witcher 2,30|Naval War: Arctic Circle,34",
+"128@62|Warlock: Master of the Arcane,30|Legend of Grimrock,33"
 ],["Скобяная лавка|slp|1997-1998",
 "981|Tomb Raider,2/10|NASCAR Racing 2,5/10|The Elder Scrolls 2: Daggerfall,6/10|KKnD,8/10|Outlaws,12/10|Moto Racer,15/10|Carmageddon,16/10|The Neverhood,20/10|Leisure Suit Larry 7,21/10|Final DOOM,22/10|Realms of the Haunting,23/10|Warlords 3,27/10|MegaRace 2,29/10|Братья Пилоты: По следам полосатого слона,51/8|Dragon Lore 2,67/9|FIFA 98,69/8|Dreams to Reality,71/8|Z.A.R.,83/8|StarCraft,83/9|Jedi Knight,85/8"
 ],["Patch|pat|2001-2007",
