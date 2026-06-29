@@ -1,5 +1,6 @@
 ﻿const mags = [["ОливьеТТИ|oli|2",
-"911|F-19 Stealth Fighter,32"
+"911|F-19 Stealth Fighter,32",
+"932|Zak McKracken and the Alien Mindbenders,57"
 ],["Монитор|mon|1",
 "923|Prince of Persia,64","924|Lemmings,59","925|Railroad Tycoon,31","926-7|Civilization,31",
 "931|King's Quest (series),39","933|The Secret of Monkey Island,72","934|Eye of the Beholder,64","935|Prince of Persia 2,72","936|Comanche: Maximum Overkill,76","937-8|Quest for Glory 2,68|Gobliiins,72","941|Metal Mutant,38",
