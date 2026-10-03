@@ -182,7 +182,7 @@ nav ul ul li {width:262px; display:list-item; position: relative;}
 
 let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>"; 
 let maKeys = []; let npKeys = []; let maMisc = []; let msCount = 0;
-let stdLoad = true; let Gstat = {articles: "61.000+", games: "11.000+", mags: 0, books: 0, papers: 0, dmag: 0, dpdf: 0};
+let stdLoad = true; let Gstat = {articles: "60.000+", games: "11.000+", mags: 0, books: 0, papers: 0, dmag: 0, dpdf: 0};
 for (let i=0; i<mags.length; i++) {
 	let [magName,magPref,magType] = mags[i][0].split("|");	maKeys.push(magPref); 
 	if (!magType) sel += "<li><a onclick='showGal("+i+")'>"+magName+"<span class='mc'>"+(mags[i].length-1)+"</span></a></li>";
@@ -554,7 +554,6 @@ if (magPref=='nim') galRes += "<h3 class='linkB' onClick='showBookGal(0)'>Ран
 if (magPref=='lki') {galRes += "<h3 class='linkB' onClick='showBookGal(7)'>Ранее: одноименная серия книг</h3>"; numfix+=13;}
 if (magPref=='exe') {cl = maKeys.indexOf('mi'); galRes += "<h3 class='linkM' onClick='showGal("+cl+")'>Ранее: «Магазин Игрушек»</h3>"; numfix+=17;}
 if (magPref=='mik') {cl = npKeys.indexOf('b_mik'); galRes += "<h3 class='linkN' onClick='showPaperGal("+cl+")'>Ранее: одноименная газета</h3>";}
-if (magPref=='im') {cl = maKeys.indexOf('iml'); galRes += "<h3 class='linkM' onClick='showGal("+cl+")'>Облегченная версия: Игромания Лайт</h3>";}
 for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|');
 	if (galArray[0].slice(0,2) != pubYear) {pubYear = galArray[0].slice(0,2); fullYear = (pubYear > 90) ? "19"+pubYear : "20"+pubYear; galRes += "<h2><a onClick=showYear("+fullYear+")>"+fullYear+"</a></h2>";
@@ -578,7 +577,6 @@ if (magPref=='glsp') {cl = maKeys.indexOf('gl'); galRes += "<br><br><br><h3 clas
 if (magPref=='nim') {cl = maKeys.indexOf('nims'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Спецвыпуски</h3><h3  style='margin-left: 30px;' class='linkB' onClick='showBookGal(8)'>Энциклопедии</h3>";}
 if (magPref=='nims') {cl = maKeys.indexOf('nim'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Регулярные выпуски</h3>";}
 if (magPref=='mg') galRes += "<br><br><br><h3 style='border-bottom: 3px #b20f0b solid' onClick='showPDFGal(3)'>Гайды с дисковых приложений</h3>";
-if (magPref=='iml') {cl = maKeys.indexOf('im'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Классическая версия журнала</h3>";}
 hintBar.innerHTML = '';
 prnt.innerHTML = galRes+"</div>";
 if ((window.location.protocol == "file:")&&(ms !== undefined)) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false); else window.scrollTo(0,0);
