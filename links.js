@@ -974,6 +974,8 @@ const webLinks = {
 "kp975":"ComputerPress-1997-05|4",
 "kp976":"ComputerPress-1997-06|2",
 
+"hs012":"hardn-soft-080-2001-02|2",
+
 "dk961":"homepc-1996-01|2",
 "dk962":"homepc-1996-02|2",
 "dk963":"homepc-1996-03|2",

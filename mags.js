@@ -1699,6 +1699,8 @@
 "973|Dragon Lore 2,209|Eradicator,210|Duke Nukem 3D: Plutonium Pak,211|Смута,211",
 "975|Test Drive: Off-Road,198|Darklight Conflict,198|Shivers 2,199|Outlaws,200|Riven: The Sequel to Myst,200|Star Wars (series),202|Realms of the Haunting,204",
 "976|Lands of Lore 2,203|Hexen 2,204"
+],["Hard\'n\'Soft|hs|1",
+"012|Parkan: Железная стратегия (интервью),108|Laser Squad,114|X-COM: UFO Defense,115|Jagged Alliance 2,116|Fallout Tactics,117|X-COM: Genesis,118|Heavy Metal: F.A.K.K. 2,120"
 ],["Домашний компьютер|dk",
 "961|Napoleon Europe and the Empire,57|Atlas of Europe,60|Наш сад,62|English for Children,66|Никита - 22 in One,68|Кот в сапогах,70|DOOM,73|Command & Conquer,73|Day of the Tentacle,73|Full Throttle,74|WarCraft,74",
 "962|Московский Кремль (Moscow Kremlin),56|Автокурсы ПДД (Эльф),59|Эрмитаж,66|Road Roll,69|Gyro-Cubes,70|Geomanty,70|Splinters,70|Video-Splinters,70|Gun Shot,71|Charm Rocks,71|Backgammon,71|День Рождения,72|Gabriel Knight 2,77|Quake,78|Pike: Операция «Громовержец»,79",
