@@ -680,22 +680,25 @@ hintBar.innerHTML = '';
 prnt.innerHTML = galRes+"</div>";
 }
 
-function showMiscGal() {
+function showMiscGal(mm) {
 navState('misc', {});
 let allRes = "<div class='gal'><h1>Прочие журналы</h1>"; 
-let galArray = []; let mt = 0;
+let galRes = ""; let galArray = []; let mt = 0;
 for (let j in maMisc) {
 	mt = maMisc[j];
 	let [magName, magPref] = mags[mt][0].split("|");
-	let galRes = "<h2>"+magName+"</h2>";
+	if (mm == null || mt == mm) {
+		galRes = "<h2>"+magName+"</h2>";
 		for (let i=1; i<mags[mt].length; i++) {
 			galArray = mags[mt][i].split('|'); 		
 			galRes += getGalLink(magPref+galArray[0]);
 			galRes += "<div class='galIss'>"+galArray[0].slice(0,2)+"</div><img id='m-"+mt+"-"+i+"' src='cvs/"+magPref+galArray[0]+".jpg' onclick='showModal(this)'></span>";
 			if (i%9 == 0) galRes +="<br>"
 		}
+	if (mt == mm) galRes += "<br><br><br><h3 class='linkM' onClick='showMiscGal()'>Все прочие журналы ("+maMisc.length+")</h3>";
 	allRes += galRes;
 	}
+}
 prnt.innerHTML = allRes+"</div>";
 hintBar.innerHTML = '';
 }
@@ -713,7 +716,7 @@ magArray = books[m1][m2].split('|');
 document.getElementById('modContent').style.borderColor = "#5d9d52";
 }
 else if (mType == "m") {
-if (maMisc.indexOf(parseInt(m1))>-1) modRes = "<img src='"+cov.src+"' onclick='showMiscGal()'>"
+if (maMisc.indexOf(parseInt(m1))>-1) modRes = "<img src='"+cov.src+"' onclick='showMiscGal("+m1+")'>"
 else modRes = "<img src='"+cov.src+"' onclick='showGal("+m1+","+m2+")'>";
 magArray = mags[m1][m2].split('|');
 document.getElementById('modContent').style.borderColor = "#345fb9";
@@ -850,10 +853,8 @@ var YF = '';
 function tabsYearFilter(sYear) {
 if (sYear == YF) {resetYF(); return;}
 let items = document.querySelectorAll('.dtab'); YF = sYear;
-for (let i=0; i<items.length-4; i++) { if (items[i].getAttribute('data-pub').substr(0,4) != sYear)	items[i].style.display="none"; else items[i].style.display="block"; }}
-
+for (let i=0; i<items.length-4; i++) { if (items[i].getAttribute('data-pub').substr(0,4) != sYear) items[i].style.display="none"; else items[i].style.display="block"; }}
 function resetYF() { let items = document.querySelectorAll('.dtab'); for (let i=0; i<items.length-4; i++) {if (items[i].style.display=="none") items[i].style.display="block"} YF = ''; }
-
 </script>
 </body>
 </html>
