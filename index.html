@@ -682,13 +682,13 @@ prnt.innerHTML = galRes+"</div>";
 
 function showMiscGal(mm) {
 navState('misc', {});
-let allRes = "<div class='gal'><h1>Прочие журналы</h1>"; 
-let galRes = ""; let galArray = []; let mt = 0;
+let galRes = "<div class='gal'><h1>Прочие журналы</h1>"; 
+let galArray = []; let mt = 0;
 for (let j in maMisc) {
 	mt = maMisc[j];
 	let [magName, magPref] = mags[mt][0].split("|");
 	if (mm == null || mt == mm) {
-		galRes = "<h2>"+magName+"</h2>";
+		galRes += "<h2>"+magName+"</h2>";
 		for (let i=1; i<mags[mt].length; i++) {
 			galArray = mags[mt][i].split('|'); 		
 			galRes += getGalLink(magPref+galArray[0]);
@@ -696,10 +696,9 @@ for (let j in maMisc) {
 			if (i%9 == 0) galRes +="<br>"
 		}
 	if (mt == mm) galRes += "<br><br><br><h3 class='linkM' onClick='showMiscGal()'>Все прочие журналы ("+maMisc.length+")</h3>";
-	allRes += galRes;
 	}
 }
-prnt.innerHTML = allRes+"</div>";
+prnt.innerHTML = galRes+"</div>";
 hintBar.innerHTML = '';
 }
 
