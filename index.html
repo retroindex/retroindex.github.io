@@ -181,11 +181,11 @@ nav ul ul li {width:262px; display:list-item; position: relative;}
 <script type="text/javascript">
 
 let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>"; 
-let maKeys = []; let npKeys = []; let maMisc = []; let msCount = 0;
+let maKeys = []; let npKeys = []; let maMisc = []; let maRNG = []; let msCount = 0;
 let stdLoad = true; let Gstat = {articles: "60.000+", games: "11.000+", mags: 0, books: 0, papers: 0, dmag: 0, dpdf: 0};
 for (let i=0; i<mags.length; i++) {
 	let [magName,magPref,magType] = mags[i][0].split("|");	maKeys.push(magPref); 
-	if (!magType) sel += "<li><a onclick='showGal("+i+")'>"+magName+"<span class='mc'>"+(mags[i].length-1)+"</span></a></li>";
+	if (!magType) {maRNG.push(i); sel += "<li><a onclick='showGal("+i+")'>"+magName+"<span class='mc'>"+(mags[i].length-1)+"</span></a></li>";}
 	if (magType == "1" || magType == "2") {maMisc.push(i); msCount += (mags[i].length-1)};
 	Gstat.mags += mags[i].length-1;
 	}
@@ -833,7 +833,8 @@ function renderHomeStats() {
 const s = (val, txt) => `<div style="background: var(--panel); padding: 8px 4px; border-radius: 10px; border: 1px solid var(--border); flex: 1 1 21%; min-width: 90px; max-width: 24%; text-align: center; box-sizing: border-box;">
 <div style="font-size: 15px; font-weight: bold; color: var(--h2);">${val}</div><div style="font-size: 12px; text-transform: uppercase; color: var(--text); opacity: 0.6;">${txt}</div></div>`;
 let rndG = showcase[Math.floor(Math.random() * showcase.length)];
-let mIdx = Math.floor(Math.random() * mags.length); let mIss = Math.floor(Math.random() * (mags[mIdx].length - 1)) + 1; let [mName, mPref] = mags[mIdx][0].split('|'); let mFile = mags[mIdx][mIss].split('|')[0];
+let mIdx = maRNG[Math.floor(Math.random() * maRNG.length)]; let mIss = Math.floor(Math.random() * (mags[mIdx].length - 1)) + 1; 
+let [mName, mPref] = mags[mIdx][0].split('|'); let mFile = mags[mIdx][mIss].split('|')[0];
 document.getElementById('prnt').innerHTML = 
 	`<div style="height: 50vh; display: flex; align-items: center;"><div style="text-align: center"><h1>Ваш путеводитель <nobr>по игрожуру 90-х</nobr></h1>
 	<img class="sar" src="misc/sarth.png"><h2>Поиск и каталог обзоров старых игр для IBM&nbsp;PC</h2></div></div>
