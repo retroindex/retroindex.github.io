@@ -525,7 +525,7 @@ return "<span><div class='galHint'><a href='https://archive.org/stream/Virtualni
 
 function getSiteLink (mag,iss) {
 let gRes = "<span><div class='galHint' style='background-color: rgba(0, 116, 232, 0.7)'><a href='"; 
-if (mag=='im') gRes += "https://www.igromania.ru/magazine/"+iss+"/"; else if (mag=='mf') gRes += "https://www.mirf.ru/magazine/mir-fantastiki-"+iss+"/"; else if (mag=='lki') gRes += "http://lki.ru/archive.php?Num="+(iss+13); 
+if (mag=='mf') gRes += "https://www.mirf.ru/magazine/mir-fantastiki-"+iss+"/"; else if (mag=='lki') gRes += "http://lki.ru/archive.php?Num="+(iss+13); 
 return gRes+"' target='_blank'>";
 }
 
@@ -565,7 +565,7 @@ for (let i=1; i<mags[mt].length; i++) {
 	if (mags[mt][i].slice(3,6).indexOf("_|")>-1) numfix--; 
 	if (issNum != '') issNum = "<div class='galIss'>"+(i+numfix)+"</div>";
 	if (mags[mt][i].slice(3,5).indexOf("-")>-1) {numfix++; if (magPref=='mik' && (i==237||i==238)) numfix++;}
-	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>";
+	if (magPref=='lki'||magPref=='mf') galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>";
 		else if (magPref=='vr') galRes += generateLink(galArray[0],i);
 		else galRes += getGalLink(magPref+galArray[0]);
 	if (magPref=='xs') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+mt+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
@@ -578,8 +578,8 @@ if (magPref=='gl') {cl = maKeys.indexOf('glsp'); cl2 = npKeys.indexOf('gpl'); ga
 if (magPref=='glsp') {cl = maKeys.indexOf('gl'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Регулярные выпуски</h3>";}
 if (magPref=='nim') {cl = maKeys.indexOf('nims'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Спецвыпуски</h3><h3  style='margin-left: 30px;' class='linkB' onClick='showBookGal(8)'>Энциклопедии</h3>";}
 if (magPref=='nims') {cl = maKeys.indexOf('nim'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Регулярные выпуски</h3>";}
-if (magPref=='il') {cl = maKeys.indexOf('im'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Классическая версия журнала</h3>";}
 if (magPref=='mg') galRes += "<br><br><br><h3 style='border-bottom: 3px #b20f0b solid' onClick='showPDFGal(3)'>Гайды с дисковых приложений</h3>";
+if (magPref=='il') {cl = maKeys.indexOf('im'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Классическая версия журнала</h3>";}
 hintBar.innerHTML = '';
 prnt.innerHTML = galRes+"</div>";
 if ((window.location.protocol == "file:")&&(ms !== undefined)) document.getElementById("m-"+mt+"-"+ms).scrollIntoView(false); else window.scrollTo(0,0);
@@ -799,7 +799,7 @@ if (mags[g][i].slice(0,2) == String(year).slice(2)) {
 		galRes += "<h2><a onclick='showGal("+g+")'>"+magName+"</a></h2>"; noTitle = false; 
 		if (g>48) lazyLoad = "loading='lazy'";}
 	galArray = mags[g][i].split('|'); items++;
-	if (magPref=='lki'||magPref=='mf'||(magPref=='im' && i>55)) galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>"; 
+	if (magPref=='lki'||magPref=='mf') galRes += getSiteLink (magPref,i)+galArray[0].slice(2)+"</a></div>"; 
 		else if (magPref=='vr') galRes += generateLink(galArray[0],i); 
 		else galRes += getGalLink(magPref+galArray[0]);
 	if (magPref=='xs') {if (galArray[1]=="*,-") {galRes += "<img id='m-"+g+"-"+i+"' class='missing' src='cvs/"+magPref+galArray[0]+".jpg'></span>"; continue;}}
