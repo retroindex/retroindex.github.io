@@ -1,6 +1,7 @@
 ﻿﻿const hashTags = {
 "gameland":"gl",
 "nim":"nim",
+"magazin":"mi",
 "exe":"exe",
 "igromania":"im",
 "megagame":"mg",

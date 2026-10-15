@@ -182,7 +182,7 @@ nav ul ul li {width:262px; display:list-item; position: relative;}
 
 let sel = "<nav><ul><li><a>Журналы</a><ul class='ulM'>"; 
 let maKeys = []; let npKeys = []; let maMisc = []; let maRNG = []; let msCount = 0;
-let stdLoad = true; let Gstat = {articles: "60.000+", games: "11.000+", mags: 0, books: 0, papers: 0, dmag: 0, dpdf: 0};
+let stdLoad = true; let Gstat = {articles: "61.000+", games: "11.000+", mags: 0, books: 0, papers: 0, dmag: 0, dpdf: 0};
 for (let i=0; i<mags.length; i++) {
 	let [magName,magPref,magType] = mags[i][0].split("|");	maKeys.push(magPref); 
 	if (!magType) {maRNG.push(i); sel += "<li><a onclick='showGal("+i+")'>"+magName+"<span class='mc'>"+(mags[i].length-1)+"</span></a></li>";}
@@ -536,6 +536,7 @@ let pubMon = gd.slice(2);
 if (pubMon.indexOf('-')>-1) pubMon = pubMon.split('-')[1];
 if (magID) {
 	if (magID==maKeys.indexOf('gl') && fullYear>1998 && fullYear<2011) pubMon = Math.ceil(pubMon/2).toString();
+	if (magID==maKeys.indexOf('il')) {if (fullYear < 2010) {pubMon = parseInt(pubMon)+7;} pubMon = Math.ceil(pubMon/2).toString();}
 	if (magID==maKeys.indexOf('mik')) {if (fullYear>2002 && fullYear<2007) pubMon = Math.ceil(pubMon/4).toString(); else if (fullYear>2000) pubMon = Math.ceil(pubMon/2).toString();}
 	if (magID==npKeys.indexOf('dm')) pubMon = Math.ceil(pubMon/4).toString();
 }
@@ -553,6 +554,7 @@ if (magPref=='comp') {cl = maKeys.indexOf('bah'); galRes += "<h3 class='linkM' o
 if (magPref=='nim') galRes += "<h3 class='linkB' onClick='showBookGal(0)'>Ранее: альманах «Компьютерные игры»</h3>";
 if (magPref=='lki') {galRes += "<h3 class='linkB' onClick='showBookGal(7)'>Ранее: одноименная серия книг</h3>"; numfix+=13;}
 if (magPref=='exe') {cl = maKeys.indexOf('mi'); galRes += "<h3 class='linkM' onClick='showGal("+cl+")'>Ранее: «Магазин Игрушек»</h3>"; numfix+=17;}
+if (magPref=='im') {cl = maKeys.indexOf('il'); galRes += "<h3 class='linkM' onClick='showGal("+cl+")'>Облегченная версия: Игромания Лайт</h3>";}
 if (magPref=='mik') {cl = npKeys.indexOf('b_mik'); galRes += "<h3 class='linkN' onClick='showPaperGal("+cl+")'>Ранее: одноименная газета</h3>";}
 for (let i=1; i<mags[mt].length; i++) {
 	galArray = mags[mt][i].split('|');
@@ -576,6 +578,7 @@ if (magPref=='gl') {cl = maKeys.indexOf('glsp'); cl2 = npKeys.indexOf('gpl'); ga
 if (magPref=='glsp') {cl = maKeys.indexOf('gl'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Регулярные выпуски</h3>";}
 if (magPref=='nim') {cl = maKeys.indexOf('nims'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Спецвыпуски</h3><h3  style='margin-left: 30px;' class='linkB' onClick='showBookGal(8)'>Энциклопедии</h3>";}
 if (magPref=='nims') {cl = maKeys.indexOf('nim'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Регулярные выпуски</h3>";}
+if (magPref=='il') {cl = maKeys.indexOf('im'); galRes += "<br><br><br><h3 class='linkM' onClick='showGal("+cl+")'>Классическая версия журнала</h3>";}
 if (magPref=='mg') galRes += "<br><br><br><h3 style='border-bottom: 3px #b20f0b solid' onClick='showPDFGal(3)'>Гайды с дисковых приложений</h3>";
 hintBar.innerHTML = '';
 prnt.innerHTML = galRes+"</div>";
