@@ -348,7 +348,7 @@ for (let g=0; g<papers.length; g++) {
 			let [yearNum, hardNum] = papArray[0].split("@");
 			if (yearNum.indexOf('_')>-1) {yearNum = (yearNum.slice(-1)=='_') ? yearNum.replace('_','') : yearNum.replace('_','-');}
 			papName += " №"+yearNum.slice(2);
-			if (hardNum) papName += " ("+(hardNum)+")";
+			if (hardNum) { if (hardNum != yearNum.slice(2)) papName += " ("+(hardNum)+")"; }
 				else if ((yearNum.slice(2) != (i+numfix)) && (yearNum.slice(3).indexOf("-")<0)) papName += " ("+(i+numfix)+")";
 			papName += "’"+yearNum.slice(0,2);
 			for (let j=1; j<papArray.length; j++) {

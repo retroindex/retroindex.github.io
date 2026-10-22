@@ -111,7 +111,7 @@
 "98|Test Drive 4+Heavy Gear+NHL 98|17.01.1998|M",
 "99|Red Baron+Wing Commander: Prophecy+Men in Black|18.01.1998|M",
 "100|Mortal Kombat Trilogy+Nightmare Creatures+Pro Pilot|24.01.1998|M",
-"101|Dementia+Wipeout 2097+MadSpace|25.01.1998|M",
+"101|Dementia+Wipeout XL+MadSpace|25.01.1998|M",
 "102|Dreams to Reality+Monster Truck Madness+Virus: The Game|31.01.1998|M",
 "103|Lands of Lore 2+Safecracker|01.02.1998|M",
 "104|Blade Runner+Goosebumps: Attack of the Mutant|07.02.1998|M",
