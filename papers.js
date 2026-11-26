@@ -338,10 +338,14 @@
 "0549-50@200|Ночной дозор Racing,3|Knights of the Temple 2,4|Dangerous Waters,5|Spongebob Squarepants,8|Падал прошлогодний снег 2,9|Rise of Nations: Rise of Legends,10|Diver: Deep Water Adventures,12|Baldur's Gate 2,15|Ex Machina,20|Cold War,22|Prince of Persia: The Two Thrones,26|GT Legends,28"
 ],["Юниор (Компьютер Price)|un",
 "962@2|Mortal Kombat (Sega),3|Minnesota Fats (SEGA),4|Primal Rage (Sega),6|Captain Quazar (3DO),9|Alien Trilogy (PS),10|D (PS),10|Loaded (PS),11",
+"965@5|Quake,4|Time Commando,6|Loadstar,7|Metal Lords,7|F1 Grand Prix 2,8|HyperBlade,9|Star Wars: X-Wing Vs. TIE Fighter,10|The Settlers 2,12|F-22 Lightning 2,13|CyberMage,14|Tomb Raider,15|NBA Live 96,15|X-COM: Apocalypse,16|JetFighter 3,17|Space Quest 6,18|Kingdom O' Magic,22|Conquest of the New World,22|Большая энциклопедия Кирилла и Мефодия,23|BattleSport (3DO),24|Mortal Kombat 3 (Sega),27|Battle Arena Toshinden (PS),30",
+"966@6|Road Rash,4|Jane's ATF: Advanced Tactical Fighters,6|Quake,8|Bedlam,10|Amok,10|G-Nome,11|MechWarrior,11|Ripper,12|Gabriel Knight 2,15|Star Wars: Rebel Assault,16|Star Wars: Rebel Assault 2,22|Crusader: No Remorse,24|Comix Zone (Sega),27|Herzog Zwei (Sega),28|Project: Horned Owl (PS),34|Krazy Ivan (PS),35",
 "967@7|NHL 97,4|WarCraft (series),6|Heroes of Might & Magic 2,8|Death Rally,9|Fragile Allegiance,10|Lighthouse,10|Monty Python & the Quest for the Holy Grail,11|Beavis and Butt-Head in Virtual Stupidity,12|Celtic Tales,12|Johnny Mnemonic,13|Chaos Control,13|Critical Path,14|Zool 2,16|Warlock (Sega),21|Eternal Champions (Sega),22|Tomb Raider (PS),24|FIFA International Soccer (3DO),28|Return Fire (3DO),30",
 "978@8|Z,4|The Need for Speed,8|Terminal Velocity,10|Krazy Ivan,12|Blam! Machinehead,14|The Last Dynasty,16|Death Gate,16|System Shock,17|Disney's Beauty and the Beast (Sega),18|Pitfall (Sega),20|Bubba 'n' Stix (Sega),20|Syndicate Wars (3DO),22|Darkstalkers (PS),26|Air Combat (PS),30",
 "9710@10|Privateer 2: The Darkening,4|Angel Devoid: Face of the Enemy,18|KKnD,22|BattleTech (series),24|War Wind,30|Magic: The Gathering,32|The Lost Vikings (Sega),36|NBA Jam (Sega),37|True Lies (Sega),38|Mutant League Hockey (Sega),39|Nigel Mansell's Racing (Sega),40|Bug! (Saturn),41|Total Eclipse (3DO),43|Gridders (3DO),47|Twisted Metal (PS),51|Kileak the Blood (PS),54|Zero Divide (PS),60",
-"9711@11|Phantasmagoria,4|Dragon Lore 2,10|Duke Nukem 3D,11|Magic: The Gathering,12|MDK,13|Sloth 2,14|Crime Patrol (Sega),22|NBA Live 97 (Sega),24|Earthworm Jim (Sega),26|Theme Park (PS),30|Zhadnost (PS),31|Mortal Kombat 3 (PS),33"
+"9711@11|Phantasmagoria,4|Dragon Lore 2,10|Duke Nukem 3D,11|Magic: The Gathering,12|MDK,13|Sloth 2,14|Crime Patrol (Sega),22|NBA Live 97 (Sega),24|Earthworm Jim (Sega),26|Theme Park (PS),30|Zhadnost (PS),31|Mortal Kombat 3 (PS),33",
+"9712@12|Diablo,4|Alien Virus,10",
+"9713@13|Quake 2,4|Hexen 2,6|Tomb Raider 2,8|Dungeon Keeper,10"
 ],["Игровой стандарт ПК|gs",
 "011@1|Пророк и убийца 2,3|Red Faction,4|NHL 2002,6|Monopoly Tycoon,8|Real War,12",
 "023@8|Disciples 2,3|Лохотронщик: Crazy Loto,7|Shadow Force: Razor Unit,7|Comanche 4,8|Новые приключения мушкетеров,10",
